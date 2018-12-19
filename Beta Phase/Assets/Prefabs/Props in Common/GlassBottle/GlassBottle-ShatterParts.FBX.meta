@@ -1,0 +1,193 @@
+fileFormatVersion: 2
+guid: 508b49958c06c954eb392aed3446838a
+timeCreated: 1543680287
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Shard1
+    100004: Shard10
+    100006: Shard11
+    100008: Shard12
+    100010: Shard13
+    100012: Shard14
+    100014: Shard15
+    100016: Shard16
+    100018: Shard17
+    100020: Shard18
+    100022: Shard2
+    100024: Shard3
+    100026: Shard4
+    100028: Shard5
+    100030: Shard6
+    100032: Shard7
+    100034: Shard8
+    100036: Shard9
+    100038: ShardBot
+    100040: ShardCap
+    400000: //RootNode
+    400002: Shard1
+    400004: Shard10
+    400006: Shard11
+    400008: Shard12
+    400010: Shard13
+    400012: Shard14
+    400014: Shard15
+    400016: Shard16
+    400018: Shard17
+    400020: Shard18
+    400022: Shard2
+    400024: Shard3
+    400026: Shard4
+    400028: Shard5
+    400030: Shard6
+    400032: Shard7
+    400034: Shard8
+    400036: Shard9
+    400038: ShardBot
+    400040: ShardCap
+    2300000: Shard1
+    2300002: Shard10
+    2300004: Shard11
+    2300006: Shard12
+    2300008: Shard13
+    2300010: Shard14
+    2300012: Shard15
+    2300014: Shard16
+    2300016: Shard17
+    2300018: Shard18
+    2300020: Shard2
+    2300022: Shard3
+    2300024: Shard4
+    2300026: Shard5
+    2300028: Shard6
+    2300030: Shard7
+    2300032: Shard8
+    2300034: Shard9
+    2300036: ShardBot
+    2300038: ShardCap
+    3300000: Shard1
+    3300002: Shard10
+    3300004: Shard11
+    3300006: Shard12
+    3300008: Shard13
+    3300010: Shard14
+    3300012: Shard15
+    3300014: Shard16
+    3300016: Shard17
+    3300018: Shard18
+    3300020: Shard2
+    3300022: Shard3
+    3300024: Shard4
+    3300026: Shard5
+    3300028: Shard6
+    3300030: Shard7
+    3300032: Shard8
+    3300034: Shard9
+    3300036: ShardBot
+    3300038: ShardCap
+    4300000: Shard1
+    4300002: Shard2
+    4300004: Shard4
+    4300006: Shard5
+    4300008: Shard6
+    4300010: Shard7
+    4300012: Shard8
+    4300014: ShardCap
+    4300016: ShardBot
+    4300018: Shard9
+    4300020: Shard10
+    4300022: Shard12
+    4300024: Shard13
+    4300026: Shard14
+    4300028: Shard15
+    4300030: Shard11
+    4300032: Shard16
+    4300034: Shard17
+    4300036: Shard18
+    4300038: Shard3
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #148'
+    second: {fileID: 2100000, guid: 90ed47f7d30898844a684e4632a5eb4d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,2053 @@
+fileFormatVersion: 2
+guid: 938224258aee66f4b90cac1e39f8b363
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: button sheet preA_0
+    21300002: button sheet preA_1
+    21300004: button sheet preA_2
+    21300006: button sheet preA_3
+    21300008: button sheet preA_4
+    21300010: button sheet preA_5
+    21300012: button sheet preA_6
+    21300014: button sheet preA_7
+    21300016: button sheet preA_8
+    21300018: button sheet preA_9
+    21300020: button sheet preA_10
+    21300022: button sheet preA_11
+    21300024: button sheet preA_12
+    21300026: button sheet preA_13
+    21300028: button sheet preA_14
+    21300030: button sheet preA_15
+    21300032: button sheet preA_16
+    21300034: button sheet preA_17
+    21300036: button sheet preA_18
+    21300038: button sheet preA_19
+    21300040: button sheet preA_20
+    21300042: button sheet preA_21
+    21300044: button sheet preA_22
+    21300046: button sheet preA_23
+    21300048: button sheet preA_24
+    21300050: button sheet preA_25
+    21300052: button sheet preA_26
+    21300054: button sheet preA_27
+    21300056: button sheet preA_28
+    21300058: button sheet preA_29
+    21300060: button sheet preA_30
+    21300062: button sheet preA_31
+    21300064: button sheet preA_32
+    21300066: button sheet preA_33
+    21300068: button sheet preA_34
+    21300070: button sheet preA_35
+    21300072: button sheet preA_36
+    21300074: button sheet preA_37
+    21300076: button sheet preA_38
+    21300078: button sheet preA_39
+    21300080: button sheet preA_40
+    21300082: button sheet preA_41
+    21300084: button sheet preA_42
+    21300086: button sheet preA_43
+    21300088: button sheet preA_44
+    21300090: button sheet preA_45
+    21300092: button sheet preA_46
+    21300094: button sheet preA_47
+    21300096: button sheet preA_48
+    21300098: button sheet preA_49
+    21300100: button sheet preA_50
+    21300102: button sheet preA_51
+    21300104: button sheet preA_52
+    21300106: button sheet preA_53
+    21300108: button sheet preA_54
+    21300110: button sheet preA_55
+    21300112: button sheet preA_56
+    21300114: button sheet preA_57
+    21300116: button sheet preA_58
+    21300118: button sheet preA_59
+    21300120: button sheet preA_60
+    21300122: button sheet preA_61
+    21300124: button sheet preA_62
+    21300126: button sheet preA_63
+    21300128: button sheet preA_64
+    21300130: button sheet preA_65
+    21300132: button sheet preA_66
+    21300134: button sheet preA_67
+    21300136: button sheet preA_68
+    21300138: button sheet preA_69
+    21300140: button sheet preA_70
+    21300142: button sheet preA_71
+    21300144: button sheet preA_72
+    21300146: button sheet preA_73
+    21300148: button sheet preA_74
+    21300150: button sheet preA_75
+    21300152: button sheet preA_76
+    21300154: button sheet preA_77
+    21300156: button sheet preA_78
+    21300158: button sheet preA_79
+    21300160: button sheet preA_80
+    21300162: button sheet preA_81
+    21300164: button sheet preA_82
+    21300166: button sheet preA_83
+    21300168: button sheet preA_84
+    21300170: button sheet preA_85
+    21300172: button sheet preA_86
+    21300174: button sheet preA_87
+    21300176: button sheet preA_88
+    21300178: button sheet preA_89
+    21300180: button sheet preA_90
+    21300182: button sheet preA_91
+    21300184: button sheet preA_92
+    21300186: button sheet preA_93
+    21300188: button sheet preA_94
+    21300190: button sheet preA_95
+    21300192: button sheet preA_96
+    21300194: button sheet preA_97
+    21300196: button sheet preA_98
+    21300198: button sheet preA_99
+    21300200: button sheet preA_100
+    21300202: button sheet preA_101
+    21300204: button sheet preA_102
+    21300206: button sheet preA_103
+    21300208: button sheet preA_104
+    21300210: button sheet preA_105
+    21300212: button sheet preA_106
+    21300214: button sheet preA_107
+    21300216: button sheet preA_108
+    21300218: button sheet preA_109
+    21300220: button sheet preA_110
+    21300222: button sheet preA_111
+    21300224: button sheet preA_112
+    21300226: button sheet preA_113
+    21300228: button sheet preA_114
+    21300230: button sheet preA_115
+    21300232: button sheet preA_116
+    21300234: button sheet preA_117
+    21300236: button sheet preA_118
+    21300238: button sheet preA_119
+    21300240: button sheet preA_120
+    21300242: button sheet preA_121
+    21300244: button sheet preA_122
+    21300246: button sheet preA_123
+    21300248: button sheet preA_124
+    21300250: button sheet preA_125
+    21300252: button sheet preA_126
+    21300254: button sheet preA_127
+    21300256: button sheet preA_128
+    21300258: button sheet preA_129
+    21300260: button sheet preA_130
+    21300262: button sheet preA_131
+    21300264: button sheet preA_132
+    21300266: button sheet preA_133
+    21300268: button sheet preA_134
+    21300270: button sheet preA_135
+    21300272: button sheet preA_136
+    21300274: button sheet preA_137
+    21300276: button sheet preA_138
+    21300278: button sheet preA_139
+    21300280: button sheet preA_140
+    21300282: button sheet preA_141
+    21300284: button sheet preA_142
+    21300286: button sheet preA_143
+    21300288: button sheet preA_144
+    21300290: button sheet preA_145
+    21300292: button sheet preA_146
+    21300294: button sheet preA_147
+    21300296: button sheet preA_148
+    21300298: button sheet preA_149
+    21300300: button sheet preA_150
+    21300302: button sheet preA_151
+    21300304: button sheet preA_152
+    21300306: button sheet preA_153
+    21300308: button sheet preA_154
+    21300310: button sheet preA_155
+    21300312: button sheet preA_156
+    21300314: button sheet preA_157
+    21300316: button sheet preA_158
+    21300318: button sheet preA_159
+    21300320: button sheet preA_160
+    21300322: button sheet preA_161
+    21300324: button sheet preA_162
+    21300326: button sheet preA_163
+    21300328: button sheet preA_164
+    21300330: button sheet preA_165
+    21300332: button sheet preA_166
+    21300334: button sheet preA_167
+    21300336: button sheet preA_168
+    21300338: button sheet preA_169
+    21300340: button sheet preA_170
+    21300342: button sheet preA_171
+    21300344: button sheet preA_172
+    21300346: button sheet preA_173
+    21300348: button sheet preA_174
+    21300350: button sheet preA_175
+    21300352: button sheet preA_176
+    21300354: button sheet preA_177
+    21300356: button sheet preA_178
+    21300358: button sheet preA_179
+    21300360: button sheet preA_180
+    21300362: button sheet preA_181
+    21300364: button sheet preA_182
+    21300366: button sheet preA_183
+    21300368: button sheet preA_184
+    21300370: button sheet preA_185
+    21300372: button sheet preA_186
+    21300374: button sheet preA_187
+    21300376: button sheet preA_188
+    21300378: button sheet preA_189
+    21300380: button sheet preA_190
+    21300382: button sheet preA_191
+    21300384: button sheet preA_192
+    21300386: button sheet preA_193
+    21300388: button sheet preA_194
+    21300390: button sheet preA_195
+    21300392: button sheet preA_196
+    21300394: button sheet preA_197
+    21300396: button sheet preA_198
+    21300398: button sheet preA_199
+    21300400: button sheet preA_200
+    21300402: button sheet preA_201
+    21300404: button sheet preA_202
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: button sheet preA_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 544
+        width: 54
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7889aa21e279f014bafb6eb5b3a47108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 545
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30a89736f456b94aac715df235656f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 545
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6e4e4208ca2424992d959291a542ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 545
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9c9a8a82fc03142a8967357374fc0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 545
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 542b058c64729d548a40eefbdd209251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_5
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 545
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85cd0862063ddc47abc9c965ccbec4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_6
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 545
+        width: 50
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1537dae808275824ebb592c552b32af9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_7
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 545
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fefe1bf56211ea40a1c7957ac708e52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_8
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 545
+        width: 20
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a984127ed1cc348916d63923703bab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_9
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 545
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0199a42873ef05d49809f4c26be67654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_10
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 545
+        width: 62
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f857763f5ff27449a39f8c35e3fdf5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_11
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 544
+        width: 54
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7cdc778a6b3ca43a88cbe9ec51af2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_12
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 542
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f425d086bf8d42549a1cf3965fc98d8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_13
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 542
+        width: 51
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e72af18077a3b468c45f7b4c2cdb79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_14
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 541
+        width: 54
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc12178f1bcc5d41b3eee96cfa4e073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_15
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 542
+        width: 59
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552507cf8cb08934cb3c8ea480ccece3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_16
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 542
+        width: 79
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a6b8b1966d2984cb97936eae27d179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_17
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 542
+        width: 51
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8574ca4901df6e489fca1639f76420f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_18
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 542
+        width: 51
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6adb783173fcf7f4085b22fec96f0f1c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_19
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 542
+        width: 69
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d02034fca6ed0c4285967e8cbe6707e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_20
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 542
+        width: 20
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 338c03295a53da748a1232c48af78e1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_21
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 542
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415e964cce6418748a2a1f86cbfbe207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_22
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 449
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a192ab34b707b504fae5c449082a15a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_23
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 450
+        width: 50
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a5cefcc000e934db88c94051c2ba69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_24
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 450
+        width: 70
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee09bd16aa61bb247826fd20871f5c2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_25
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 450
+        width: 59
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2e418bc0892d34d88bb59382c9ca3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_26
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 450
+        width: 50
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41263f0ad6b0f9c438bfc306423abc58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_27
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 451
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a14726f9b86454bbfc6957df8e162d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_28
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 451
+        width: 52
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8203923d0769f24995c6243f9ea0999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_29
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 451
+        width: 50
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf5f41bba48bc94faef3306ca4c8139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_30
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 451
+        width: 22
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0534bcef8fb8c6d4091d82fff3e55da4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_31
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 451
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6b90a7703852f4f9eb10d5fb60b093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_32
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 451
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f94a63ec024564eb47386f4daee92b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_33
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 450
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a713c2c15f13d534091d794b81dbac44
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_34
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 453
+        width: 59
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace16254525dc634689a1fb5bcb438a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_35
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 453
+        width: 53
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105631c57cff32f4c8ee8bd8cd383e2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_36
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 451
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf65cbdfc39fc0848b2e10fea110c420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_37
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 453
+        width: 61
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ea8447a82561a45a854bc47541b5da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_38
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 453
+        width: 81
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08380d8c8284ae04eb68428a4c53fae7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_39
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 453
+        width: 53
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b066cbe9d32bc4a49b8ef3b7ad08f9ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_40
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 454
+        width: 127
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf842738000d10c4ba57ebf2e13bec08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_41
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 454
+        width: 24
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a61a4a59bf8d1a42a990c5796340cde
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_42
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 454
+        width: 52
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2631b044f6b8645a38c4991e23a1dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_43
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 361
+        width: 54
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae861597bbd6b2458ca9894fbf1366c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_44
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 362
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fe9e1dce475bb4dbde38b2b29ed035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_45
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 362
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57902545a213af4cace55a99bf790de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_46
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 362
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c06b82e643e7d4c87718d74945a945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_47
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 362
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20cadd7dcb1eda49b954a45d820cb30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_48
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 364
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7775f4bc553c4f24ba3c973d526be3f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_49
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 364
+        width: 50
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ca37df50c589d4b81a0c7c1010ff16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_50
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 364
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9104e6b9354824b815c5ff0ba5f694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_51
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 364
+        width: 20
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889b46455a063084495e2f417970576f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_52
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 364
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd9d322143f5d8489c3d7f7faf66f4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_53
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 364
+        width: 62
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450fc78b7e251114fbde5b2614f4b31b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_54
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 363
+        width: 54
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac63d073c1094154fb12de311fe825f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_55
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 366
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30315307027ef6b42b1cad25f2f059d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_56
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 366
+        width: 51
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865cd974e19ca3a428e6d6bbc06a2800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_57
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 365
+        width: 54
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df07f46c6386704b9b84ad2ddd4ffb3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_58
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 366
+        width: 59
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3d1ccef096e06469dde54eefebb9de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_59
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 366
+        width: 79
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddaad86b3b5ee684f8cb1aa6d5db28cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_60
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 366
+        width: 51
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f972431fc8e9c4dabff5e8cb5a4469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_61
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 369
+        width: 51
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277f7ca68a40d904e82d5915fb87a204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_62
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 369
+        width: 69
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ea60c6ec55edb469989a829a9002ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_63
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 369
+        width: 20
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0aab2ba58ed618429638ecaa23a7952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_64
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 369
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf5ba3097236e04c8a6ca07e46f1839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_65
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 41
+        width: 301
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca289313b70dc14d8baf16b5b17f7cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_66
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 41
+        width: 301
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3214126b6b6c1164b95c2f2726e78309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_67
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 49
+        width: 283
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ef276d6b47b0a42872324eb6198c6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_68
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 278
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b88f2ae87f04c34d802bee93eb31197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_69
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 278
+        width: 51
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4096cf69eb4e4a4e8af2ea77039654f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_70
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 277
+        width: 53
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd1b7257ead92649bf0bfe177dc28a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_71
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 280
+        width: 62
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b366f44eee9b8d04fae9722feea30120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_72
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 280
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac31632819a25b4e9088470a55b770e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_73
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 190
+        width: 71
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9afc085bf81774fbe20c900d2c2cd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_74
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 190
+        width: 53
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3707679eb33149440a4140c05cfbb4b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_75
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 189
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc83fe3d56921a240a81abdb9c9fd1e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_76
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 193
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3daea70a55f8b341bd5fa3168825a52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_77
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 193
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0e9e783f9e0cc41a8c4780e1e21782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_78
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 108
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28078af8178b5364caa5540236073ba9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_79
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 108
+        width: 51
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0f7c30228c5bb4fb781a96838f47cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_80
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 107
+        width: 53
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cb1444bdb0fd04d913b20790e8bbc4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_81
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 107
+        width: 62
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33999cce6f8fb34ca3a3681d6e49796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_82
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 107
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30e46f8898875a4b9802246c5b1e194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_83
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 43
+        width: 20
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a654f5d09a2a6c84bb0a9c747a02a27b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_84
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 44
+        width: 52
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926c962675a051841bbd783c7e2282a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_85
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 16
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5d709a5522c4d4dbc62590cf7a9e5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button sheet preA_86
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 21
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c5d6a4b681cbf42b657be0c45eb937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ec1d24e94c24d424f832c913b30d20c7
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

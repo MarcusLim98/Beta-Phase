@@ -1,0 +1,130 @@
+So you like the Quick Start, hum?
+This is it! Just a TXT with all the text, and let us do the rest!
+Although, we have a lot of useful options... Be sure to check the Complex Demo!
+You can aways visit www.seizestudios.com and see the documentation also!
+Follow us on Social Media to see more awesome stuff!
+
+
+
+-------- Complex Demo ---------
+*PlayerName*: So... This is RPGTalk, hum? Seems nice. 
+*PlayerName*: I'm already noticing that my face can move while I'm talking... I belive that any Animator can be set, so that open a lot of possibilites...
+*PlayerName*: I Guess I will see what it can do, moving with the arrows.
+*PlayerName*: Oh! There is someone right there! I'll hit "E" next to him to talk.
+
+FunnyGuy: Hey! Did you notice that every option can change in realtime?
+FunnyGuy: By the way... Who are you again?
+*PlayerName*: I'm *PlayerName*. Wait... Does that mean i can use variables?!
+FunnyGuy: Yes you can, *PlayerName*! Easy peasy!
+*PlayerName*: Neat! What else can I do?
+FunnyGuy: Hum... You can have really long texts, and the RPGTalk itself will break it. Something called Word Warp. You can even have insanaly high amount of words! It's pretty cool!
+*PlayerName*: I see! And the text is taken from an external file, isn't that right?
+FunnyGuy: Yes it is! It is awesome to work on dialogs later on, or change just one file for different languages. No extra code needed!
+FunnyGuy: But, for me, the best part is that we can have Callbacks!
+*PlayerName*: Callbacks? Like, when the talk end we call a function in other script?
+FunnyGuy: Exactly! Watch me get rid of that wall...
+FunnyGuy: ****Magic****
+*PlayerName*: Wow! With Callbacks, I can do whatever I want!
+FunnyGuy: You can Indeed! Now go talk to my friend on the other room!
+*PlayerName*: Ok! Thank you!
+
+I wonder if that dialog could follow someone... Hum...
+
+*PlayerName*: Hi! I'm *PlayerName*!
+Girl: Hi *PlayerName*. I notice that you saw that dialogs can follow objects too. Bacause we use the Unity's Canvas, it can work nice on 3D projects as well.
+Girl: It is no problem to have multiple instances of RPGTalk on the same scene either.
+Girl: The sounds, names, photos, everything is highly customizable.
+*PlayerName*: The code is really simple, too!
+Girl: Yes! But listen to me, I'm going to say something so important that the the Talk will be fixed on the screen, even when you can move again.
+*PlayerName*: *Listen Carefuly*
+Girl: Show your support by following Seize Studios on Social Media. Any doubts, check the documentation at www.seizestudios.com
+
+Chief Hank: What's this about our men not knowing something important?
+Chief Hank: We have been investigating this case for weeks.
+Chief Hank: Do you think that you suddenly know better than us?
+Chief Hank: Do you think that you're better than your superiors who have been in this force for years?
+YING YUE: No, sir.
+Chief Hank: Then cut all your nonsense. You're proving to be more trouble than you're worth.
+Chief Hank: You still have paperwork to complete. Get it done and maybe I'll forget this incident.
+YING YUE: Yes, sir.
+Chief Hank:	Good. Dismissed.
+
+*PlayerName*: That's most of it done, just one set of papers left.
+*PlayerName*: Chief Hank will need this at his table.
+
+*PlayerName*: That's most of it done, just one set of papers left.
+*PlayerName*: Chief Hank will need this at his table.
+
+Chief Hank: Wow, great job, I guess you have some talent after all -- at fetching papers.
+Chief Hank: Look, rookie, stick to what your superiors tell you to do.
+Chief Hank: Unless you have some sort of permit from a high-ranking figure, don't stick your nose into businesses that aren't yours.
+*PlayerName*: Yes, sir.
+Chief Hank: You're dismissed for the day. Leave.
+
+QQ: Hey! Are you ignoring me?
+QQ: Ying Yue, I'm right here!
+QQ: Hey, police! Officer! Over here!
+
+YING YUE: Hey.
+QQ: Hey yourself.
+YING YUE: What are you doing here?
+YING YUE: I could bring you in for suspicious activities, you know.
+QQ: Heh.
+YING YUE: ...Or obstructing the road used primarily by civil servants.
+QQ: Eh, can't be helped.
+QQ: ...You look stressed out.
+QQ: Did something happen?
+YING YUE: Well, it's only my first week. Things aren't the best.
+YING YUE: My chief has been leaving me stuck at my desk with paperwork after paperwork. 
+QQ: Uh huh.
+YING YUE: Everyone's too busy to bother with a newcomer.
+QQ: Uh huh.
+YING YUE: And no one will believe me when I say that I know that something's wrong.
+YING YUE: Do you about about the recent kidnappings?
+QQ: How could I not?
+YING YUE: Something's up with the latest victim's brother. He seems to be involved somehow, but my seniors won't let me pursue it.
+YING YUE: I've got a bad feeling about this, QQ. This is the fourth kidnapping case, and we have to put a stop to it.
+QQ: Honestly, Ying Yue, that sounds pretty serious. What's your plan now?
+YING YUE: I'm unable to do much, not with the chief watching me.
+YING YUE:  He even went on about getting permission from a high-ranking official.
+YING YUE: Hah... that's not probable.
+YING YUE: But I'll find a way.
+QQ: ...I could help.
+YING YUE: ...How?
+QQ: It'll take a while.
+QQ: Why don't you walk around town?
+QQ: Say hi to all the cats for me.
+
+*PlayerName*: That's one cat.
+*PlayerName*: Two down, three to go.
+*PlayerName*: Hat trick!
+*PlayerName*: Quadruple!
+*PlayerName*: And that's five of them.
+*PlayerName*: Hmm...
+*PlayerName*: It's been a long day, I should head back home.
+
+//Day2
+Chief Hank: I... I don't know how you did this but...
+Chief Hank: Don't waste too much time on this.
+Chief Hank: We have more work that's better suited for your...
+Chief Hank: ...caliber
+Chief Hank: Complete your current tasks before you continue on this.
+*PlayerName*: Yes, sir.	
+Chief Hank: And do note that because you are comparably less experienced than your seniors, you will not be granted a squad to assist you in this investigation.
+Chief Hank: They have more important tasks at hand.
+*PlayerName*: Yes, sir.
+Chief Hank: You are dismissed.
+
+*PlayerName*: It looks like Chief Hank will keep wasting my work hours with paperwork.
+*PlayerName*: I doubt I can do anything about the case at this rate.
+
+*PlayerName*: I need to find out what's happening.
+*PlayerName*: Maybe someone in town knows.
+
+*PlayerName*: I can't go in yet, I don't know enough.
+*PlayerName*: I should ask around town.
+
+*PlayerName*: Hey, sorry to bother you.
+*PlayerName*: I couldn't help but overheard what those ladies across the street were saying.
+*PlayerName*: But is it true that you lost a lot of money at the gambling table owned by the secret society?
+Shop Owner: That's right... Stay in school kid, don't end up like me.
