@@ -10,7 +10,6 @@ public class DataSaveAndLoad : MonoBehaviour {
     Vector3 spawnPos;
     static DataSaveAndLoad data;
     public static List<KeyItem> keyItemList = new List<KeyItem>();
-    UiBehaviour ui;
     public NavMeshAgent playerAgent;
 
     void Awake()                                                                    //ensures that this script is present in every scene
@@ -31,7 +30,6 @@ public class DataSaveAndLoad : MonoBehaviour {
     {
         CreateItemList();
         CheckItem();
-        ui = GameObject.Find("UICtrl").GetComponent<UiBehaviour>();
     }
 
     private void OnLevelWasLoaded(int level)                                        //spawns player at last checkpoint in playable levels
@@ -46,18 +44,9 @@ public class DataSaveAndLoad : MonoBehaviour {
                 playerObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
                 playerAgent.enabled = true;
             }
+            else return;
         }
     }
-
-    //public void LoadGame()                                                          //loads the scene of the last checkpoint
-    //{
-    //    if (PlayerPrefs.HasKey("spawnscene"))
-    //    {
-    //        ui.LoadScene(PlayerPrefs.GetString("spawnscene"));
-    //    }
-    //    else
-    //    ui.LoadScene("Outside_Warehouse");                                                     //TEMP FOR PRE-BETA
-    //}
 
     public void SaveGame(string spawnPointName)
     {
@@ -109,7 +98,7 @@ public class DataSaveAndLoad : MonoBehaviour {
             print("All keys cleared");
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))                                       //testing purposes only
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

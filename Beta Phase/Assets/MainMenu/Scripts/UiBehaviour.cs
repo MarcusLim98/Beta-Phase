@@ -60,7 +60,7 @@ public class UiBehaviour : MonoBehaviour {
         SceneManager.LoadScene(nextScene);
     }
 
-    IEnumerator FadeFromBlack()
+    IEnumerator FadeFromBlack()                                             //ensures that canvas does not block input
     {
         yield return new WaitForSeconds(1);
         fadeFromBlack.SetActive(false);

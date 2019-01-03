@@ -7,33 +7,29 @@ using UnityEngine.UI;
 public class SpawnBehaviour : MonoBehaviour {
 
     DataSaveAndLoad datasl;
-    Text notifText;
+    public Text notifText;
     string spawnPointName;
     public GameObject saveButtons;
+    public UiBehaviour ui;
+    public string nextLevel;
 
     void Awake()
     {
         datasl = GameObject.Find("GameController").GetComponent<DataSaveAndLoad>();
     }
 
-    private void Start()
-    {
-        //notifText = GameObject.Find("NotifText").GetComponent<Text>();
-        //saveButtons.SetActive(false);
-    }
-
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "SpawnPoint" && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("SpawnPoint") && Input.GetKeyDown(KeyCode.E))
         {
-            //SaveChoiceText();
+            SaveChoiceText();
             print("save now");
             spawnPointName = other.transform.GetChild(0).name;
             print(spawnPointName);
             SaveChoiceText();
         }
 
-        if (other.tag == "KeyItem" && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
         {
             if (PlayerPrefs.GetInt(other.name) == 0 || !PlayerPrefs.HasKey(other.name))
             {
@@ -53,6 +49,16 @@ public class SpawnBehaviour : MonoBehaviour {
                 }
             }
         }
+
+        if (other.name == "Thug")                               //use name, if not listening colliders will affect player
+        {
+            ui.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (other.name == "EndGame")
+        {
+            ui.LoadScene(nextLevel);
+        }
     }
 
     IEnumerator NotifTextBehaviour(string notif)
@@ -64,9 +70,9 @@ public class SpawnBehaviour : MonoBehaviour {
 
     void SaveChoiceText()
     {
-        //StopCoroutine("NotifTextBehaviour");
-        //notifText.text = "It's an altar for worship. Save progress?";
-        //saveButtons.SetActive(true);
+        StopCoroutine("NotifTextBehaviour");
+        notifText.text = "It's an altar for worship. Save progress?";
+        saveButtons.SetActive(true);
         print("it is saving");
         datasl.SaveGame(spawnPointName);
     }
