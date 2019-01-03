@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class RotatingParticleEffect : MonoBehaviour {
 
     public bool onlyTurn;
-    public Text eavesdropStatus;
     public Vector3 speed;
     public ParticleSystem ps1, ps2, ps3;
     public SphereCollider thisCollider;
@@ -15,13 +14,15 @@ public class RotatingParticleEffect : MonoBehaviour {
     public ArtificialIntelligence[] ai;
     bool thisPlayer, stopRunningCoroutine;
     EavesdropLogic eavesdropLogic;
-    // Use this for initialization
+    public SpawnBehaviour spawnBehaviour;
+
+
     void Start () {
         eavesdropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
         thisCollider = GetComponent<SphereCollider>();
     }
 	
-	// Update is called once per frame
+
 	void Update () {
         if (!onlyTurn)
         {
@@ -72,12 +73,12 @@ public class RotatingParticleEffect : MonoBehaviour {
     IEnumerator Gone()
     {
         print("run");
-        eavesdropStatus.enabled = true;
+        spawnBehaviour.StopCoroutine("NotifTextBehaviour");
+        spawnBehaviour.StartCoroutine("NotifTextBehaviour", "Eavesdropping completed.");
         stopRunningCoroutine = true;
         yield return new WaitForSeconds(0.5f);
         var main3 = ps3.main;
         main3.startLifetime = 0.00001f;
-        eavesdropStatus.enabled = false;
         yield return new WaitForSeconds(2f);
         foreach (ArtificialIntelligence ais in ai)
         {

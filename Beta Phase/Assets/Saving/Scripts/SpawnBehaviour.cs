@@ -59,9 +59,11 @@ public class SpawnBehaviour : MonoBehaviour {
         {
             ui.LoadScene(nextLevel);
         }
+
+        else return;
     }
 
-    IEnumerator NotifTextBehaviour(string notif)
+    public IEnumerator NotifTextBehaviour(string notif)
     {
         notifText.text = notif;
         yield return new WaitForSeconds(3);

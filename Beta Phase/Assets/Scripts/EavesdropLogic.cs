@@ -13,13 +13,14 @@ public class EavesdropLogic : MonoBehaviour
     private float downTime;
     private PlayerLogic playerLogic;
     //private CameraLogic cameraLogic;
-    // Use this for initialization
+    
+
     void Start () {
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         //cameraLogic = GameObject.Find("Main Camera").GetComponent<CameraLogic>();
     }
 	
-	// Update is called once per frame
+	
 	void Update () {
 
         if(playerLogic.playerEavesdrop == false)
