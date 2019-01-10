@@ -954,7 +954,7 @@ public class RPGTalk : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        ImageChange();
+        //ImageChange();
         //We don't want to do nothing if the text isn't even showing
         if (!textUI.gameObject.activeInHierarchy) {
             return;
@@ -1465,15 +1465,15 @@ public class RPGTalk : MonoBehaviour {
         }
     }
 
-    void ImageChange()
-    {
-        if(dialogerUI.text == "YING YUE")
-        {
-            npcBoxTurn = false;
-        }
-        else if (dialogerUI.text != "YING YUE")
-        {
-            npcBoxTurn = true;
-        }
-    }
+    //void ImageChange()
+    //{
+    //    if(dialogerUI.text == "YING YUE")
+    //    {
+    //        npcBoxTurn = false;
+    //    }
+    //    else if (dialogerUI.text != "YING YUE")
+    //    {
+    //        npcBoxTurn = true;
+    //    }
+    //}
 }

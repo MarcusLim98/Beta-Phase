@@ -128,3 +128,15 @@ Chief Hank: You are dismissed.
 *PlayerName*: I couldn't help but overheard what those ladies across the street were saying.
 *PlayerName*: But is it true that you lost a lot of money at the gambling table owned by the secret society?
 Shop Owner: That's right... Stay in school kid, don't end up like me.
+
+[title=WAScutscene1-begin]
+Unknown Man: Did you think your reasons were good enough, Ying Yue?
+YingYue: Hard to say. I guess it was worth a shot.
+[title=WAScutscene1-end]
+
+[title=WAScutscene2-begin]
+Chief Hank: You've got a lot of nerve, constable. Less than a week and there are already complaints.
+Chief Hank: You need to remember that your superiors know best.
+Chief Hank: Get back to your paperwork. We'll talk later.
+Ying Yue: Yes, sir.
+[title=WAScutscene2-end]

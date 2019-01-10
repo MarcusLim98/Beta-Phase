@@ -29,13 +29,10 @@ public class UiBehaviour : MonoBehaviour {
     }
     #endregion
 
-    private void OnLevelWasLoaded(int level)
-    {
-        if (level == 0)
-        {
-            StartCoroutine(FadeFromBlack());
-        }
-    }
+    //private void OnLevelWasLoaded(int level)
+    //{
+    //    StartCoroutine(FadeFromBlack());
+    //}
 
     #region Scene Needs
     public void LoadScene(string nextScene)
@@ -51,6 +48,11 @@ public class UiBehaviour : MonoBehaviour {
         }
         else
             LoadScene("Outside_Warehouse");                                 //TEMP FOR PRE-BETA
+    }
+
+    public void NewGame()
+    {
+        LoadScene("Outside_Warehouse");
     }
 
     IEnumerator FadeToScene(string nextScene)
