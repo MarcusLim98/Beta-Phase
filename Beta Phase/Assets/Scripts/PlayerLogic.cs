@@ -74,16 +74,6 @@ public class PlayerLogic : MonoBehaviour {
             }
         }
 
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            cursorIsOverUI = true;
-            //print("over UI");
-        }
-        else if (EventSystem.current.currentSelectedGameObject == null)
-        {
-            cursorIsOverUI = false;
-        }
-
         if (agent.destination == transform.position)
         {
             movingStyle = 0;

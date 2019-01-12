@@ -70,20 +70,6 @@ public class Noisemaker : MonoBehaviour {
                 rb.AddForce(transform.up * 1000f);
                 movePaths[0].position = new Vector3(newPos[0].x, newPos[0].y, newPos[0].z);
                 movePaths[1].position = new Vector3(newPos[1].x, newPos[1].y, newPos[1].z);
-                ai[0].staticOriginalRotation = new Vector3(0, 46, 0);
-                ai[1].staticOriginalRotation = new Vector3(0, -191, 0);
-                foreach (ArtificialIntelligence ais in ai)
-                {
-                    ais.run = true;
-                }
-            }
-        }
-
-        if(other.tag == "Thug")
-        {
-            foreach (ArtificialIntelligence ais in ai)
-            {
-                ais.run = false;
             }
         }
     }

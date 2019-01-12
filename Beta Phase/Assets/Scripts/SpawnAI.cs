@@ -23,14 +23,14 @@ public class SpawnAI : MonoBehaviour {
     {
         if(other.tag == "Player" && !isSpawning)
         {
-            foreach (GameObject ais in ai)
+            /*foreach (GameObject ais in ai)
             {
                 gate1.position = new Vector3(moveGates[0].x, moveGates[0].y, moveGates[0].z);
                 gate2.position = new Vector3(moveGates[1].x, moveGates[1].y, moveGates[1].z);
                 ais.GetComponent<ArtificialIntelligence>().emImage.enabled = false;
                 ais.GetComponent<ArtificialIntelligence>().qmImage.enabled = false;
                 ais.SetActive(false);
-            }
+            }*/
             this.gameObject.SetActive(false);
         }
 

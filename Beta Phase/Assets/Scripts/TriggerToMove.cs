@@ -23,8 +23,8 @@ public class TriggerToMove : MonoBehaviour {
         if(other.tag == "Player" && !over)
         {
             movePaths.position = new Vector3(newPos.x, newPos.y, newPos.z);
-            ai.staticOriginalRotation = new Vector3(0, 0, 0);
-            ai.run = true;
+            //ai.staticOriginalRotation = new Vector3(0, 0, 0);
+            //ai.run = true;
             over = true;
             StartCoroutine(StopRunning());
         }
@@ -33,6 +33,6 @@ public class TriggerToMove : MonoBehaviour {
     IEnumerator StopRunning()
     {
         yield return new WaitForSeconds(5f);
-        ai.run = false;
+        //ai.run = false;
     }
 }

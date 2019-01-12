@@ -11,7 +11,7 @@ public class RotatingParticleEffect : MonoBehaviour {
     public SphereCollider thisCollider;
     public Transform[] movePaths;
     public Vector3[] newPos;
-    public ArtificialIntelligence[] ai;
+    //public ArtificialIntelligence[] ai;
     bool thisPlayer, stopRunningCoroutine;
     EavesdropLogic eavesdropLogic;
     public SpawnBehaviour spawnBehaviour;
@@ -48,7 +48,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                 main2.startLifetime = 0.00001f;
                 var main3 = ps3.main;
                 main3.startLifetime = 5f;
-                if(this.gameObject.name == "EavesdropZone2")
+               /* if(this.gameObject.name == "EavesdropZone2")
                 {
                     Text objective = GameObject.Find("ObjectiveText").GetComponent<Text>();
                     objective.text = "Exit the warehouse";
@@ -61,7 +61,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                         ais.run = true;
                     }
                 }
-                StartCoroutine(Gone());
+                StartCoroutine(Gone());*/
             }
         }
         else if (onlyTurn)
@@ -80,10 +80,10 @@ public class RotatingParticleEffect : MonoBehaviour {
         var main3 = ps3.main;
         main3.startLifetime = 0.00001f;
         yield return new WaitForSeconds(2f);
-        foreach (ArtificialIntelligence ais in ai)
+        /*foreach (ArtificialIntelligence ais in ai)
         {
             ais.run = false;
-        }
+        }*/
         gameObject.SetActive(false);
     }
 
