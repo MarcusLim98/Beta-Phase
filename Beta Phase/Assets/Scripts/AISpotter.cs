@@ -29,7 +29,7 @@ public class AISpotter : MonoBehaviour {
         EmptyObj = new GameObject("Look Here");
         EmptyObj.layer = 9;
         EmptyObj.transform.parent = this.gameObject.transform;
-        startingAngle = this.gameObject.transform.GetChild(3);
+        startingAngle = this.gameObject.transform.GetChild(4);
         SphereCollider sc = EmptyObj.AddComponent<SphereCollider>() as SphereCollider;
         sc.radius = 0.5f;
         sc.isTrigger = true;
@@ -96,7 +96,6 @@ public class AISpotter : MonoBehaviour {
 
         if (angle <= maxAngle)
         {
-            //print("within range");
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position); //ensures the raycast is resting from this AI
             RaycastHit hit;
 
@@ -140,5 +139,24 @@ public class AISpotter : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
         }
         return false;
+    }
+
+    private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, maxRadius);
+
+        Vector3 fovLine1 = Quaternion.AngleAxis(maxAngle, transform.up) * transform.forward * maxRadius;
+        Vector3 fovLine2 = Quaternion.AngleAxis(-maxAngle, transform.up) * transform.forward * maxRadius; //Ensures the second blue fov line goes the other angle
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, fovLine1);
+        Gizmos.DrawRay(transform.position, fovLine2);
+
+        if (investigatingState == 0)
+            Gizmos.color = Color.red;
+        else if (investigatingState == 2)
+            Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, (playerTarget.position - transform.position).normalized * maxRadius); //ensures the middle raycasting line turns to green when hitting the target
     }
 }
