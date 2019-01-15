@@ -10,7 +10,7 @@ public class CameraLogic : MonoBehaviour {
     public Transform player;
     public Transform eavesdropLookHere;
     public Vector3 targetOffset, raycastPosition;
-    public float movementSpeed;
+    public float movementSpeed, length;
     public Outline playerOutlineEffect;
     //public float zoomSpeed, minZoom, maxZoom, zoom;
     bool stopZooming;
@@ -21,7 +21,7 @@ public class CameraLogic : MonoBehaviour {
     void Start () {
         thisCamera = GetComponent<Camera>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
-        eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
+        //eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
         target = player.transform;
     }
 	
@@ -34,12 +34,6 @@ public class CameraLogic : MonoBehaviour {
         //zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
     }
 
-    void LateUpdate()
-    {
-        //transform.position = player.position - targetOffset * zoom;
-        //transform.LookAt(player.position + Vector3.up * 0);
-    }
-
     void Movement()
     {
         transform.position = Vector3.Lerp(transform.position, target.position + targetOffset, movementSpeed * Time.deltaTime);
@@ -49,10 +43,10 @@ public class CameraLogic : MonoBehaviour {
     {
         Ray ray = thisCamera.ViewportPointToRay(new Vector3(raycastPosition.x, raycastPosition.y, raycastPosition.z));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f, layerMask) && playerLogic.isMoving == false)
+        //Debug.DrawRay(ray.origin, ray.direction * length, Color.blue);
+        if (Physics.Raycast(ray, out hit, length, layerMask) && playerLogic.isMoving == false)
         {
             playerOutlineEffect.enabled = true;
-            Debug.DrawRay(ray.origin, ray.direction * 20, Color.blue);
         }
         else playerOutlineEffect.enabled = false;
     }

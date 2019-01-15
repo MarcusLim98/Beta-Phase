@@ -5,387 +5,387 @@ using UnityEngine.AI;
 
 public class SpareAILogic : MonoBehaviour {
 
-	 //Navmesh method
-    public Transform playerTarget, noiseTarget; //ensures which game object it will be chasing
-    public GameObject playerOutline;
-    public int enemyType; //sets whether you want the ai to be patrolling or chasing (1 = patrolling, 2 = chases when player is within fov, 4 = only rotates but still chases player)
-    public int specialType; //1 = throws bottle at player, 2 = investigates the spot where 1 has thrown while also finding yy, 3 = spotter
-    public float gap; //a value for the agent to leave a gap between itself and the intended path it is travelling towards when changing its destination point
-    public float maxAngle;
-    public float maxRadius;
-    public float Timer;
-    public float sphereRadius;
-    public float raycastLength;
-    public int destPoint; //a value to keep track of which destination point
-    public Vector3 lastSeen;
-    public Transform lookA, lookB;
-    public Transform[] points; //an array to store all of the destination point
-    public ArtificialIntelligence[] callForThugs;
-    NavMeshAgent agent;
-    private Transform thisAI;
-	private Vector3 sphereCenter;
-	private Vector3 currentPosition;
-    public bool isPoliceman, staticRotate;
+    enum AIState { PATROLLING, INVESTIGATING, CHASE }; // States
+    AIState state;
 
-    int originalType, spotterIntervals; 
-    float timer;
-    [HideInInspector]
-    public bool isInFov = false, onStay = false, isInCollider = false, hasShotBottle;
+    public Transform playerTarget;
+    public Transform playerHighlight;
+    public Transform noisySource;
+    public Transform stationeryPosition;
+    public LayerMask layerMask;
+    [Space]
+    [Space]
+    public AIPath aiPath;
+    public float maxRadius, maxRadius2, maxAngle, maxAngle2, rotatingSpeed;
+    public bool spottedHighlight, goToNoisySource, stationery, turnBack;
+    [Space]
+    [Space]
+    NavMeshAgent agent;
     Animator anim;
-    SpotCheck spotCheck;
-    BottleThrow bottleThrow;
-    void Start()
+    PlayerLogic playerLogic;
+    Transform target, thisAI;
+    MeshRenderer playerHighlightMesh;
+    Vector3 lookHereStart;
+    GameObject EmptyObj;
+    int destPoint = 0, investigatingState, isInFov;
+    float stopToLook, stopToGoBack, angle;
+
+    public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        thisAI = GetComponent<Transform>();
-        originalType = enemyType;
-        spotCheck = transform.GetComponentInChildren<SpotCheck>();
         anim = GetComponent<Animator>();
-        bottleThrow = GameObject.Find("BottleToss").GetComponent<BottleThrow>();
+        thisAI = GetComponent<Transform>();
+        playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        playerHighlightMesh = GameObject.Find("CharacterHighlight").GetComponent<MeshRenderer>();
+        if (stationery)
+        {
+            EmptyObj = new GameObject("Look Here");
+            EmptyObj.transform.parent = this.gameObject.transform;
+            EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + lookHereStart.z);
+            EmptyObj.transform.parent = null;
+            lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
+        state = AIState.PATROLLING;
     }
 
-    void Update()
+    public void Update()
     {
-        if (isInFov)
+        InFov();
+        switch (state)
         {
-            Chase();
+            case AIState.PATROLLING:
+                if (investigatingState == 0)
+                {
+                    if (!goToNoisySource && !spottedHighlight && !agent.pathPending && agent.remainingDistance < 0.5f)
+                    {
+                        //print("back to patrolling");
+                        agent.speed = 2f;
+                        GotoNextPoint();
+                    }
+                    else if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
+                    {
+                        if (isInFov != 2)
+                        {
+                            //print("going after highlight");
+                            stopToLook += Time.deltaTime;
+                            agent.SetDestination(playerHighlight.position);
+                            if (stopToLook <= 1.5f)
+                            {
+                                anim.SetInteger("State", 0);
+                                playerHighlight.transform.parent = null;
+                                playerHighlightMesh.enabled = true;
+                                agent.speed = 0;
+                                Vector3 targetDir = playerHighlight.position - thisAI.position;
+                                float step = 1.85f * Time.deltaTime;
+                                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                                transform.rotation = Quaternion.LookRotation(newDir);
+                            }
+                            else if (stopToLook >= 1.5f)
+                            {
+                                anim.SetInteger("State", 1);
+                                agent.speed = 2f;
+                            }
+                            CheckAndReturn();
+                        }
+                        else if (isInFov == 2)
+                        {
+                            anim.SetInteger("State", 1);
+                            agent.speed = 4f;
+                            playerHighlight.transform.parent = null;
+                            playerHighlightMesh.enabled = true;
+                            agent.SetDestination(playerHighlight.position);
+                            CheckAndReturn();
+                        }
+                    }
+                    else if (goToNoisySource && !spottedHighlight)
+                    {
+                        stopToLook += Time.deltaTime;
+                        agent.SetDestination(noisySource.position);
+                        if (stopToLook <= 1.5f)
+                        {
+                            anim.SetInteger("State", 0);
+                            agent.speed = 0;
+                            Vector3 targetDir = noisySource.position - thisAI.position;
+                            float step = 1.85f * Time.deltaTime;
+                            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                            transform.rotation = Quaternion.LookRotation(newDir);
+                        }
+                        else if (stopToLook >= 1.5f)
+                        {
+                            anim.SetInteger("State", 1);
+                            agent.speed = 2f;
+                        }
+                        CheckAndReturn();
+                    }
+                }
+                else if (investigatingState == 1)
+                {
+                    state = AIState.INVESTIGATING;
+                }
+                else if (investigatingState == 2)
+                {
+                    state = AIState.CHASE;
+                }
+                break;
+            case AIState.INVESTIGATING:
+                if (investigatingState == 0)
+                {
+                    if (spottedHighlight)
+                    {
+                        playerHighlight.transform.parent = null;
+                        playerHighlightMesh.enabled = true;
+                    }
+                    state = AIState.PATROLLING;
+                }
+                if (investigatingState == 1)
+                {
+                    //print("investigating");
+                    spottedHighlight = true;
+                    goToNoisySource = false;
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    if (isInFov == 1)
+                    {
+                        playerHighlight.transform.parent = null;
+                        agent.SetDestination(playerHighlight.position);
+                        stopToLook += Time.deltaTime;
+                        if (stopToLook <= 1.5f)
+                        {
+                            anim.SetInteger("State", 0);
+                            playerHighlight.transform.parent = null;
+                            playerHighlightMesh.enabled = true;
+                            agent.speed = 0;
+                            Vector3 targetDir = playerHighlight.position - thisAI.position;
+                            float step = 1.85f * Time.deltaTime;
+                            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                            transform.rotation = Quaternion.LookRotation(newDir);
+                        }
+                        else if (stopToLook >= 1.5f)
+                        {
+                            anim.SetInteger("State", 1);
+                            agent.speed = 2f;
+                        }
+                    }
+                }
+                else if (investigatingState == 2)
+                {
+                    state = AIState.CHASE;
+                }
+                break;
+            case AIState.CHASE:
+                if (investigatingState == 0)
+                {
+                    playerHighlight.transform.parent = null;
+                    spottedHighlight = true;
+                    goToNoisySource = false;
+                    agent.speed = 4f;
+                    state = AIState.PATROLLING;
+                }
+                else if (investigatingState == 1)
+                {
+                    agent.speed = 4f;
+                }
+                else if (investigatingState == 2)
+                {
+                    //print("chasing");
+                    agent.speed = 4f;
+                    anim.SetInteger("State", 1);
+                    agent.SetDestination(playerTarget.position);
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                }
+                break;
         }
-        else if (!isInFov)
-        {
-            FOVProperties();
-
-            if (enemyType == 3 && !isPoliceman)
-            {
-                CheckNoise();
-            }
-            else if (enemyType == 1)
-            {
-                GotoNextPoint();
-            }
-            else if (enemyType == 2 && !isPoliceman)
-            {
-                RandomPoint();
-            }
-        }
-
-        if (spotCheck.atNoiseSource)
-        {
-            timer = timer + Time.deltaTime;
-        }
-        else timer = 0f;
     }
 
-    void GotoNextPoint() //Those red cubes are its destination points but an empty game object works fine as well
+    void GotoNextPoint()
     {
-        // Returns if no points have been set up
-        if (points.Length == 0)
-            return;
-
-        // Set the agent to go to the currently selected destination.
-        agent.SetDestination(points[destPoint].position);
-
-        // Choose the next point in the array as the destination,
-        // cycling to the start if necessary.
-        if (!agent.pathPending && agent.remainingDistance < gap)
-        {
-            destPoint = (destPoint + 1) % points.Length;
-        }
-
-        if (!staticRotate)
+        if (!stationery)
         {
             anim.SetInteger("State", 1);
+            // Returns if no points have been set up
+            if (aiPath.path_objs.Count == 0)
+                return;
+
+            // Set the agent to go to the currently selected destination.
+            agent.destination = aiPath.path_objs[destPoint].position;
+
+            // Choose the next point in the array as the destination,
+            // cycling to the start if necessary.
+            destPoint = (destPoint + 1) % aiPath.path_objs.Count;
         }
-        else if (staticRotate && !agent.pathPending && agent.remainingDistance < gap)
+        else if (stationery && agent.remainingDistance < 0.5f)
         {
             anim.SetInteger("State", 0);
-            agent.angularSpeed = 35;
-            if (spotterIntervals == 0)
-            {
-                transform.Rotate(0, Time.deltaTime * agent.angularSpeed, 0);
-            }
-            else if (spotterIntervals == 1)
-            {
-                transform.Rotate(0, Time.deltaTime * -agent.angularSpeed, 0);
-            }
-            StaticRaycastProperties();
+
+            var desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQ, Time.deltaTime * rotatingSpeed);
         }
-    }
-
-    void RandomPoint()
-    {
-        if (points.Length == 0)
-            return;
-
-        agent.destination = points[destPoint].position;
-        Vector3 destinPos = agent.destination - transform.position; // update the postion and rotation when ai moves
-        //Vector3 lookPos = lookHere.position - transform.position;
-
-        //Select a random point in the array
-        //Travel towards that array
-        if (!agent.pathPending && agent.remainingDistance < gap && onStay == false)
-        {
-            destPoint = ((Random.Range(0, points.Length) % points.Length));
-            //look at current destination and rotate towards it
-            //Quaternion rotation = Quaternion.LookRotation(destinPos, Vector3.up);
-            //transform.rotation = rotation;
-
-        }
-        if (agent.remainingDistance >= 0 && onStay == false)  //when player is no longer walking and just arrived at destination
-        {
-            Timer = Random.Range(0, 8); //random time for which guard stations them selves
-            onStay = true;
-        }
-        if (agent.remainingDistance <= 0 && onStay == true)
-        {
-            //look at lookHere after moving
-            //Quaternion rotation = Quaternion.LookRotation(lookPos, Vector3.up);
-            //transform.rotation = rotation;
-            Timer -= Time.deltaTime;
-        }
-        if (Timer <= 0 && onStay == true)
-        {
-            //end the cycle
-            onStay = false;
-        }
-
-    }
-
-    void Chase()
-    {
-        if (Vector3.Distance(thisAI.position, playerTarget.position) < maxRadius && specialType !=3)
+        else if (stationery && agent.remainingDistance > 0.5f)
         {
             anim.SetInteger("State", 1);
-            agent.speed = 10;
-            agent.angularSpeed = 700;
-            agent.acceleration = 100;
-            agent.SetDestination(playerTarget.position); //uses nav mesh to chase after target
-            lastSeen = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-            playerOutline.transform.parent = null;
-            playerOutline.SetActive(false);
-        }
-        else if (Vector3.Distance(thisAI.position, playerTarget.position) > maxRadius)
-        {
-            agent.SetDestination(lastSeen);
-            playerOutline.SetActive(true);
-            playerOutline.transform.position = lastSeen;
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                anim.SetInteger("State", 0);
-                agent.speed = 3;
-                agent.angularSpeed = 200;
-                agent.acceleration = 8f;
-                playerOutline.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
-                //playerOutline.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-                playerOutline.SetActive(false);
-                isInFov = false;
-                enemyType = originalType;
-            }
-        }
-
-        if (specialType == 2)
-        {
-            UpdatingWaypoints();
-        }
-        else if (specialType == 3)
-        {
-            Vector3 targetDir = playerTarget.position - transform.position;
-            // The step size is equal to speed times frame time.
-            float step = 1.85f * Time.deltaTime;
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-            // Move our position a step closer to the target.
-            transform.rotation = Quaternion.LookRotation(newDir);
-
-            /*foreach (ArtificialIntelligence ai in callForThugs)
-            {
-                ai.lastSeen = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-                ai.isInFov = true;
-                ai.agent.speed = 10;
-                ai.agent.angularSpeed = 700;
-                ai.agent.acceleration = 100;
-            }*/
         }
     }
 
-    void FOVProperties()
+    void StationeryRotation()
+    {
+        rotatingSpeed = 30f;
+        var up = transform.TransformDirection(Vector3.forward);
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, up * 10f, Color.green);
+
+        if (Physics.Raycast(transform.position, up, out hit, 10f, layerMask))
+        {
+            if (hit.transform.name == "RotatingLoop" && !turnBack)
+            {
+                turnBack = true;
+            }
+            else if (hit.transform.name == "RotatingLoop" && turnBack)
+            {
+                turnBack = false;
+            }
+        }
+
+        if (!turnBack)
+        {
+            transform.Rotate(0, Time.deltaTime * rotatingSpeed, 0);
+        }
+        else if (turnBack)
+        {
+            transform.Rotate(0, Time.deltaTime * -rotatingSpeed, 0);
+        }
+    }
+
+    void CheckAndReturn()
+    {
+        if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
+        {
+            target = playerHighlight;
+        }
+        else if (goToNoisySource && !spottedHighlight)
+        {
+            target = noisySource;
+            if (noisySource.name == "Shards")
+            {
+                noisySource.tag = "Untagged";
+            }
+        }
+        if (Vector3.Distance(thisAI.position, target.position) < 3)
+        {
+            stopToGoBack += Time.deltaTime;
+            if (stopToGoBack <= 3f)
+            {
+                anim.SetInteger("State", 0);
+                agent.speed = 0f;
+            }
+            else if (stopToGoBack >= 3f)
+            {
+                GotoNextPoint();
+                playerHighlightMesh.enabled = false;
+                spottedHighlight = false;
+                goToNoisySource = false;
+                stopToGoBack = 0;
+                stopToLook = 0;
+                isInFov = 0;
+                agent.speed = 2f;
+            }
+        }
+    }
+
+    public bool InFov()
     {
         Vector3 directionBetween = (playerTarget.position - thisAI.position).normalized;
         directionBetween.y *= 0; //height difference is able to influence its angle, it makes height is not a factor
 
-        float angle = Vector3.Angle(thisAI.forward, directionBetween); //ensures chasing only resumes when it is within the AI's view
+        angle = Vector3.Angle(thisAI.forward, directionBetween); //ensures chasing only resumes when it is within the AI's view
 
         if (angle <= maxAngle)
         {
+            //print("within range");
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position); //ensures the raycast is resting from this AI
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, maxRadius) && hit.transform == playerTarget)
-            {
-                isInFov = true;
-                print("spotted");
-            }
-        }
-    }
 
-    void StaticRaycastProperties()
-    {
-        var up = transform.TransformDirection(Vector3.forward);
-        RaycastHit hit;
-        Debug.DrawRay(transform.position, up * raycastLength, Color.white);
-
-        if (Physics.Raycast(transform.position, up, out hit, raycastLength))
-        {
-            if (hit.transform.name == lookA.transform.name)
+            if (Physics.Raycast(ray, out hit, maxRadius))
             {
-                print("hit");
-                spotterIntervals = 1;
-            }
-            if (hit.transform.name == lookB.transform.name)
-            {
-                spotterIntervals = 0;
-            }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Noisemaker>().active)
-        {
-            if (specialType == 0 || specialType == 2)
-            {
-                noiseTarget = other.transform;
-                enemyType = 3;
-            }
-            if (specialType == 1 && !hasShotBottle)
-            {
-                bottleThrow.playerBottle = this.gameObject.transform.GetChild(0);
-                bottleThrow.notPlayer = true;
-                bottleThrow.enabled = true;
-                hasShotBottle = true;
-                if (!isInCollider)
+                if (hit.transform == playerTarget && isInFov != 2)
                 {
-                    hasShotBottle = false;
+                    investigatingState = 1;
+                    isInFov = 1;
+                    print("investigating");
+                }
+            }
+            else
+            {
+                investigatingState = 0;
+            }
+        }
+        else
+        {
+            investigatingState = 0;
+        }
+
+        if (angle <= maxAngle2)
+        {
+            Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
+            RaycastHit hit2;
+            if (Physics.Raycast(ray, out hit2, maxRadius2))
+            {
+                if (hit2.transform == playerTarget)
+                {
+                    investigatingState = 2;
+                    isInFov = 2;
+                    //print("spotted");
+                    return true;
                 }
             }
         }
-    }
-
-    void CheckNoise()
-    {
-        //print("check noise1");
-        StartCoroutine(Suspicious());
-
-        if (agent.remainingDistance < gap)
-        {
-            anim.SetInteger("State", 0);
-            //print("near bottle");
-            //agent.SetDestination(transform.position);
-        }
-        if (timer >= 5f)
-        {
-            //print("check noise3");
-            noiseTarget = null;
-            enemyType = originalType;
-        }
+        return false;
     }
 
     private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
+        Gizmos.color = Color.grey;
+        Gizmos.DrawWireSphere(transform.position, maxRadius2);
 
         Vector3 fovLine1 = Quaternion.AngleAxis(maxAngle, transform.up) * transform.forward * maxRadius;
         Vector3 fovLine2 = Quaternion.AngleAxis(-maxAngle, transform.up) * transform.forward * maxRadius; //Ensures the second blue fov line goes the other angle
+        Vector3 fov2Line1 = Quaternion.AngleAxis(maxAngle2, transform.up) * transform.forward * maxRadius2;
+        Vector3 fov2Line2 = Quaternion.AngleAxis(-maxAngle2, transform.up) * transform.forward * maxRadius2;
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, fovLine1);
         Gizmos.DrawRay(transform.position, fovLine2);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(transform.position, fov2Line1);
+        Gizmos.DrawRay(transform.position, fov2Line2);
 
-        if (!isInFov)
+        if (investigatingState == 0)
             Gizmos.color = Color.red;
-        else
+        else if (investigatingState == 2)
             Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, (playerTarget.position - transform.position).normalized * maxRadius); //ensures the middle raycasting line turns to green when hitting the target
 
-		if (specialType == 2)
-		{
-				Gizmos.color = Color.white;
-		Gizmos.DrawWireSphere(transform.position, sphereRadius);
-		}
+        //Gizmos.color = Color.black;
+        //Gizmos.DrawRay(transform.position, transform.forward * maxRadius);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && specialType == 1 && bottleThrow.enabled == true) //prevents a bug that causes the AI to spam throwing bottles when player is within its collider
+        if (other.tag == "Noisy")
         {
-            isInCollider = true;
+            if (playerLogic.stepOnNoisyFloor == true)
+            {
+                noisySource = playerLogic.thisNoisyFloor;
+                goToNoisySource = true;
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" && specialType == 1 && bottleThrow.enabled == false)
+        if (other.tag == "Bottle")
         {
-            isInCollider = false;
-            hasShotBottle = false; 
-        }
-    }
-
-    IEnumerator Suspicious()
-    {
-        anim.SetInteger("State", 0);
-        agent.SetDestination(noiseTarget.position);
-        agent.speed = 0;
-        Vector3 targetDir = noiseTarget.position - transform.position;
-        float step = 1.85f * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        yield return new WaitForSeconds(2f);
-        anim.SetInteger("State", 1);
-        agent.speed = 3;
-    }
-
-    void UpdatingWaypoints()
-    {
-        /*Collider[] hitColliders = Physics.OverlapSphere(transform.position, sphereRadius);
-		foreach (Collider hit in hitColliders){
-			if(hit.tag == "Waypoints"){
-				print(hit.transform.name);	
-			    for (int i = 0; i < points.Length; ++i)
-				{
-				   points[i] = hit.transform ;
-				}
-			}
-		}*/
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, sphereRadius);
-        foreach (Collider hit in hitColliders)
-        {
-            if (hit.transform.name.Contains("Apath"))
-            {
-                for (int i = 0; i < points.Length; ++i)
-                {
-                    points[i] = GameObject.Find("PathSet1").GetComponentInChildren<Transform>().GetChild(i);
-                }
-            }
-            else if (hit.transform.name.Contains("Bpath"))
-            {
-                for (int i = 0; i < points.Length; ++i)
-                {
-                    points[i] = GameObject.Find("PathSet2").GetComponentInChildren<Transform>().GetChild(i);
-                }
-            }
-            else if (hit.transform.name.Contains("Cpath"))
-            {
-                for (int i = 0; i < points.Length; ++i)
-                {
-                    points[i] = GameObject.Find("PathSet3").GetComponentInChildren<Transform>().GetChild(i);
-                }
-            }
-            else if (hit.transform.name.Contains("Dpath"))
-            {
-                for (int i = 0; i < points.Length; ++i)
-                {
-                    points[i] = GameObject.Find("PathSet4").GetComponentInChildren<Transform>().GetChild(i);
-                }
-            }
+            noisySource = GameObject.Find("Shards").transform;
+            goToNoisySource = true;
         }
     }
 }

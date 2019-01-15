@@ -9,8 +9,9 @@ public class PlayerLogic : MonoBehaviour {
     public float speed;
     public int movingStyle;
     public LayerMask layerMask;
-    //[HideInInspector]
-    public bool playerEavesdrop, isMoving, noMoving, cursorIsOverUI, isSneaking, enableSpawnCheat;
+    public Transform thisNoisyFloor;
+    [HideInInspector]
+    public bool playerEavesdrop, isMoving, noMoving, cursorIsOverUI, enableSpawnCheat, stepOnNoisyFloor;
     public string fileName;
     public SpawnBehaviour[] sb;
     public Transform[] cheatSpawns;
@@ -18,7 +19,6 @@ public class PlayerLogic : MonoBehaviour {
     Rigidbody rb;
     Animator anim;
     Vector3 clickPosition;
-    CapsuleCollider capCollider;
     ArtificialIntelligence AI;
     EavesdropLogic eavesDropLogic;
     CameraLogic cameraLogic;
@@ -29,9 +29,8 @@ public class PlayerLogic : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        capCollider = GetComponent<CapsuleCollider>();
         AI = GameObject.FindObjectOfType<ArtificialIntelligence>();
-        eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
+        //eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
         cameraLogic = GameObject.Find("Main Camera").GetComponent<CameraLogic>();
         externalAudio = GetComponent<AudioSource>();
         sb = GameObject.FindObjectsOfType<SpawnBehaviour>();
@@ -162,9 +161,10 @@ public class PlayerLogic : MonoBehaviour {
             playerEavesdrop = false;
         }
 
-        if (other.tag == "Noisemaker" && movingStyle == 1)
+        if (other.name == "NoisyFloor" && movingStyle == 1)
         {
-            capCollider.radius = 3f;
+            stepOnNoisyFloor = true;
+            thisNoisyFloor = other.transform;
         }
     }
 
@@ -174,9 +174,9 @@ public class PlayerLogic : MonoBehaviour {
         {
             playerEavesdrop = false;
         }
-        if (other.tag == "Noisemaker" && movingStyle == 1)
+        if (other.name == "NoisyFloor" && movingStyle == 1)
         {
-            capCollider.radius = 0.5f;
+            stepOnNoisyFloor = false;
         }
     }
 }
