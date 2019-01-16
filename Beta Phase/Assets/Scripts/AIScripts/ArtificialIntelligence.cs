@@ -22,12 +22,13 @@ public class ArtificialIntelligence : MonoBehaviour
     public bool spottedHighlight, goToNoisySource, stationery, staticRotate;
     [Space]
     [Space]
+    [HideInInspector]
+    public GameObject EmptyObj, questionMark, exclamationMark;
     NavMeshAgent agent;
     Animator anim;
     Transform target, thisAI, uiAbove;
     Vector3 lookHereStart, targetDir, newDir, directionBetween;
     Image uiState;
-    GameObject EmptyObj, questionMark, exclamationMark;
     PlayerLogic playerLogic;
     int destPoint = 0, investigatingState, isInFov;
     float stopToLook, stopToGoBack, angle, startToTurn;
@@ -215,6 +216,8 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f)
         {
+            questionMark.SetActive(false);
+            exclamationMark.SetActive(false);
             anim.SetInteger("State", 0);
             if (!staticRotate)
             {
@@ -228,8 +231,7 @@ public class ArtificialIntelligence : MonoBehaviour
             }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) >= 1f)
-        {
-            print("going back");
+        {    
             anim.SetInteger("State", 1);
             cannotTurn = true;
             agent.SetDestination(stationeryPosition.position);
@@ -305,8 +307,6 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
-                playerHighlight.SetActive(false);
-                exclamationMark.SetActive(false);
                 questionMark.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;

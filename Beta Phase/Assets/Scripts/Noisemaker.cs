@@ -12,12 +12,13 @@ public class Noisemaker : MonoBehaviour {
     //public int noiseType; //1 for player last heard, 2 for bottle-made floors, 3 for natural floors, 4 for fixed, 5 for static distractions, 6 for AI that shoot bottles and chasing debris
     //bool staticDistraction;
     //public float timer;
-    //public Text pressE;
+    public Text pressE;
     //public GameObject distractionObj;
-    //public Rigidbody rb;
+    public Rigidbody rb;
     //public Transform[] movePaths;
 
     public ArtificialIntelligence[] ai;
+    public Vector3[] movePaths;
     public bool hasInteracted;
     //private PlayerLogic playerLogic;
     //private SphereCollider sphereCol;
@@ -25,10 +26,6 @@ public class Noisemaker : MonoBehaviour {
 
     private void Start()
     {
-        foreach(ArtificialIntelligence thugs in ai)
-        {
-            print(thugs.stationeryPosition);
-        }
         /*playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         if (noiseType == 2)
         {
@@ -40,6 +37,7 @@ public class Noisemaker : MonoBehaviour {
             rb = distractionObj.GetComponent<Rigidbody>();
         }*/
         //miniBoss = GameObject.Find("ShootsBottleAI").GetComponent<ArtificialIntelligence>();
+
     }
 
     private void Update()
@@ -61,24 +59,25 @@ public class Noisemaker : MonoBehaviour {
 
         if (other.tag == "Player" && !hasInteracted)
         {
-
-            hasInteracted = true;
-            /*if (!staticDistraction)
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                hasInteracted = true;
+                rb.AddForce(transform.up * 1000f);
+                for (int i = 0; i < movePaths.Length; i++)
+                {
+                    ai[i].stationeryPosition.position = movePaths[i];
+                    ai[i].questionMark.SetActive(true);
+                }
+            }
+            if (!hasInteracted)
             {
                 pressE.enabled = true;
             }
-            if (staticDistraction)
+            else if (hasInteracted)
             {
                 pressE.enabled = false;
+                this.gameObject.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                staticDistraction = true;
-                rb.AddForce(transform.up * 1000f);
-                movePaths[0].position = new Vector3(newPos[0].x, newPos[0].y, newPos[0].z);
-                movePaths[1].position = new Vector3(newPos[1].x, newPos[1].y, newPos[1].z);
-            }
-        }*/
         }
 
         /*private void OnTriggerEnter(Collider other)
@@ -90,17 +89,9 @@ public class Noisemaker : MonoBehaviour {
                     StartCoroutine("Gone");
                 }
             }
-        }
+        }*/
 
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.tag == "Player" && noiseType == 5)
-            {
-                pressE.enabled = false;
-            }
-        }
-
-        private void OnTriggerLeave(Collider other)
+        /*private void OnTriggerLeave(Collider other)
         {
 
         }
@@ -119,5 +110,13 @@ public class Noisemaker : MonoBehaviour {
             yield return new WaitForSeconds(8f);
             gameObject.SetActive(false);
         }*/
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player" && !hasInteracted)
+        {
+            pressE.enabled = false;
+        }
     }
 }

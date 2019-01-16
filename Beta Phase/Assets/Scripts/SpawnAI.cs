@@ -15,8 +15,8 @@ public class SpawnAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(gate1.position);
-        print(gate2.position);
+        //print(gate1.position);
+        //print(gate2.position);
     }
 
     private void OnTriggerEnter(Collider other)
