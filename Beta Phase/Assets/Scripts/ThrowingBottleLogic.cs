@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThrowingBottleLogic : MonoBehaviour {
 
     public Rigidbody rb;
     public GameObject cursor;
     public LineRenderer lr;
-    public LayerMask layer;
     public Transform midPoint;
+    public Image bottleIcon;
+    public LayerMask layer;
     public float forceToThrow, maxRadius, limit;
 
     Transform launchFrom;
@@ -67,6 +69,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
                 Rigidbody obj = Instantiate(rb, launchFrom.position, Quaternion.identity);
                 obj.velocity = Vo;
                 itemPickUp.haveBottle = false;
+                bottleIcon.enabled = false;
             }
         }
         else

@@ -145,14 +145,14 @@ public class PlayerLogic : MonoBehaviour {
         if (other.tag == "EavesdropZone" && eavesDropLogic.currentAmount <= 100f)
         {
             playerEavesdrop = true;
-            if (eavesDropLogic.changeCameraAngle == false)
+            /*if (eavesDropLogic.changeCameraAngle == false)
             {
                 cameraLogic.eavesdropLookHere = this.gameObject.transform;
             }
             else if (eavesDropLogic.changeCameraAngle == true)
             {
                 cameraLogic.eavesdropLookHere = other.transform.GetChild(0);
-            }
+            }*/
         }
 
         if (other.tag == "EavesdropZone" && eavesDropLogic.currentAmount >= 100f)

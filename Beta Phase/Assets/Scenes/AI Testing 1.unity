@@ -351,7 +351,6 @@ MonoBehaviour:
     type: 2}
   leftFootDust: {fileID: 1391266135564550, guid: 28143e3896747fa428b0e26cd572a9c3,
     type: 2}
-  system: {fileID: 454032520}
   dustIntervals: 0
   clickPosition:
   - {x: 1, y: 1, z: 1}
@@ -392,12 +391,16 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+  thisNoisyFloor: {fileID: 0}
   playerEavesdrop: 0
   isMoving: 0
   noMoving: 0
   cursorIsOverUI: 0
-  isSneaking: 0
+  enableSpawnCheat: 0
+  stepOnNoisyFloor: 0
   fileName: 
+  sb: []
+  cheatSpawns: []
 --- !u!114 &95732318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1495,37 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!84 &328994356
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 407
+  m_Height: 228
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &340817447
 GameObject:
   m_ObjectHideFlags: 0
@@ -15738,35 +15772,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 0
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 791142872}
-  - {fileID: 1025879707}
-  - {fileID: 1464589962}
-  - {fileID: 257236851}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &403787829
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -15921,35 +15946,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 2
-  gap: 1.5
-  maxAngle: 62.44
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 6
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 791142872}
-  - {fileID: 1025879707}
-  - {fileID: 1464589962}
-  - {fileID: 257236851}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 62.44
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &407600162
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -16052,13 +16068,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce61716777d4e342ac5070ee9be6ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eavesdropStatus: {fileID: 0}
   onlyTurn: 0
   speed: {x: 0, y: 0, z: 0}
   ps1: {fileID: 0}
   ps2: {fileID: 0}
   ps3: {fileID: 0}
   thisCollider: {fileID: 0}
+  movePaths: []
+  newPos: []
+  spawnBehaviour: {fileID: 0}
 --- !u!1 &417695192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100142, guid: 9bed163c62920da47abce198511b5eb7,
@@ -16097,32 +16115,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 1846110773960500, guid: 54f90d97a288dbb4a8cfad31bf634b59, type: 2}
-  QM: {fileID: 1011757641756996, guid: 73692e934e5da7e4885f2219bd87d7d2, type: 2}
-  enemyType: 1
-  specialType: 0
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 15
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 225666492}
-  lookB: {fileID: 1283359812}
-  points:
-  - {fileID: 853090455}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 1
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!136 &417695195
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20791,11 +20803,6 @@ Transform:
   m_Father: {fileID: 1268853106}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &454032520 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198894284892469904, guid: 28143e3896747fa428b0e26cd572a9c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 2060327483}
 --- !u!1 &460450996
 GameObject:
   m_ObjectHideFlags: 0
@@ -21017,6 +21024,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 3
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!23 &478922805
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21523,6 +21536,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 3
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!23 &577316890
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21682,35 +21701,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 1
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 1423635723}
-  - {fileID: 342800128}
-  - {fileID: 1914631362}
-  - {fileID: 1174376683}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &591893296
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21829,6 +21839,37 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!84 &640951701
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 407
+  m_Height: 228
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &641014318
 GameObject:
   m_ObjectHideFlags: 0
@@ -21953,6 +21994,7 @@ MonoBehaviour:
   targetOffset: {x: 5, y: 15, z: -5}
   raycastPosition: {x: 0, y: 0, z: 0}
   movementSpeed: 5
+  length: 0
   playerOutlineEffect: {fileID: 897704811}
 --- !u!81 &651055752
 AudioListener:
@@ -22052,8 +22094,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1037252797}
-  extraRenderTexture: {fileID: 1542111046}
+  renderTexture: {fileID: 640951701}
+  extraRenderTexture: {fileID: 328994356}
 --- !u!1 &657026714
 GameObject:
   m_ObjectHideFlags: 0
@@ -22333,7 +22375,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722797985
 GameObject:
@@ -27796,6 +27838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeToClear: {fileID: 205223323}
   fadeToBlack: {fileID: 920991107}
+  nextLevel: 
+  restartFromTheStart: 0
 --- !u!135 &829858028
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -27870,35 +27914,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 1
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 1423635723}
-  - {fileID: 342800128}
-  - {fileID: 1914631362}
-  - {fileID: 1174376683}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &849239377
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -28473,35 +28508,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 2
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 2097852271}
-  - {fileID: 388844641}
-  - {fileID: 299507372}
-  - {fileID: 1166141884}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &921404635
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -28916,6 +28942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeToClear: {fileID: 205223323}
   fadeToBlack: {fileID: 920991107}
+  nextLevel: 
+  restartFromTheStart: 0
 --- !u!1 &995972126
 GameObject:
   m_ObjectHideFlags: 0
@@ -29156,37 +29184,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1025879706}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1037252797
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 978
-  m_Height: 551
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!43 &1039757853
 Mesh:
   m_ObjectHideFlags: 0
@@ -29790,6 +29787,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 3
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!23 &1207246786
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29857,11 +29860,6 @@ Transform:
   m_Father: {fileID: 82538073}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1208713249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100080, guid: 99321add84f6e714dab780123b5a5f0c,
-    type: 3}
-  m_PrefabInternal: {fileID: 1638163572}
 --- !u!1 &1214929943
 GameObject:
   m_ObjectHideFlags: 0
@@ -34865,13 +34863,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce61716777d4e342ac5070ee9be6ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eavesdropStatus: {fileID: 1785026510}
   onlyTurn: 0
   speed: {x: 0, y: 0, z: 0}
   ps1: {fileID: 1268853105}
   ps2: {fileID: 435362869}
   ps3: {fileID: 1726097450}
   thisCollider: {fileID: 0}
+  movePaths: []
+  newPos: []
+  spawnBehaviour: {fileID: 0}
 --- !u!1 &1272184044
 GameObject:
   m_ObjectHideFlags: 0
@@ -39504,13 +39504,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce61716777d4e342ac5070ee9be6ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eavesdropStatus: {fileID: 0}
   onlyTurn: 1
   speed: {x: 0, y: 0, z: 100}
   ps1: {fileID: 0}
   ps2: {fileID: 0}
   ps3: {fileID: 0}
   thisCollider: {fileID: 0}
+  movePaths: []
+  newPos: []
+  spawnBehaviour: {fileID: 0}
 --- !u!1 &1283359810
 GameObject:
   m_ObjectHideFlags: 0
@@ -39824,7 +39826,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1037252797}
+  m_TargetTexture: {fileID: 640951701}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -40601,6 +40603,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 0
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!1 &1507515339
 GameObject:
   m_ObjectHideFlags: 0
@@ -40827,37 +40835,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540033171}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1542111046
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 978
-  m_Height: 551
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1547094887
 GameObject:
   m_ObjectHideFlags: 0
@@ -40978,6 +40955,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 5
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!135 &1547463793
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -41056,6 +41039,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 3
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!23 &1566294643
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41545,32 +41534,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 0}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 0
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 90, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 0}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!136 &1703932678
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41691,13 +41674,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce61716777d4e342ac5070ee9be6ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eavesdropStatus: {fileID: 0}
   onlyTurn: 1
   speed: {x: 0, y: 0, z: 100}
   ps1: {fileID: 0}
   ps2: {fileID: 0}
   ps3: {fileID: 0}
   thisCollider: {fileID: 0}
+  movePaths: []
+  newPos: []
+  spawnBehaviour: {fileID: 0}
 --- !u!199 &1726097449
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -46437,35 +46422,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 1846110773960500, guid: 54f90d97a288dbb4a8cfad31bf634b59, type: 2}
-  QM: {fileID: 1011757641756996, guid: 73692e934e5da7e4885f2219bd87d7d2, type: 2}
-  enemyType: 1
-  specialType: 0
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 1984453102}
-  - {fileID: 1694135400}
-  - {fileID: 1904766643}
-  - {fileID: 1540033172}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &1750287173
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -46637,6 +46613,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 2
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!23 &1779203397
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47578,35 +47560,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 2
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 2097852271}
-  - {fileID: 388844641}
-  - {fileID: 299507372}
-  - {fileID: 1166141884}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!136 &1932995678
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47940,32 +47913,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 0
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 15
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 225666492}
-  lookB: {fileID: 1283359812}
-  points:
-  - {fileID: 853090455}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 1
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &1973947348
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -48917,33 +48884,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 1846110773960500, guid: 54f90d97a288dbb4a8cfad31bf634b59, type: 2}
-  QM: {fileID: 1011757641756996, guid: 73692e934e5da7e4885f2219bd87d7d2, type: 2}
-  enemyType: 1
-  specialType: 1
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 14.1
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 15
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 225666492}
-  lookB: {fileID: 1283359812}
-  points:
-  - {fileID: 802074155}
-  callForThugs:
-  - {fileID: 1750287172}
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 1
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!136 &2077544054
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -49048,32 +49008,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 3
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 11
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 15
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 2048793676}
-  lookB: {fileID: 995972128}
-  points:
-  - {fileID: 1790061746}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 1
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &2081742533
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -49228,35 +49182,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 2
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 641014319}
-  - {fileID: 2013029903}
-  - {fileID: 916316039}
-  - {fileID: 541483582}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!195 &2090229211
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -49546,35 +49491,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 95732322}
-  noiseTarget: {fileID: 0}
-  playerOutline: {fileID: 1208713249}
-  EM: {fileID: 0}
-  QM: {fileID: 0}
-  enemyType: 1
-  specialType: 2
-  gap: 1.5
-  maxAngle: 25
+  playerHighlight: {fileID: 0}
+  noisySource: {fileID: 0}
+  stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aiPath: {fileID: 0}
   maxRadius: 8
-  Timer: 0
-  sphereRadius: 0
-  raycastLength: 0
-  destPoint: 0
-  lastSeen: {x: 0, y: 0, z: 0}
-  staticOriginalRotation: {x: 0, y: 0, z: 0}
-  raycastForSpotting: {x: 0, y: 0, z: 0}
-  lookA: {fileID: 0}
-  lookB: {fileID: 0}
-  points:
-  - {fileID: 641014319}
-  - {fileID: 2013029903}
-  - {fileID: 916316039}
-  - {fileID: 541483582}
-  callForThugs: []
+  maxRadius2: 0
+  maxAngle: 25
+  maxAngle2: 0
+  rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
+  spottedHighlight: 0
+  goToNoisySource: 0
+  stationery: 0
   staticRotate: 0
-  isInFov: 0
-  onStay: 0
-  isInCollider: 0
-  hasShotBottle: 0
 --- !u!136 &2115022349
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -49880,6 +49816,12 @@ MonoBehaviour:
   routeChange: 0
   noiseType: 2
   timer: 0
+  pressE: {fileID: 0}
+  distractionObj: {fileID: 0}
+  rb: {fileID: 0}
+  movePaths: []
+  newPos: []
+  ai: []
 --- !u!82 &2121466189
 AudioSource:
   m_ObjectHideFlags: 0

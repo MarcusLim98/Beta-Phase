@@ -13,6 +13,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public GameObject playerHighlight;
     public Transform noisySource;
     public Transform stationeryPosition;
+    public GameObject suspicious, alert;
     public LayerMask layerMask;
     [Space]
     [Space]
@@ -23,11 +24,10 @@ public class ArtificialIntelligence : MonoBehaviour
     [Space]
     NavMeshAgent agent;
     Animator anim;
-    Transform target, thisAI;
-    Vector3 lookHereStart;
-    GameObject EmptyObj;
-    //MeshRenderer playerHighlightMesh;
-    //Outline2 playerOutline;
+    Transform target, thisAI, uiAbove;
+    Vector3 lookHereStart, targetDir, newDir, directionBetween;
+    Image uiState;
+    GameObject EmptyObj, questionMark, exclamationMark;
     PlayerLogic playerLogic;
     int destPoint = 0, investigatingState, isInFov;
     float stopToLook, stopToGoBack, angle, startToTurn;
@@ -39,17 +39,22 @@ public class ArtificialIntelligence : MonoBehaviour
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
-        //playerHighlightMesh = GameObject.Find("CharacterHighlight").GetComponent<MeshRenderer>();
-        //playerOutline = GameObject.Find("CharacterOutline").GetComponent<Outline2>();
         if (stationery)
         {
             EmptyObj = new GameObject("Look Here");
             EmptyObj.transform.parent = this.gameObject.transform;
             EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            stationeryPosition = this.gameObject.transform.GetChild(5);
+            stationeryPosition = this.gameObject.transform.GetChild(6);
             EmptyObj.transform.parent = null;
             lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
         }
+        uiAbove = this.gameObject.transform.GetChild(5);
+        questionMark = Instantiate(suspicious, transform.position, Quaternion.identity);
+        exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
+        questionMark.transform.parent = uiAbove;
+        exclamationMark.transform.parent = uiAbove;
+        questionMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
+        exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
         state = AIState.PATROLLING;
     }
 
@@ -79,12 +84,9 @@ public class ArtificialIntelligence : MonoBehaviour
                             {
                                 anim.SetInteger("State", 0);
                                 playerHighlight.transform.parent = null;
-                                //playerHighlightMesh.enabled = true;
-                                //playerOutline.enabled = true;
                                 agent.speed = 0;
-                                Vector3 targetDir = playerHighlight.transform.position - thisAI.position;
-                                float step = 1.85f * Time.deltaTime;
-                                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                                targetDir = playerHighlight.transform.position - thisAI.position;
+                                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                                 transform.rotation = Quaternion.LookRotation(newDir);
                             }
                             else if (stopToLook >= 1.5f)
@@ -112,9 +114,8 @@ public class ArtificialIntelligence : MonoBehaviour
                         {
                             anim.SetInteger("State", 0);
                             agent.speed = 0;
-                            Vector3 targetDir = noisySource.position - thisAI.position;
-                            float step = 1.85f * Time.deltaTime;
-                            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                            targetDir = noisySource.transform.position - thisAI.position;
+                            newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
                         else if (stopToLook >= 1.5f)
@@ -161,9 +162,8 @@ public class ArtificialIntelligence : MonoBehaviour
                             anim.SetInteger("State", 0);
                             playerHighlight.transform.parent = null;
                             agent.speed = 0;
-                            Vector3 targetDir = playerHighlight.transform.position - thisAI.position;
-                            float step = 1.85f * Time.deltaTime;
-                            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                            targetDir = playerHighlight.transform.position - thisAI.position;
+                            newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
                         else if (stopToLook >= 1.5f)
@@ -196,8 +196,6 @@ public class ArtificialIntelligence : MonoBehaviour
                     agent.speed = runSpeed;
                     anim.SetInteger("State", 1);
                     agent.SetDestination(playerTarget.position);
-                    //playerHighlightMesh.enabled = true;
-                    //playerOutline.enabled = false;
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                 }
@@ -292,6 +290,10 @@ public class ArtificialIntelligence : MonoBehaviour
         else if (goToNoisySource && !spottedHighlight)
         {
             target = noisySource;
+            if (noisySource.name == "Shards")
+            {
+                noisySource.tag = "Untagged";
+            }
         }
         if (Vector3.Distance(thisAI.position, target.position) < 3)
         {
@@ -303,9 +305,9 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
-                //playerHighlightMesh.enabled = false;
-                //playerOutline.enabled = false;
                 playerHighlight.SetActive(false);
+                exclamationMark.SetActive(false);
+                questionMark.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
                 stopToGoBack = 0;
@@ -320,9 +322,11 @@ public class ArtificialIntelligence : MonoBehaviour
 
     public bool InFov()
     {
-        Vector3 directionBetween = (playerTarget.position - thisAI.position).normalized;
-        directionBetween.y *= 0; //height difference is able to influence its angle, it makes height is not a factor
+        questionMark.transform.LookAt(Camera.main.transform);
+        exclamationMark.transform.LookAt(Camera.main.transform);
 
+        directionBetween = (playerTarget.position - thisAI.position).normalized;
+        directionBetween.y *= 0; //height difference is able to influence its angle, it makes height is not a factor
         angle = Vector3.Angle(thisAI.forward, directionBetween); //ensures chasing only resumes when it is within the AI's view
 
         if (angle <= maxAngle)
@@ -336,6 +340,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     investigatingState = 1;
                     isInFov = 1;
+                    questionMark.SetActive(true);
                 }
             }
             else 
@@ -359,6 +364,8 @@ public class ArtificialIntelligence : MonoBehaviour
                     print("within 2nd fov");
                     investigatingState = 2;
                     isInFov = 2;
+                    questionMark.SetActive(false);
+                    exclamationMark.SetActive(true);
                     return true;
                 }
             }
@@ -400,12 +407,20 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 noisySource = playerLogic.thisNoisyFloor;
                 goToNoisySource = true;
+                questionMark.SetActive(true);
             }
         }
 
         if (other.tag == "Player")
         {
             playerWithinRadius = true;
+        }
+
+        if (other.tag == "Bottle")
+        {
+            noisySource = GameObject.Find("Shards").transform;
+            goToNoisySource = true;
+            questionMark.SetActive(true);
         }
     }
 

@@ -36,19 +36,19 @@ public class EavesdropLogic : MonoBehaviour
 
         convoBar.GetComponent<Image>().fillAmount = currentAmount / 100;
 
-        if(!isMouseDown && currentAmount >= 0.01f && playerLogic.cursorIsOverUI == true)
+        if(currentAmount >= 0.01f && playerLogic.playerEavesdrop == true)
         {
             currentAmount -= speed * Time.deltaTime;
         }
-        else if (isMouseDown == true && Input.GetMouseButton(0) && currentAmount <= 100 && playerLogic.cursorIsOverUI == true)
+        else if (Input.GetKeyDown(KeyCode.E) && currentAmount <= 100 && playerLogic.playerEavesdrop == true)
         {
-            changeCameraAngle = true;
+            //changeCameraAngle = true;
             currentAmount += speed * Time.deltaTime;
         }
         else
         {
             currentAmount = 0.01f;
-            changeCameraAngle = false;
+            //changeCameraAngle = false;
         }
         /*else if(isMouseDown == true && Input.GetMouseButtonUp(0) && currentAmount >= 0.1f)
         {

@@ -8,6 +8,7 @@ public class AISpotter : MonoBehaviour {
     public Transform playerTarget;
     public Transform playerHighlight;
     public Transform noisySource;
+    public GameObject alert;
     public LayerMask layerMask, layerMask2;
     [Space]
     [Space]
@@ -20,16 +21,24 @@ public class AISpotter : MonoBehaviour {
     public ArtificialIntelligence[] thugsToCall;
     NavMeshAgent agent;
     Animator anim;
-    Transform thisAI, startingAngle;
-    GameObject EmptyObj;
+    Transform thisAI, startingAngle, uiAbove;
+    Vector3 directionBetween;
+    GameObject EmptyObj, exclamationMark;
+    bool playerWithinRadius;
+    PlayerLogic playerLogic;
     int investigatingState, isInFov;
     // Use this for initialization
     void Start()
     {
+        uiAbove = this.gameObject.transform.GetChild(4);
+        exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
+        exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
+
+        playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         EmptyObj = new GameObject("Look Here");
         EmptyObj.layer = 9;
         EmptyObj.transform.parent = this.gameObject.transform;
-        startingAngle = this.gameObject.transform.GetChild(4);
+        startingAngle = this.gameObject.transform.GetChild(5);
         SphereCollider sc = EmptyObj.AddComponent<SphereCollider>() as SphereCollider;
         sc.radius = 0.5f;
         sc.isTrigger = true;
@@ -73,6 +82,7 @@ public class AISpotter : MonoBehaviour {
                 {
                     rotatingSpeed = 30f;
                     canRotateLoop = true;
+                    exclamationMark.SetActive(false);
                 }
             }
         }
@@ -89,9 +99,10 @@ public class AISpotter : MonoBehaviour {
 
     public bool InFov()
     {
-        Vector3 directionBetween = (playerTarget.position - thisAI.position).normalized;
-        directionBetween.y *= 0; //height difference is able to influence its angle, it makes height is not a factor
+        exclamationMark.transform.LookAt(Camera.main.transform);
 
+        directionBetween = (playerTarget.position - thisAI.position).normalized;
+        directionBetween.y *= 0; //height difference is able to influence its angle, it makes height is not a factor
         angle = Vector3.Angle(thisAI.forward, directionBetween); //ensures chasing only resumes when it is within the AI's view
 
         if (angle <= maxAngle)
@@ -109,6 +120,7 @@ public class AISpotter : MonoBehaviour {
                     lookPos.y = 0;
                     var rotation = Quaternion.LookRotation(lookPos);
                     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
+                    exclamationMark.SetActive(true);
 
                     foreach (ArtificialIntelligence ai in thugsToCall)
                     {
@@ -117,7 +129,6 @@ public class AISpotter : MonoBehaviour {
                         playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                         playerHighlight.transform.parent = null;
                     }
-                    print("investigating");
                 }
             }
             else
@@ -139,6 +150,43 @@ public class AISpotter : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
         }
         return false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name == "NoisyFloor")
+        {
+            if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
+            {
+                canRotateLoop = false;
+                var lookPos = playerTarget.position - transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
+                exclamationMark.SetActive(true);
+
+                foreach (ArtificialIntelligence ai in thugsToCall)
+                {
+                    ai.spottedHighlight = true;
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    playerHighlight.transform.parent = null;
+                }
+            }
+        }
+
+        if (other.tag == "Player")
+        {
+            playerWithinRadius = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerWithinRadius = false;
+        }
     }
 
     private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere

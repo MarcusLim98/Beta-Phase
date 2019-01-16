@@ -14,7 +14,7 @@ public class PlayerClickingEffect : MonoBehaviour {
     PlayerLogic playerLogic;
     // Use this for initialization
     void Start () {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 8; i++)
         {
             GameObject objClick = (GameObject)Instantiate(clickEffect);
             clickEffect.SetActive(false);

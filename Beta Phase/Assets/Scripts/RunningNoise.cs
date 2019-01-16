@@ -23,7 +23,7 @@ public class RunningNoise : Noisemaker
         {
             radiusSize = 5;
             transform.position = playerLog.gameObject.transform.position;
-            active = true;
+            //active = true;
             capColl.radius = radiusSize;
         }
 
@@ -31,7 +31,7 @@ public class RunningNoise : Noisemaker
         {
             radiusSize = 1;
             transform.position = transform.position;
-            active = false;
+            //active = false;
             capColl.radius = radiusSize;
         }
 

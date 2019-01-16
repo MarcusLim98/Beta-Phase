@@ -6,25 +6,30 @@ using UnityEngine.UI;
 
 public class Noisemaker : MonoBehaviour {
 
-    public bool active = false, isNoisyFloor;
-    public int routeChange;
+    //public bool active = false, isNoisyFloor;
+    //public int routeChange;
 
-    public int noiseType; //1 for player last heard, 2 for bottle-made floors, 3 for natural floors, 4 for fixed, 5 for static distractions, 6 for AI that shoot bottles and chasing debris
-    bool staticDistraction;
-    public float timer;
-    public Text pressE;
-    public GameObject distractionObj;
-    public Rigidbody rb;
-    public Transform[] movePaths;
-    public Vector3[] newPos;
+    //public int noiseType; //1 for player last heard, 2 for bottle-made floors, 3 for natural floors, 4 for fixed, 5 for static distractions, 6 for AI that shoot bottles and chasing debris
+    //bool staticDistraction;
+    //public float timer;
+    //public Text pressE;
+    //public GameObject distractionObj;
+    //public Rigidbody rb;
+    //public Transform[] movePaths;
+
     public ArtificialIntelligence[] ai;
-    private PlayerLogic playerLogic;
-    private SphereCollider sphereCol;
+    public bool hasInteracted;
+    //private PlayerLogic playerLogic;
+    //private SphereCollider sphereCol;
     //private ArtificialIntelligence miniBoss;
 
     private void Start()
     {
-        playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        foreach(ArtificialIntelligence thugs in ai)
+        {
+            print(thugs.stationeryPosition);
+        }
+        /*playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         if (noiseType == 2)
         {
             active = true;
@@ -33,30 +38,32 @@ public class Noisemaker : MonoBehaviour {
         {
             //sphereCol = GetComponent<SphereCollider>();
             rb = distractionObj.GetComponent<Rigidbody>();
-        }
+        }*/
         //miniBoss = GameObject.Find("ShootsBottleAI").GetComponent<ArtificialIntelligence>();
     }
 
     private void Update()
     {
-        if (active)
+        /*if (active)
         {
             Counter();
         }
-        else timer = 0f;
+        else timer = 0f;*/
     }
 
     private void OnTriggerStay(Collider other)
-    {    
-        if (other.tag == "Player" && (noiseType == 2 ||noiseType ==3) && playerLogic.movingStyle == 1)
+    {
+        /*if (other.tag == "Player" && (noiseType == 2 ||noiseType ==3) && playerLogic.movingStyle == 1)
         {
             //print("touched");
             active = true;
-        }
+        }*/
 
-        if(other.tag == "Player" && noiseType == 5)
+        if (other.tag == "Player" && !hasInteracted)
         {
-            if (!staticDistraction)
+
+            hasInteracted = true;
+            /*if (!staticDistraction)
             {
                 pressE.enabled = true;
             }
@@ -71,45 +78,46 @@ public class Noisemaker : MonoBehaviour {
                 movePaths[0].position = new Vector3(newPos[0].x, newPos[0].y, newPos[0].z);
                 movePaths[1].position = new Vector3(newPos[1].x, newPos[1].y, newPos[1].z);
             }
+        }*/
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "SpotCheck")
+        /*private void OnTriggerEnter(Collider other)
         {
-            if (this.gameObject.name == "PlayerBottle(Clone)")
+            if (other.name == "SpotCheck")
             {
-                StartCoroutine("Gone");
+                if (this.gameObject.name == "PlayerBottle(Clone)")
+                {
+                    StartCoroutine("Gone");
+                }
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" && noiseType == 5)
+        private void OnTriggerExit(Collider other)
         {
-            pressE.enabled = false;
+            if (other.tag == "Player" && noiseType == 5)
+            {
+                pressE.enabled = false;
+            }
         }
-    }
 
-    private void OnTriggerLeave(Collider other)
-    {
-
-    }
-
-    public void Counter()
-    {
-        timer = timer + Time.deltaTime;
-        if (timer > 1)
+        private void OnTriggerLeave(Collider other)
         {
-            active = false;
-        }
-    }
 
-    IEnumerator Gone()
-    {
-        yield return new WaitForSeconds(8f);
-        gameObject.SetActive(false);
+        }
+
+        public void Counter()
+        {
+            timer = timer + Time.deltaTime;
+            if (timer > 1)
+            {
+                active = false;
+            }
+        }
+
+        IEnumerator Gone()
+        {
+            yield return new WaitForSeconds(8f);
+            gameObject.SetActive(false);
+        }*/
     }
 }
