@@ -1,60 +1,91 @@
-[title=WAScutscene1-begin]
+[title=Prologue-begin]
 Unknown Man: Did you think your reasons were good enough, Ying Yue?
 YingYue: [speed=65]Hard to say.[/speed] [speed=30]I guess it was worth a shot.[/speed]
-[title=WAScutscene1-end]
+[title=Prologue-end]
 
-[title=WAScutscene2-begin]
+Fade out
+
+----------------------------------------------------------------------------------------------------------
+
+YY is in Hank's office. She's clearly in trouble, too curious for her own good.
+
+[title=Day1Intro-begin]
 Chief Hank: You've got a lot of nerve, constable. Less than a week and there are already complaints.
 Chief Hank: You need to remember that your superiors know best.
 Chief Hank: Get back to your paperwork. We'll talk later.
 Ying Yue: Yes, sir.
-[title=WAScutscene2-end]
+[title=Day1Intro-end]
 
+Objective: Pass documents to Chief Hank
 
-[title=WAScutscene3-begin]
+----------------------------------------------------------------------------------------------------------
+
+If YY talks to Hank without completing her task:
+
+[title=Day1NoPapers-begin]
+Chief Hank: Are you daft? Get back to your paperwork, constable.
+[title=Day1NoPapers-end]
+
+----------------------------------------------------------------------------------------------------------
+
+After completing her task:
+
+[title=Day1DonePapers-begin]
 Chief Hank: Wow, great job, I guess you have some talent after all -- at fetching papers.
 Ying Yue: Thank you, sir.
 Chief Hank: About the previous incident...
-Chief Hank: Unless you have some sort of <b>permit</b> from the high-rankings, you aren't getting any permission to investigate.
 Chief Hank: Don't stick your nose into businesses that aren't yours.
 Chief Hank: You're dismissed. Curfew applies soon, so don't loiter.
-[title=WAScutscene3-end]
+[title=Day1DonePapers-end]
+
+Fade out
+
+----------------------------------------------------------------------------------------------------------
+
+YY stands outside the police station. It's sunset. She's tired from being pushed around.
+
+[title=Day1Afterwork-begin]
+Ying Yue: ...What a long day.
+Ying Yue: Now if only they'd take me seriously.
+Ying Yue: What's the point of being a cop if all they let me do is paperwork, hah...
+[title=Day1Afterwork-end]
+
+CRASH! Some thugs are making a ruckus off-screen. The camera shifts to look at them. They're outside a coffeeshop.
+
+----------------------------------------------------------------------------------------------------------
+
+The camera moves back to YY.
+
+[title=Day1Suspicion-begin]
+Ying Yue: What was that?
+[title=Day1Suspicion-end]
+
+Objective: Investigate the ruckus.
+
+----------------------------------------------------------------------------------------------------------
+
+YY approaches the thugs. They don't like her, and they don't believe she's a cop.
+
+[title=Day1ApproachThugs-begin]
+Thuggish Man: Hey! Get the hell out of here, kid.
+Thuggish Man: Go play dress-up somewhere else.
+[title=Day1ApproachThugs-end]
+
+Objective: Eavesdrop from afar
+
+----------------------------------------------------------------------------------------------------------
+
+If YY approaches them again.
+
+[title=Day1ApproachAgain-begin]
+Thuggish Man: I said screw off, you little rat!
+[title=Day1ApproachAgain-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene4-begin]
-QQ: Hey.
-Ying Yue: Hey yourself.
-Ying Yue: ... What are you doing, QQ?
-QQ: Uhm, hiding, like everyone else.
-Ying Yue: Right, curfew.
-QQ: Yes, constable, curfew.
-QQ: What? Did something happen?
-Ying Yue: And no one will believe me when I say that I know that something's wrong.
-Ying Yue: Do you about about the recent kidnappings?
-QQ: Uh huh.
-Ying Yue: My gut feeling is screaming at me about it, but my seniors won't let me pursue anything.
-Ying Yue: QQ, this is the fourth kidnapping case. We have to put a stop to it.
-QQ: Huh. So, what's your plan now?
-Ying Yue: I'm unable to do much, not with the chief supervising me.
-Ying Yue: He even went on about getting permission from a high-ranking official.
-Ying Yue: I have to find a way...
-QQ: ... I think I know a way.
-Ying Yue:  ... How?
-QQ: It'll take a while, but uhm...
-QQ: How religious are you?
-Ying Yue: I'm (automatically cut off text)
-QQ: Best start praying, Ying Yue.
-QQ: I know I would.
-[title=WAScutscene4-end]
 
-
-[title=WAScutscene5-begin]
-Ying Yue: QQ, you silly melon...
-Ying Yue: It's been a long day, I should head back home.
-[title=WAScutscene5-end]
-
-
-[title=WAScutscene6-begin]
+[title=-begin]
 Chief Hank: I... I don't know how you did this but...
 Chief Hank: Don't waste too much time on this.
 Chief Hank: We have more work that's better suited for your...
@@ -65,16 +96,20 @@ Chief Hank: And note that because you are comparably less experienced than your 
 Chief Hank: They have more important tasks at hand.
 Ying Yue: Yes, sir.
 Chief Hank: You are dismissed.
-[title=WAScutscene6-end]
+[title=-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene7-begin]
+[title=-begin]
 Ying Yue: It looks like Chief Hank will keep wasting my work hours with paperwork.
 Ying Yue: I doubt I can do anything about the case at this rate.
-[title=WAScutscene7-end]
+[title=-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene8-begin]
+[title=-begin]
 Chief Hank: God damn it. I can't believe this mess.
 Chief Hank: Kidnappings, ransoms, opium drug trade, theft, assault...
 Chief Hank: The secret society nonsense is getting out of hand.
@@ -92,17 +127,21 @@ Ying Yue: <i>(That man from the warehouse...!)</i>
 Chief Hank: We will contact you if needed. You are to return to your paperwork.
 Chief Hank: Dismissed.
 Ying Yue: Yes, sir. Thank you, sir.
-[title=WAScutscene8-end]
+[title=-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene9-begin]
+[title=-begin]
 Ying Yue: ...
 (UI: key item obtained: folded note.)
 Ying Yue:  ... I have to stop them.
-[title=WAScutscene9-end]
+[title=-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene10-begin]
+[title=WAScutscene-begin]
 Ying Yue: Hey.
 QQ: Hey yourself. What's (cut off text automatically)
 Ying Yue: I need your help.
@@ -123,19 +162,23 @@ Ying Yue: It's my duty to serve my people.
 QQ: ...
 QQ: I'll see you tonight.
 (UI: key item obtained: final note.)
-[title=WAScutscene10-end]
+[title=WAScutscene-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene11-begin]
+[title=WAScutscene-begin]
 Lao Da: Ying Yue! Lovely lady of the law, come on out.
 Lao Da: You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
 Lao Da: ... But impressive acts only last so long.
 Ying Yue: ...
 Lao Da: <i>You are no hero, Ying Yue, just a troublemaker.</i>
-[title=WAScutscene11-end]
+[title=WAScutscene-end]
+
+----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene12-begin]
+[title=WAScutscene-begin]
 Lao Da: Enough games, Ying Yue. There's nowhere to run.
 Lao Da: Honestly, you remind me of someone: my son, brilliant but selfishly stubborn.
 Lao Da: So many years ahead of yourself, all thrown away because of one stupid decision.
@@ -156,4 +199,4 @@ QQ: Told you I'd see you tonight.
 (Several police cars enter the scene from the destroyed wall, the driving policemen yelling that they have cornered the thief of a family car.)
 (The policemen notice Lao Da. They change their priorities to apprehend him and his men.)
 (Ying Yue gets up and tries to help them.)
-[title=WAScutscene12-end]
+[title=WAScutscene-end]

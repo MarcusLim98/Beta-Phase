@@ -11,7 +11,7 @@ public class PlayerLogic : MonoBehaviour {
     public LayerMask layerMask;
     public Transform thisNoisyFloor;
     [HideInInspector]
-    public bool playerEavesdrop, isMoving, noMoving, cursorIsOverUI, enableSpawnCheat, stepOnNoisyFloor;
+    public bool playerEavesdrop, isMoving, noMoving, cursorIsOverUI, enableSpawnCheat, stepOnNoisyFloor, inCutscene;
     public string fileName;
     public SpawnBehaviour[] sb;
     public Transform[] cheatSpawns;
@@ -178,5 +178,17 @@ public class PlayerLogic : MonoBehaviour {
         {
             stepOnNoisyFloor = false;
         }
+    }
+
+    public void EnableMovement()
+    {
+        noMoving = false;
+        inCutscene = false;
+    }
+
+    public void DisableMovement()
+    {
+        noMoving = true;
+        inCutscene = true;
     }
 }
