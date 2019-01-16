@@ -11,12 +11,16 @@ public class ImportantCutsceneCtrlSwitch : MonoBehaviour {
     void StartCutscene()
     {
         playerLogic.DisableMovement();
-        cameraLogic.target = cameraFocus;
     }
 
     void EndCutscene()
     {
         playerLogic.EnableMovement();
+    }
+
+    void SwapCamFocus()
+    {
+        cameraLogic.target = cameraFocus;
     }
 
 }
