@@ -6,7 +6,7 @@ using cakeslice;
 public class CameraLogic : MonoBehaviour {
 
     public LayerMask layerMask;
-    private Transform target;
+    public Transform target;
     public Transform player;
     public Transform eavesdropLookHere;
     public Vector3 targetOffset, raycastPosition;
@@ -53,11 +53,11 @@ public class CameraLogic : MonoBehaviour {
 
     void CameraAngles()
     {
-        if(playerLogic.playerEavesdrop == false)
+        if(playerLogic.playerEavesdrop == false && !playerLogic.inCutscene)
         {
             target = player.transform;
         }
-        else if (playerLogic.playerEavesdrop == true)
+        else if (playerLogic.playerEavesdrop == true && !playerLogic.inCutscene)
         {
             target = eavesdropLookHere.transform;
         }
