@@ -6,58 +6,17 @@ using UnityEngine.UI;
 
 public class Noisemaker : MonoBehaviour {
 
-    //public bool active = false, isNoisyFloor;
-    //public int routeChange;
-
-    //public int noiseType; //1 for player last heard, 2 for bottle-made floors, 3 for natural floors, 4 for fixed, 5 for static distractions, 6 for AI that shoot bottles and chasing debris
-    //bool staticDistraction;
-    //public float timer;
     public Text pressE;
-    //public GameObject distractionObj;
     public Rigidbody rb;
-    //public Transform[] movePaths;
 
     public ArtificialIntelligence[] ai;
     public Vector3[] movePaths;
-    public bool hasInteracted;
-    //private PlayerLogic playerLogic;
-    //private SphereCollider sphereCol;
-    //private ArtificialIntelligence miniBoss;
-
-    private void Start()
-    {
-        /*playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
-        if (noiseType == 2)
-        {
-            active = true;
-        }
-        if(noiseType == 5)
-        {
-            //sphereCol = GetComponent<SphereCollider>();
-            rb = distractionObj.GetComponent<Rigidbody>();
-        }*/
-        //miniBoss = GameObject.Find("ShootsBottleAI").GetComponent<ArtificialIntelligence>();
-
-    }
-
-    private void Update()
-    {
-        /*if (active)
-        {
-            Counter();
-        }
-        else timer = 0f;*/
-    }
+    public Vector3[] whereToLook;
+    public bool hasInteracted, mustInteract;
 
     private void OnTriggerStay(Collider other)
     {
-        /*if (other.tag == "Player" && (noiseType == 2 ||noiseType ==3) && playerLogic.movingStyle == 1)
-        {
-            //print("touched");
-            active = true;
-        }*/
-
-        if (other.tag == "Player" && !hasInteracted)
+        if (other.tag == "Player" && !mustInteract && !hasInteracted)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -67,6 +26,10 @@ public class Noisemaker : MonoBehaviour {
                 {
                     ai[i].stationeryPosition.position = movePaths[i];
                     ai[i].questionMark.SetActive(true);
+                }
+                for (int i = 0; i < whereToLook.Length; i++)
+                {
+                    ai[i].lookHereStart = whereToLook[i];
                 }
             }
             if (!hasInteracted)
@@ -80,36 +43,19 @@ public class Noisemaker : MonoBehaviour {
             }
         }
 
-        /*private void OnTriggerEnter(Collider other)
+        if (other.tag == "Player" && mustInteract)
         {
-            if (other.name == "SpotCheck")
+            for (int i = 0; i < movePaths.Length; i++)
             {
-                if (this.gameObject.name == "PlayerBottle(Clone)")
-                {
-                    StartCoroutine("Gone");
-                }
+                ai[i].stationeryPosition.position = movePaths[i];
+                ai[i].questionMark.SetActive(true);
             }
-        }*/
-
-        /*private void OnTriggerLeave(Collider other)
-        {
-
-        }
-
-        public void Counter()
-        {
-            timer = timer + Time.deltaTime;
-            if (timer > 1)
+            for (int i = 0; i < whereToLook.Length; i++)
             {
-                active = false;
+                ai[i].lookHereStart = whereToLook[i];
             }
+            this.gameObject.SetActive(false);
         }
-
-        IEnumerator Gone()
-        {
-            yield return new WaitForSeconds(8f);
-            gameObject.SetActive(false);
-        }*/
     }
 
     private void OnTriggerExit(Collider other)
