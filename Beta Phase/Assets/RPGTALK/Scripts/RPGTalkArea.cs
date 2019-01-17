@@ -87,7 +87,7 @@ public class RPGTalkArea : MonoBehaviour {
 	/// The timeline director can be played with the same rules as the talk.
 	/// </summary>
 	public PlayableDirector timelineDirectorToPlay;
-    public PlayerLogic player;
+
 	/// <summary>
 	/// Hide anything that shouldn't be showing upon the start
 	/// </summary>

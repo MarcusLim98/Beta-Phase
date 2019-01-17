@@ -9,7 +9,7 @@ public class EavesdropLogic : MonoBehaviour
     public Image[] images;
     public Transform convoBar;
     public float currentAmount, speed;
-    public bool isMouseDown, changeCameraAngle;
+    public bool isInteracted, changeCameraAngle;
     private float downTime;
     private PlayerLogic playerLogic;
     //private CameraLogic cameraLogic;
@@ -36,36 +36,30 @@ public class EavesdropLogic : MonoBehaviour
 
         convoBar.GetComponent<Image>().fillAmount = currentAmount / 100;
 
-        if(currentAmount >= 0.01f && playerLogic.playerEavesdrop == true)
+        if (Input.GetKeyUp(KeyCode.E) && currentAmount <= 100 && playerLogic.playerEavesdrop == true)
         {
-            currentAmount -= speed * Time.deltaTime;
+            isInteracted = false;
         }
-        else if (Input.GetKeyDown(KeyCode.E) && currentAmount <= 100 && playerLogic.playerEavesdrop == true)
+        else if (Input.GetKey(KeyCode.E) && currentAmount <= 100 && playerLogic.playerEavesdrop == true)
         {
-            //changeCameraAngle = true;
-            currentAmount += speed * Time.deltaTime;
+            isInteracted = true;
         }
-        else
+        else if(playerLogic.playerEavesdrop == false)
         {
             currentAmount = 0.01f;
-            //changeCameraAngle = false;
         }
-        /*else if(isMouseDown == true && Input.GetMouseButtonUp(0) && currentAmount >= 0.1f)
+
+        if (!isInteracted)
         {
             currentAmount -= speed * Time.deltaTime;
-            print("3");
-        }*/
-    }
-
-    public void Hover()
-    {
-        isMouseDown = true;
-        //print("on");
-    }
-
-    public void Exit()
-    {
-        isMouseDown = false;
-        //print("off");
+            if(currentAmount <= 0.01f)
+            {
+                currentAmount = 0.01f;
+            }
+        }
+        else if (isInteracted)
+        {
+            currentAmount += speed * Time.deltaTime;
+        }
     }
 }

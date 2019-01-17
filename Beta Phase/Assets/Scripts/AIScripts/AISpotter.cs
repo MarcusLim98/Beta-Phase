@@ -80,7 +80,7 @@ public class AISpotter : MonoBehaviour {
             {
                 if (hit.transform.name == "Look Here")
                 {
-                    rotatingSpeed = 30f;
+                    rotatingSpeed = 20f;
                     canRotateLoop = true;
                     exclamationMark.SetActive(false);
                 }
@@ -168,9 +168,10 @@ public class AISpotter : MonoBehaviour {
                 foreach (ArtificialIntelligence ai in thugsToCall)
                 {
                     ai.spottedHighlight = true;
-                    playerHighlight.transform.parent = playerTarget;
-                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-                    playerHighlight.transform.parent = null;
+                    ai.isInFov = 2;
+                    //playerHighlight.transform.parent = playerTarget;
+                    //playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    //playerHighlight.transform.parent = null;
                 }
             }
         }

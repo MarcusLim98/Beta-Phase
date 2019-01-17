@@ -22,14 +22,19 @@ public class ArtificialIntelligence : MonoBehaviour
     public bool spottedHighlight, goToNoisySource, stationery, staticRotate;
     [Space]
     [Space]
+    [HideInInspector]
+    public GameObject EmptyObj, questionMark, exclamationMark;
+    [HideInInspector]
+    public Vector3 lookHereStart;
+    [HideInInspector]
+    public int isInFov;
     NavMeshAgent agent;
     Animator anim;
     Transform target, thisAI, uiAbove;
-    Vector3 lookHereStart, targetDir, newDir, directionBetween;
+    Vector3 targetDir, newDir, directionBetween;
     Image uiState;
-    GameObject EmptyObj, questionMark, exclamationMark;
     PlayerLogic playerLogic;
-    int destPoint = 0, investigatingState, isInFov;
+    int destPoint = 0, investigatingState;
     float stopToLook, stopToGoBack, angle, startToTurn;
     bool turnBack, cannotTurn, playerWithinRadius;
 
@@ -205,6 +210,7 @@ public class ArtificialIntelligence : MonoBehaviour
 
     void GotoNextPoint()
     {
+        playerHighlight.SetActive(false);
         if (!stationery && !staticRotate)
         {
             anim.SetInteger("State", 1);
@@ -215,6 +221,8 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f)
         {
+            questionMark.SetActive(false);
+            exclamationMark.SetActive(false);
             anim.SetInteger("State", 0);
             if (!staticRotate)
             {
@@ -228,8 +236,7 @@ public class ArtificialIntelligence : MonoBehaviour
             }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) >= 1f)
-        {
-            print("going back");
+        {    
             anim.SetInteger("State", 1);
             cannotTurn = true;
             agent.SetDestination(stationeryPosition.position);
@@ -305,8 +312,6 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
-                playerHighlight.SetActive(false);
-                exclamationMark.SetActive(false);
                 questionMark.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
@@ -315,7 +320,6 @@ public class ArtificialIntelligence : MonoBehaviour
                 isInFov = 0;
                 agent.speed = walkSpeed;
                 GotoNextPoint();
-                print("go back to original position");
             }
         }
     }
@@ -361,7 +365,6 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit2.transform == playerTarget)
                 {
-                    print("within 2nd fov");
                     investigatingState = 2;
                     isInFov = 2;
                     questionMark.SetActive(false);
