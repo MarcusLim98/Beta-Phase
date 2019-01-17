@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RotatingParticleEffect : MonoBehaviour {
 
     public bool onlyTurn;
+    public Text pressE;
     public Vector3 speed;
     public ParticleSystem ps1, ps2, ps3;
     public SphereCollider thisCollider;
@@ -96,6 +97,15 @@ public class RotatingParticleEffect : MonoBehaviour {
         if(other.tag == "Player")
         {
             thisPlayer = true;
+            if (eavesdropLogic.isInteracted == true)
+            {
+                pressE.enabled = false;
+            }
+            else if (eavesdropLogic.isInteracted == false)
+            {
+                pressE.text = "Hold E to interact";
+                pressE.enabled = true;
+            }
         }
     }
 
@@ -104,6 +114,7 @@ public class RotatingParticleEffect : MonoBehaviour {
         if (other.tag == "Player")
         {
             thisPlayer = false;
+            pressE.enabled = false;
         }
     }
 }

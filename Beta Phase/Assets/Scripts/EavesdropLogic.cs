@@ -8,7 +8,6 @@ public class EavesdropLogic : MonoBehaviour
 {
     public Image[] images;
     public Transform convoBar;
-    public Text pressE;
     public float currentAmount, speed;
     public bool isInteracted, changeCameraAngle;
     private float downTime;
@@ -39,13 +38,10 @@ public class EavesdropLogic : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.E) && currentAmount <= 100 && playerLogic.playerEavesdrop == true)
         {
-            pressE.text = "Hold E to interact";
-            pressE.enabled = true;
             isInteracted = false;
         }
         else if (Input.GetKey(KeyCode.E) && currentAmount <= 100 && playerLogic.playerEavesdrop == true)
         {
-            pressE.enabled = false;
             isInteracted = true;
         }
         else if(playerLogic.playerEavesdrop == false)
@@ -56,6 +52,10 @@ public class EavesdropLogic : MonoBehaviour
         if (!isInteracted)
         {
             currentAmount -= speed * Time.deltaTime;
+            if(currentAmount <= 0.01f)
+            {
+                currentAmount = 0.01f;
+            }
         }
         else if (isInteracted)
         {
