@@ -13,10 +13,4 @@ public class PrologueCtrl : MonoBehaviour {
         ui.LoadScene("Outside_Warehouse");
     }
 
-    IEnumerator PrologueComplete()
-    {
-        yield return new WaitForSeconds(1);
-        ui.LoadScene("Outside_Warehouse");
-    }
-
 }
