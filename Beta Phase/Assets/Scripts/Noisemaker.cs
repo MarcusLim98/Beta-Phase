@@ -18,6 +18,7 @@ public class Noisemaker : MonoBehaviour {
     {
         if (other.tag == "Player" && !mustInteract && !hasInteracted)
         {
+            pressE.text = "Press E to interact";
             if (Input.GetKeyDown(KeyCode.E))
             {
                 hasInteracted = true;

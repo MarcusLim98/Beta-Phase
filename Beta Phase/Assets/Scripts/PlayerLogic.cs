@@ -30,7 +30,7 @@ public class PlayerLogic : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         AI = GameObject.FindObjectOfType<ArtificialIntelligence>();
-        //eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
+        eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
         cameraLogic = GameObject.Find("Main Camera").GetComponent<CameraLogic>();
         externalAudio = GetComponent<AudioSource>();
         sb = GameObject.FindObjectsOfType<SpawnBehaviour>();

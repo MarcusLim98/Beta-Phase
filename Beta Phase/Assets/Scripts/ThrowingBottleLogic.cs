@@ -43,7 +43,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetKey(KeyCode.Q) && Physics.Raycast(camRay, out hit, 100f, layer) && itemPickUp.haveBottle == true)
+        if (Input.GetKey(KeyCode.W) && Physics.Raycast(camRay, out hit, 100f, layer) && itemPickUp.haveBottle == true)
         {
             dist = Vector3.Distance(cursor.transform.position, transform.position);
             playerLogic.noMoving = true;
