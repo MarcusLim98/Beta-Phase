@@ -1,0 +1,40 @@
+Info learnt when eavesdrop Thugs for Coffeshop
+/Location of Coffe Shop
+
+[title=Day1EaveStreet-begin]
+Thuggish Man: We got alot of protection money today.
+Scarred Man: Ya , let's gather the money with the others.
+Thuggish Man: We go to the Coffee Shop after shift.
+Scarred Man: Sure, the other two waiting for us in the usual room.
+[title=Day1EavesStreet-end]
+
+/-/
+Info learnt when eavesdrop Thugs of Coffeshop
+/Location of Gambling Den
+
+[title=Day1EaveShop-begin]
+Lucky Thug: Huat Ah! I won 250 dollars.
+Unlucky Thug: Wah, I lost all my bets yesterday.
+Unlucky Thug: Chap ji kee really is hard..
+Lucky Thug: It's okay bro, we go to the Gambling Den.
+Lucky Thug: Let me win back your money!
+[title=Day1EaveShop-end]
+
+/-/
+Info learnt when eavesdrop Thugs of Gambling Den
+/Location of Warehouse 1
+
+[title=Day1EaveGamble-begin]
+Gambling Thug: So how are the goods ?
+Dealer: The opium arrived today. It's being stored at the Warehouse.
+Gambling Thug: The one down the street ?
+Dealer: Yes Hia Di, that one. You going there later ?
+Gambling Thug: I go help push the remaing goods tomorrow then.
+Dealer: Okay then. Let's finish setting up the table.
+Dealer: We're starting soon.
+[title=Day1EaveGamble-end]
+
+/-/
+Info learnt when eavesdrop Thug in Warehouse 1 Part 1
+/Info about Boss ariving tommorrow
+
