@@ -500,7 +500,7 @@ ModelImporter:
     4300184: BackWall_White019
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
