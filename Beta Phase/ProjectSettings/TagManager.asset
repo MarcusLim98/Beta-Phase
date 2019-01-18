@@ -11,6 +11,7 @@ TagManager:
   - Bottle
   - Thug
   - SpawnPoint
+  - NoisyFloor
   layers:
   - Default
   - TransparentFX
