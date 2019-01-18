@@ -154,6 +154,8 @@ MonoBehaviour:
   playerHighlight: {fileID: 2084903403}
   noisySource: {fileID: 0}
   stationeryPosition: {fileID: 0}
+  suspicious: {fileID: 0}
+  alert: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -163,10 +165,17 @@ MonoBehaviour:
   maxAngle: 45
   maxAngle2: 45
   rotatingSpeed: 0
+  walkSpeed: 0
+  runSpeed: 0
   spottedHighlight: 0
   goToNoisySource: 0
   stationery: 1
   staticRotate: 0
+  EmptyObj: {fileID: 0}
+  questionMark: {fileID: 0}
+  exclamationMark: {fileID: 0}
+  lookHereStart: {x: 0, y: 0, z: 0}
+  isInFov: 0
 --- !u!136 &51726228
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -242,6 +251,7 @@ MonoBehaviour:
   cursorIsOverUI: 0
   enableSpawnCheat: 0
   stepOnNoisyFloor: 0
+  inCutscene: 0
   fileName: 
   sb: []
   cheatSpawns: []
@@ -655,7 +665,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1856634895}
+  m_TargetTexture: {fileID: 1837668803}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -1426,7 +1436,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1203462441}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1235366368
+--- !u!84 &1214833978
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1437,8 +1447,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 905
-  m_Height: 509
+  m_Width: 407
+  m_Height: 228
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 7
@@ -1501,10 +1511,11 @@ MonoBehaviour:
   rb: {fileID: 54610476683538934, guid: 052e03f30eb1d5841a0c9fe12f90fc4f, type: 2}
   cursor: {fileID: 0}
   lr: {fileID: 1480706081}
+  midPoint: {fileID: 0}
+  bottleIcon: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 4096
-  midPoint: {fileID: 0}
   forceToThrow: 1.35
   maxRadius: 5
   limit: 10
@@ -1759,7 +1770,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bed163c62920da47abce198511b5eb7, type: 3}
   m_IsPrefabAsset: 0
---- !u!84 &1856634895
+--- !u!84 &1837668803
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1770,8 +1781,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 905
-  m_Height: 509
+  m_Width: 407
+  m_Height: 228
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 7
@@ -1832,7 +1843,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961665762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
@@ -1867,8 +1878,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1856634895}
-  extraRenderTexture: {fileID: 1235366368}
+  renderTexture: {fileID: 1837668803}
+  extraRenderTexture: {fileID: 1214833978}
 --- !u!114 &1961665766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,6 +1894,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  target: {fileID: 0}
   player: {fileID: 77914978}
   eavesdropLookHere: {fileID: 0}
   targetOffset: {x: 5, y: 15, z: -5}
