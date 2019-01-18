@@ -29,7 +29,7 @@ public class SpawnBehaviour : MonoBehaviour {
             SaveChoiceText();
         }
 
-        if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
+        /*if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
         {
             if (PlayerPrefs.GetInt(other.name) == 0 || !PlayerPrefs.HasKey(other.name))
             {
@@ -48,7 +48,7 @@ public class SpawnBehaviour : MonoBehaviour {
                     }
                 }
             }
-        }
+        }*/
 
         if (other.name == "Thug")                               //use name, if not listening colliders will affect player
         {

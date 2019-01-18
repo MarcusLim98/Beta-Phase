@@ -18,23 +18,22 @@ public class ArtificialIntelligence : MonoBehaviour
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxAngle, maxAngle2, rotatingSpeed, walkSpeed, runSpeed;
+    public float maxRadius, maxRadius2, maxAngle, maxAngle2, rotatingSpeed, walkSpeed, runSpeed, timeToStare;
     public bool spottedHighlight, goToNoisySource, stationery, staticRotate;
     [Space]
     [Space]
-    [HideInInspector]
     public GameObject EmptyObj, questionMark, exclamationMark;
     [HideInInspector]
     public Vector3 lookHereStart;
     [HideInInspector]
-    public int isInFov;
+    public int isInFov, investigatingState;
     NavMeshAgent agent;
     Animator anim;
     Transform target, thisAI, uiAbove;
     Vector3 targetDir, newDir, directionBetween;
     Image uiState;
     PlayerLogic playerLogic;
-    int destPoint = 0, investigatingState;
+    int destPoint = 0;
     float stopToLook, stopToGoBack, angle, startToTurn;
     bool turnBack, cannotTurn, playerWithinRadius;
 
@@ -60,6 +59,7 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.transform.parent = uiAbove;
         questionMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
+        timeToStare = 1.5f;
         state = AIState.PATROLLING;
     }
 
@@ -83,9 +83,8 @@ public class ArtificialIntelligence : MonoBehaviour
                         if (isInFov != 2)
                         {
                             stopToLook += Time.deltaTime;
-                            playerHighlight.SetActive(true);
                             agent.SetDestination(playerHighlight.transform.position);
-                            if (stopToLook <= 1.5f)
+                            if (stopToLook <= timeToStare)
                             {
                                 anim.SetInteger("State", 0);
                                 playerHighlight.transform.parent = null;
@@ -94,7 +93,7 @@ public class ArtificialIntelligence : MonoBehaviour
                                 newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                                 transform.rotation = Quaternion.LookRotation(newDir);
                             }
-                            else if (stopToLook >= 1.5f)
+                            else if (stopToLook >= timeToStare)
                             {
                                 anim.SetInteger("State", 1);
                                 agent.speed = walkSpeed;
@@ -115,7 +114,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     {
                         stopToLook += Time.deltaTime;
                         agent.SetDestination(noisySource.position);
-                        if (stopToLook <= 1.5f)
+                        if (stopToLook <= timeToStare)
                         {
                             anim.SetInteger("State", 0);
                             agent.speed = 0;
@@ -123,7 +122,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
-                        else if (stopToLook >= 1.5f)
+                        else if (stopToLook >= timeToStare)
                         {
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
@@ -153,6 +152,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     spottedHighlight = true;
                     goToNoisySource = false;
+                    playerHighlight.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                     if (isInFov == 1)
@@ -162,7 +162,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         playerHighlight.transform.parent = null;
                         agent.SetDestination(playerHighlight.transform.position);
                         stopToLook += Time.deltaTime;
-                        if (stopToLook <= 1.5f)
+                        if (stopToLook <= timeToStare)
                         {
                             anim.SetInteger("State", 0);
                             playerHighlight.transform.parent = null;
@@ -171,7 +171,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
-                        else if (stopToLook >= 1.5f)
+                        else if (stopToLook >= timeToStare)
                         {
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
@@ -201,6 +201,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     agent.speed = runSpeed;
                     anim.SetInteger("State", 1);
                     agent.SetDestination(playerTarget.position);
+                    playerHighlight.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                 }
@@ -210,7 +211,6 @@ public class ArtificialIntelligence : MonoBehaviour
 
     void GotoNextPoint()
     {
-        playerHighlight.SetActive(false);
         if (!stationery && !staticRotate)
         {
             anim.SetInteger("State", 1);
@@ -236,7 +236,7 @@ public class ArtificialIntelligence : MonoBehaviour
             }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) >= 1f)
-        {    
+        {
             anim.SetInteger("State", 1);
             cannotTurn = true;
             agent.SetDestination(stationeryPosition.position);
@@ -291,7 +291,6 @@ public class ArtificialIntelligence : MonoBehaviour
     {
         if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
         {
-            playerHighlight.SetActive(true);
             target = playerHighlight.transform;
         }
         else if (goToNoisySource && !spottedHighlight)
@@ -301,6 +300,10 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 noisySource.tag = "Untagged";
             }
+        }
+        if (Vector3.Distance(thisAI.position, target.position) < 6)
+        {
+            playerHighlight.SetActive(true);
         }
         if (Vector3.Distance(thisAI.position, target.position) < 3)
         {
@@ -313,6 +316,8 @@ public class ArtificialIntelligence : MonoBehaviour
             else if (stopToGoBack >= 3f)
             {
                 questionMark.SetActive(false);
+                exclamationMark.SetActive(false);
+                playerHighlight.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
                 stopToGoBack = 0;
@@ -342,12 +347,14 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit.transform == playerTarget && isInFov != 2)
                 {
+                    print("spotted");
                     investigatingState = 1;
                     isInFov = 1;
                     questionMark.SetActive(true);
+                    exclamationMark.SetActive(false);
                 }
             }
-            else 
+            else
             {
                 investigatingState = 0;
             }
@@ -427,6 +434,20 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Thug" && isInFov == 2)
+        {
+            if (other.GetComponent<ArtificialIntelligence>().isInFov != 2)
+            {
+                other.GetComponent<ArtificialIntelligence>().spottedHighlight = true;
+                other.GetComponent<ArtificialIntelligence>().investigatingState = 2;
+                other.GetComponent<ArtificialIntelligence>().isInFov = 2;
+                other.GetComponent<ArtificialIntelligence>().exclamationMark.SetActive(true);
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -434,4 +455,5 @@ public class ArtificialIntelligence : MonoBehaviour
             playerWithinRadius = false;
         }
     }
+
 }
