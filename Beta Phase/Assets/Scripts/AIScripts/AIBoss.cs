@@ -14,7 +14,7 @@ public class AIBoss : MonoBehaviour {
     public GameObject playerHighlight;
     public Transform noisySource;
     public Transform stationeryPosition;
-    public GameObject alert, gunLine, bullet;
+    public GameObject alert, gunLine, bullet, crate;
     public AIVision aiVision;
     [Space]
     [Space]
@@ -74,7 +74,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     if (!goToNoisySource && firstStage < 3)
                     {
-                        print("1");
+                        //print("1");
                         exclamationMark.SetActive(false);
                         rotatingSpeed = 1.5f;
                         var desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
@@ -82,8 +82,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && !spottedHighlight && firstStage >= 3)
                     {
-                        print("2");
-                        agent.speed = 3;
+                        //print("2");
                         anim.SetInteger("State", 1);
                         if (timesFired <= 6)
                         {
@@ -99,7 +98,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (goToNoisySource && !spottedHighlight)
                     {
-                        print("3");
+                        //print("3");
                         stopToLook += Time.deltaTime;
                         if (stopToLook <= 1.5f)
                         {
@@ -122,7 +121,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && spottedHighlight)
                     {
-                        print("4");
+                        //print("4");
                         agent.SetDestination(playerHighlight.transform.position);
                         playerHighlight.transform.parent = null;
                         CheckAndReturn();
@@ -142,7 +141,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     if (!goToNoisySource && timesFired < 6)
                     {
-                        print("5");
+                        //print("5");
                         anim.SetInteger("State", 0);
                         agent.speed = 0;
                         targetDir = playerHighlight.transform.position - thisAI.position;
@@ -171,10 +170,10 @@ public class AIBoss : MonoBehaviour {
                                         gunLine.SetActive(false);
                                         foreach (ArtificialIntelligence thugs in thugsToCall)
                                         {
-                                            thugs.runSpeed = 9f;
-                                            thugs.walkSpeed = 9f;
-                                            thugs.timeToStare = 0.1f;
-                                            thugs.questionMark = thugs.exclamationMark;
+                                            thugs.runSpeed = 9;
+                                            thugs.walkSpeed = 9;
+                                            thugs.maxRadius = 0;
+                                            thugs.maxRadius2 = 8;
                                         }
                                     }
                                 }
@@ -183,7 +182,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && timesFired >= 6)
                     {
-                        print("6");
+                        //print("6");
                         agent.speed = runSpeed;
                         anim.SetInteger("State", 1);
                         spottedHighlight = true;
@@ -241,6 +240,7 @@ public class AIBoss : MonoBehaviour {
                             thugs.exclamationMark.SetActive(true);
                         }
                     }
+                    return true;
                 }
             }
             else
@@ -251,6 +251,11 @@ public class AIBoss : MonoBehaviour {
         else
         {
             investigatingState = 0;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.Euler(0, 0, 0));
         }
         return false;
     }
@@ -273,8 +278,6 @@ public class AIBoss : MonoBehaviour {
             {
                 exclamationMark.SetActive(false);
                 playerHighlight.SetActive(false);
-                playerHighlight.transform.parent = playerTarget;
-                playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                 spottedHighlight = false;
                 goToNoisySource = false;
                 stopToGoBack = 0;
@@ -335,7 +338,18 @@ public class AIBoss : MonoBehaviour {
             aiPath = other.GetComponentInParent<AIPath>();
         }
 
-        if (other.tag == "Thug" && timesFired >= 6 && spottedHighlight)
+        if(other.name == "Crate(Clone)" && firstStage < 3 && timesFired < 6)
+        {
+            firstStage = 3;
+            timesFired = 6;
+        }
+        if (other.name == "Crate(Clone)" && timesFired == 6)
+        {
+            walkSpeed -= 0.5f;
+            agent.speed = walkSpeed;
+        }
+
+        /*if (other.tag == "Thug" && timesFired >= 6 && spottedHighlight)
         {
             if (other.GetComponent<ArtificialIntelligence>().isInFov != 2)
             {
@@ -344,6 +358,36 @@ public class AIBoss : MonoBehaviour {
                 other.GetComponent<ArtificialIntelligence>().isInFov = 2;
                 other.GetComponent<ArtificialIntelligence>().exclamationMark.SetActive(true);
             }
+        }*/
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name == "NoisyFloor" && timesFired >= 6)
+        {
+            if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
+            {
+                print("look at player");
+                noisySource = playerLogic.thisNoisyFloor;
+                goToNoisySource = true;
+            }
+            if(other.transform.GetChild(0).name == "NoisyFloor1")
+            {
+                thugsToCall[0].noisySource = playerLogic.thisNoisyFloor;
+                thugsToCall[0].goToNoisySource = true;
+                thugsToCall[0].exclamationMark.SetActive(true);
+            }
+            else if (other.transform.GetChild(0).name == "NoisyFloor2")
+            {
+                thugsToCall[1].noisySource = playerLogic.thisNoisyFloor;
+                thugsToCall[1].goToNoisySource = true;
+                thugsToCall[1].exclamationMark.SetActive(true);
+            }
+        }
+
+        if (other.tag == "Player" && timesFired >= 6)
+        {
+            playerWithinRadius = true;
         }
     }
 

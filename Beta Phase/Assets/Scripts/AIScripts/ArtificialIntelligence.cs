@@ -22,6 +22,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public bool spottedHighlight, goToNoisySource, stationery, staticRotate;
     [Space]
     [Space]
+    [HideInInspector]
     public GameObject EmptyObj, questionMark, exclamationMark;
     [HideInInspector]
     public Vector3 lookHereStart;
@@ -105,7 +106,6 @@ public class ArtificialIntelligence : MonoBehaviour
                             anim.SetInteger("State", 1);
                             agent.speed = runSpeed;
                             playerHighlight.transform.parent = null;
-                            //playerOutline.enabled = true;
                             agent.SetDestination(playerHighlight.transform.position);
                             CheckAndReturn();
                         }
@@ -157,7 +157,6 @@ public class ArtificialIntelligence : MonoBehaviour
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                     if (isInFov == 1)
                     {
-                        //playerOutline.enabled = false;
                         playerHighlight.SetActive(false);
                         playerHighlight.transform.parent = null;
                         agent.SetDestination(playerHighlight.transform.position);
