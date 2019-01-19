@@ -775,8 +775,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1034788808}
-  extraRenderTexture: {fileID: 1063348337}
+  renderTexture: {fileID: 1074330068}
+  extraRenderTexture: {fileID: 434736804}
 --- !u!114 &57532216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14180,6 +14180,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 877c3892b58c2c94d855ecc8f3dddda7,
     type: 3}
   m_PrefabInternal: {fileID: 432372788}
+--- !u!84 &434736804
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 707
+  m_Height: 398
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &439173811
 GameObject:
   m_ObjectHideFlags: 0
@@ -29340,7 +29371,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 884067347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.96, y: 2.59, z: 4.39}
+  m_LocalPosition: {x: -15.96, y: 1, z: 5.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
@@ -34067,37 +34098,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ac6327aa91611ae48abe93695346d41d, type: 3}
---- !u!84 &1034788808
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 707
-  m_Height: 398
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1038439830
 Prefab:
   m_ObjectHideFlags: 0
@@ -34719,37 +34719,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ac6327aa91611ae48abe93695346d41d, type: 3}
---- !u!84 &1063348337
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 707
-  m_Height: 398
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1066708451
 Prefab:
   m_ObjectHideFlags: 0
@@ -35056,6 +35025,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 31b78ccc16b81684da4a8bc874d8727b,
     type: 3}
   m_PrefabInternal: {fileID: 1074229010}
+--- !u!84 &1074330068
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 707
+  m_Height: 398
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1082701256
 GameObject:
   m_ObjectHideFlags: 0
@@ -35886,6 +35886,61 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!1 &1109805087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109805088}
+  - component: {fileID: 1109805090}
+  - component: {fileID: 1109805089}
+  m_Layer: 0
+  m_Name: SaveInstructions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109805088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109805087}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8, y: 1, z: 17.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1176812674}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1109805089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109805087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f45d12549eb2c4fac05d4e1124b14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialText: {fileID: 1889862939}
+  instructions: pray at altars to save your progress
+--- !u!65 &1109805090
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109805087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 9}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1112039679
 Prefab:
   m_ObjectHideFlags: 0
@@ -37451,6 +37506,7 @@ Transform:
   - {fileID: 1850728301}
   - {fileID: 884067348}
   - {fileID: 2067440781}
+  - {fileID: 1109805088}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43354,6 +43410,8 @@ MonoBehaviour:
   movePaths: []
   newPos: []
   spawnBehaviour: {fileID: 2066216220}
+  callbackScript: {fileID: 0}
+  callbackFunction: 
 --- !u!199 &1219441268
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -50214,8 +50272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.168016, y: -15.833303}
-  m_SizeDelta: {x: 148.55, y: 30}
+  m_AnchoredPosition: {x: 33, y: -8.86}
+  m_SizeDelta: {x: 148.55, y: 21.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307939529
 MonoBehaviour:
@@ -50259,12 +50317,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: a807dd3421bb85e4fb71db6680acf0ae, type: 3}
-    m_FontSize: 12
+    m_FontSize: 10
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -54625,6 +54683,8 @@ MonoBehaviour:
   movePaths: []
   newPos: []
   spawnBehaviour: {fileID: 2066216220}
+  callbackScript: {fileID: 622048808}
+  callbackFunction: Day1AfterEavesdrop
 --- !u!135 &1456207224
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -59707,6 +59767,8 @@ MonoBehaviour:
   movePaths: []
   newPos: []
   spawnBehaviour: {fileID: 2066216220}
+  callbackScript: {fileID: 0}
+  callbackFunction: 
 --- !u!135 &1472508234
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -69305,6 +69367,8 @@ MonoBehaviour:
   movePaths: []
   newPos: []
   spawnBehaviour: {fileID: 2066216220}
+  callbackScript: {fileID: 0}
+  callbackFunction: 
 --- !u!199 &1499331934
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -70771,7 +70835,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1034788808}
+  m_TargetTexture: {fileID: 1074330068}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -79616,7 +79680,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1850728298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.96, y: 2.59, z: 4.39}
+  m_LocalPosition: {x: -15.96, y: 1, z: 5.25}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 1176812674}
@@ -84911,11 +84975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac0e9d8710c91e4a9402865b9144c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  datasl: {fileID: 0}
   notifText: {fileID: 483847462}
   saveButtons: {fileID: 598300322}
   ui: {fileID: 1836115035}
-  nextLevel: Combined Warehouse
+  nextLevel: Scene 2 Den
 --- !u!114 &2066216221
 MonoBehaviour:
   m_ObjectHideFlags: 0
