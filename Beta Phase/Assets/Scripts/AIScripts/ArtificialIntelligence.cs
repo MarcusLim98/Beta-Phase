@@ -351,6 +351,8 @@ public class ArtificialIntelligence : MonoBehaviour
                     isInFov = 1;
                     questionMark.SetActive(true);
                     exclamationMark.SetActive(false);
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                 }
             }
             else

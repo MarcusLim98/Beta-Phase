@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class AIBoss : MonoBehaviour {
 
-
     enum AIState { PATROLLING, INVESTIGATING, CHASE }; // States
     AIState state;
 
@@ -37,7 +36,7 @@ public class AIBoss : MonoBehaviour {
     public int timesFired, investigatingState;
     int destPoint = 0, isInFov, firstStage, canFire;
     float stopToLook, stopToGoBack, angle;
-    bool turnBack, cannotTurn, playerWithinRadius;
+    public bool turnBack, cannotTurn, playerWithinRadius;
     [Space]
     [Space]
     public ArtificialIntelligence[] thugsToCall;
@@ -74,7 +73,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     if (!goToNoisySource && firstStage < 3)
                     {
-                        //print("1");
+                        print("1");
                         exclamationMark.SetActive(false);
                         rotatingSpeed = 1.5f;
                         var desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
@@ -82,7 +81,8 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && !spottedHighlight && firstStage >= 3)
                     {
-                        //print("2");
+                        print("2");
+                        agent.speed = walkSpeed;
                         anim.SetInteger("State", 1);
                         if (timesFired <= 6)
                         {
@@ -98,7 +98,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (goToNoisySource && !spottedHighlight)
                     {
-                        //print("3");
+                        print("3");
                         stopToLook += Time.deltaTime;
                         if (stopToLook <= 1.5f)
                         {
@@ -121,7 +121,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && spottedHighlight)
                     {
-                        //print("4");
+                        print("4");
                         agent.SetDestination(playerHighlight.transform.position);
                         playerHighlight.transform.parent = null;
                         CheckAndReturn();
@@ -141,7 +141,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     if (!goToNoisySource && timesFired < 6)
                     {
-                        //print("5");
+                        print("5");
                         anim.SetInteger("State", 0);
                         agent.speed = 0;
                         targetDir = playerHighlight.transform.position - thisAI.position;
@@ -170,10 +170,10 @@ public class AIBoss : MonoBehaviour {
                                         gunLine.SetActive(false);
                                         foreach (ArtificialIntelligence thugs in thugsToCall)
                                         {
-                                            thugs.runSpeed = 9;
-                                            thugs.walkSpeed = 9;
-                                            thugs.maxRadius = 0;
-                                            thugs.maxRadius2 = 8;
+                                            thugs.runSpeed = 9f;
+                                            thugs.walkSpeed = 9f;
+                                            thugs.timeToStare = 0.1f;
+                                            thugs.questionMark = thugs.exclamationMark;
                                         }
                                     }
                                 }
@@ -182,7 +182,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && timesFired >= 6)
                     {
-                        //print("6");
+                        print("6");
                         agent.speed = runSpeed;
                         anim.SetInteger("State", 1);
                         spottedHighlight = true;
@@ -228,7 +228,6 @@ public class AIBoss : MonoBehaviour {
                     investigatingState = 1;
                     goToNoisySource = false;
                     stopToLook = 0;
-                    //isInFov = 1;
                     exclamationMark.SetActive(true);
                     if (firstStage < 3)
                     {
@@ -253,9 +252,9 @@ public class AIBoss : MonoBehaviour {
             investigatingState = 0;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.Euler(0, 0, 0));
+            Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0,0,0));
         }
         return false;
     }
@@ -319,6 +318,7 @@ public class AIBoss : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            playerWithinRadius = true;
             if (firstStage < 3)
             {
                 firstStage += 1;
@@ -333,23 +333,27 @@ public class AIBoss : MonoBehaviour {
             exclamationMark.SetActive(true);
         }
 
-        if (other.name == "Path" && timesFired >= 6)
+        if (other.name == "Path" && timesFired >= 6 && investigatingState == 1)
         {
             aiPath = other.GetComponentInParent<AIPath>();
         }
 
-        if(other.name == "Crate(Clone)" && firstStage < 3 && timesFired < 6)
+        if(other.name == "Crate(Clone)")
         {
-            firstStage = 3;
-            timesFired = 6;
-        }
-        if (other.name == "Crate(Clone)" && timesFired == 6)
-        {
-            walkSpeed -= 0.5f;
-            agent.speed = walkSpeed;
+            if(firstStage< 3)
+            {
+                firstStage = 3;
+                timesFired = 6;
+            }
+            if (timesFired == 6)
+            {
+                walkSpeed -= 0.5f;
+                runSpeed -= 0.5f;
+                agent.speed -= 0.5f;
+            }
         }
 
-        /*if (other.tag == "Thug" && timesFired >= 6 && spottedHighlight)
+        if (other.tag == "Thug" && timesFired >= 6 && spottedHighlight)
         {
             if (other.GetComponent<ArtificialIntelligence>().isInFov != 2)
             {
@@ -358,7 +362,7 @@ public class AIBoss : MonoBehaviour {
                 other.GetComponent<ArtificialIntelligence>().isInFov = 2;
                 other.GetComponent<ArtificialIntelligence>().exclamationMark.SetActive(true);
             }
-        }*/
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -367,27 +371,19 @@ public class AIBoss : MonoBehaviour {
         {
             if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
             {
-                print("look at player");
                 noisySource = playerLogic.thisNoisyFloor;
                 goToNoisySource = true;
+                exclamationMark.SetActive(true);
+                playerHighlight.transform.parent = playerTarget;
+                playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                if (other.transform.GetChild(0).name == "NoisyFloor1")
+                {
+                    thugsToCall[0].spottedHighlight = true;
+                    thugsToCall[0].investigatingState = 2;
+                    thugsToCall[0].isInFov = 2;
+                    thugsToCall[0].exclamationMark.SetActive(true);
+                }
             }
-            if(other.transform.GetChild(0).name == "NoisyFloor1")
-            {
-                thugsToCall[0].noisySource = playerLogic.thisNoisyFloor;
-                thugsToCall[0].goToNoisySource = true;
-                thugsToCall[0].exclamationMark.SetActive(true);
-            }
-            else if (other.transform.GetChild(0).name == "NoisyFloor2")
-            {
-                thugsToCall[1].noisySource = playerLogic.thisNoisyFloor;
-                thugsToCall[1].goToNoisySource = true;
-                thugsToCall[1].exclamationMark.SetActive(true);
-            }
-        }
-
-        if (other.tag == "Player" && timesFired >= 6)
-        {
-            playerWithinRadius = true;
         }
     }
 
@@ -398,5 +394,4 @@ public class AIBoss : MonoBehaviour {
             playerWithinRadius = false;
         }
     }
-
 }
