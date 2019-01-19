@@ -17,6 +17,7 @@ public class CameraLogic : MonoBehaviour {
     private Camera thisCamera;
     private PlayerLogic playerLogic;
     private EavesdropLogic eavesDropLogic;
+    Transform roof, lights;
     // Use this for initialization
     void Start () {
         thisCamera = GetComponent<Camera>();
