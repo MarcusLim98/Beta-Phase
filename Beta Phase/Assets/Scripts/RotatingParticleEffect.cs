@@ -53,20 +53,20 @@ public class RotatingParticleEffect : MonoBehaviour {
                 main2.startSize = 0.0f;
                 var main3 = ps3.main;
                 main3.startLifetime = 5f;
-               /* if(this.gameObject.name == "EavesdropZone2")
-                {
-                    Text objective = GameObject.Find("ObjectiveText").GetComponent<Text>();
-                    objective.text = "Exit the warehouse";
-                    movePaths[0].position = new Vector3(newPos[0].x, newPos[0].y, newPos[0].z);
-                    movePaths[1].position = new Vector3(newPos[1].x, newPos[1].y, newPos[1].z);
-                    ai[0].staticOriginalRotation = new Vector3(0, 90, 0);
-                    ai[1].staticOriginalRotation = new Vector3(0, 180, 0);
-                    foreach (ArtificialIntelligence ais in ai)
-                    {
-                        ais.run = true;
-                    }
-                }
-                StartCoroutine(Gone());*/
+                //if (this.gameObject.name == "EavesdropZone2")
+                //{
+                //    Text objective = GameObject.Find("ObjectiveText").GetComponent<Text>();
+                //    objective.text = "Exit the warehouse";
+                //    movePaths[0].position = new Vector3(newPos[0].x, newPos[0].y, newPos[0].z);
+                //    movePaths[1].position = new Vector3(newPos[1].x, newPos[1].y, newPos[1].z);
+                //    ai[0].staticOriginalRotation = new Vector3(0, 90, 0);
+                //    ai[1].staticOriginalRotation = new Vector3(0, 180, 0);
+                //    foreach (ArtificialIntelligence ais in ai)
+                //    {
+                //        ais.run = true;
+                //    }
+                //}
+                //StartCoroutine(Gone());
             }
         }
         else if (onlyTurn)
@@ -103,7 +103,6 @@ public class RotatingParticleEffect : MonoBehaviour {
             }
             else if (eavesdropLogic.isInteracted == false)
             {
-                pressE.text = "Hold E to interact";
                 pressE.enabled = true;
             }
         }

@@ -159,6 +159,7 @@ public class PlayerLogic : MonoBehaviour {
         if (other.tag == "EavesdropZone" && eavesDropLogic.currentAmount >= 100f)
         {
             other.GetComponent<RotatingParticleEffect>().thisCollider.enabled = false;
+            other.GetComponent<RotatingParticleEffect>().StartCoroutine("Gone");
             playerEavesdrop = false;
         }
 

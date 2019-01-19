@@ -8,10 +8,8 @@ public class DialogueSwitcher : MonoBehaviour {
     GameObject incompleteDialogue, completedDialogue, neededObj;
     [SerializeField]
     string neededKeyItemName;
-    DataSaveAndLoad datasl;
 
     void Start() {
-        datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
         SwitchDialogue();
     }
 

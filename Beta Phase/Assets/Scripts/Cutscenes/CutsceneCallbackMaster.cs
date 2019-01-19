@@ -46,13 +46,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         objectiveText.text = newObjective;
     }
 
-    IEnumerator BackToYYContCutscene()
-    {
-        yield return new WaitForSeconds(3);
-        cameraFocus = playerLogic.gameObject.transform;
-        contDialogue[0].SetActive(true);
-    }
-
 
 
     void EndPrologue()
@@ -77,6 +70,13 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = camFocusObj[0].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
+    }
+
+    IEnumerator BackToYYContCutscene()
+    {
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+        contDialogue[0].SetActive(true);
     }
 
     void Day1Suspicion()
