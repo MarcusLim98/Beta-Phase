@@ -8,7 +8,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     public PlayerLogic playerLogic;
     public CameraLogic cameraLogic;
     Transform cameraFocus;
-    public GameObject[] camFocusObj, contDialogue;
+    public GameObject[] camFocusObj, contDialogue, spawnObj;
 
     public UiBehaviour ui;
     [SerializeField]
@@ -46,12 +46,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         objectiveText.text = newObjective;
     }
 
-    IEnumerator BackToYY()
-    {
-        yield return new WaitForSeconds(2);
-        cameraFocus = camFocusObj[0].transform;
-    }
-
 
 
     void EndPrologue()
@@ -73,8 +67,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1Afterwork()
     {
-        cameraFocus = camFocusObj[1].transform;
-        StartCoroutine(BackToYY());
+        cameraFocus = camFocusObj[0].transform;
+        StartCoroutine(BackToYYContCutscene());
+        StartCutscene();
+    }
+
+    IEnumerator BackToYYContCutscene()
+    {
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
     }
 
@@ -88,6 +89,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         ChangeObjective("eavesdrop from afar");
         EndCutscene();
+        contDialogue[1].SetActive(false);
+        contDialogue[2].SetActive(true);
+    }
+
+    void Day1AfterApproach()
+    {
+        EndCutscene();
+        spawnObj[0].SetActive(true);
+        spawnObj[1].SetActive(true);
     }
 
 }
