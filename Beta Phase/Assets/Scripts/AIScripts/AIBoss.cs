@@ -73,7 +73,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     if (!goToNoisySource && firstStage < 3)
                     {
-                        print("1");
+                        //print("1");
                         exclamationMark.SetActive(false);
                         rotatingSpeed = 1.5f;
                         var desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
@@ -81,7 +81,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && !spottedHighlight && firstStage >= 3)
                     {
-                        print("2");
+                        //print("2");
                         agent.speed = walkSpeed;
                         anim.SetInteger("State", 1);
                         if (timesFired <= 6)
@@ -98,7 +98,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (goToNoisySource && !spottedHighlight)
                     {
-                        print("3");
+                        //print("3");
                         stopToLook += Time.deltaTime;
                         if (stopToLook <= 1.5f)
                         {
@@ -121,7 +121,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && spottedHighlight)
                     {
-                        print("4");
+                        //print("4");
                         agent.SetDestination(playerHighlight.transform.position);
                         playerHighlight.transform.parent = null;
                         CheckAndReturn();
@@ -141,7 +141,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     if (!goToNoisySource && timesFired < 6)
                     {
-                        print("5");
+                        //print("5");
                         anim.SetInteger("State", 0);
                         agent.speed = 0;
                         targetDir = playerHighlight.transform.position - thisAI.position;
@@ -182,7 +182,7 @@ public class AIBoss : MonoBehaviour {
                     }
                     else if (!goToNoisySource && timesFired >= 6)
                     {
-                        print("6");
+                        //print("6");
                         agent.speed = runSpeed;
                         anim.SetInteger("State", 1);
                         spottedHighlight = true;
