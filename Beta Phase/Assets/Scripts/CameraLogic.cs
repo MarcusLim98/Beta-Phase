@@ -18,7 +18,8 @@ public class CameraLogic : MonoBehaviour {
     private PlayerLogic playerLogic;
     private EavesdropLogic eavesDropLogic;
     Transform roof, lights;
-    // Use this for initialization
+
+
     void Start () {
         thisCamera = GetComponent<Camera>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
@@ -26,11 +27,11 @@ public class CameraLogic : MonoBehaviour {
         target = player.transform;
     }
 	
-	// Update is called once per frame
+
 	void Update () {
         Movement();
         Outline();
-        //CameraAngles();
+        CameraAngles();
         //zoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
         //zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
     }
@@ -54,13 +55,13 @@ public class CameraLogic : MonoBehaviour {
 
     void CameraAngles()
     {
-        if(playerLogic.playerEavesdrop == false && !playerLogic.inCutscene)
-        {
-            target = player.transform;
-        }
-        else if (playerLogic.playerEavesdrop == true && !playerLogic.inCutscene)
+        if (playerLogic.playerEavesdrop == true && !playerLogic.inCutscene && Input.GetKey(KeyCode.E))
         {
             target = eavesdropLookHere.transform;
+        }
+        else if (!playerLogic.inCutscene)
+        {
+            target = player.transform;
         }
     }
 }

@@ -10,7 +10,7 @@ public class PlayerLogic : MonoBehaviour {
     public int movingStyle;
     public LayerMask layerMask;
     public Transform thisNoisyFloor;
-    [HideInInspector]
+    //[HideInInspector]
     public bool playerEavesdrop, isMoving, noMoving, cursorIsOverUI, enableSpawnCheat, stepOnNoisyFloor, inCutscene;
     public string fileName;
     public SpawnBehaviour[] sb;
@@ -50,7 +50,7 @@ public class PlayerLogic : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
             clickPosition = hit.point;
-            if (hit.collider.tag == "Path" && !noMoving && !cursorIsOverUI)
+            if (hit.collider.tag == "Path" && !noMoving && !cursorIsOverUI && !inCutscene)
             {
                 if (Input.GetMouseButtonDown(0))
                 {               
@@ -145,6 +145,7 @@ public class PlayerLogic : MonoBehaviour {
         if (other.tag == "EavesdropZone" && eavesDropLogic.currentAmount <= 100f)
         {
             playerEavesdrop = true;
+            cameraLogic.eavesdropLookHere = other.transform.GetChild(0);
             /*if (eavesDropLogic.changeCameraAngle == false)
             {
                 cameraLogic.eavesdropLookHere = this.gameObject.transform;
@@ -182,13 +183,11 @@ public class PlayerLogic : MonoBehaviour {
 
     public void EnableMovement()
     {
-        noMoving = false;
         inCutscene = false;
     }
 
     public void DisableMovement()
     {
-        noMoving = true;
         inCutscene = true;
     }
 }
