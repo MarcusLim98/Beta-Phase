@@ -8,18 +8,29 @@ public class DialogueSwitcher : MonoBehaviour {
     GameObject incompleteDialogue, completedDialogue, neededObj;
     [SerializeField]
     string neededKeyItemName;
+    DataSaveAndLoad datasl;
 
     void Start() {
+        datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
         SwitchDialogue();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SwitchDialogue();
+        }
     }
 
     public void SwitchDialogue()
     {
-        if (neededObj.activeInHierarchy || PlayerPrefs.HasKey(neededKeyItemName))
+        if (PlayerPrefs.HasKey(neededKeyItemName) || neededObj.activeInHierarchy)
         {
             incompleteDialogue.SetActive(false);
             completedDialogue.SetActive(true);
         }
+
         else
         {
             incompleteDialogue.SetActive(true);

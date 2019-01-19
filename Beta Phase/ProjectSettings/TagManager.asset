@@ -12,6 +12,7 @@ TagManager:
   - Thug
   - SpawnPoint
   - NoisyFloor
+  - KeyItem
   layers:
   - Default
   - TransparentFX

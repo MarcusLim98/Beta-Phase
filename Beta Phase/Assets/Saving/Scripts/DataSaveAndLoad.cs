@@ -37,6 +37,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         if (level > 0)
         {
             playerObj = GameObject.FindGameObjectWithTag("Player");
+            playerAgent = playerObj.GetComponent<NavMeshAgent>();
 
             if (PlayerPrefs.HasKey("spawnpoint"))
             {
@@ -63,9 +64,9 @@ public class DataSaveAndLoad : MonoBehaviour {
 
     void CreateItemList()
     {
-        keyItemList.Add(new KeyItem("RedKey", 0));
-        keyItemList.Add(new KeyItem("BlueKey", 0));
-        keyItemList.Add(new KeyItem("QQsNote", 0));
+        keyItemList.Add(new KeyItem("Police Papers", 0));
+        keyItemList.Add(new KeyItem("Blue Key", 0));
+        keyItemList.Add(new KeyItem("Red Key", 0));
     }
 
     public void ObtainItem(string foundItemName)                                    //for obtaining items

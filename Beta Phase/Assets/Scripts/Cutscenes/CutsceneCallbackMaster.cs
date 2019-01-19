@@ -19,6 +19,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Start()
     {
+        cameraFocus = playerLogic.gameObject.transform;
+    }
+
+    void Update()
+    {
         if (activeDialogue.activeInHierarchy)
         {
             StartCutscene();
@@ -52,7 +57,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void EndPrologue()
     {
         Time.timeScale = 0.25f;
-        ui.LoadScene("Outside_Warehouse");
+        ui.LoadScene("police office");
     }
 
     void Day1Intro()
@@ -63,7 +68,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1DonePapers()
     {
-        ui.LoadScene("");
+        ui.LoadScene("Scene 1 CShop");
     }
 
     void Day1Afterwork()

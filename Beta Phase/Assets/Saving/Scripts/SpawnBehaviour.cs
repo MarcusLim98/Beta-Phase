@@ -15,7 +15,7 @@ public class SpawnBehaviour : MonoBehaviour {
 
     void Awake()
     {
-        datasl = GameObject.Find("GameController").GetComponent<DataSaveAndLoad>();
+        datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
     }
 
     void OnTriggerStay(Collider other)
@@ -29,7 +29,7 @@ public class SpawnBehaviour : MonoBehaviour {
             SaveChoiceText();
         }
 
-        /*if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
         {
             if (PlayerPrefs.GetInt(other.name) == 0 || !PlayerPrefs.HasKey(other.name))
             {
@@ -44,11 +44,11 @@ public class SpawnBehaviour : MonoBehaviour {
                             StartCoroutine("NotifTextBehaviour", other.name + " obtained");
                             datasl.ObtainItem(other.name);
                         }
-                        else if (item.taken == 1) { print("help"); StopCoroutine("NotifTextBehaviour"); StartCoroutine("NotifTextBehaviour", "Nothing here, huh."); }
+                        //else if (item.taken == 1) { print("help"); StopCoroutine("NotifTextBehaviour"); StartCoroutine("NotifTextBehaviour", "Nothing here, huh."); }
                     }
                 }
             }
-        }*/
+        }
 
         if (other.name == "Thug")                               //use name, if not listening colliders will affect player
         {
