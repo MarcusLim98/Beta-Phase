@@ -17,10 +17,6 @@ public class RotatingParticleEffect : MonoBehaviour {
     bool thisPlayer, stopRunningCoroutine;
     EavesdropLogic eavesdropLogic;
     public SpawnBehaviour spawnBehaviour;
-    [SerializeField]
-    MonoBehaviour callbackScript;
-    [SerializeField]
-    string callbackFunction;
 
 
     void Start () {
@@ -81,10 +77,6 @@ public class RotatingParticleEffect : MonoBehaviour {
 
     IEnumerator Gone()
     {
-        if (callbackScript != null)
-        {
-            callbackScript.StartCoroutine(callbackFunction);
-        }
         print("run");
         spawnBehaviour.StopCoroutine("NotifTextBehaviour");
         spawnBehaviour.StartCoroutine("NotifTextBehaviour", "Eavesdropping completed.");

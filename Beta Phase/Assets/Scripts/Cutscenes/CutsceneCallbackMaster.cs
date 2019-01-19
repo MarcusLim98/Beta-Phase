@@ -100,9 +100,4 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         spawnObj[1].SetActive(true);
     }
 
-    void Day1AfterEavesdrop()
-    {
-        ChangeObjective("find another way into the coffeeshop");
-    }
-
 }
