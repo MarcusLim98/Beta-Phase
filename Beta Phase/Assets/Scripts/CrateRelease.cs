@@ -8,24 +8,37 @@ public class CrateRelease : MonoBehaviour {
     public Text pressE;
     public float fallingForce;
     public GameObject[] crates;
+    public Vector3[] startingPos, startingRot;
     bool hasInteracted;
     float timer;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        for (int i = 0; i < crates.Length; i++)
+        {
+            startingPos[i] = crates[i].transform.position;
+            startingRot[i] = new Vector3(crates[i].transform.rotation.x, crates[i].transform.rotation.y, crates[i].transform.rotation.z);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (hasInteracted && timer < 0.1f)
+        if (hasInteracted)
         {
             timer += Time.deltaTime;
             foreach (GameObject obj in crates)
             {
-                obj.transform.Translate(0, 0, -fallingForce * Time.deltaTime);
-                if (timer > 5f)
+                //obj.transform.Translate(0, 0, -fallingForce * Time.deltaTime);
+                if (timer > 12f)
                 {
-                    obj.gameObject.SetActive(false);
+                    for (int i = 0; i < startingPos.Length; i++)
+                    {
+                        crates[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY
+                        | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                        crates[i].transform.position = startingPos[i];
+                        crates[i].transform.rotation = Quaternion.Euler(-90, 0, 0);
+                    }
+                    timer = 0;
+                    hasInteracted = false;
                 }
             }
         }

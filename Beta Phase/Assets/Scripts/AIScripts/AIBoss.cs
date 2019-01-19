@@ -237,6 +237,7 @@ public class AIBoss : MonoBehaviour {
                             thugs.investigatingState = 2;
                             thugs.isInFov = 2;
                             thugs.exclamationMark.SetActive(true);
+                            thugs.runSpeed = 2f;
                         }
                     }
                     return true;

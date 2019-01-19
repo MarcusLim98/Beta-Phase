@@ -13,6 +13,7 @@ TagManager:
   - SpawnPoint
   - NoisyFloor
   - KeyItem
+  - Crate
   layers:
   - Default
   - TransparentFX

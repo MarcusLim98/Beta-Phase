@@ -419,6 +419,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 noisySource = playerLogic.thisNoisyFloor;
                 goToNoisySource = true;
                 questionMark.SetActive(true);
+                exclamationMark.SetActive(false);
             }
         }
 
