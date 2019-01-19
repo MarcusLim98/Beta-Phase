@@ -38,3 +38,23 @@ Dealer: We're starting soon.
 Info learnt when eavesdrop Thug in Warehouse 1 Part 1
 /Info about Boss ariving tommorrow
 
+[title=Day2EaveCall-begin]
+Busy Thug: Make sure we have enough people for tommorrow.
+Busy Thug: The Boss is coming with the next batch of Opium.
+Busy Thug: I want everyone to remember it.
+[title=Day2EaveCall-end]
+
+/-/
+Info learnt when eavesdrop Thug in Warehouse 1 Part2
+/Info about where Warehouse 2 is and the documents needed to prove theres Opium here
+
+[title=Day2EaveDocs-begin]
+Tired Thug: What do you need this time?
+Forgetful Thug: Sorry bro, I lost the paper with the other Warehouse place...
+Tired Thug:*Sigh*Just take one of it outside, just don't lose it this time ah
+Forgetful Thug: Thanks man.
+Tired Thug: Just don't take the other documents. We need those to check everything here is correct.
+[title=Day2EaveDocs-end]
+
+/-/
+
