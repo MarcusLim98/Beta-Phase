@@ -34,6 +34,7 @@ public class AIBoss : MonoBehaviour {
     int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate;
     float stopToLook, stopToGoBack, angle;
     bool turnBack, cannotTurn, playerWithinRadius;
+    string fileName;
     [Space]
     [Space]
     public ArtificialIntelligence[] thugsToCall;
@@ -44,7 +45,6 @@ public class AIBoss : MonoBehaviour {
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
         externalAudio = GetComponent<AudioSource>();
-        externalAudio.clip = (AudioClip)Resources.Load("LaoDaGunShot");
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         if (stationery)
         {
@@ -162,7 +162,8 @@ public class AIBoss : MonoBehaviour {
                                 if (canFire == 0)
                                 {
                                     Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
-                                    externalAudio.Play();
+                                    fileName = "LaoDaGunShot";
+                                    SoundFX();
                                     canFire = 1;
                                     timesFired += 1;
                                     muzzleFlash.SetActive(true);
@@ -231,6 +232,8 @@ public class AIBoss : MonoBehaviour {
                     goToNoisySource = false;
                     stopToLook = 0;
                     exclamationMark.SetActive(true);
+                    fileName = "ThugAlert";
+                    SoundFX();
                     if (firstStage < 3)
                     {
                         foreach (ArtificialIntelligence thugs in thugsToCall)
@@ -307,6 +310,14 @@ public class AIBoss : MonoBehaviour {
                 agent.speed = walkSpeed;
                 GotoNextPoint();
             }
+        }
+    }
+
+    void SoundFX()
+    {
+        if (!externalAudio.isPlaying)
+        {
+            externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
         }
     }
 

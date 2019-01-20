@@ -30,6 +30,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public int isInFov, investigatingState;
     NavMeshAgent agent;
     Animator anim;
+    AudioSource externalAudio;
     Transform target, thisAI, uiAbove;
     Vector3 targetDir, newDir, directionBetween;
     Image uiState;
@@ -37,12 +38,14 @@ public class ArtificialIntelligence : MonoBehaviour
     int destPoint = 0;
     float stopToLook, stopToGoBack, angle, startToTurn;
     bool turnBack, cannotTurn, playerWithinRadius;
+    string fileName;
 
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
+        externalAudio = GetComponent<AudioSource>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         if (stationery)
         {
@@ -354,6 +357,8 @@ public class ArtificialIntelligence : MonoBehaviour
                     exclamationMark.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    fileName = "ThugSuspicious";
+                    SoundFX();
                 }
             }
             else
@@ -378,11 +383,21 @@ public class ArtificialIntelligence : MonoBehaviour
                     isInFov = 2;
                     questionMark.SetActive(false);
                     exclamationMark.SetActive(true);
+                    fileName = "ThugAlert";
+                    SoundFX();
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    void SoundFX()
+    {
+        if (!externalAudio.isPlaying)
+        {
+            externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
+        }
     }
 
     private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
