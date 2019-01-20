@@ -46,6 +46,7 @@ public class EavesdropLogic : MonoBehaviour
         }
         else if(playerLogic.playerEavesdrop == false)
         {
+            isInteracted = false;
             currentAmount = 0.01f;
         }
 

@@ -48,7 +48,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                 main2.startLifetime = 1f;
                 main2.startSize = 0.25f;
             }
-            else if (eavesdropLogic.isInteracted == false && thisCollider.enabled == false && thisPlayer && !stopRunningCoroutine)
+            else if (eavesdropLogic.isInteracted == false)
             {
                 var main = ps1.main;
                 main.startLifetime = 0.00001f;
@@ -70,7 +70,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                 //        ais.run = true;
                 //    }
                 //}
-                //StartCoroutine(Gone());
+                StartCoroutine(Gone());
             }
         }
         else if (onlyTurn)
