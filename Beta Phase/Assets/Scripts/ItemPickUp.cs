@@ -36,6 +36,7 @@ public class ItemPickUp : MonoBehaviour {
         {
             pressE.enabled = true;
         }
+
     }
 
     private void OnTriggerExit(Collider other)

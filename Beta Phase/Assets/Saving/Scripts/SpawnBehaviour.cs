@@ -11,6 +11,7 @@ public class SpawnBehaviour : MonoBehaviour {
     string spawnPointName;
     public GameObject saveButtons;
     public UiBehaviour ui;
+    public AudioSource altarSound;
     public string nextLevel;
 
     void Awake()
@@ -84,6 +85,7 @@ public class SpawnBehaviour : MonoBehaviour {
         print("Saved!");
         StopCoroutine("NotifTextBehaviour");
         StartCoroutine("NotifTextBehaviour", "You feel blessed.");
+        altarSound.Play();
         datasl.SaveGame(spawnPointName);
         saveButtons.SetActive(false);
     }
