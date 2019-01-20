@@ -303,6 +303,7 @@ public class ArtificialIntelligence : MonoBehaviour
         if (Vector3.Distance(thisAI.position, target.position) < 6)
         {
             playerHighlight.SetActive(true);
+            playerHighlight.transform.parent = null;
         }
         if (Vector3.Distance(thisAI.position, target.position) < 3)
         {
