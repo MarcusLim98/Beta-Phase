@@ -12,11 +12,14 @@ public class Projectile : MonoBehaviour {
     Rigidbody rb;
     float timeToDisappear;
     bool disappear;
+    AudioSource externalAudio;
     // Use this for initialization
     void Start()
     {
         thisMesh = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
+        externalAudio = GetComponent<AudioSource>();
+        externalAudio.clip = (AudioClip)Resources.Load("Bottle Shatter");
     }
 
     // Update is called once per frame
@@ -44,6 +47,7 @@ public class Projectile : MonoBehaviour {
             //shards.transform.parent = null;
             shards.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
             shards.transform.rotation = Quaternion.Euler(-90, 0, 0);
+            externalAudio.Play();
         }
 
         if (other.tag == "Thug")

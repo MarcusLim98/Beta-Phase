@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class RotatingParticleEffect : MonoBehaviour {
 
-    public bool onlyTurn;
+    public bool onlyTurn, makeObjDisappear;
     public Text pressE;
     public Vector3 speed;
     public ParticleSystem ps1, ps2, ps3;
     public SphereCollider thisCollider;
+    public GameObject objBeGone;
     public Transform[] movePaths;
     public Vector3[] newPos;
     GameObject particle;
@@ -57,6 +58,10 @@ public class RotatingParticleEffect : MonoBehaviour {
                 main2.startSize = 0.0f;
                 var main3 = ps3.main;
                 main3.startLifetime = 5f;
+                if (makeObjDisappear)
+                {
+                    objBeGone.SetActive(false);
+                }
                 //if (this.gameObject.name == "EavesdropZone2")
                 //{
                 //    Text objective = GameObject.Find("ObjectiveText").GetComponent<Text>();
