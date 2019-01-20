@@ -1382,6 +1382,7 @@ public class RPGTalk : MonoBehaviour {
                         if (photos[i].name == currentRpgtalkElement.originalSpeakerName) {
                             if (UIPhoto) {
                                 UIPhoto.sprite = photos[i].photo;
+                                UIPhoto.SetNativeSize();
                             }
                             if (animatorWhenTalking && animatorIntName != "") {
                                 animatorWhenTalking.SetInteger(animatorIntName, i);

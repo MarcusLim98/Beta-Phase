@@ -7,6 +7,7 @@ TextureImporter:
     21300004: YY_talksprites_2_shocked
     21300006: YY_talksprites_3_suspicious
     21300008: YY_talksprites_4_happy
+    21300010: talksprites_blank
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -184,6 +185,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 005fbd3c6f313c64e87b545ded3196af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: talksprites_blank
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 859
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73987a2eaaf3d2b4db8baf7cfe84395e
       vertices: []
       indices: 
       edges: []
