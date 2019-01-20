@@ -17,6 +17,7 @@ public class SpawnBehaviour : MonoBehaviour {
     void Awake()
     {
         datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
+        PlayerPrefs.DeleteAll();
     }
 
     void OnTriggerStay(Collider other)
