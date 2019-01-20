@@ -33,8 +33,8 @@ public class AIBoss : MonoBehaviour {
     Vector3 targetDir, newDir, directionBetween;
     Image uiState;
     PlayerLogic playerLogic;
-    public int timesFired, investigatingState;
-    int destPoint = 0, isInFov, firstStage, canFire;
+    public int timesFired;
+    int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate;
     float stopToLook, stopToGoBack, angle;
     public bool turnBack, cannotTurn, playerWithinRadius;
     [Space]
@@ -52,11 +52,11 @@ public class AIBoss : MonoBehaviour {
             EmptyObj = new GameObject("Look Here");
             EmptyObj.transform.parent = this.gameObject.transform;
             EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            stationeryPosition = this.gameObject.transform.GetChild(7);
+            stationeryPosition = this.gameObject.transform.GetChild(8);
             EmptyObj.transform.parent = null;
             lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
         }
-        uiAbove = this.gameObject.transform.GetChild(6);
+        uiAbove = this.gameObject.transform.GetChild(7);
         exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
         exclamationMark.transform.parent = uiAbove;
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
@@ -142,7 +142,7 @@ public class AIBoss : MonoBehaviour {
                     if (!goToNoisySource && timesFired < 6)
                     {
                         //print("5");
-                        anim.SetInteger("State", 0);
+                        anim.SetInteger("State", 2);
                         agent.speed = 0;
                         targetDir = playerHighlight.transform.position - thisAI.position;
                         newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
@@ -256,6 +256,20 @@ public class AIBoss : MonoBehaviour {
         {
             Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0,0,0));
         }
+
+        RaycastHit hit2;
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 3, Color.red);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up) * 3, out hit2, 3))
+        {
+            if (hit2.transform.tag == "Crate" && hitByCrate == 0)
+            {
+                hitByCrate = 1;
+                agent.speed -= 0.5f;
+                walkSpeed -= 0.5f;
+                runSpeed -= 0.5f;
+            }
+        }
+        else hitByCrate = 0;
         return false;
     }
 

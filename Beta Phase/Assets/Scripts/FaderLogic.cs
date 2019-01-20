@@ -9,7 +9,7 @@ public class FaderLogic : MonoBehaviour {
     public GameObject fadeToBlack;
     DataSaveAndLoad datasl;
     public string nextLevel;
-    public bool restartFromTheStart;
+    public bool restartFromTheStart, affectsPlayer;
     string spawnPointName;
     // Use this for initialization
     void Start () {
@@ -34,18 +34,23 @@ public class FaderLogic : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && !restartFromTheStart)
+        if(other.tag == "Player" && !restartFromTheStart && !affectsPlayer)
         {
             fadeToBlack.SetActive(true);
             //datasl.SaveGame(spawnPointName);
             StartCoroutine(DisableFadeOut());
         }
 
-        if (other.tag == "Player" && restartFromTheStart)
+        if (other.tag == "Player" && restartFromTheStart && !affectsPlayer)
         {
             print("restart");
             fadeToBlack.SetActive(true);
             StartCoroutine(Restart());
+        }
+        if (other.name == "LaoDaBullet(Clone)" && affectsPlayer)
+        {
+            fadeToBlack.SetActive(true);
+            StartCoroutine(DisableFadeOut());
         }
     }
 
@@ -58,7 +63,7 @@ public class FaderLogic : MonoBehaviour {
     IEnumerator DisableFadeOut()
     {
         yield return new WaitForSeconds(2f);
-        if (this.gameObject.name == "LosingCondiiton")
+        if (this.gameObject.name == "LosingCondiiton" || this.gameObject.name == "Player")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
