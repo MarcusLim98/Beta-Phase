@@ -29,6 +29,7 @@ public class AIBoss : MonoBehaviour {
     Vector3 targetDir, newDir, directionBetween, lookHereStart;
     Image uiState;
     PlayerLogic playerLogic;
+    AudioSource externalAudio;
     public int timesFired, timesHit;
     int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate;
     float stopToLook, stopToGoBack, angle;
@@ -42,6 +43,8 @@ public class AIBoss : MonoBehaviour {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
+        externalAudio = GetComponent<AudioSource>();
+        externalAudio.clip = (AudioClip)Resources.Load("LaoDaGunShot");
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         if (stationery)
         {
@@ -159,6 +162,7 @@ public class AIBoss : MonoBehaviour {
                                 if (canFire == 0)
                                 {
                                     Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
+                                    externalAudio.Play();
                                     canFire = 1;
                                     timesFired += 1;
                                     muzzleFlash.SetActive(true);
@@ -400,6 +404,7 @@ public class AIBoss : MonoBehaviour {
                     thugsToCall[0].investigatingState = 2;
                     thugsToCall[0].isInFov = 2;
                     thugsToCall[0].exclamationMark.SetActive(true);
+                    thugsToCall[0].questionMark.SetActive(false);
                 }
             }
         }
