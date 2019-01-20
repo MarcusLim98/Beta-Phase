@@ -257,10 +257,10 @@ public class AIBoss : MonoBehaviour {
             investigatingState = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0, 0, 0));
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+            //Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0, 0, 0));
+        //}
 
         RaycastHit hit2;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 3, Color.red);
