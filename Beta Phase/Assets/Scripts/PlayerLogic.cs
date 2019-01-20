@@ -57,7 +57,14 @@ public class PlayerLogic : MonoBehaviour {
                     agent.speed = 10f;
                     agent.SetDestination(hit.point);
                     movingStyle = 1;
-                    fileName = "Run";
+                    if (!stepOnNoisyFloor)
+                    {
+                        fileName = "Run";
+                    }
+                    else if (stepOnNoisyFloor)
+                    {
+                        fileName = "Wooden Plank run";
+                    }
                     externalAudio.clip = (AudioClip)Resources.Load(fileName);
                     externalAudio.Play();
                 }
@@ -66,7 +73,14 @@ public class PlayerLogic : MonoBehaviour {
                     agent.speed = 3f;
                     agent.SetDestination(hit.point);
                     movingStyle = 2;
-                    fileName = "Sneak";
+                    if (!stepOnNoisyFloor)
+                    {
+                        fileName = "Sneak";
+                    }
+                    else if (stepOnNoisyFloor)
+                    {
+                        fileName = "Wooden Plank sneak";
+                    }
                     externalAudio.clip = (AudioClip)Resources.Load(fileName);
                     externalAudio.Play();
                 }
