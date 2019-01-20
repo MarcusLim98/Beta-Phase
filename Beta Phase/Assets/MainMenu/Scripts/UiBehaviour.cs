@@ -47,12 +47,12 @@ public class UiBehaviour : MonoBehaviour {
             LoadScene(PlayerPrefs.GetString("spawnscene"));
         }
         else
-            LoadScene("police office");                                 //TEMP FOR PRE-BETA
+            LoadScene("Scene 0 Police Office");                                 //TEMP FOR PRE-BETA
     }
 
     public void NewGame()
     {
-        LoadScene("police office");
+        LoadScene("Scene 0 Police Office");
     }
 
     IEnumerator FadeToScene(string nextScene)

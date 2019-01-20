@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: c80e74c8bd499a84693563853ef47304
   - enabled: 1
+    path: Assets/Scenes/Scene 0 Police Office.unity
+    guid: 2cc02616f853e01409bdf40f342ec2d5
+  - enabled: 1
     path: Assets/Scenes/Scene 1 CShop.unity
     guid: 187b41fcdcc6e9c46bdc61ff97d0f4b0
   - enabled: 1
