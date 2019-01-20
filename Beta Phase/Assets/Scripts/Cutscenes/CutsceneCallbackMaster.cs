@@ -93,11 +93,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EndCutscene();
         contDialogue[1].SetActive(false);
         contDialogue[2].SetActive(true);
-    }
-
-    void Day1AfterApproach()
-    {
-        EndCutscene();
         spawnObj[0].SetActive(true);
         spawnObj[1].SetActive(true);
     }
@@ -106,6 +101,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         ChangeObjective("find another way into the coffeeshop");
     }
+
 
     void Day2Spotter()
     {
@@ -123,4 +119,16 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
     }
+
+    void Day1EnterCShop()
+    {
+        ChangeObjective("investigate the coffeeshop");
+    }
+
+    void Day1AfterCShopEacesdrop()
+    {
+        ChangeObjective("exit area through the side door");
+    }
+
+
 }
