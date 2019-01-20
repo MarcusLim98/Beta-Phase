@@ -13,7 +13,7 @@ public class AIBoss : MonoBehaviour {
     public GameObject playerHighlight;
     public Transform noisySource;
     public Transform stationeryPosition;
-    public GameObject alert, gunLine, bullet, crate;
+    public GameObject alert, gunLine, bullet, crate, muzzleFlash;
     public AIVision aiVision;
     [Space]
     [Space]
@@ -22,21 +22,17 @@ public class AIBoss : MonoBehaviour {
     public bool spottedHighlight, goToNoisySource, stationery;
     [Space]
     [Space]
-    [HideInInspector]
-    public GameObject EmptyObj, exclamationMark;
-    [HideInInspector]
-    public Vector3 lookHereStart;
-    [HideInInspector]
-    UnityEngine.AI.NavMeshAgent agent;
+    NavMeshAgent agent;
     Animator anim;
+    GameObject EmptyObj, exclamationMark;
     Transform target, thisAI, uiAbove;
-    Vector3 targetDir, newDir, directionBetween;
+    Vector3 targetDir, newDir, directionBetween, lookHereStart;
     Image uiState;
     PlayerLogic playerLogic;
     public int timesFired;
     int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate;
     float stopToLook, stopToGoBack, angle;
-    public bool turnBack, cannotTurn, playerWithinRadius;
+    bool turnBack, cannotTurn, playerWithinRadius;
     [Space]
     [Space]
     public ArtificialIntelligence[] thugsToCall;
@@ -156,6 +152,7 @@ public class AIBoss : MonoBehaviour {
                             if (aiVision.angle >= 4)
                             {
                                 aiVision.angle -= 1;
+                                muzzleFlash.SetActive(false);
                             }
                             else if (aiVision.angle <= 4)
                             {
@@ -164,6 +161,7 @@ public class AIBoss : MonoBehaviour {
                                     Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
                                     canFire = 1;
                                     timesFired += 1;
+                                    muzzleFlash.SetActive(true);
                                     if (timesFired == 6)
                                     {
                                         stationery = false;
