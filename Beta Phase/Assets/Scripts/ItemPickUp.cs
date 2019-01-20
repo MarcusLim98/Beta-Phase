@@ -19,7 +19,7 @@ public class ItemPickUp : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Bottle" && !haveBottle)
+        if (other.name.Contains("GlassBottle") && !haveBottle)
         {
             pressE.text = "Press E to interact";
             pressE.enabled = true;
@@ -41,7 +41,7 @@ public class ItemPickUp : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Bottle" && !haveBottle)
+        if (other.name.Contains("GlassBottle") && !haveBottle)
         {
             pressE.enabled = false;
         }

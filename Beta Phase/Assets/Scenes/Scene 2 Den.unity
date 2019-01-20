@@ -2157,7 +2157,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57532212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
   m_Name: 
@@ -2180,8 +2180,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1935054935}
-  extraRenderTexture: {fileID: 1250471502}
+  renderTexture: {fileID: 1811152809}
+  extraRenderTexture: {fileID: 69290380}
 --- !u!114 &57532216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2198,13 +2198,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1289333589}
   eavesdropLookHere: {fileID: 0}
   targetOffset: {x: 5, y: 15, z: -5}
   raycastPosition: {x: 0.5, y: 0.5, z: 0}
   movementSpeed: 5
   length: 15.3
-  playerOutlineEffect: {fileID: 0}
+  playerOutlineEffect: {fileID: 1289333600}
 --- !u!81 &57532217
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2559,6 +2559,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 65953806}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &69290380
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 416
+  m_Height: 233
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &78219998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14422,11 +14454,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (5)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -14522,7 +14554,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458691479}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -15775,11 +15807,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (9)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -15875,7 +15907,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484808457}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -16060,11 +16092,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (10)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -16160,7 +16192,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496376200}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -20139,11 +20171,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (8)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -20239,7 +20271,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643922848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -35048,11 +35080,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (4)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -35148,7 +35180,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926041742}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -35572,11 +35604,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (1)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -35672,7 +35704,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949089449}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -42192,11 +42224,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (2)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -42292,7 +42324,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128845418}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -42535,6 +42567,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138184118}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1141200291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_Name
+      value: GlassBottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39dbce480a9ba784eaef9d5fd7945ff2, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
 --- !u!1001 &1142146611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42702,11 +42803,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (6)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -42802,7 +42903,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150466984}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -43621,6 +43722,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1169701918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1170279921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1141200291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1170279922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170279921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+  flashing: 1
+  speedFlashing: 0.75
+--- !u!135 &1170279923
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170279921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.79
+  m_Center: {x: -0.0000000018626451, y: 0, z: 0.18452059}
 --- !u!1001 &1176902579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46564,38 +46704,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!84 &1250471502
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1256443542
 GameObject:
   m_ObjectHideFlags: 0
@@ -47479,9 +47587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1ecc18a5059e44ba376fc15677c1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressE: {fileID: 0}
+  pressE: {fileID: 1917549100}
   haveBottle: 0
-  bottleFilled: {fileID: 0}
+  bottleFilled: {fileID: 1669337449}
   fileName: Bottle Pick Up
 --- !u!120 &1289333596
 LineRenderer:
@@ -49966,7 +50074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
@@ -50066,7 +50174,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363641845}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -51064,11 +51172,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (7)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -51164,7 +51272,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390761743}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -56215,7 +56323,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1935054935}
+  m_TargetTexture: {fileID: 1811152809}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -60647,11 +60755,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_TagString
-      value: Bottle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_Name
-      value: GlassBottle (3)
+      value: GlassBottle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7b8b11769dbbe314593cf0216ec96d64, type: 3}
       propertyPath: m_IsActive
@@ -60747,7 +60855,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689649477}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.79
@@ -64514,6 +64622,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1807481343}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1811152809
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 416
+  m_Height: 233
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1812947635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67849,38 +67989,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1934538248}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1935054935
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1939547416
 GameObject:
   m_ObjectHideFlags: 0
