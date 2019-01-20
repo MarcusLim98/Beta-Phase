@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class RotatingParticleEffect : MonoBehaviour {
 
-    public bool onlyTurn, makeObjDisappear;
+    public bool onlyTurn, makeObjDisappear, makeAIMove;
     public Text pressE;
     public Vector3 speed;
     public ParticleSystem ps1, ps2, ps3;
     public SphereCollider thisCollider;
     public GameObject objBeGone;
-    public Transform[] movePaths;
+    //public Transform[] movePaths;
     public Vector3[] newPos;
     GameObject particle;
-    //public ArtificialIntelligence[] ai;
+    public ArtificialIntelligence[] ai;
     bool thisPlayer, stopRunningCoroutine;
     EavesdropLogic eavesdropLogic;
     public SpawnBehaviour spawnBehaviour;
@@ -61,6 +61,13 @@ public class RotatingParticleEffect : MonoBehaviour {
                 if (makeObjDisappear)
                 {
                     objBeGone.SetActive(false);
+                }
+                if(makeAIMove)
+                {
+                    for (int i = 0; i < newPos.Length; i++)
+                    {
+                        ai[i].stationeryPosition.position = newPos[i];
+                    }
                 }
                 //if (this.gameObject.name == "EavesdropZone2")
                 //{

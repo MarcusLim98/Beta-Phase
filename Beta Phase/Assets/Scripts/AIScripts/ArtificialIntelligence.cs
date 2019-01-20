@@ -303,7 +303,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 noisySource.tag = "Untagged";
             }
         }
-        if (Vector3.Distance(thisAI.position, target.position) < 6)
+        if (Vector3.Distance(thisAI.position, target.position) < 6 && !goToNoisySource)
         {
             playerHighlight.SetActive(true);
             playerHighlight.transform.parent = null;
