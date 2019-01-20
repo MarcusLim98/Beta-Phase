@@ -11,6 +11,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     public GameObject[] camFocusObj, contDialogue, spawnObj;
 
     public UiBehaviour ui;
+    public GameObject DiaCheck;
     [SerializeField]
     Text objectiveText;
 
@@ -28,6 +29,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         {
             StartCutscene();
         }
+        
     }
 
     void StartCutscene()
@@ -105,4 +107,20 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("find another way into the coffeeshop");
     }
 
+    void Day2Spotter()
+    {
+        cameraFocus = camFocusObj[1].transform;
+        if (DiaCheck.activeInHierarchy == false)
+        {
+            StartCoroutine(BackToYYafterSpot());
+            StartCutscene();
+        }
+    }
+
+    IEnumerator BackToYYafterSpot()
+    {
+        yield return new WaitForSeconds(1);
+        cameraFocus = playerLogic.gameObject.transform;
+        contDialogue[0].SetActive(true);
+    }
 }
