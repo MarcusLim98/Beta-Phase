@@ -29,8 +29,8 @@ public class AIBoss : MonoBehaviour {
     Vector3 targetDir, newDir, directionBetween, lookHereStart;
     Image uiState;
     PlayerLogic playerLogic;
-    public int timesFired;
-    int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate, timesHit;
+    public int timesFired, timesHit;
+    int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate;
     float stopToLook, stopToGoBack, angle;
     bool turnBack, cannotTurn, playerWithinRadius;
     [Space]
@@ -266,7 +266,7 @@ public class AIBoss : MonoBehaviour {
                 walkSpeed -= 0.5f;
                 runSpeed -= 0.5f;
                 timesHit += 1;
-                if (timesHit == 3)
+                if (timesHit == 4)
                 {
                     fadeToBlack.SetActive(true);
                     StartCoroutine(EndGame());
