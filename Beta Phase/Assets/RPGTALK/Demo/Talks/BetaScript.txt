@@ -1,3 +1,15 @@
+NAMING AND EXPRESSIONS:
+number of spaces after name = number respective of emotion.
+
+Ying Yue:
+		0 neutral
+		1 tired
+		2 shocked
+		3 suspicious
+		4 happy
+
+----------------------------------------------------------------------------------------------------------
+
 [title=Prologue-begin]
 Unknown Man: Did you think your reasons were good enough, Ying Yue?
 YingYue: [speed=65]Hard to say.[/speed] [speed=30]I guess it was worth a shot.[/speed]
@@ -45,9 +57,9 @@ Fade out
 YY stands outside the police station. It's sunset. She's tired from being pushed around.
 
 [title=Day1Afterwork-begin]
-Ying Yue: ...What a long day.
-Ying Yue: Now if only they'd take me seriously.
-Ying Yue: What's the point of being a cop if all they let me do is paperwork, hah...
+Ying Yue : ...What a long day.
+Ying Yue : Now if only they'd take me seriously.
+Ying Yue   : What's the point of being a cop if all they let me do is paperwork, hah...
 [title=Day1Afterwork-end]
 
 CRASH! Some thugs are making a ruckus off-screen. The camera shifts to look at them. They're outside a coffeeshop.
@@ -57,7 +69,7 @@ CRASH! Some thugs are making a ruckus off-screen. The camera shifts to look at t
 The camera moves back to YY.
 
 [title=Day1Suspicion-begin]
-Ying Yue: What was that?
+Ying Yue  : What was that?
 [title=Day1Suspicion-end]
 
 Objective: Investigate the ruckus.

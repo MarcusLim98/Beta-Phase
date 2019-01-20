@@ -514,6 +514,7 @@ public class RPGTalk : MonoBehaviour {
                     if (photos[state].name == rpgtalkElements[0].originalSpeakerName) {
                         if (UIPhoto) {
                             UIPhoto.sprite = photos[state].photo;
+                            UIPhoto.SetNativeSize();
                         }
 
                         if (animatorWhenTalking && animatorIntName != "") {
@@ -567,7 +568,7 @@ public class RPGTalk : MonoBehaviour {
 
                 string[] originalSplitLine = newElement.originalSpeakerName.Split(new char[] { ':' }, 2);
 
-                newElement.originalSpeakerName = originalSplitLine[0].Trim();
+                newElement.originalSpeakerName = originalSplitLine[0]/*.Trim()*/;
             }
         }
 
