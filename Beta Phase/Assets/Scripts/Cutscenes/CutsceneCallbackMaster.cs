@@ -91,11 +91,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EndCutscene();
         contDialogue[1].SetActive(false);
         contDialogue[2].SetActive(true);
-    }
-
-    void Day1AfterApproach()
-    {
-        EndCutscene();
         spawnObj[0].SetActive(true);
         spawnObj[1].SetActive(true);
     }
@@ -103,6 +98,16 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1AfterEavesdrop()
     {
         ChangeObjective("find another way into the coffeeshop");
+    }
+
+    void Day1EnterCShop()
+    {
+        ChangeObjective("investigate the coffeeshop");
+    }
+
+    void Day1AfterCShopEacesdrop()
+    {
+        ChangeObjective("exit area through the side door");
     }
 
 }
