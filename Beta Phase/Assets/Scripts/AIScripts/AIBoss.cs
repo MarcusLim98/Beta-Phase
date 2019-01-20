@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class AIBoss : MonoBehaviour {
-
     enum AIState { PATROLLING, INVESTIGATING, CHASE }; // States
     AIState state;
 
     public Transform playerTarget;
     public GameObject playerHighlight;
-    public Transform noisySource;
-    public Transform stationeryPosition;
-    public GameObject alert, gunLine, bullet, crate, muzzleFlash;
+    public Transform noisySource, stationeryPosition;
+    public GameObject alert, gunLine, bullet, crate, muzzleFlash, fadeToBlack;
     public AIVision aiVision;
+    public Text toBeContinued;
     [Space]
     [Space]
     public AIPath aiPath;
@@ -30,7 +30,7 @@ public class AIBoss : MonoBehaviour {
     Image uiState;
     PlayerLogic playerLogic;
     public int timesFired;
-    int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate;
+    int destPoint = 0, isInFov, firstStage, canFire, investigatingState, hitByCrate, timesHit;
     float stopToLook, stopToGoBack, angle;
     bool turnBack, cannotTurn, playerWithinRadius;
     [Space]
@@ -140,9 +140,6 @@ public class AIBoss : MonoBehaviour {
                         //print("5");
                         anim.SetInteger("State", 2);
                         agent.speed = 0;
-                        targetDir = playerHighlight.transform.position - thisAI.position;
-                        newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
-                        transform.rotation = Quaternion.LookRotation(newDir);
                         playerHighlight.SetActive(false);
                         playerHighlight.transform.parent = playerTarget;
                         playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
@@ -151,6 +148,9 @@ public class AIBoss : MonoBehaviour {
                             gunLine.SetActive(true);
                             if (aiVision.angle >= 4)
                             {
+                                targetDir = playerHighlight.transform.position - thisAI.position;
+                                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                                transform.rotation = Quaternion.LookRotation(newDir);
                                 aiVision.angle -= 1;
                                 muzzleFlash.SetActive(false);
                             }
@@ -221,7 +221,7 @@ public class AIBoss : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit, maxRadius))
             {
-                if (hit.transform == playerTarget && isInFov != 2)
+                if (hit.transform == playerTarget)
                 {
                     investigatingState = 1;
                     goToNoisySource = false;
@@ -252,7 +252,7 @@ public class AIBoss : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0,0,0));
+            Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0, 0, 0));
         }
 
         RaycastHit hit2;
@@ -265,6 +265,12 @@ public class AIBoss : MonoBehaviour {
                 agent.speed -= 0.5f;
                 walkSpeed -= 0.5f;
                 runSpeed -= 0.5f;
+                timesHit += 1;
+                if (timesHit == 3)
+                {
+                    fadeToBlack.SetActive(true);
+                    StartCoroutine(EndGame());
+                }
             }
         }
         else hitByCrate = 0;
@@ -350,9 +356,9 @@ public class AIBoss : MonoBehaviour {
             aiPath = other.GetComponentInParent<AIPath>();
         }
 
-        if(other.name == "Crate(Clone)")
+        if (other.name == "Crate(Clone)")
         {
-            if(firstStage< 3)
+            if (firstStage < 3)
             {
                 firstStage = 3;
                 timesFired = 6;
@@ -405,5 +411,13 @@ public class AIBoss : MonoBehaviour {
         {
             playerWithinRadius = false;
         }
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(2f);
+        toBeContinued.enabled = true;
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("FakeMenu");
     }
 }
