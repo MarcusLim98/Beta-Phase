@@ -10,10 +10,11 @@ public class OpenDoors : MonoBehaviour {
     public Text pressE;
     public NavMeshObstacle obstacle;
     float timer;
+    AudioSource externalAudio;
     // Use this for initialization
     void Start () {
-		
-	}
+        externalAudio = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,6 +43,8 @@ public class OpenDoors : MonoBehaviour {
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
+                externalAudio.clip = (AudioClip)Resources.Load("OpeningDoor");
+                externalAudio.Play();
                 canBeOpen = true;
                 pressE.enabled = false;
             }
