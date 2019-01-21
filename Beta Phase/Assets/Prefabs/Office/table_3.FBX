@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2019
 		Month: 1
-		Day: 18
-		Hour: 16
-		Minute: 57
-		Second: 52
-		Millisecond: 339
+		Day: 21
+		Hour: 11
+		Minute: 36
+		Second: 46
+		Millisecond: 407
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,25 +34,25 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "18/01/2019 08:57:52.338"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "21/01/2019 03:36:46.407"
 			P: "Original|FileName", "KString", "", "", "D:\My Stuff\GDD\fbx files\table_3.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "18/01/2019 08:57:52.338"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "21/01/2019 03:36:46.407"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\User\Documents\3dsMax"
-			P: "Original|ApplicationNativeFile", "KString", "", "", "D:\My Stuff\GDD\3ds max files\Police Station Props and Warehouse Final.max"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "D:\My Stuff\GDD\3ds max files\Police Station Props and Warehouse Final_2.max"
 		}
 	}
 }
 GlobalSettings:  {
 	Version: 1000
 	Properties70:  {
-		P: "UpAxis", "int", "Integer", "",1
+		P: "UpAxis", "int", "Integer", "",2
 		P: "UpAxisSign", "int", "Integer", "",1
-		P: "FrontAxis", "int", "Integer", "",2
-		P: "FrontAxisSign", "int", "Integer", "",1
+		P: "FrontAxis", "int", "Integer", "",1
+		P: "FrontAxisSign", "int", "Integer", "",-1
 		P: "CoordAxis", "int", "Integer", "",0
 		P: "CoordAxisSign", "int", "Integer", "",1
 		P: "OriginalUpAxis", "int", "Integer", "",2
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1920633267344, "", "Scene" {
+	Document: 2626571738256, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -97,7 +97,7 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 10
+	Count: 12
 	ObjectType: "GlobalSettings" {
 		Count: 1
 	}
@@ -250,7 +250,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "Texture" {
-		Count: 1
+		Count: 2
 		PropertyTemplate: "FbxFileTexture" {
 			Properties70:  {
 				P: "TextureTypeUse", "enum", "", "",0
@@ -284,7 +284,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "Video" {
-		Count: 1
+		Count: 2
 		PropertyTemplate: "FbxVideo" {
 			Properties70:  {
 				P: "Path", "KString", "XRefUrl", "", ""
@@ -316,7 +316,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1920640427968, "Geometry::", "Mesh" {
+	Geometry: 2626575471488, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.898039215686275,0.603921568627451,0.843137254901961
 		}
@@ -383,11 +383,9 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1920795012704, "Model::table_3", "Mesh" {
+	Model: 2627295342192, "Model::table_3", "Mesh" {
 		Version: 232
 		Properties70:  {
-			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
-			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",1.98044145107269,154.773956298828,-466.794189453125
@@ -395,13 +393,14 @@ Objects:  {
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.39667499065399,1.39667499065399,0.733300864696503
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",90.0000025044781,-0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,0.886505305767059,1
 			P: "UDP3DSMAX", "KString", "", "U", "MapChannel:1 = UVChannel_1&cr;&lf;"
 			P: "MaxHandle", "int", "Integer", "UH",1609
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 1920586054416, "Material::01 - Default", "" {
+	Material: 2626912971280, "Material::05 - Default", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -410,6 +409,7 @@ Objects:  {
 			P: "EmissiveFactor", "Number", "", "A",0
 			P: "AmbientColor", "Color", "", "A",0.588235318660736,0.588235318660736,0.588235318660736
 			P: "DiffuseColor", "Color", "", "A",0.588235318660736,0.588235318660736,0.588235318660736
+			P: "BumpFactor", "double", "Number", "",0.300000011920929
 			P: "TransparentColor", "Color", "", "A",1,1,1
 			P: "SpecularColor", "Color", "", "A",0.899999976158142,0.899999976158142,0.899999976158142
 			P: "SpecularFactor", "Number", "", "A",0
@@ -423,48 +423,74 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 1920586028496, "Video::Map #4", "Clip" {
+	Video: 2626912996720, "Video::Map #29", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "D:\My Stuff\GDD\textures\edited texture\Untitled-2.png"
-			P: "RelPath", "KString", "XRefUrl", "", "..\textures\edited texture\Untitled-2.png"
+			P: "Path", "KString", "XRefUrl", "", "D:\My Stuff\GDD\textures\table\tableset1_Default_BaseColor.png"
+			P: "RelPath", "KString", "XRefUrl", "", "..\textures\table\tableset1_Default_BaseColor.png"
 		}
 		UseMipMap: 0
-		Filename: "D:\My Stuff\GDD\textures\edited texture\Untitled-2.png"
-		RelativeFilename: "..\textures\edited texture\Untitled-2.png"
+		Filename: "D:\My Stuff\GDD\textures\table\tableset1_Default_BaseColor.png"
+		RelativeFilename: "..\textures\table\tableset1_Default_BaseColor.png"
 	}
-	Texture: 1920586053456, "Texture::Map #4", "" {
+	Video: 2626912988560, "Video::Map #31", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "D:\My Stuff\GDD\textures\table\tableset1_Default_Normal.png"
+			P: "RelPath", "KString", "XRefUrl", "", "..\textures\table\tableset1_Default_Normal.png"
+		}
+		UseMipMap: 0
+		Filename: "D:\My Stuff\GDD\textures\table\tableset1_Default_Normal.png"
+		RelativeFilename: "..\textures\table\tableset1_Default_Normal.png"
+	}
+	Texture: 2626912997200, "Texture::Map #29", "" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::Map #4"
+		TextureName: "Texture::Map #29"
 		Properties70:  {
 			P: "UVSet", "KString", "", "", "UVChannel_1"
 			P: "UseMaterial", "bool", "", "",1
 		}
-		Media: "Video::Map #4"
-		FileName: "D:\My Stuff\GDD\textures\edited texture\Untitled-2.png"
-		RelativeFilename: "..\textures\edited texture\Untitled-2.png"
+		Media: "Video::Map #29"
+		FileName: "D:\My Stuff\GDD\textures\table\tableset1_Default_BaseColor.png"
+		RelativeFilename: "..\textures\table\tableset1_Default_BaseColor.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "Alpha_Black"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 1920592229344, "AnimStack::Take 001", "" {
+	Texture: 2626912981840, "Texture::Map #31", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::Map #31"
+		Properties70:  {
+			P: "UVSet", "KString", "", "", "UVChannel_1"
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::Map #31"
+		FileName: "D:\My Stuff\GDD\textures\table\tableset1_Default_Normal.png"
+		RelativeFilename: "..\textures\table\tableset1_Default_Normal.png"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "Alpha_Black"
+		Cropping: 0,0,0,0
+	}
+	AnimationStack: 2626304128160, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",153953860000
 			P: "ReferenceStop", "KTime", "Time", "",153953860000
 		}
 	}
-	AnimationLayer: 1920132351232, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 2626672567872, "AnimLayer::BaseLayer", "" {
 	}
-	CollectionExclusive: 1920203901680, "DisplayLayer::Layer001", "DisplayLayer" {
+	CollectionExclusive: 2626572079200, "DisplayLayer::Layer001", "DisplayLayer" {
 		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.0274509803921569,0.235294117647059,0.529411764705882
+			P: "Color", "ColorRGB", "Color", "",0.0274509803921569,0.235294117647059,0.525490196078431
 		}
 	}
-	CollectionExclusive: 1920203906864, "DisplayLayer::doors", "DisplayLayer" {
+	CollectionExclusive: 2626572080544, "DisplayLayer::doors", "DisplayLayer" {
 		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.87843137254902,0.341176470588235,0.56078431372549
+			P: "Color", "ColorRGB", "Color", "",0.87843137254902,0.337254901960784,0.556862745098039
 		}
 	}
 }
@@ -475,22 +501,28 @@ Objects:  {
 Connections:  {
 	
 	;Model::table_3, Model::RootNode
-	C: "OO",1920795012704,0
+	C: "OO",2627295342192,0
 	
 	;AnimLayer::BaseLayer, AnimStack::Take 001
-	C: "OO",1920132351232,1920592229344
+	C: "OO",2626672567872,2626304128160
 	
 	;Geometry::, Model::table_3
-	C: "OO",1920640427968,1920795012704
+	C: "OO",2626575471488,2627295342192
 	
-	;Material::01 - Default, Model::table_3
-	C: "OO",1920586054416,1920795012704
+	;Material::05 - Default, Model::table_3
+	C: "OO",2626912971280,2627295342192
 	
-	;Texture::Map #4, Material::01 - Default
-	C: "OP",1920586053456,1920586054416, "DiffuseColor"
+	;Texture::Map #29, Material::05 - Default
+	C: "OP",2626912997200,2626912971280, "DiffuseColor"
 	
-	;Video::Map #4, Texture::Map #4
-	C: "OO",1920586028496,1920586053456
+	;Texture::Map #31, Material::05 - Default
+	C: "OP",2626912981840,2626912971280, "Bump"
+	
+	;Video::Map #29, Texture::Map #29
+	C: "OO",2626912996720,2626912997200
+	
+	;Video::Map #31, Texture::Map #31
+	C: "OO",2626912988560,2626912981840
 }
 ;Takes section
 ;----------------------------------------------------
