@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour {
 
@@ -41,6 +42,7 @@ public class PlayerLogic : MonoBehaviour {
     {
         Raycasting();
         Cheats();
+        SceneCheat();
     }
 
     void Raycasting()
@@ -135,6 +137,41 @@ public class PlayerLogic : MonoBehaviour {
             {
                 alterSpots = 3;
                 StartCoroutine(SpawnThere());
+            }
+        }
+    }
+
+    void SceneCheat()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                SceneManager.LoadScene("Scene 0 Police Office");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SceneManager.LoadScene("Scene 1 CShop");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SceneManager.LoadScene("Scene 2 Den");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SceneManager.LoadScene("Scene 3 OWHouse");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                SceneManager.LoadScene("Scene 4 CWHouse");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                SceneManager.LoadScene("Scene 7 ABHouse");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                SceneManager.LoadScene("Scene 8 ABHouse");
             }
         }
     }
