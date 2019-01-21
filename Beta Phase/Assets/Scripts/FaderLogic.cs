@@ -71,6 +71,10 @@ public class FaderLogic : MonoBehaviour {
         {
             SceneManager.LoadScene(nextLevel);
         }
+        if (this.gameObject.name == "EndGame1")
+        {
+            SceneManager.LoadScene("Scene 7 ABHouse");
+        }
         //fadeToBlack.SetActive(false);
     }
 

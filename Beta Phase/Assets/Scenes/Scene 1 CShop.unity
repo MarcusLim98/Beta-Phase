@@ -787,8 +787,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 138826624}
-  extraRenderTexture: {fileID: 1373151064}
+  renderTexture: {fileID: 1249735724}
+  extraRenderTexture: {fileID: 412331731}
 --- !u!114 &57532216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 57532213}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -2855,38 +2855,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0e9d39cd21bcac04fa8ea2767e1cba80, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 664a2223fb0561e4ea8c5f4c26214098, type: 3}
---- !u!84 &138826624
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &142824999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9321,6 +9289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 1889862939}
+  forObjectives: 0
   instructions: 'becareful: running on wooden/glass floors is noisy. sneak over them
     with r.click'
 --- !u!65 &208052749
@@ -14068,6 +14037,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!84 &412331731
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 905
+  m_Height: 509
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &415313086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44359,6 +44360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onlyTurn: 1
   makeObjDisappear: 0
+  makeAIMove: 0
   pressE: {fileID: 0}
   speed: {x: 0, y: 0, z: 100}
   ps1: {fileID: 0}
@@ -44366,8 +44368,8 @@ MonoBehaviour:
   ps3: {fileID: 0}
   thisCollider: {fileID: 0}
   objBeGone: {fileID: 0}
-  movePaths: []
   newPos: []
+  ai: []
   spawnBehaviour: {fileID: 2066216220}
   callbackScript: {fileID: 0}
   callbackFunction: 
@@ -49840,6 +49842,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1249593477}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1249735724
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 905
+  m_Height: 509
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1253107905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53222,38 +53256,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1370580848}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1373151064
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1373322347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56300,6 +56302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onlyTurn: 0
   makeObjDisappear: 0
+  makeAIMove: 0
   pressE: {fileID: 1917549100}
   speed: {x: 0, y: 0, z: 0}
   ps1: {fileID: 1456207226}
@@ -56307,8 +56310,8 @@ MonoBehaviour:
   ps3: {fileID: 1219441266}
   thisCollider: {fileID: 0}
   objBeGone: {fileID: 0}
-  movePaths: []
   newPos: []
+  ai: []
   spawnBehaviour: {fileID: 2066216220}
   callbackScript: {fileID: 622048808}
   callbackFunction: Day1AfterEavesdrop
@@ -61483,6 +61486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onlyTurn: 0
   makeObjDisappear: 0
+  makeAIMove: 0
   pressE: {fileID: 1917549100}
   speed: {x: 0, y: 0, z: 0}
   ps1: {fileID: 1472508236}
@@ -61490,8 +61494,8 @@ MonoBehaviour:
   ps3: {fileID: 1499331932}
   thisCollider: {fileID: 0}
   objBeGone: {fileID: 0}
-  movePaths: []
   newPos: []
+  ai: []
   spawnBehaviour: {fileID: 2066216220}
   callbackScript: {fileID: 622048808}
   callbackFunction: Day1AfterCShopEacesdrop
@@ -71251,6 +71255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onlyTurn: 1
   makeObjDisappear: 0
+  makeAIMove: 0
   pressE: {fileID: 0}
   speed: {x: 0, y: 0, z: 100}
   ps1: {fileID: 0}
@@ -71258,8 +71263,8 @@ MonoBehaviour:
   ps3: {fileID: 0}
   thisCollider: {fileID: 0}
   objBeGone: {fileID: 0}
-  movePaths: []
   newPos: []
+  ai: []
   spawnBehaviour: {fileID: 2066216220}
   callbackScript: {fileID: 0}
   callbackFunction: 
@@ -71504,22 +71509,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterOutline
       objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.6714023
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.17802638
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.71939015
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0018777797
-      objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -71596,6 +71585,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b581fc204d077e74785a09e0663af3e2, type: 2}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6714023
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.17802638
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.71939015
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0018777797
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
 --- !u!1001 &1502817192
@@ -72759,7 +72764,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 138826624}
+  m_TargetTexture: {fileID: 1249735724}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -87228,18 +87233,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400086, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400088, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.63
@@ -87275,6 +87268,18 @@ PrefabInstance:
     - target: {fileID: 400090, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400086, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400088, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
       propertyPath: m_Controller
@@ -87601,6 +87606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 1889862939}
+  forObjectives: 0
   instructions: stand in the golden eavesdrop zone and hold E to eavesdrop
 --- !u!65 &2067440783
 BoxCollider:
@@ -88704,6 +88710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 1889862939}
+  forObjectives: 0
   instructions: pray at altars to save your progress
 --- !u!65 &2110969178
 BoxCollider:

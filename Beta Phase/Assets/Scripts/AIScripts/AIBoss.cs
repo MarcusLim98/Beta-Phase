@@ -162,8 +162,6 @@ public class AIBoss : MonoBehaviour {
                                 if (canFire == 0)
                                 {
                                     Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
-                                    fileName = "LaoDaGunShot";
-                                    SoundFX();
                                     canFire = 1;
                                     timesFired += 1;
                                     muzzleFlash.SetActive(true);
@@ -234,6 +232,9 @@ public class AIBoss : MonoBehaviour {
                     exclamationMark.SetActive(true);
                     fileName = "ThugAlert";
                     SoundFX();
+                    playerHighlight.SetActive(false);
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                     if (firstStage < 3)
                     {
                         foreach (ArtificialIntelligence thugs in thugsToCall)
