@@ -10,8 +10,9 @@ public class ThrowingBottleLogic : MonoBehaviour {
     public LineRenderer lr;
     public Transform midPoint;
     public Image bottleIcon;
-    public LayerMask layer;
-    public float forceToThrow, maxRadius, limit;
+    public LayerMask layer, layer2;
+    public float forceToThrow;//, limit;
+    public bool hitSomething;
 
     Transform launchFrom;
     Vector3 target, toTarget, aimingWhere, Vo;
@@ -19,7 +20,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
     ItemPickUp itemPickUp;
     float dist;
     private int numPoints = 50;
-    private Vector3[] positions = new Vector3[50];
+    private Vector3[] positions = new Vector3[50], newPointsInLine = null;
     private Camera cam;
     // Use this for initialization
     void Start()
@@ -47,15 +48,24 @@ public class ThrowingBottleLogic : MonoBehaviour {
         {
             dist = Vector3.Distance(cursor.transform.position, transform.position);
             playerLogic.noMoving = true;
-            if(dist< limit)
+            if(dist< 15f)
             {
                 lr.enabled = true;
                 cursor.SetActive(true);
             }
-            else if (dist > limit)
+            else if (dist > 15f)
             {
                 lr.enabled = false;
                 cursor.SetActive(false);
+            }
+
+            if (dist > 8f)
+            {
+                forceToThrow = 1.2f;
+            }
+            else if (dist < 8f)
+            {
+                forceToThrow = 0.5f;
             }
 
             cursor.transform.position = hit.point + Vector3.up * 0.1f;
@@ -64,7 +74,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
             launchFrom.transform.rotation = Quaternion.LookRotation(Vo);
             midPoint.rotation = Quaternion.LookRotation(Vo);
 
-            if (Input.GetMouseButtonDown(0) && dist < limit)
+            if (Input.GetMouseButtonDown(0) && dist < 15f && hitSomething)
             {
                 Rigidbody obj = Instantiate(rb, launchFrom.position, Quaternion.identity);
                 obj.velocity = Vo;
@@ -77,6 +87,21 @@ public class ThrowingBottleLogic : MonoBehaviour {
             cursor.SetActive(false);
             lr.enabled = false;
             playerLogic.noMoving = false;
+        }
+
+        if (hitSomething)
+        {
+            //use new points for the line renderer
+            lr.positionCount = newPointsInLine.Length;
+
+            lr.SetPositions(newPointsInLine);
+        }
+        else
+        {
+            //use old points for the line renderer
+            lr.positionCount = positions.Length;
+
+            lr.SetPositions(positions);
         }
     }
 
@@ -106,6 +131,34 @@ public class ThrowingBottleLogic : MonoBehaviour {
 
         lr.SetPositions(positions);
 
+        RaycastHit hitInfo;
+        for (int i = 0; i < positions.Length - 1; i++)
+        {
+            if (Physics.Linecast(positions[i], positions[i + 1], out hitInfo))
+            {
+                //initialize the new array to the furthest point + 1 since the array is 0-based
+                newPointsInLine = new Vector3[(i + 1) + 1];
+
+                //transfer the points we need to the new array
+                for (int i2 = 0; i2 < newPointsInLine.Length; i2++)
+                {
+                    newPointsInLine[i2] = positions[i2];
+                }
+
+                //set the current point to the raycast hit point (the end of the line renderer)
+                newPointsInLine[i + 1] = hitInfo.point;
+
+                //flag that we hit something
+                if (hitInfo.transform.tag == "Path")
+                {
+                    hitSomething = true;
+                }
+                else hitSomething = false;
+
+                break;
+            }
+        }
+
         return result;
     }
 
@@ -118,11 +171,5 @@ public class ThrowingBottleLogic : MonoBehaviour {
         p += 2 * u * t * p1;
         p += tt * p2;
         return p;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, maxRadius);
     }
 }

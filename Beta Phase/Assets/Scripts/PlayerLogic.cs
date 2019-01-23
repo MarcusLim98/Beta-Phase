@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour {
 
-    public float speed;
+    public float walkSpeed, runSpeed;
     public int movingStyle;
     public LayerMask layerMask;
     public Transform thisNoisyFloor;
@@ -56,7 +56,7 @@ public class PlayerLogic : MonoBehaviour {
             {
                 if (Input.GetMouseButtonDown(0))
                 {               
-                    agent.speed = 10f;
+                    agent.speed = runSpeed;
                     agent.SetDestination(hit.point);
                     movingStyle = 1;
                     if (!stepOnNoisyFloor)
@@ -72,7 +72,7 @@ public class PlayerLogic : MonoBehaviour {
                 }
                 else if (Input.GetMouseButtonDown(1))
                 {
-                    agent.speed = 3f;
+                    agent.speed = walkSpeed;
                     agent.SetDestination(hit.point);
                     movingStyle = 2;
                     if (!stepOnNoisyFloor)
