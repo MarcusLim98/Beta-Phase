@@ -35,7 +35,7 @@ public class ArtificialIntelligence : MonoBehaviour
     Image uiState;
     PlayerLogic playerLogic;
     int destPoint = 0;
-    float stopToLook, stopToGoBack, angle, startToTurn;
+    float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
     bool turnBack, cannotTurn, playerWithinRadius;
     string fileName;
 
@@ -304,16 +304,17 @@ public class ArtificialIntelligence : MonoBehaviour
                 noisySource.tag = "Untagged";
             }
         }
-        if (Vector3.Distance(thisAI.position, target.position) < 6 && !goToNoisySource)
-        {
-            playerHighlight.SetActive(true);
-            playerHighlight.transform.parent = null;
-        }
-        if (Vector3.Distance(thisAI.position, target.position) < 3)
+        //if (Vector3.Distance(thisAI.position, target.position) < 8 && isInFov == 2)
+        //{
+            //playerHighlight.SetActive(true);
+            //playerHighlight.transform.parent = null;
+        //}
+        if (Vector3.Distance(thisAI.position, target.position) < stopHere)
         {
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f)
             {
+                playerHighlight.SetActive(true);
                 anim.SetInteger("State", 0);
                 agent.speed = 0f;
             }
@@ -332,6 +333,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 maxAngle2 = 25;
                 firstFov.SetActive(true);
                 secondFov.SetActive(false);
+                stopHere = 3f;
                 GotoNextPoint();
             }
         }
@@ -362,6 +364,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     exclamationMark.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    stopHere = 3f;
                     fileName = "ThugSuspicious";
                     SoundFX();
                 }
@@ -376,7 +379,7 @@ public class ArtificialIntelligence : MonoBehaviour
             investigatingState = 0;
         }
 
-        if (angle <= maxAngle2 || angle <= maxAngle3)
+        if (angle <= maxAngle2 || (angle <= maxAngle3 && playerLogic.movingStyle == 1))
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
@@ -392,6 +395,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     maxAngle2 = 45;
                     firstFov.SetActive(false);
                     secondFov.SetActive(true);
+                    stopHere = 12f;
                     fileName = "ThugAlert";
                     SoundFX();
                     return true;
