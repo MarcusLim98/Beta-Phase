@@ -15,7 +15,7 @@ Unknown Man: Did you think your reasons were good enough, Ying Yue?
 YingYue: [speed=65]Hard to say.[/speed] [speed=30]I guess it was worth a shot.[/speed]
 [title=Prologue-end]
 
-Fade out
+Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ Chief Hank: Don't stick your nose into businesses that aren't yours.
 Chief Hank: You're dismissed. Curfew applies soon, so don't loiter.
 [title=Day1DonePapers-end]
 
-Fade out
+Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ Thuggish Man: Oi! Get the hell out of here!
 Thuggish Man: Go play dress-up somewhere else.
 [title=Day1ApproachThugs-end]
 
-Objective: Eavesdrop from afar
+Objective: Eavesdrop from afar.
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -95,33 +95,34 @@ Thuggish Man: Screw off, you little rat!
 
 ----------------------------------------------------------------------------------------------------------
 
+It is Day 2 (Level 2). Ying Yue stands in Hank's office. She has shown him the evidence that she stole the night prior.
 
+[title=Day2Intro-begin]
+Chief Hank: What did I tell you yesterday?
+Chief Hank: Do not stick your nose into businesses that aren't yours.
+Ying Yue: Sorry, sir.
+Chief Hank: ...As for the secret society activities, we will investigate if needed.
+Chief Hank: You are dismissed, constable.
+[title=Day2Intro-end]
 
-[title=-begin]
-Chief Hank: I... I don't know how you did this but...
-Chief Hank: Don't waste too much time on this.
-Chief Hank: We have more work that's better suited for your...
-Chief Hank: <i>... caliber.</i>
-Chief Hank: Complete your current tasks before you continue on this.
-Ying Yue: Yes, sir.
-Chief Hank: And note that because you are comparably less experienced than your superiors, you will not be granted a squad to assist you in this investigation.
-Chief Hank: They have more important tasks at hand.
-Ying Yue: Yes, sir.
-Chief Hank: You are dismissed.
-[title=-end]
+Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
+YY stands outside the police station, again. It's sunset, again. She's tired, again.
 
-[title=-begin]
-Ying Yue: It looks like Chief Hank will keep wasting my work hours with paperwork.
-Ying Yue: I doubt I can do anything about the case at this rate.
-[title=-end]
+[title=Day2AfterWork-begin]
+Ying Yue : It looks like Chief Hank will keep wasting my work hours.
+Ying Yue : I doubt I can do anything about the case at this rate.
+[title=Day2AfterWork-end]
+
+Objective:
 
 ----------------------------------------------------------------------------------------------------------
 
+Chief Hank stands in his office with Lao Da. Hank is disturbed. Lao Da keeps a cool front.
 
-[title=-begin]
+[title=Day3Intro-begin]
 Chief Hank: God damn it. I can't believe this mess.
 Chief Hank: Kidnappings, ransoms, opium drug trade, theft, assault...
 Chief Hank: The secret society nonsense is getting out of hand.
@@ -129,72 +130,58 @@ Policeman: It's always been out of hand, sir, but I'm confident we can handle it
 Chief Hank: Hah, really? That's what you think?
 Chief Hank: A little girl not one week in the force has already found a lead bigger than your brain.
 Chief Hank: <i>In less than 24 hours,</i> mind you.
-(Knocking is heard)
-Chief Hank: Come in.
-(Ying Yue enters the room.)
+[title=Day3Intro-end]
+
+Knocking is heard.
+
+----------------------------------------------------------------------------------------------------------
+
+Ying Yue enters the room.
+
+[title=Day3Twist-begin]
 Ying Yue: You summoned me, sir?
-Chief Hank: Yes... Regarding this [name of case] case, [Double-crosser's team name] will look into it, alongside with our own allocated forces.
-(Ying Yue looks at the Double-crosser to acknowledge him respectfully, but she recognises him.)
-Ying Yue: <i>(That man from the warehouse...!)</i>
+Chief Hank: Yes... Regarding this "Hunting Dragons" case, Officer [Doublecrosser's name] will look into it, alongside with our own allocated forces.
+Ying Yue  : <i>(That man from the warehouse...!)</i>
 Chief Hank: We will contact you if needed. You are to return to your paperwork.
 Chief Hank: Dismissed.
-Ying Yue: Yes, sir. Thank you, sir.
-[title=-end]
+Ying Yue : Yes, sir. Thank you, sir.
+[title=Day3Twist-end]
+
+Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
+YY stands outside the police station, again. It's sunset, again. She's tired, yes, but now she's DETERMINED.
 
-[title=-begin]
-Ying Yue: ...
-(UI: key item obtained: folded note.)
-Ying Yue:  ... I have to stop them.
-[title=-end]
-
-----------------------------------------------------------------------------------------------------------
-
-
-[title=WAScutscene-begin]
-Ying Yue: Hey.
-QQ: Hey yourself. What's (cut off text automatically)
-Ying Yue: I need your help.
-QQ: Ah, a businesswoman today. What can I do for you, madam?
-Ying Yue: Someone else is now in charge of my case -- someone bad.
-Ying Yue: I know they won't bother with justice when they can pretend to be doing their jobs.
-Ying Yue: <i>But I also know where they'll be.</i>
-QQ:  Hah, Ying Yue, you're usually the one with the plan. Your gut feeling is never wrong...
-QQ:  ... except for that one time.
-QQ:  I'm flattered that you think I'm important.
-Ying Yue: QQ, can you just (cut off text automatically)
-QQ: I'll help. Show me what you know.
-(UI: key item used: folded note.)
-(QQ pauses before ducking into the house.)
-(He returns after a moment.)
-QQ: You know, we haven't planned your funeral yet. Are you sure about this?
-Ying Yue: It's my duty to serve my people.
-QQ: ...
-QQ: I'll see you tonight.
-(UI: key item obtained: final note.)
-[title=WAScutscene-end]
+[title=Day3AfterWork-begin]
+Ying Yue   : ...
+Ying Yue   : ... I have to stop them.
+[title=Day3AfterWork-end]
 
 ----------------------------------------------------------------------------------------------------------
 
+It's Lao Da's level. He is cocky, confident and strangely charismatic. A cruel killer, no doubt. He sneers.
 
-[title=WAScutscene-begin]
-Lao Da: Ying Yue! Lovely lady of the law, come on out.
+[title=LaoDaIntro-begin]
+Lao Da: Ying Yue! Lovely lady of the law, welcome.
 Lao Da: You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
 Lao Da: ... But impressive acts only last so long.
-Ying Yue: ...
+Ying Yue   : ...
 Lao Da: <i>You are no hero, Ying Yue, just a troublemaker.</i>
-[title=WAScutscene-end]
+[title=LaoDaIntro-end]
+
+The final boss fight has begun!
 
 ----------------------------------------------------------------------------------------------------------
 
 
-[title=WAScutscene-begin]
+[title=LaoDaDefeat-begin]
 Lao Da: Enough games, Ying Yue. There's nowhere to run.
-Lao Da: Honestly, you remind me of someone: my son, brilliant but selfishly stubborn.
 Lao Da: So many years ahead of yourself, all thrown away because of one stupid decision.
 Lao Da: Did your parents know? Did you even care to tell them?
+
+DISCUSS THE ENDING WITH NOAH AND MARCUS
+
 (In the background: car engines can be heard. They get louder. DO NOT INTERRUPT DIALOG.)
 Lao Da: Did you think your reasons were good enough, Ying Yue?
 Ying Yue: Hard to say.
@@ -211,4 +198,5 @@ QQ: Told you I'd see you tonight.
 (Several police cars enter the scene from the destroyed wall, the driving policemen yelling that they have cornered the thief of a family car.)
 (The policemen notice Lao Da. They change their priorities to apprehend him and his men.)
 (Ying Yue gets up and tries to help them.)
-[title=WAScutscene-end]
+[title=LaoDaDefeat-end]
+
