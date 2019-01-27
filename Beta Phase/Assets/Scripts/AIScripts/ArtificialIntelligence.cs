@@ -317,6 +317,9 @@ public class ArtificialIntelligence : MonoBehaviour
                 playerHighlight.SetActive(true);
                 anim.SetInteger("State", 0);
                 agent.speed = 0f;
+                targetDir = playerHighlight.transform.position - thisAI.position;
+                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDir);
             }
             else if (stopToGoBack >= 3f)
             {
@@ -396,6 +399,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     firstFov.SetActive(false);
                     secondFov.SetActive(true);
                     stopHere = 12f;
+                    stopToGoBack = 0;
                     fileName = "ThugAlert";
                     SoundFX();
                     return true;
