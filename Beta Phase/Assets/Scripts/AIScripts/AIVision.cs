@@ -86,7 +86,6 @@ public class AIVision : MonoBehaviour {
         meshFilter.mesh = Cono();
         initialPosition = meshFilter.mesh.vertices;
         initialUV = meshFilter.mesh.uv;
-
     }
 
     Mesh areaMesh(Mesh mesh)

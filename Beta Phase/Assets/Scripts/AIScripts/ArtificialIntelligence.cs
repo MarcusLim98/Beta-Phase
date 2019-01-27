@@ -10,20 +10,19 @@ public class ArtificialIntelligence : MonoBehaviour
     AIState state;
 
     public Transform playerTarget;
-    public GameObject playerHighlight;
+    public GameObject playerHighlight, suspicious, alert;
     public Transform noisySource;
     public Transform stationeryPosition;
-    public GameObject suspicious, alert;
     public LayerMask layerMask;
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxAngle, maxAngle2, rotatingSpeed, walkSpeed, runSpeed, timeToStare;
+    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare;
     public bool spottedHighlight, goToNoisySource, stationery, staticRotate;
     [Space]
     [Space]
     [HideInInspector]
-    public GameObject EmptyObj, questionMark, exclamationMark;
+    public GameObject EmptyObj, questionMark, exclamationMark, firstFov, secondFov;
     [HideInInspector]
     public Vector3 lookHereStart;
     [HideInInspector]
@@ -63,6 +62,8 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.transform.parent = uiAbove;
         questionMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
+        firstFov = this.gameObject.transform.GetChild(3).gameObject;
+        secondFov = this.gameObject.transform.GetChild(4).gameObject;
         timeToStare = 1.5f;
         state = AIState.PATROLLING;
     }
@@ -327,6 +328,10 @@ public class ArtificialIntelligence : MonoBehaviour
                 stopToLook = 0;
                 isInFov = 0;
                 agent.speed = walkSpeed;
+                maxAngle = 25;
+                maxAngle2 = 25;
+                firstFov.SetActive(true);
+                secondFov.SetActive(false);
                 GotoNextPoint();
             }
         }
@@ -371,7 +376,7 @@ public class ArtificialIntelligence : MonoBehaviour
             investigatingState = 0;
         }
 
-        if (angle <= maxAngle2)
+        if (angle <= maxAngle2 || angle <= maxAngle3)
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
@@ -383,6 +388,10 @@ public class ArtificialIntelligence : MonoBehaviour
                     isInFov = 2;
                     questionMark.SetActive(false);
                     exclamationMark.SetActive(true);
+                    maxAngle = 45;
+                    maxAngle2 = 45;
+                    firstFov.SetActive(false);
+                    secondFov.SetActive(true);
                     fileName = "ThugAlert";
                     SoundFX();
                     return true;
@@ -404,13 +413,17 @@ public class ArtificialIntelligence : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
-        Gizmos.color = Color.grey;
+        Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, maxRadius2);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, maxRadius3);
 
         Vector3 fovLine1 = Quaternion.AngleAxis(maxAngle, transform.up) * transform.forward * maxRadius;
         Vector3 fovLine2 = Quaternion.AngleAxis(-maxAngle, transform.up) * transform.forward * maxRadius; //Ensures the second blue fov line goes the other angle
         Vector3 fov2Line1 = Quaternion.AngleAxis(maxAngle2, transform.up) * transform.forward * maxRadius2;
         Vector3 fov2Line2 = Quaternion.AngleAxis(-maxAngle2, transform.up) * transform.forward * maxRadius2;
+        Vector3 fov3Line1 = Quaternion.AngleAxis(maxAngle3, transform.up) * transform.forward * maxRadius3;
+        Vector3 fov3Line2 = Quaternion.AngleAxis(-maxAngle3, transform.up) * transform.forward * maxRadius3;
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, fovLine1);
@@ -418,6 +431,9 @@ public class ArtificialIntelligence : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawRay(transform.position, fov2Line1);
         Gizmos.DrawRay(transform.position, fov2Line2);
+        Gizmos.color = Color.white;
+        Gizmos.DrawRay(transform.position, fov3Line1);
+        Gizmos.DrawRay(transform.position, fov3Line2);
 
         if (investigatingState == 0)
             Gizmos.color = Color.red;
@@ -462,6 +478,10 @@ public class ArtificialIntelligence : MonoBehaviour
                 other.GetComponent<ArtificialIntelligence>().investigatingState = 2;
                 other.GetComponent<ArtificialIntelligence>().isInFov = 2;
                 other.GetComponent<ArtificialIntelligence>().exclamationMark.SetActive(true);
+                other.GetComponent<ArtificialIntelligence>().maxAngle = 45;
+                other.GetComponent<ArtificialIntelligence>().maxAngle2 = 45;
+                other.GetComponent<ArtificialIntelligence>().firstFov.SetActive(false);
+                other.GetComponent<ArtificialIntelligence>().secondFov.SetActive(true);
             }
         }
     }

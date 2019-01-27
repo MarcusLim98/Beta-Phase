@@ -8,7 +8,7 @@ public class AISpotter : MonoBehaviour {
     public Transform playerTarget;
     public Transform playerHighlight;
     public Transform noisySource;
-    public GameObject alert;
+    public GameObject alert, bullet;
     public LayerMask layerMask, layerMask2;
     [Space]
     [Space]
@@ -21,18 +21,23 @@ public class AISpotter : MonoBehaviour {
     public ArtificialIntelligence[] thugsToCall;
     NavMeshAgent agent;
     Animator anim;
+    AudioSource externalAudio;
+    string fileName;
     Transform thisAI, startingAngle, uiAbove;
     Vector3 directionBetween;
-    GameObject EmptyObj, exclamationMark;
+    GameObject EmptyObj, exclamationMark, gunVision;
     bool playerWithinRadius;
     PlayerLogic playerLogic;
-    int investigatingState, isInFov;
+    AIVision gunLine;
+    int investigatingState, isInFov, shotOnce;
     // Use this for initialization
     void Start()
     {
         uiAbove = this.gameObject.transform.GetChild(4);
         exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
+        gunVision = this.gameObject.transform.GetChild(3).gameObject;
+        gunLine = this.gameObject.transform.GetChild(3).GetComponent<AIVision>();
 
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         EmptyObj = new GameObject("Look Here");
@@ -48,6 +53,7 @@ public class AISpotter : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
+        externalAudio = GetComponent<AudioSource>();
         anim.SetInteger("State", 0);
     }
 
@@ -121,35 +127,74 @@ public class AISpotter : MonoBehaviour {
                     var rotation = Quaternion.LookRotation(lookPos);
                     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
                     exclamationMark.SetActive(true);
+                    fileName = "ThugAlert";
+                    SoundFX();
 
                     foreach (ArtificialIntelligence ai in thugsToCall)
                     {
                         ai.spottedHighlight = true;
+                        ai.isInFov = 2;
+                        ai.exclamationMark.SetActive(true);
+                        ai.maxAngle = 45;
+                        ai.maxAngle2 = 45;
+                        ai.firstFov.SetActive(false);
+                        ai.secondFov.SetActive(true);
                         playerHighlight.transform.parent = playerTarget;
                         playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                         playerHighlight.transform.parent = null;
+                    }
+
+                    if(gunLine.angle >= 4)
+                    {
+                        gunVision.SetActive(true);
+                        gunLine.angle -= 1;
+                    }
+                    else if (gunLine.angle <= 4)
+                    {
+                        if (shotOnce == 0)
+                        {
+                            fileName = "LaoDaGunShot";
+                            SoundFX();
+                            Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
+                        }
+                        shotOnce = 1;
                     }
                 }
             }
             else
             {
                 investigatingState = 0;
+                gunLine.angle = 51;
+                gunVision.SetActive(false);
+                shotOnce = 0;
+                rotatingSpeed = 30f;
             }
         }
         else
         {
             investigatingState = 0;
+            gunLine.angle = 51;
+            gunVision.SetActive(false);
+            shotOnce = 0;
+            rotatingSpeed = 30f;
         }
 
         if (investigatingState == 0 && !canRotateLoop)
         {
-            rotatingSpeed = 5f;
             var lookPos = startingAngle.position - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
         }
         return false;
+    }
+
+    void SoundFX()
+    {
+        if (!externalAudio.isPlaying)
+        {
+            externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
+        }
     }
 
     private void OnTriggerStay(Collider other)
