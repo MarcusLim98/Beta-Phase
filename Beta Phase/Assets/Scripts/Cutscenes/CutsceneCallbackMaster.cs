@@ -102,6 +102,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("find another way into the coffeeshop");
     }
 
+    void Day1EnterCShop()
+    {
+        ChangeObjective("investigate the coffeeshop");
+    }
+
+    void Day1AfterCShopEacesdrop()
+    {
+        ChangeObjective("exit area through the side door");
+    }
 
     void Day2Spotter()
     {
@@ -120,15 +129,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         contDialogue[0].SetActive(true);
     }
 
-    void Day1EnterCShop()
-    {
-        ChangeObjective("investigate the coffeeshop");
-    }
 
-    void Day1AfterCShopEacesdrop()
-    {
-        ChangeObjective("exit area through the side door");
-    }
 
 
 }
