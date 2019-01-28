@@ -120,28 +120,14 @@ Objective:
 
 ----------------------------------------------------------------------------------------------------------
 
-Chief Hank stands in his office with Lao Da. Hank is disturbed. Lao Da keeps a cool front.
+Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps a begrudingly cool front.
 
 [title=Day3Intro-begin]
 Chief Hank: God damn it. I can't believe this mess.
 Chief Hank: Kidnappings, ransoms, opium drug trade, theft, assault...
 Chief Hank: The secret society nonsense is getting out of hand.
-Policeman: It's always been out of hand, sir, but I'm confident we can handle it.
-Chief Hank: Hah, really? That's what you think?
-Chief Hank: A little girl not one week in the force has already found a lead bigger than your brain.
-Chief Hank: <i>In less than 24 hours,</i> mind you.
-[title=Day3Intro-end]
-
-Knocking is heard.
-
-----------------------------------------------------------------------------------------------------------
-
-Ying Yue enters the room.
-
-[title=Day3Twist-begin]
-Ying Yue: You summoned me, sir?
-Chief Hank: Yes... Regarding this "Hunting Dragons" case, Officer [Doublecrosser's name] will look into it, alongside with our own allocated forces.
-Ying Yue  : <i>(That man from the warehouse...!)</i>
+Chief Hank: Regarding this "Hunting Dragons" case, our allocated officers will look into it.
+Ying Yue : ...
 Chief Hank: We will contact you if needed. You are to return to your paperwork.
 Chief Hank: Dismissed.
 Ying Yue : Yes, sir. Thank you, sir.
@@ -155,7 +141,7 @@ YY stands outside the police station, again. It's sunset, again. She's tired, ye
 
 [title=Day3AfterWork-begin]
 Ying Yue   : ...
-Ying Yue   : ... I have to stop them.
+Ying Yue   : ... I have to do something.
 [title=Day3AfterWork-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -174,14 +160,17 @@ The final boss fight has begun!
 
 ----------------------------------------------------------------------------------------------------------
 
+After defeating Lao Da.
 
 [title=LaoDaDefeat-begin]
+
+[title=LaoDaDefeat-end]
+
+
+OLD VERSION:
 Lao Da: Enough games, Ying Yue. There's nowhere to run.
 Lao Da: So many years ahead of yourself, all thrown away because of one stupid decision.
 Lao Da: Did your parents know? Did you even care to tell them?
-
-DISCUSS THE ENDING WITH NOAH AND MARCUS
-
 (In the background: car engines can be heard. They get louder. DO NOT INTERRUPT DIALOG.)
 Lao Da: Did you think your reasons were good enough, Ying Yue?
 Ying Yue: Hard to say.
@@ -198,5 +187,3 @@ QQ: Told you I'd see you tonight.
 (Several police cars enter the scene from the destroyed wall, the driving policemen yelling that they have cornered the thief of a family car.)
 (The policemen notice Lao Da. They change their priorities to apprehend him and his men.)
 (Ying Yue gets up and tries to help them.)
-[title=LaoDaDefeat-end]
-
