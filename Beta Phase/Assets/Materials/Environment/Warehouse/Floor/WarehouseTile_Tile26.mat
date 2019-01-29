@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WarehouseTile_Tile25
+  m_Name: WarehouseTile_Tile26
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -37,12 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 25, y: 25}
-        m_Offset: {x: 0.24, y: 0}
+        m_Scale: {x: 32, y: 8.5}
+        m_Offset: {x: 0.08, y: -0.42}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: abb41033918d87b4e8bb5c18ed590806, type: 3}
-        m_Scale: {x: 25, y: 25}
-        m_Offset: {x: 0.24, y: 0}
+        m_Scale: {x: 32, y: 8.5}
+        m_Offset: {x: 0.08, y: -0.42}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
