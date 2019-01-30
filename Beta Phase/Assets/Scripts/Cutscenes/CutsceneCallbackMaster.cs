@@ -27,11 +27,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         if (activeDialogue.activeInHierarchy)
         {
-            StartCutscene();
+            StartCutscene(); //because assigning it to a callback before dialogue doesn't work
         }
-        
     }
 
+#region GENERAL BEHAVIOURS
     void StartCutscene()
     {
         playerLogic.DisableMovement();
@@ -48,8 +48,16 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         objectiveText.text = newObjective;
     }
 
+    void EaveEnd()
+    {
+        playerLogic.playerEavesdrop = false;
+        EndCutscene();
+    }
+#endregion
 
 
+
+#region LEVEL 1
     void EndPrologue()
     {
         Time.timeScale = 0.25f;
@@ -99,6 +107,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterEavesdrop()
     {
+        cameraFocus = camFocusObj[0].transform;
+        StartCutscene();
         ChangeObjective("find another way into the coffeeshop");
     }
 
@@ -109,9 +119,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterCShopEacesdrop()
     {
+        cameraFocus = camFocusObj[1].transform;
+        StartCutscene();
         ChangeObjective("exit area through the side door");
     }
+#endregion
 
+
+
+#region LEVEL 2
     void Day2Intro()
     {
         ui.LoadScene("Scene 3 OWHouse");
@@ -133,11 +149,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
     }
+#endregion
 
+
+
+#region LEVEL 3
     void Day3Intro()
     {
         ui.LoadScene("Scene 7 ABHouse");
     }
-
+#endregion
 
 }

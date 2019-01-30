@@ -211,7 +211,7 @@ public class PlayerLogic : MonoBehaviour {
         {
             other.GetComponent<RotatingParticleEffect>().thisCollider.enabled = false;
             other.GetComponent<RotatingParticleEffect>().StartCoroutine("Gone");
-            playerEavesdrop = false;
+            //playerEavesdrop = false;
         }
 
         if (other.name == "NoisyFloor" && movingStyle == 1)

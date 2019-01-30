@@ -10,7 +10,7 @@ public class RotatingParticleEffect : MonoBehaviour {
     public Vector3 speed;
     public ParticleSystem ps1, ps2, ps3;
     public SphereCollider thisCollider;
-    public GameObject objBeGone;
+    public GameObject objBeGone, eaveDialogue;
     //public Transform[] movePaths;
     public Vector3[] newPos;
     GameObject particle;
@@ -82,7 +82,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                 //        ais.run = true;
                 //    }
                 //}
-                StartCoroutine(Gone());
+                //StartCoroutine(Gone());
             }
         }
         else if (onlyTurn)
@@ -93,9 +93,13 @@ public class RotatingParticleEffect : MonoBehaviour {
 
     IEnumerator Gone()
     {
-        if (callbackScript != null)
+        if (callbackScript != null)     //temp for other scenes to function
         {
             callbackScript.StartCoroutine(callbackFunction);
+        }
+        if (eaveDialogue != null)       //temp for other scenes to function
+        {
+            eaveDialogue.SetActive(true);
         }
         print("run");
         spawnBehaviour.StopCoroutine("NotifTextBehaviour");
@@ -110,6 +114,7 @@ public class RotatingParticleEffect : MonoBehaviour {
             ais.run = false;
         }*/
         gameObject.SetActive(false);
+
     }
 
     void OnTriggerStay(Collider other)
