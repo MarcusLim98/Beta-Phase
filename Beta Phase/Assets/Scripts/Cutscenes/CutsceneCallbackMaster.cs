@@ -61,7 +61,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void EndPrologue()
     {
         Time.timeScale = 0.25f;
-        ui.LoadScene("police office");
+        ui.LoadScene("Scene 0 Police Office");
     }
 
     void Day1Intro()
