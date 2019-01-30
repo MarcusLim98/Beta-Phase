@@ -112,6 +112,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("exit area through the side door");
     }
 
+    void Day2Intro()
+    {
+        ui.LoadScene("Scene 3 OWHouse");
+    }
+
     void Day2Spotter()
     {
         cameraFocus = camFocusObj[1].transform;
@@ -129,7 +134,10 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         contDialogue[0].SetActive(true);
     }
 
-
+    void Day3Intro()
+    {
+        ui.LoadScene("Scene 7 ABHouse");
+    }
 
 
 }
