@@ -116,7 +116,14 @@ Ying Yue : It looks like Chief Hank will keep wasting my work hours.
 Ying Yue : I doubt I can do anything about the case at this rate.
 [title=Day2AfterWork-end]
 
-Objective:
+----------------------------------------------------------------------------------------------------------
+
+[title=Day2Notice-begin]
+Ying Yue  : ...Well, that won't work.
+Ying Yue   : I guess I'll have to find another way in.
+[title=Day2Notice-end]
+
+Objective: find another way into the warehouse
 
 ----------------------------------------------------------------------------------------------------------
 

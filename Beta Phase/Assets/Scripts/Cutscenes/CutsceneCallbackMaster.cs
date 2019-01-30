@@ -124,14 +124,34 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         StartCutscene();
         ChangeObjective("exit area through the side door");
     }
-#endregion
+
+    void Day1AfterGambleEavesdrop()
+    {
+        cameraFocus = camFocusObj[0].transform;
+        StartCutscene();
+        ChangeObjective("exit the area");
+    }
+    #endregion
 
 
 
-#region LEVEL 2
+    #region LEVEL 2
     void Day2Intro()
     {
         ui.LoadScene("Scene 3 OWHouse");
+    }
+
+    void Day2PanToThugs()
+    {
+        cameraFocus = camFocusObj[0].transform;
+        StartCoroutine(BackToYYContCutscene());
+        StartCutscene();
+    }
+
+    void Day2Notice()
+    {
+        ChangeObjective("find another way into the warehouse");
+        EndCutscene();
     }
 
     void AfterEaveDocs()
