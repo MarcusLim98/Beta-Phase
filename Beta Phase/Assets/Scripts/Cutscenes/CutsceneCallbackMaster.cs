@@ -117,7 +117,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("investigate the coffeeshop");
     }
 
-    void Day1AfterCShopEacesdrop()
+    void Day1AfterCShopEavesdrop()
     {
         cameraFocus = camFocusObj[1].transform;
         StartCutscene();
