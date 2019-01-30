@@ -68,6 +68,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         ChangeObjective("pass chief hank the papers");
         EndCutscene();
+        spawnObj[0].SetActive(true);
     }
 
     void Day1DonePapers()
