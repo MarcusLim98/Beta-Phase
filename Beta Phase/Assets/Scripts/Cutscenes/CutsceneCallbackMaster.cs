@@ -133,6 +133,12 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ui.LoadScene("Scene 3 OWHouse");
     }
 
+    void AfterEaveDocs()
+    {
+        cameraFocus = camFocusObj[0].transform;
+        StartCutscene();
+    }
+
     void Day2Spotter()
     {
         cameraFocus = camFocusObj[1].transform;
