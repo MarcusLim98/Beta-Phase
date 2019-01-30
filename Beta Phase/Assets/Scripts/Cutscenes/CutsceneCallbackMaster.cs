@@ -150,7 +150,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2Notice()
     {
-        ChangeObjective("find another way into the warehouse");
+        ChangeObjective("distract the guards");
         EndCutscene();
     }
 
