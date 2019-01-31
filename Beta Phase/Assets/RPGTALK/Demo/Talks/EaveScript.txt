@@ -1,69 +1,83 @@
-Info learnt when eavesdrop Thugs for Coffeshop
-/Location of Coffe Shop
+EAVESDROPPING DIALOGUE SCRIPT
+These lines are used by NPCs/enemies.
+Camera should STAY ON TALKING TARGETS after EAVESDROP METER is COMPLETED.
+After the dialogue is over, camera must RETURN TO YY.
+
+----------------------------------------------------------------------------------------------------------
+
+Scene 1 CShop: Thugs outside the Police Office.
+Info: Location of Coffee Shop
 
 [title=Day1EaveStreet-begin]
-Thuggish Man: We got alot of protection money today.
-Scarred Man: Ya , let's gather the money with the others.
-Thuggish Man: We go to the Coffee Shop after shift.
-Scarred Man: Sure, the other two waiting for us in the usual room.
-[title=Day1EavesStreet-end]
+Thuggish Man: We got a lot of protection money today.
+Scarred Man: Ya, let's gather the money with the others.
+Thuggish Man: We go to the <b>Coffee Shop</b> after this lah!
+Scarred Man: Sure, the other two already waiting for us in the usual room.
+[title=Day1EaveStreet-end]
 
-/-/
-Info learnt when eavesdrop Thugs of Coffeshop
-/Location of Gambling Den
+----------------------------------------------------------------------------------------------------------
 
-[title=Day1EaveShop-begin]
-Lucky Thug: Huat Ah! I won 250 dollars.
+Scene 1 CShop: Thugs inside the Coffee Shop.
+Info: Location of Gambling Den
+
+[title=Day1EaveCShop-begin]
+Lucky Thug: <i>Huat Ah!</i> I won 250 dollars!
 Unlucky Thug: Wah, I lost all my bets yesterday.
-Unlucky Thug: Chap ji kee really is hard..
-Lucky Thug: It's okay bro, we go to the Gambling Den.
+Unlucky Thug: <i>Chap ji kee</i> really is hard...
+Lucky Thug: It's okay, bro, we go to the <b>Gambling Den.</b>
 Lucky Thug: Let me win back your money!
-[title=Day1EaveShop-end]
+[title=Day1EaveCShop-end]
 
-/-/
-Info learnt when eavesdrop Thugs of Gambling Den
-/Location of Warehouse 1
+----------------------------------------------------------------------------------------------------------
+
+Scene 2 Den: Thugs in Gambling Den
+Info: Location of Warehouse 1
 
 [title=Day1EaveGamble-begin]
-Gambling Thug: So how are the goods ?
-Dealer: The opium arrived today. It's being stored at the Warehouse.
-Gambling Thug: The one down the street ?
-Dealer: Yes Hia Di, that one. You going there later ?
+Gambling Thug: So how are the goods?
+Dealer: The opium arrived today. It's being stored at the <b>Warehouse.</b>
+Gambling Thug: The one <b>down the street</b>?
+Dealer: Yes, Hia Di, that one. You going there later?
 Gambling Thug: I go help push the remaing goods tomorrow then.
 Dealer: Okay then. Let's finish setting up the table.
 Dealer: We're starting soon.
 [title=Day1EaveGamble-end]
 
-/-/
-Info learnt when eavesdrop Thug in Warehouse 1 Part 1
-/Info about Boss ariving tommorrow
+----------------------------------------------------------------------------------------------------------
+
+NO LONGER USED, THANK YOU FOR YOUR ENLIGHTENMENT, OH GREAT NOAH ALASTAIR, THE BENELOVENT CREATURE WHO HAS NO IDEA HOW TO MAKE PARENT OBJECTS AND ASSUMES EVERYTHING WHEN HE FORGETS, BUT GOD FORBID ANYONE ELSE FORGET ANYTHING HE SAYS.
+
+Scene 3 OWHouse: Thugs guarding the Warehouse entrance
+Info: The Big Boss' arrival tommorrow
 
 [title=Day2EaveCall-begin]
 Busy Thug: Make sure we have enough people for tommorrow.
-Busy Thug: The Boss is coming with the next batch of Opium.
+Busy Thug: The Boss is coming with the next batch of opium.
 Busy Thug: I want everyone to remember it.
 [title=Day2EaveCall-end]
 
-/-/
-Info learnt when eavesdrop Thug in Warehouse 1 Part2
-/Info about where Warehouse 2 is and the documents needed to prove theres Opium here
+----------------------------------------------------------------------------------------------------------
+
+Scene 4 CWHouse: 
+Info: Where Warehouse 2 is and the documents needed to prove there is opium here
 
 [title=Day2EaveDocs-begin]
 Tired Thug: What do you need this time?
-Forgetful Thug: Sorry bro, I lost the paper with the other Warehouse place...
-Tired Thug:*Sigh*Just take one of it outside, just don't lose it this time ah
+Forgetful Thug: Sorry bro, I lost the paper with the other Warehouse...
+Tired Thug: Just take one of it outside, just don't lose it this time ah.
 Forgetful Thug: Thanks man.
-Tired Thug: Just don't take the other documents. We need those to check everything here is correct.
+Tired Thug: Just don't take the <b>other documents.</b> We need those to check everything here is correct.
 [title=Day2EaveDocs-end]
 
-/-/
-Convo for Spotter and thug
+----------------------------------------------------------------------------------------------------------
+
+Scene 4 CWHouse: Conversation between a Spotter and Thug
 
 [title=Day2Spotter-begin]
-Spotter:Don't worry nothing will get pass me bro!
-Skeptical thug: Sure, if you see anything ah-
-Spotter: Ya ya I'll call you. No need worry!
+Spotter: Don't worry, nothing will get pass me, bro!
+Skeptical Thug: Sure, if you <b>see anything</b> ah-
+Spotter: Ya ya, I'll call you. No need worry!
 [title=Day2Spotter-end]
 
-/-/
+----------------------------------------------------------------------------------------------------------
 

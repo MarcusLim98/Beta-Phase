@@ -27,11 +27,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         if (activeDialogue.activeInHierarchy)
         {
-            StartCutscene();
+            StartCutscene(); //because assigning it to a callback before dialogue doesn't work
         }
-        
     }
 
+#region GENERAL BEHAVIOURS
     void StartCutscene()
     {
         playerLogic.DisableMovement();
@@ -48,18 +48,27 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         objectiveText.text = newObjective;
     }
 
+    void EaveEnd()
+    {
+        playerLogic.playerEavesdrop = false;
+        EndCutscene();
+    }
+#endregion
 
 
+
+#region LEVEL 1
     void EndPrologue()
     {
         Time.timeScale = 0.25f;
-        ui.LoadScene("police office");
+        ui.LoadScene("Scene 0 Police Office");
     }
 
     void Day1Intro()
     {
         ChangeObjective("pass chief hank the papers");
         EndCutscene();
+        spawnObj[0].SetActive(true);
     }
 
     void Day1DonePapers()
@@ -99,6 +108,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterEavesdrop()
     {
+        cameraFocus = camFocusObj[0].transform;
+        StartCutscene();
         ChangeObjective("find another way into the coffeeshop");
     }
 
@@ -107,14 +118,46 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("investigate the coffeeshop");
     }
 
-    void Day1AfterCShopEacesdrop()
+    void Day1AfterCShopEavesdrop()
     {
+        cameraFocus = camFocusObj[1].transform;
+        StartCutscene();
         ChangeObjective("exit area through the side door");
     }
 
+    void Day1AfterGambleEavesdrop()
+    {
+        cameraFocus = camFocusObj[0].transform;
+        StartCutscene();
+        ChangeObjective("exit the area");
+    }
+    #endregion
+
+
+
+    #region LEVEL 2
     void Day2Intro()
     {
         ui.LoadScene("Scene 3 OWHouse");
+    }
+
+    void Day2PanToThugs()
+    {
+        cameraFocus = camFocusObj[0].transform;
+        StartCoroutine(BackToYYContCutscene());
+        StartCutscene();
+    }
+
+    void Day2Notice()
+    {
+        ChangeObjective("distract the guards");
+        EndCutscene();
+    }
+
+    void AfterEaveDocs()
+    {
+        cameraFocus = camFocusObj[0].transform;
+        StartCutscene();
     }
 
     void Day2Spotter()
@@ -133,11 +176,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
     }
+#endregion
 
+
+
+#region LEVEL 3
     void Day3Intro()
     {
         ui.LoadScene("Scene 7 ABHouse");
     }
-
+#endregion
 
 }
