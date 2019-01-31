@@ -14,7 +14,7 @@ public class UniversalTriggerCallback : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !happened)
         {
             scriptName.StartCoroutine(functionName);
             if (onlyOnce && !happened)
