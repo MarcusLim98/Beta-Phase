@@ -4,60 +4,85 @@ using UnityEngine;
 
 public class AmbienceControl : MonoBehaviour
 {
-    public AudioSource Ambient1,Ambient2,Ambient3,Ambient4;
-    string  vent , bgm , drip , owl;
-    public float dripTimer, owlTimer;
+    public AudioSource Ambience1,Ambience2,Ambience3,Ambience4;
+    string  vent, bgm, drip, owl;
+    //public float dripTimer, owlTimer;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        vent = "Vent";
+        bgm = "night ambience";
+        drip = "Water drip";
+        owl = "Owl";
+
+        Ambience1.clip = (AudioClip)Resources.Load(vent);
+        Ambience2.clip = (AudioClip)Resources.Load(bgm);
+        Ambience3.clip = (AudioClip)Resources.Load(drip);
+        Ambience4.clip = (AudioClip)Resources.Load(owl);
+
+        VentAndBgm();
+
+        InvokeRepeating("Drip", 0f, 12f);
+        InvokeRepeating("Owl", 0f, 16f);
+
     }
 
-    // Update is called once per frame
+    void VentAndBgm()
+    {
+        if (!Ambience1.isPlaying || !Ambience2.isPlaying)
+        {
+            Ambience1.Play();
+            Ambience2.Play();
+        }
+    }
+
+    void Drip()
+    {
+        Ambience3.Play();
+    }
+
+    void Owl()
+    {
+        Ambience4.Play();
+    }
+
     void Update()
     {
         //for Ambient and Vent
-        if (!Ambient1.isPlaying || !Ambient2.isPlaying)
-        {
-            vent = "Vent";
-            bgm = "night ambience";
-            Ambient1.clip = (AudioClip)Resources.Load(vent);
-            Ambient2.clip = (AudioClip)Resources.Load(bgm);
-            Ambient1.PlayOneShot(Ambient1.clip , 0.2f);
-            Ambient2.PlayOneShot(Ambient2.clip , 0.5f);
-        }
-        //for Drip loop
-        if(dripTimer >= 0)
-        {
-            dripTimer -= Time.deltaTime;
-        }
-        if(!Ambient3.isPlaying &&dripTimer <= 0)
-        {
-            drip = "Water drip";
-            Ambient3.clip = (AudioClip)Resources.Load(drip);
-            Ambient3.Play();
-            
-        }
-        if(dripTimer <= 0)
-        {
-            dripTimer = 12f;
-        }
-        //for Owl loop
-        if (owlTimer >= 0)
-        {
-            owlTimer -= Time.deltaTime;
-        }
-        if (!Ambient4.isPlaying && owlTimer <= 0)
-        {
-            owl = "Owl";
-            Ambient4.clip = (AudioClip)Resources.Load(owl);
-            Ambient4.Play();
+        
 
-        }
-        if (owlTimer <= 0)
-        {
-            owlTimer = 16f;
-        }
+        //for Drip loop
+        //if(dripTimer >= 0)
+        //{
+        //    dripTimer -= Time.deltaTime;
+        //}
+        //if(!Ambient3.isPlaying &&dripTimer <= 0)
+        //{
+        //    drip = "Water drip";
+        //    Ambient3.clip = (AudioClip)Resources.Load(drip);
+        //    Ambient3.Play();
+            
+        //}
+        //if(dripTimer <= 0)
+        //{
+        //    dripTimer = 12f;
+        //}
+
+        //for Owl loop
+        //if (owlTimer >= 0)
+        //{
+        //    owlTimer -= Time.deltaTime;
+        //}
+        //if (!Ambient4.isPlaying && owlTimer <= 0)
+        //{
+        //    owl = "Owl";
+        //    Ambient4.clip = (AudioClip)Resources.Load(owl);
+        //    Ambient4.Play();
+
+        //}
+        //if (owlTimer <= 0)
+        //{
+        //    owlTimer = 16f;
+        //}
     }
 }
