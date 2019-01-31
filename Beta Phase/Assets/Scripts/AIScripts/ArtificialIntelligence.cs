@@ -303,6 +303,7 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 noisySource.tag = "Untagged";
             }
+            stopHere = 2f;
         }
         //if (Vector3.Distance(thisAI.position, target.position) < 8 && isInFov == 2)
         //{
@@ -311,15 +312,18 @@ public class ArtificialIntelligence : MonoBehaviour
         //}
         if (Vector3.Distance(thisAI.position, target.position) < stopHere)
         {
+            agent.speed = 0f;
             stopToGoBack += Time.deltaTime;
-            if (stopToGoBack <= 3f)
+            if (stopToGoBack <= 3f )
             {
                 playerHighlight.SetActive(true);
                 anim.SetInteger("State", 0);
-                agent.speed = 0f;
-                targetDir = playerHighlight.transform.position - thisAI.position;
-                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newDir);
+                if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
+                {
+                    targetDir = playerHighlight.transform.position - thisAI.position;
+                    newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                    transform.rotation = Quaternion.LookRotation(newDir);
+                }
             }
             else if (stopToGoBack >= 3f)
             {
@@ -332,8 +336,8 @@ public class ArtificialIntelligence : MonoBehaviour
                 stopToLook = 0;
                 isInFov = 0;
                 agent.speed = walkSpeed;
-                maxAngle = 25;
-                maxAngle2 = 25;
+                maxAngle = 40;
+                maxAngle2 = 40;
                 firstFov.SetActive(true);
                 secondFov.SetActive(false);
                 stopHere = 3f;
@@ -394,8 +398,8 @@ public class ArtificialIntelligence : MonoBehaviour
                     isInFov = 2;
                     questionMark.SetActive(false);
                     exclamationMark.SetActive(true);
-                    maxAngle = 45;
-                    maxAngle2 = 45;
+                    maxAngle = 60;
+                    maxAngle2 = 60;
                     firstFov.SetActive(false);
                     secondFov.SetActive(true);
                     stopHere = 12f;
