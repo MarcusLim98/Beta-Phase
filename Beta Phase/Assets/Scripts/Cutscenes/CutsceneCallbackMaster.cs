@@ -78,6 +78,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1Afterwork()
     {
+        spawnObj[2].SetActive(true);
         cameraFocus = camFocusObj[0].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
@@ -135,7 +136,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
 
 
-    #region LEVEL 2
+#region LEVEL 2
     void Day2Intro()
     {
         ui.LoadScene("Scene 3 OWHouse");
