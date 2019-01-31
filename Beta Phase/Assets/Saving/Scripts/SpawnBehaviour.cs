@@ -10,7 +10,6 @@ public class SpawnBehaviour : MonoBehaviour {
     public Text notifText;
     [SerializeField]
     public string spawnPointName;
-    public GameObject saveButtons;
     public UiBehaviour ui;
     public AudioSource altarSound;
     public string nextLevel;
@@ -92,6 +91,9 @@ public class SpawnBehaviour : MonoBehaviour {
         StopCoroutine("NotifTextBehaviour");
         StartCoroutine("NotifTextBehaviour", "Autosaving...");
         datasl.SaveGame(spawnPointName);
+        altarS = "Altar";
+        altarSound.clip = (AudioClip)Resources.Load(altarS);
+        altarSound.Play();
     }
 
 
@@ -110,7 +112,7 @@ public class SpawnBehaviour : MonoBehaviour {
     //    print("Saved!");
     //    StopCoroutine("NotifTextBehaviour");
     //    StartCoroutine("NotifTextBehaviour", "You feel blessed.");
-        
+
     //    altarS = "Altar";
     //    altarSound.clip = (AudioClip)Resources.Load(altarS);
     //    altarSound.Play();
