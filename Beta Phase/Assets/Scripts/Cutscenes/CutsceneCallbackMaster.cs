@@ -183,7 +183,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 #region LEVEL 3
     void Day3Intro()
     {
-        ui.LoadScene("Scene 7 ABHouse");
+        ui.LoadScene("Scene 8 ABHouse");
     }
 #endregion
 

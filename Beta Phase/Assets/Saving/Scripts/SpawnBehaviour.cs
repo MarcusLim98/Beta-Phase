@@ -8,7 +8,8 @@ public class SpawnBehaviour : MonoBehaviour {
 
     DataSaveAndLoad datasl;
     public Text notifText;
-    string spawnPointName;
+    [SerializeField]
+    public string spawnPointName;
     public GameObject saveButtons;
     public UiBehaviour ui;
     public AudioSource altarSound;
@@ -18,19 +19,30 @@ public class SpawnBehaviour : MonoBehaviour {
     void Awake()
     {
         datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("SpawnPoint"))
+    //    {
+    //        spawnPointName = other.transform.GetChild(0).name;
+    //        print(spawnPointName);
+    //    }
+    //}
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("SpawnPoint") && Input.GetKeyDown(KeyCode.E))
-        {
-            SaveChoiceText();
-            print("save now");
-            spawnPointName = other.transform.GetChild(0).name;
-            print(spawnPointName);
-            SaveChoiceText();
-        }
+        
+
+        //if (other.CompareTag("SpawnPoint") && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    SaveChoiceText();
+        //    print("save now");
+        //    spawnPointName = other.transform.GetChild(0).name;
+        //    print(spawnPointName);
+        //    SaveChoiceText();
+        //}
 
         if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
         {
@@ -73,31 +85,42 @@ public class SpawnBehaviour : MonoBehaviour {
         notifText.text = "";
     }
 
-    void SaveChoiceText()
+
+
+    public void AutoSave()
     {
         StopCoroutine("NotifTextBehaviour");
-        notifText.text = "It's an altar for worship. Save progress?";
-        saveButtons.SetActive(true);
-        print("it is saving");
+        StartCoroutine("NotifTextBehaviour", "Autosaving...");
         datasl.SaveGame(spawnPointName);
     }
 
-    public void ConfirmSave()
-    {
-        print("Saved!");
-        StopCoroutine("NotifTextBehaviour");
-        StartCoroutine("NotifTextBehaviour", "You feel blessed.");
+
+
+    //void SaveChoiceText()
+    //{
+    //    StopCoroutine("NotifTextBehaviour");
+    //    notifText.text = "It's an altar for worship. Save progress?";
+    //    saveButtons.SetActive(true);
+    //    print("it is saving");
+    //    datasl.SaveGame(spawnPointName);
+    //}
+
+    //public void ConfirmSave()
+    //{
+    //    print("Saved!");
+    //    StopCoroutine("NotifTextBehaviour");
+    //    StartCoroutine("NotifTextBehaviour", "You feel blessed.");
         
-        altarS = "Altar";
-        altarSound.clip = (AudioClip)Resources.Load(altarS);
-        altarSound.Play();
-        datasl.SaveGame(spawnPointName);
-        saveButtons.SetActive(false);
-    }
+    //    altarS = "Altar";
+    //    altarSound.clip = (AudioClip)Resources.Load(altarS);
+    //    altarSound.Play();
+    //    datasl.SaveGame(spawnPointName);
+    //    saveButtons.SetActive(false);
+    //}
 
-    public void CancelSave()
-    {
-        notifText.text = "";
-        saveButtons.SetActive(false);
-    }
+    //public void CancelSave()
+    //{
+    //    notifText.text = "";
+    //    saveButtons.SetActive(false);
+    //}
 }

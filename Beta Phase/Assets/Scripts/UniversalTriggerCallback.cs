@@ -14,10 +14,13 @@ public class UniversalTriggerCallback : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        scriptName.StartCoroutine(functionName);
-        if (onlyOnce && !happened)
+        if (other.CompareTag("Player"))
         {
-            happened = true;
+            scriptName.StartCoroutine(functionName);
+            if (onlyOnce && !happened)
+            {
+                happened = true;
+            }
         }
     }
 }

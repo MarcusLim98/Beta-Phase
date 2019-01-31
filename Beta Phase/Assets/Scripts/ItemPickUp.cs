@@ -32,7 +32,7 @@ public class ItemPickUp : MonoBehaviour {
                 pressE.enabled = false;
             }
         }
-        if (other.CompareTag("SpawnPoint") || other.CompareTag("KeyItem"))
+        if (/*other.CompareTag("SpawnPoint") || */other.CompareTag("KeyItem"))
         {
             pressE.enabled = true;
         }
@@ -45,7 +45,7 @@ public class ItemPickUp : MonoBehaviour {
         {
             pressE.enabled = false;
         }
-        if (other.CompareTag("SpawnPoint") || other.CompareTag("KeyItem"))
+        if (/*other.CompareTag("SpawnPoint") || */other.CompareTag("KeyItem"))
         {
             pressE.enabled = false;
         }
