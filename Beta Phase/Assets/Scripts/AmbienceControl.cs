@@ -29,21 +29,30 @@ public class AmbienceControl : MonoBehaviour
 
     void VentAndBgm()
     {
-        if (!Ambience1.isPlaying || !Ambience2.isPlaying)
+        if (Ambience1 != null || Ambience2 != null)
         {
             Ambience1.Play();
             Ambience2.Play();
         }
+        else return;
     }
 
     void Drip()
     {
-        Ambience3.Play();
+        if (Ambience3 != null)
+        {
+            Ambience3.Play();
+        }
+        else return;
     }
 
     void Owl()
     {
-        Ambience4.Play();
+        if (Ambience4 != null)
+        {
+            Ambience4.Play();
+        }
+        else return;    
     }
 
     void Update()
