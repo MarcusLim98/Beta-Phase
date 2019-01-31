@@ -7,13 +7,11 @@ public class AmbienceControl : MonoBehaviour
     public AudioSource Ambient1,Ambient2,Ambient3,Ambient4;
     string  vent , bgm , drip , owl;
     public float dripTimer, owlTimer;
-    public bool dripStart , owlStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        dripStart = false;
-        owlStart = false;
+        
     }
 
     // Update is called once per frame
