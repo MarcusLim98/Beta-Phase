@@ -6,6 +6,8 @@ public class AutoSaving : MonoBehaviour
 {
     [SerializeField]
     SpawnBehaviour spawnBeha;
+    [SerializeField]
+    GameObject lightFeedback;
     bool happened;
 
     void Awake()
@@ -19,6 +21,7 @@ public class AutoSaving : MonoBehaviour
         {
             spawnBeha.spawnPointName = gameObject.transform.GetChild(0).name;
             spawnBeha.AutoSave();
+            lightFeedback.SetActive(true);
             happened = true;
         }
     }
