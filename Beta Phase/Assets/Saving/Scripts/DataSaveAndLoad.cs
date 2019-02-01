@@ -39,7 +39,7 @@ public class DataSaveAndLoad : MonoBehaviour {
             playerObj = GameObject.FindGameObjectWithTag("Player");
             playerAgent = playerObj.GetComponent<NavMeshAgent>();
 
-            if (PlayerPrefs.HasKey("spawnpoint"))
+            if (PlayerPrefs.HasKey("spawnpoint") && SceneManager.GetActiveScene().name == PlayerPrefs.GetString("spawnscene"))
             {
                 spawnPos = GameObject.Find(PlayerPrefs.GetString("spawnpoint")).transform.position;
                 playerObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
