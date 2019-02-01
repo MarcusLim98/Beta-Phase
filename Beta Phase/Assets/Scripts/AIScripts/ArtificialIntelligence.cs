@@ -316,10 +316,10 @@ public class ArtificialIntelligence : MonoBehaviour
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f )
             {
-                playerHighlight.SetActive(true);
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
                 {
+                    playerHighlight.SetActive(true);
                     targetDir = playerHighlight.transform.position - thisAI.position;
                     newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                     transform.rotation = Quaternion.LookRotation(newDir);
@@ -472,12 +472,12 @@ public class ArtificialIntelligence : MonoBehaviour
             playerWithinRadius = true;
         }
 
-        if (other.tag == "Bottle")
+        /*if (other.tag == "Bottle")
         {
             noisySource = GameObject.Find("Shards").transform;
             goToNoisySource = true;
             questionMark.SetActive(true);
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)

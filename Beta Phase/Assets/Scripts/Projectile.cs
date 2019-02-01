@@ -7,11 +7,13 @@ public class Projectile : MonoBehaviour {
     public Transform shards;
     public MeshRenderer shardsMesh;
     public Collider shardCollider;
+    public SphereCollider sc;
     public bool createdNoise;
     MeshRenderer thisMesh;
     Rigidbody rb;
     float timeToDisappear;
     bool disappear;
+    bool cantInteract;
     AudioSource externalAudio;
     // Use this for initialization
     void Start()
@@ -28,7 +30,11 @@ public class Projectile : MonoBehaviour {
         if (disappear)
         {
             timeToDisappear += Time.deltaTime;
-            if (timeToDisappear > 10f)
+            if (timeToDisappear > 3f)
+            {
+                sc.enabled = false;
+            }
+            else if (timeToDisappear > 10f)
             {
                 this.gameObject.SetActive(false);
             }
@@ -39,6 +45,7 @@ public class Projectile : MonoBehaviour {
     {
         if (other.tag == "Path")
         {
+            sc.enabled = true;
             rb.isKinematic = true;
             thisMesh.enabled = false;
             createdNoise = true;
@@ -54,6 +61,14 @@ public class Projectile : MonoBehaviour {
         {
             timeToDisappear = 0;
             disappear = true;
+        }
+
+        if (other.name == "LosingCondiiton" && !cantInteract)
+        {
+            other.GetComponentInParent<ArtificialIntelligence>().noisySource = GameObject.Find("Shards").transform;
+            other.GetComponentInParent<ArtificialIntelligence>().goToNoisySource = true;
+            other.GetComponentInParent<ArtificialIntelligence>().questionMark.SetActive(true);
+            cantInteract = true;
         }
     }
 }

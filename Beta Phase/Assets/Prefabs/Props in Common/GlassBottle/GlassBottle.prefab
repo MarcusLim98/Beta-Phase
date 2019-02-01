@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23234271840298360}
   - component: {fileID: 95060381295814982}
   - component: {fileID: 65350336184253820}
+  - component: {fileID: 4606109880263741045}
   m_Layer: 0
   m_Name: Shards
   m_TagString: Bottle
@@ -111,6 +112,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &4606109880263741045
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146565563558486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 4.5
+  m_Center: {x: 0, y: -6.9533894e-17, z: 0.004893014}
 --- !u!1 &1322950291811334
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +238,7 @@ MonoBehaviour:
   shards: {fileID: 4049459174991808}
   shardsMesh: {fileID: 23234271840298360}
   shardCollider: {fileID: 65350336184253820}
+  sc: {fileID: 4606109880263741045}
   createdNoise: 0
 --- !u!65 &65339605042151456
 BoxCollider:
@@ -236,7 +251,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.097451046, y: 0.09597056, z: 0.36904117}
+  m_Size: {x: 0.097451046, y: 0.3, z: 0.36904117}
   m_Center: {x: -0.0000000018626451, y: -2.6221946e-15, z: 0.18452059}
 --- !u!82 &5614965218401473770
 AudioSource:
