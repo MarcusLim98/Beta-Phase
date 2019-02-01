@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 7e77b6b38375e5c4bada1fba9c8f7ace, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9c8a3e1ffe2d9614a82c1957f1c87428, type: 2}
 --- !u!4 &4395568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2b69ad21fbd7e6a4c95f33d181b09bde,
@@ -1601,38 +1601,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 152956114}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &162327380
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 332
-  m_Height: 187
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &162910283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6,
@@ -2385,6 +2353,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3381,6 +3353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.96
@@ -3591,6 +3567,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3972,6 +3952,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5845,6 +5829,38 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114252269301122746, guid: 1fd59d02ee10b8e4880c9f24ef59f0c2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1fd59d02ee10b8e4880c9f24ef59f0c2, type: 3}
+--- !u!84 &533385127
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 332
+  m_Height: 187
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &543758477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7664,6 +7680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.96
@@ -7998,6 +8018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.6829996
@@ -8221,6 +8245,38 @@ Transform:
   m_Father: {fileID: 1324634694}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &744685747
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 332
+  m_Height: 187
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &758635244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8231,6 +8287,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14144,6 +14204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.40999985
@@ -14243,7 +14307,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 162327380}
+  m_TargetTexture: {fileID: 533385127}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -15031,6 +15095,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15914,6 +15982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shelf (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.049999
@@ -16188,6 +16260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.6829996
@@ -16248,6 +16324,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16480,6 +16560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.96
@@ -16617,6 +16701,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
       propertyPath: m_Name
       value: shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17196,6 +17284,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20494,6 +20586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.40999985
@@ -21172,6 +21268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.96
@@ -21232,6 +21332,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21624,6 +21728,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23038,6 +23146,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24831,6 +24943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shelf (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bdf886e60e73ac94086ccc51a0979966, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2299995
@@ -26024,6 +26140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.40999985
@@ -26402,38 +26522,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1769513718}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1769975145
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 332
-  m_Height: 187
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1776206897
 GameObject:
   m_ObjectHideFlags: 0
@@ -26685,6 +26773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.6829996
@@ -26893,6 +26985,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27504,8 +27600,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 162327380}
-  extraRenderTexture: {fileID: 1769975145}
+  renderTexture: {fileID: 533385127}
+  extraRenderTexture: {fileID: 744685747}
 --- !u!114 &1891388836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27614,6 +27710,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28992,6 +29092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinate (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.40999985
@@ -29052,6 +29156,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_Name
       value: cabinate (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 218b08ee411a22646ba9dd986ccf8ea6, type: 3}
       propertyPath: m_LocalPosition.x
