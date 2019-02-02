@@ -30,11 +30,7 @@ public class Projectile : MonoBehaviour {
         if (disappear)
         {
             timeToDisappear += Time.deltaTime;
-            if (timeToDisappear > 3f)
-            {
-                sc.enabled = false;
-            }
-            else if (timeToDisappear > 10f)
+            if (timeToDisappear > 10f)
             {
                 this.gameObject.SetActive(false);
             }
@@ -69,6 +65,14 @@ public class Projectile : MonoBehaviour {
             other.GetComponentInParent<ArtificialIntelligence>().goToNoisySource = true;
             other.GetComponentInParent<ArtificialIntelligence>().questionMark.SetActive(true);
             cantInteract = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Path" && cantInteract)
+        {
+            sc.enabled = false;
         }
     }
 }

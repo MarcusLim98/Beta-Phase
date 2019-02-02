@@ -33,17 +33,17 @@ public class AISpotter : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        uiAbove = this.gameObject.transform.GetChild(4);
+        uiAbove = this.gameObject.transform.GetChild(5);
         exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
-        gunVision = this.gameObject.transform.GetChild(3).gameObject;
-        gunLine = this.gameObject.transform.GetChild(3).GetComponent<AIVision>();
+        gunVision = this.gameObject.transform.GetChild(4).gameObject;
+        gunLine = this.gameObject.transform.GetChild(4).GetComponent<AIVision>();
 
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         EmptyObj = new GameObject("Look Here");
         EmptyObj.layer = 9;
         EmptyObj.transform.parent = this.gameObject.transform;
-        startingAngle = this.gameObject.transform.GetChild(5);
+        startingAngle = this.gameObject.transform.GetChild(6);
         SphereCollider sc = EmptyObj.AddComponent<SphereCollider>() as SphereCollider;
         sc.radius = 0.5f;
         sc.isTrigger = true;
