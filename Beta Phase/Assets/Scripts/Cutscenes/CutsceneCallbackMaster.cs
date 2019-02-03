@@ -53,11 +53,18 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         playerLogic.playerEavesdrop = false;
         EndCutscene();
     }
-#endregion
+
+    IEnumerator BackToYYContCutscene()
+    {
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+        contDialogue[0].SetActive(true);
+    }
+    #endregion
 
 
 
-#region LEVEL 1
+    #region LEVEL 1
     void EndPrologue()
     {
         Time.timeScale = 0.25f;
@@ -82,13 +89,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = camFocusObj[0].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
-    }
-
-    IEnumerator BackToYYContCutscene()
-    {
-        yield return new WaitForSeconds(2);
-        cameraFocus = playerLogic.gameObject.transform;
-        contDialogue[0].SetActive(true);
     }
 
     void Day1Suspicion()
@@ -186,6 +186,38 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         ui.LoadScene("Scene 8 ABHouse");
     }
-#endregion
+
+    void BossEave()
+    {
+        cameraFocus = camFocusObj[0].transform;                     //Lao Da
+        StartCutscene();
+    }
+
+    IEnumerator BossEave1()
+    {
+        cameraFocus = camFocusObj[1].transform;                     //1st doc
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+    }
+
+    IEnumerator BossEave2()
+    {
+        cameraFocus = camFocusObj[2].transform;                     //2nd doc
+        yield return new WaitForSeconds(2);
+        cameraFocus = camFocusObj[3].transform;                     //3rd doc
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+    }
+
+    IEnumerator BossEave3()
+    {
+        cameraFocus = camFocusObj[4].transform;                     //4th doc
+        yield return new WaitForSeconds(2);
+        cameraFocus = camFocusObj[5].transform;                     //5th doc
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+    }
+
+    #endregion
 
 }
