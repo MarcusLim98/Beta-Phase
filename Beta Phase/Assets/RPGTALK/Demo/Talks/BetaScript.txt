@@ -102,7 +102,8 @@ Chief Hank: What did I tell you yesterday?
 Chief Hank: Do not stick your nose into businesses that aren't yours.
 Ying Yue: Sorry, sir.
 Chief Hank: ...As for the secret society activities, we will investigate if needed.
-Chief Hank: You are dismissed, constable.
+Chief Hank: Return to your paperwork, constable. It's more suitable for someone of your...
+Chief Hank: ... caliber.
 [title=Day2Intro-end]
 
 Fade out.
