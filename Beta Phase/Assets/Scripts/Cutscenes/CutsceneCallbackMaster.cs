@@ -20,12 +20,12 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     GameObject activeDialogue;
 
 
-    //DataSaveAndLoad datasl;
+    DataSaveAndLoad datasl;
 
-    //void Awake()
-    //{
-    //    datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
-    //}
+    void Awake()
+    {
+        datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
+    }
 
     void Start()
     {
@@ -82,7 +82,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1Intro()
     {
-        PlayerPrefs.SetInt("Day1Intro", 1);
         ChangeObjective("pass chief hank the papers");
         EndCutscene();
         spawnObj[0].SetActive(true);
@@ -90,13 +89,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1DonePapers()
     {
-        PlayerPrefs.SetInt("Day1DonePapers", 1);
         ui.LoadScene("Scene 1 CShop");
     }
 
     void Day1Afterwork()
     {
-        PlayerPrefs.SetInt("Day1Afterwork", 1);
         spawnObj[2].SetActive(true);
         cameraFocus = camFocusObj[0].transform;
         StartCoroutine(BackToYYContCutscene());
@@ -105,14 +102,14 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1Suspicion()
     {
-        PlayerPrefs.SetInt("Day1Suspicion", 1);
+        datasl.ObtainItem("Day1Suspicion");
+        //PlayerPrefs.SetInt("Day1Suspicion", 1);
         ChangeObjective("investigate the ruckus");
         EndCutscene();
     }
 
     void Day1ApproachThugs()
     {
-        PlayerPrefs.SetInt("Day1ApproachThugs", 1);
         ChangeObjective("eavesdrop from afar");
         EndCutscene();
         contDialogue[1].SetActive(false);
@@ -123,7 +120,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterEavesdrop()
     {
-        PlayerPrefs.SetInt("Day1AfterEavesdrop", 1);
+        datasl.ObtainItem("Day1AfterEavesdrop");
+        //PlayerPrefs.SetInt("Day1AfterEavesdrop", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCutscene();
         ChangeObjective("find another way into the coffeeshop");
@@ -136,7 +134,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterCShopEavesdrop()
     {
-        PlayerPrefs.SetInt("Day1AfterCShopEavesdrop", 1);
+        datasl.ObtainItem("Day1AfterCShopEavesdrop");
+        //PlayerPrefs.SetInt("Day1AfterCShopEavesdrop", 1);
         cameraFocus = camFocusObj[1].transform;
         StartCutscene();
         ChangeObjective("exit area through the side door");
@@ -144,7 +143,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterGambleEavesdrop()
     {
-        PlayerPrefs.SetInt("Day1AfterGambleEavesdrop", 1);
+        datasl.ObtainItem("Day1AfterGambleEavesdrop");
+        //PlayerPrefs.SetInt("Day1AfterGambleEavesdrop", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCutscene();
         ChangeObjective("exit the area");
@@ -156,19 +156,18 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 #region LEVEL 2
     void Day2Intro()
     {
-        PlayerPrefs.SetInt("Day2Intro", 1);
         ui.LoadScene("Scene 3 OWHouse");
     }
 
     void Day2AfterWork()
     {
-        PlayerPrefs.SetInt("Day2AfterWork", 1);
+        datasl.ObtainItem("Day2AfterWork");
+        //PlayerPrefs.SetInt("Day2AfterWork", 1);
         EndCutscene();
     }
 
     void Day2PanToThugs()
     {
-        PlayerPrefs.SetInt("Day2PanToThugs", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
@@ -176,21 +175,24 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2Notice()
     {
-        PlayerPrefs.SetInt("Day2Notice", 1);
+        datasl.ObtainItem("Day2Notice");
+        //PlayerPrefs.SetInt("Day2Notice", 1);
         ChangeObjective("distract the guards");
         EndCutscene();
     }
 
     void AfterEaveDocs()
     {
-        PlayerPrefs.SetInt("AfterEaveDocs", 1);
+        datasl.ObtainItem("AfterEaveDocs");
+        //PlayerPrefs.SetInt("AfterEaveDocs", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCutscene();
     }
 
     void Day2Spotter()
     {
-        PlayerPrefs.SetInt("Day2Spotter", 1);
+        datasl.ObtainItem("Day2Spotter");
+        //PlayerPrefs.SetInt("Day2Spotter", 1);
         cameraFocus = camFocusObj[1].transform;
         if (DiaCheck.activeInHierarchy == false)
         {
@@ -217,20 +219,21 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 #region LEVEL 3
     void Day3Intro()
     {
-        PlayerPrefs.SetInt("Day3Intro", 1);
         ui.LoadScene("Scene 8 ABHouse");
     }
 
     void BossEave()
     {
-        PlayerPrefs.SetInt("BossEave", 1);
+        datasl.ObtainItem("BossEave");
+        //PlayerPrefs.SetInt("BossEave", 1);
         cameraFocus = camFocusObj[0].transform;                     //Lao Da
         StartCutscene();
     }
 
     IEnumerator BossEave1()
     {
-        PlayerPrefs.SetInt("BossEave1", 1);
+        datasl.ObtainItem("BossEave1");
+        //PlayerPrefs.SetInt("BossEave1", 1);
         cameraFocus = camFocusObj[1].transform;                     //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
@@ -238,7 +241,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossEave2()
     {
-        PlayerPrefs.SetInt("BossEave2", 1);
+        datasl.ObtainItem("BossEave2");
+        //PlayerPrefs.SetInt("BossEave2", 1);
         cameraFocus = camFocusObj[2].transform;                     //2nd doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[3].transform;                     //3rd doc
@@ -248,7 +252,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossEave3()
     {
-        PlayerPrefs.SetInt("BossEave3", 1);
+        datasl.ObtainItem("BossEave3");
+        //PlayerPrefs.SetInt("BossEave3", 1);
         cameraFocus = camFocusObj[4].transform;                     //4th doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[5].transform;                     //5th doc
