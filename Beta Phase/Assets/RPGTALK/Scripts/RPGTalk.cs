@@ -23,7 +23,6 @@ public class RPGTalk : MonoBehaviour {
     /// Usually, the canvas with the text UI is set here.
     /// 
     public GameObject[] showWithDialog;
-    public bool npcBoxTurn;
 
     /// <summary>
     /// The UI element that holds a Text component
