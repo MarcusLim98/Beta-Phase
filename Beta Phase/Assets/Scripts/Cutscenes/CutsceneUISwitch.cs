@@ -2,54 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RPGTALK.Helper;
 
 public class CutsceneUISwitch : MonoBehaviour
 {
     public Text speakerName;
-    public Image[] diaSprites;
+    public Image yySpeaker, npcSpeaker;
     public GameObject[] textBox, screenEdge;
     public GameObject nameObj, diaText, dialogueObj;
     public Vector2[] namePos, textPos, edgePos;
+    public RPGTalkPhoto[] npcSprites;
+    public RPGTalk rpgT;
+
 
     void Update()
     {
         if (dialogueObj.activeInHierarchy)
         {
             DiaEnter();
+            if (speakerName.text.Contains("Ying Yue"))
+            {
+                YingYueTalk();
+            }
+            else
+            {
+                NPCTalk();
+            }
         }
         else
         {
             DiaExit();
         }
 
-        if (speakerName.text.Contains("Ying Yue"))
-        {
-            YingYueTalk();
-        }
-        else
-        {
-            NPCTalk();
-        }
+        
     }
 
     void YingYueTalk()
     {
-        diaSprites[0].color = Color.Lerp(diaSprites[0].color, Color.white, 1);      //YY sprite turns to white
-        diaSprites[1].color = Color.Lerp(diaSprites[1].color, Color.gray, 1);       //NPC sprite turns to gray
+        yySpeaker.color = Color.Lerp(yySpeaker.color, Color.white, 1);              //YY sprite turns to white
+        npcSpeaker.color = Color.Lerp(npcSpeaker.color, Color.gray, 1);             //NPC sprite turns to gray
         textBox[0].SetActive(true);                                                 //YY text box activated
         textBox[1].SetActive(false);                                                //NPC text box deactivated
         diaText.transform.localPosition = textPos[0];                               //move text to YY's side
-        nameObj.transform.localPosition = namePos[0];
+        nameObj.transform.localPosition = namePos[0];                               //move name text to YY's side
     }
 
     void NPCTalk()
     {
-        diaSprites[0].color = Color.Lerp(diaSprites[0].color, Color.gray, 1);       //YY sprite turns to gray
-        diaSprites[1].color = Color.Lerp(diaSprites[1].color, Color.white, 1);      //NPC sprite turns to white
+        yySpeaker.color = Color.Lerp(yySpeaker.color, Color.gray, 1);               //YY sprite turns to gray
+        npcSpeaker.color = Color.Lerp(npcSpeaker.color, Color.white, 1);            //NPC sprite turns to white
         textBox[0].SetActive(false);                                                //YY text box deactivated
         textBox[1].SetActive(true);                                                 //NPC text box activated
         diaText.transform.localPosition = textPos[1];                               //move text to NPC's side
-        nameObj.transform.localPosition = namePos[1];
+        nameObj.transform.localPosition = namePos[1];                               //move name text to NPC's side
+
+        for (int i = 0; i < npcSprites.Length; i++)                                 //CHANGES NPC SPRITES
+        {
+            if (npcSprites[i].name == rpgT.rpgtalkElements[0].originalSpeakerName)
+            {
+                if (npcSpeaker)
+                {
+                    npcSpeaker.sprite = npcSprites[i].photo;
+                    npcSpeaker.SetNativeSize();
+                }
+            }
+        }
     }
 
 

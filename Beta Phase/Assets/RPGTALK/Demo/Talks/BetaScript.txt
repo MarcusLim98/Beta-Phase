@@ -8,6 +8,17 @@ Ying Yue:
 		3 suspicious
 		4 happy
 
+Chief Hank:
+		0 neutral
+		1 disdain
+		2 tired
+		3 firm
+
+Lao Da:
+		0 neutral
+		1 menacing
+		2 villainous ahegao (sarcastic glee)
+
 ----------------------------------------------------------------------------------------------------------
 
 [title=Prologue-begin]
