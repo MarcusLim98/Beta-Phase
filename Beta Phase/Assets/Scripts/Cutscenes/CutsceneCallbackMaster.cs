@@ -14,7 +14,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     public UiBehaviour ui;
     public GameObject DiaCheck;
     [SerializeField]
-    Text objectiveText, notifText;
+    Text objectiveText;
 
     [SerializeField]
     GameObject activeDialogue;
