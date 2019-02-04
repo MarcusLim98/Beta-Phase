@@ -7,23 +7,16 @@ public class TriggerText : MonoBehaviour
 {
 
     public Text tutorialText;
-    public bool forObjectives;
     [SerializeField]
     string instructions;
     bool happened;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !happened && !forObjectives)
+        if (other.CompareTag("Player") && !happened)
         {
             TutText();
-        }
-
-        if (other.CompareTag("Player") && forObjectives)
-        {
-            tutorialText.text = instructions;
-            tutorialText.GetComponent<RectTransform>().anchoredPosition = new Vector3(17.78333f, -15.83332f, 0);
-            gameObject.SetActive(false);
+            happened = true;
         }
     }
 
@@ -37,7 +30,7 @@ public class TriggerText : MonoBehaviour
     IEnumerator TutTextBehaviour(string instructions)
     {
         tutorialText.text = instructions;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(6);
         tutorialText.text = "";
     }
 

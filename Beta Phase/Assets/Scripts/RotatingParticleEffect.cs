@@ -17,7 +17,6 @@ public class RotatingParticleEffect : MonoBehaviour {
     public ArtificialIntelligence[] ai;
     bool thisPlayer, stopRunningCoroutine;
     EavesdropLogic eavesdropLogic;
-    public SpawnBehaviour spawnBehaviour;
     [SerializeField]
     MonoBehaviour callbackScript;
     [SerializeField]
@@ -102,8 +101,6 @@ public class RotatingParticleEffect : MonoBehaviour {
             eaveDialogue.SetActive(true);
         }
         print("run");
-        spawnBehaviour.StopCoroutine("NotifTextBehaviour");
-        spawnBehaviour.StartCoroutine("NotifTextBehaviour", "Eavesdropping completed.");
         stopRunningCoroutine = true;
         yield return new WaitForSeconds(0.5f);
         var main3 = ps3.main;

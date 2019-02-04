@@ -7,16 +7,18 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     public PlayerLogic playerLogic;
     public CameraLogic cameraLogic;
+    public SpawnBehaviour spawnBeha;
     Transform cameraFocus;
     public GameObject[] camFocusObj, contDialogue, spawnObj;
 
     public UiBehaviour ui;
     public GameObject DiaCheck;
     [SerializeField]
-    Text objectiveText;
+    Text objectiveText, notifText;
 
     [SerializeField]
     GameObject activeDialogue;
+
 
     //DataSaveAndLoad datasl;
 
@@ -53,6 +55,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     public void ChangeObjective(string newObjective)
     {
         objectiveText.text = newObjective;
+        spawnBeha.StopCoroutine("NotifTextBehaviour");
+        spawnBeha.StartCoroutine("NotifTextBehaviour", "new objective:" + "\n" + newObjective);
     }
 
     void EaveEnd()
@@ -200,6 +204,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(1);
         cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
+    }
+
+    void CMWHObjective()
+    {
+        ChangeObjective("Collect documents (0/3)");
     }
 #endregion
 
