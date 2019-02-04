@@ -34,6 +34,7 @@ public class ArtificialIntelligence : MonoBehaviour
     Vector3 targetDir, newDir, directionBetween;
     Image uiState;
     PlayerLogic playerLogic;
+    FaderLogic faderLogic;
     int destPoint = 0;
     float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
     bool turnBack, cannotTurn, playerWithinRadius;
@@ -62,6 +63,7 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.transform.parent = uiAbove;
         questionMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
+        faderLogic = this.gameObject.transform.GetChild(2).gameObject.GetComponent<FaderLogic>();
         firstFov = this.gameObject.transform.GetChild(3).gameObject;
         secondFov = this.gameObject.transform.GetChild(4).gameObject;
         timeToStare = 1.5f;
@@ -70,6 +72,7 @@ public class ArtificialIntelligence : MonoBehaviour
 
     public void Update()
     {
+        print(state);
         InFov();
         switch (state)
         {
@@ -201,8 +204,16 @@ public class ArtificialIntelligence : MonoBehaviour
                 }
                 else if (investigatingState == 2)
                 {
-                    agent.speed = runSpeed;
-                    anim.SetInteger("State", 1);
+                    if (faderLogic.touchPlayer == false)
+                    {
+                        agent.speed = 9;
+                        anim.SetInteger("State", 1);
+                    }
+                    else if (faderLogic.touchPlayer == true)
+                    {
+                        agent.speed = 0;
+                        anim.SetInteger("State", 0);
+                    }
                     agent.SetDestination(playerTarget.position);
                     playerHighlight.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
@@ -214,8 +225,8 @@ public class ArtificialIntelligence : MonoBehaviour
 
     void GotoNextPoint()
     {
-        firstFov.SetActive(false);
-        secondFov.SetActive(true);
+        firstFov.SetActive(true);
+        secondFov.SetActive(false);
         if (!stationery && !staticRotate)
         {
             anim.SetInteger("State", 1);
@@ -301,10 +312,10 @@ public class ArtificialIntelligence : MonoBehaviour
         else if (goToNoisySource && !spottedHighlight)
         {
             target = noisySource;
-            if (noisySource.name == "Shards")
-            {
-                noisySource.tag = "Untagged";
-            }
+            //if (noisySource.name == "Shards")
+            //{
+                //noisySource.tag = "Untagged";
+            //}
             stopHere = 2f;
         }
         //if (Vector3.Distance(thisAI.position, target.position) < 8 && isInFov == 2)
@@ -321,7 +332,10 @@ public class ArtificialIntelligence : MonoBehaviour
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
                 {
-                    playerHighlight.SetActive(true);
+                    if(investigatingState != 2)
+                    {
+                        playerHighlight.SetActive(true);
+                    }
                     targetDir = playerHighlight.transform.position - thisAI.position;
                     newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                     transform.rotation = Quaternion.LookRotation(newDir);
