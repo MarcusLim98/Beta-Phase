@@ -214,6 +214,8 @@ public class ArtificialIntelligence : MonoBehaviour
 
     void GotoNextPoint()
     {
+        firstFov.SetActive(true);
+        secondFov.SetActive(false);
         if (!stationery && !staticRotate)
         {
             anim.SetInteger("State", 1);
