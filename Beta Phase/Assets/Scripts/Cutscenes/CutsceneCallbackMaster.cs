@@ -156,6 +156,12 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ui.LoadScene("Scene 3 OWHouse");
     }
 
+    void Day2AfterWork()
+    {
+        PlayerPrefs.SetInt("Day2AfterWork", 1);
+        EndCutscene();
+    }
+
     void Day2PanToThugs()
     {
         PlayerPrefs.SetInt("Day2PanToThugs", 1);
