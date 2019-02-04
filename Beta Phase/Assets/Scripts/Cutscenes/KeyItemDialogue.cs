@@ -12,6 +12,7 @@ public class KeyItemDialogue : MonoBehaviour {
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             keyItemObj.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

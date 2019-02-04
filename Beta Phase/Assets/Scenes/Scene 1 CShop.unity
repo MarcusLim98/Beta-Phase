@@ -1103,8 +1103,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1399245355}
-  extraRenderTexture: {fileID: 1716060458}
+  renderTexture: {fileID: 491394623}
+  extraRenderTexture: {fileID: 864438270}
 --- !u!114 &57532216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2389,6 +2389,96 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 101671434}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &102529840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102529841}
+  - component: {fileID: 102529844}
+  - component: {fileID: 102529843}
+  - component: {fileID: 102529842}
+  m_Layer: 0
+  m_Name: Afterwork
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &102529841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102529840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.63, y: 2.59, z: 22.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1176812674}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102529842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102529840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af02b5d7648a4e8492f3b9fc160319d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rpgtalkTarget: {fileID: 1334590058}
+  shouldInteractWithButton: 0
+  showWhenInteractionIsPossible: []
+  interactionKey: 101
+  checkIfColliderHasTag: Player
+  callbackScriptBeforeTalk: {fileID: 0}
+  callbackFunctionBeforeTalk: 
+  lineToStart: Day1Afterwork-begin
+  lineToBreak: Day1Afterwork-end
+  txtToParse: {fileID: 0}
+  callbackScriptAfterTalk: {fileID: 622048808}
+  callbackFunctionAfterTalk: Day1Afterwork
+  happenOnlyOnce: 1
+  alreadyHappened: 0
+  triggerEnter: 1
+  triggerExit: 0
+  shouldStayOnScreen: 0
+  forbidPlayIfRpgtalkIsPlaying: 1
+  timelineDirectorToPlay: {fileID: 0}
+--- !u!65 &102529843
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102529840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &102529844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102529840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e475e01b755a94e9efb02a8e8a9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressName: Day1Afterwork
 --- !u!1001 &105897591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10175,7 +10265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &208052749
 BoxCollider:
@@ -19013,6 +19103,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 491136762}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &491394623
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 819
+  m_Height: 461
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &493153212
 GameObject:
   m_ObjectHideFlags: 0
@@ -33416,7 +33538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &799244187
 PrefabInstance:
@@ -35279,6 +35401,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 863803489}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &864438270
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 819
+  m_Height: 461
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &866774828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36025,7 +36179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &884067349
 MonoBehaviour:
@@ -44296,7 +44450,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1107085916
 MonoBehaviour:
@@ -46330,6 +46484,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 102529841}
   - {fileID: 1107085915}
   - {fileID: 1850728301}
   - {fileID: 884067348}
@@ -61320,7 +61475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565fd263440bd45fa9ba0925c60f54f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOnAwake: 1
+  startOnAwake: 0
   showWithDialog:
   - {fileID: 1990417847}
   npcBoxTurn: 0
@@ -63696,38 +63851,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1398290237}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1399245355
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 332
-  m_Height: 187
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1402141299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71660,6 +71783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472508237}
+  - component: {fileID: 1472508238}
   - component: {fileID: 1472508236}
   - component: {fileID: 1472508235}
   - component: {fileID: 1472508234}
@@ -76394,6 +76518,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472508238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472508232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e475e01b755a94e9efb02a8e8a9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressName: Day1AfterCShopEavesdrop
 --- !u!4 &1473927783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b0fb6a51de98d5d47b44cb3fa4d45653,
@@ -83455,7 +83592,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1399245355}
+  m_TargetTexture: {fileID: 491394623}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -88438,38 +88575,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!84 &1716060458
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 332
-  m_Height: 187
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1723060002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93361,6 +93466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1850728301}
+  - component: {fileID: 1850728302}
   - component: {fileID: 1850728300}
   - component: {fileID: 1850728299}
   m_Layer: 0
@@ -93426,8 +93532,21 @@ Transform:
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1850728302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850728298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e475e01b755a94e9efb02a8e8a9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressName: Day1AfterEavesdrop
 --- !u!1001 &1851411255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101120,7 +101239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2067440782
 MonoBehaviour:
@@ -102652,7 +102771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176812674}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2110969177
 MonoBehaviour:

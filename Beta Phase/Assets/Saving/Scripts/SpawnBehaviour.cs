@@ -21,47 +21,28 @@ public class SpawnBehaviour : MonoBehaviour {
         //PlayerPrefs.DeleteAll();
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("SpawnPoint"))
-    //    {
-    //        spawnPointName = other.transform.GetChild(0).name;
-    //        print(spawnPointName);
-    //    }
-    //}
-
     void OnTriggerStay(Collider other)
     {
-        
-
-        //if (other.CompareTag("SpawnPoint") && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    SaveChoiceText();
-        //    print("save now");
-        //    spawnPointName = other.transform.GetChild(0).name;
-        //    print(spawnPointName);
-        //    SaveChoiceText();
-        //}
-
         if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
         {
-            if (PlayerPrefs.GetInt(other.name) == 0 || !PlayerPrefs.HasKey(other.name))
-            {
-                foreach (KeyItem item in DataSaveAndLoad.keyItemList)
-                {
-                    if (item.keyItemName == other.name)
-                    {
-                        if (item.taken == 0)
-                        {
-                            print(item.taken);
-                            StopCoroutine("NotifTextBehaviour");
-                            StartCoroutine("NotifTextBehaviour", other.name + " obtained");
-                            datasl.ObtainItem(other.name);
-                        }
-                        //else if (item.taken == 1) { print("help"); StopCoroutine("NotifTextBehaviour"); StartCoroutine("NotifTextBehaviour", "Nothing here, huh."); }
-                    }
-                }
-            }
+            StopCoroutine("NotifTextBehaviour");
+            StartCoroutine("NotifTextBehaviour", other.name + " obtained");
+
+            //if (PlayerPrefs.GetInt(other.name) == 0 || !PlayerPrefs.HasKey(other.name))
+            //{
+            //    foreach (KeyItem item in DataSaveAndLoad.keyItemList)
+            //    {
+            //        if (item.keyItemName == other.name)
+            //        {
+            //            if (item.taken == 0)
+            //            {
+            //                print(item.taken);
+                            
+            //                datasl.ObtainItem(other.name);
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         if (other.name == "Thug")                               //use name, if not listening colliders will affect player
@@ -96,33 +77,4 @@ public class SpawnBehaviour : MonoBehaviour {
         altarSound.Play();
     }
 
-
-
-    //void SaveChoiceText()
-    //{
-    //    StopCoroutine("NotifTextBehaviour");
-    //    notifText.text = "It's an altar for worship. Save progress?";
-    //    saveButtons.SetActive(true);
-    //    print("it is saving");
-    //    datasl.SaveGame(spawnPointName);
-    //}
-
-    //public void ConfirmSave()
-    //{
-    //    print("Saved!");
-    //    StopCoroutine("NotifTextBehaviour");
-    //    StartCoroutine("NotifTextBehaviour", "You feel blessed.");
-
-    //    altarS = "Altar";
-    //    altarSound.clip = (AudioClip)Resources.Load(altarS);
-    //    altarSound.Play();
-    //    datasl.SaveGame(spawnPointName);
-    //    saveButtons.SetActive(false);
-    //}
-
-    //public void CancelSave()
-    //{
-    //    notifText.text = "";
-    //    saveButtons.SetActive(false);
-    //}
 }
