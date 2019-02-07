@@ -72,7 +72,6 @@ public class ArtificialIntelligence : MonoBehaviour
 
     public void Update()
     {
-        print(state);
         InFov();
         switch (state)
         {
