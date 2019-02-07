@@ -12,7 +12,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     public GameObject[] camFocusObj, contDialogue, spawnObj;
 
     public UiBehaviour ui;
-    public GameObject DiaCheck;
     [SerializeField]
     Text objectiveText;
 
@@ -70,6 +69,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
+        StartCutscene();
     }
     #endregion
 
@@ -85,6 +85,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("pass chief hank the papers");
         EndCutscene();
         spawnObj[0].SetActive(true);
+        spawnObj[1].SetActive(true);
     }
 
     void Day1DonePapers()
@@ -194,18 +195,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         datasl.ObtainItem("Day2Spotter");
         //PlayerPrefs.SetInt("Day2Spotter", 1);
         cameraFocus = camFocusObj[1].transform;
-        if (DiaCheck.activeInHierarchy == false)
-        {
-            StartCoroutine(BackToYYafterSpot());
-            StartCutscene();
-        }
-    }
-
-    IEnumerator BackToYYafterSpot()
-    {
-        yield return new WaitForSeconds(1);
-        cameraFocus = playerLogic.gameObject.transform;
-        contDialogue[0].SetActive(true);
     }
 
     void CMWHObjective()

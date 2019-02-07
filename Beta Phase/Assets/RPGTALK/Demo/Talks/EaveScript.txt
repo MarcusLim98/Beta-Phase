@@ -21,7 +21,7 @@ Scene 1 CShop: Thugs inside the Coffee Shop.
 Info: Location of Gambling Den
 
 [title=Day1EaveCShop-begin]
-Lucky Thug: <i>Huat Ah!</i> I won 250 dollars!
+Lucky Thug: <i>Huat Ah!</i> I won 50 dollars!
 Unlucky Thug: Wah, I lost all my bets yesterday.
 Unlucky Thug: <i>Chap ji kee</i> really is hard...
 Lucky Thug: It's okay, bro, we go to the <b>Gambling Den.</b>
