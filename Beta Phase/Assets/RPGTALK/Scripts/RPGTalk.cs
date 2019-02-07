@@ -275,6 +275,11 @@ public class RPGTalk : MonoBehaviour {
     public delegate void MadeAChoiceAction(int questionID, int choiceNumber);
     public event MadeAChoiceAction OnMadeChoice;
 
+    //For NPC ref
+    public RpgtalkElement npcRef;
+
+
+
 
     void Start() {
         //Set the txtToParse again, so it can check for the correct language
@@ -1369,6 +1374,8 @@ public class RPGTalk : MonoBehaviour {
             textUI.enabled = true;
 
             RpgtalkElement currentRpgtalkElement = rpgtalkElements[cutscenePosition - 1];
+
+            npcRef = currentRpgtalkElement;
 
             if (dialoger) {
                 if (dialogerUI) {
