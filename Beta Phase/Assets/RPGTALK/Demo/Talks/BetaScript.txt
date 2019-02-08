@@ -213,30 +213,24 @@ The final boss fight has begun!
 
 THE END
 
-The camera angle is different now: it looks down directly on Chief Hank's desk.
-Hank stands at his usual side when he tosses a newspaper onto the desk.
-The camera pauses to let the player read the headlines: SECRET SOCIETY SHUT DOWN.
-The camera then pans out to its usual angle.
-REVEAL: Ying Yue has succeeded in her mission. She stands at the other side of the desk.
-
 [title=TheEnd-begin]
 Chief Hank: So, Constable Ying Yue.
 Chief Hank: I should be firing you, really.
 Chief Hank: You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
 Chief Hank: You placed yourself in danger and could have gotten yourself killed.
 Chief Hank: Grant, it would have made my job easier.
-Ying Yue: I'm not allowed to die without my Ma's permission, sir.
+Ying Yue: It's rude to die before my parents, sir.
 Chief Hank: Shut your mouth, constable.
-Chief Hank: ... Perhaps in the same vein as how you shut down the secret society in three days.
-Chief Hank: I suppose I should commemorate what is due...
-Chief Hank: [speed=5]...[/speed] You did well, constable.
-Ying Yue: [speed=5]...[/speed]
+Chief Hank: [speed=10]...[/speed] Perhaps in the same vein as how you shut down the secret society in three days.
+Chief Hank: I suppose I should commemorate what is due[speed=10]...[/speed]
+Chief Hank: [speed=10]...[/speed]You did well, constable.
+Ying Yue: [speed=10]...[/speed]
 Ying Yue: Thank you, Chief Hank.
-Chief Hank: Now then, you have a new assignment: [speed=5]...[/speed]riot control.
+Chief Hank: Now then, you have a new assignment: [speed=10]...[/speed] riot control.
 Chief Hank: Over a dozen dead and even more injured for both civilians and your fellow colleagues.
 Chief Hank: Do you think you can handle that, constable?
 Ying Yue: For my caliber, sir?
-Ying Yue: [speed=5]...[/speed][speed=20] I think it'll be worth a shot.[/speed]
+Ying Yue: [speed=10]...[/speed] I think it'll be worth a shot.
 [title=TheEnd-end]
 
 ----------------------------------------------------------------------------------------------------------
