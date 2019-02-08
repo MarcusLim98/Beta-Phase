@@ -80,7 +80,7 @@ YY stands outside the police station. It's sunset. She's tired from being pushed
 [title=Day1Afterwork-begin]
 Ying Yue : ...What a long day.
 Ying Yue : Now if only they'd take me seriously.
-Ying Yue   : What's the point of being a cop if all they let me do is paperwork, hah...
+Ying Yue   : What's the point of being a cop if all they let me do is paperwork...
 [title=Day1Afterwork-end]
 
 CRASH! Some thugs are making a ruckus off-screen. The camera shifts to look at them. They're outside a coffeeshop.
@@ -172,7 +172,7 @@ Chief Hank: God damn it. I can't believe this mess.
 Chief Hank: Kidnappings, ransoms, opium drug trade, theft, assault...
 Chief Hank: The secret society nonsense is getting out of hand.
 Chief Hank: Regarding this case, our allocated officers will look into it.
-Ying Yue : The officers busy with riot control, sir?
+Ying Yue: The officers busy with riot control, sir?
 Chief Hank: Shut it, constable.
 Chief Hank: We will contact you if needed. You are to return to your paperwork.
 Chief Hank: Insubordination is an offense, if you still value your job.
@@ -229,14 +229,14 @@ Ying Yue: I'm not allowed to die without my Ma's permission, sir.
 Chief Hank: Shut your mouth, constable.
 Chief Hank: ... Perhaps in the same vein as how you shut down the secret society in three days.
 Chief Hank: I suppose I should commemorate what is due...
-Chief Hank: ... You did well, constable.
-Ying Yue: ...
+Chief Hank: [speed=5]...[/speed] You did well, constable.
+Ying Yue: [speed=5]...[/speed]
 Ying Yue: Thank you, Chief Hank.
-Chief Hank: Now then, you have a new assignment: [speed=10]...[/speed]riot control.
+Chief Hank: Now then, you have a new assignment: [speed=5]...[/speed]riot control.
 Chief Hank: Over a dozen dead and even more injured for both civilians and your fellow colleagues.
 Chief Hank: Do you think you can handle that, constable?
 Ying Yue: For my caliber, sir?
-Ying Yue: ... I think it'll be worth a shot.
+Ying Yue: [speed=5]...[/speed][speed=20] I think it'll be worth a shot.[/speed]
 [title=TheEnd-end]
 
 ----------------------------------------------------------------------------------------------------------
