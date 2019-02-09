@@ -28,7 +28,10 @@ EditorBuildSettings:
     guid: 3fcf2de01cf73a1489586719e28d6429
   - enabled: 1
     path: Assets/Scenes/Scene 4 CWHouse.unity
-    guid: c452588360a0d0e49a30cd1f1946d907
+    guid: dbd3a065d27c3d845b8e4393155c943c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Old Boss Warehouse.unity
     guid: a6fcdfe3b8ffd11428d181b673de299e
