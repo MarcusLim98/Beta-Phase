@@ -10,10 +10,20 @@ public class EndingCtrl : MonoBehaviour
     public Vector3 targetOffset;
     public float panSpeed;
     public RPGTalk rpgT;
+    public GameObject endTitle, fadeToBlack, fadeFromBlack;
+    public AudioSource originalBgm, creditBgm, altar;
 
     void Start()
     {
         StartCoroutine(PanOut());
+    }
+
+    private void Update()
+    {
+        if (creditBgm.isPlaying)
+        {
+            creditBgm.volume += Time.deltaTime / 2;
+        }
     }
 
     IEnumerator PanOut()
@@ -24,5 +34,25 @@ public class EndingCtrl : MonoBehaviour
         cameraL.player = yingYue;
         yield return new WaitForSeconds(4);
         rpgT.NewTalk();                         //otherwise, text speed causes bugs
+    }
+
+    void PreCredits()
+    {
+        StartCoroutine(RollCredits());
+    }
+
+    IEnumerator RollCredits()
+    {
+        originalBgm.Stop();
+        altar.Play();
+        endTitle.SetActive(true);
+        yield return new WaitForSeconds(4);
+        fadeToBlack.SetActive(true);
+        //camera changes position
+        yield return new WaitForSeconds(2);
+        endTitle.SetActive(false);
+        fadeToBlack.SetActive(false);
+        fadeFromBlack.SetActive(true);
+        creditBgm.Play();
     }
 }
