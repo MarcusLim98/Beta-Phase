@@ -179,7 +179,7 @@ public class PlayerLogic : MonoBehaviour {
     IEnumerator WaitForNavMesh()
     {
         agent.enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1);
         agent.enabled = true;
     }
 
