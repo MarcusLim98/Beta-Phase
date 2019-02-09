@@ -106,6 +106,7 @@ YY approaches the thugs. They don't like her, and they don't believe she's a cop
 [title=Day1ApproachThugs-begin]
 Thuggish Man: Oi! Get the hell out of here!
 Thuggish Man: Go play dress-up somewhere else.
+Ying Yue: ... They went back to talking. I could eavesdrop from afar.
 [title=Day1ApproachThugs-end]
 
 Objective: Eavesdrop from afar.
@@ -117,8 +118,18 @@ DAY 1 APPROACHING THUGS AGAIN
 If YY approaches them again.
 
 [title=Day1ApproachAgain-begin]
-Thuggish Man: Screw off, you little rat!
+Ying Yue: I shouldn't get too close.
 [title=Day1ApproachAgain-end]
+
+----------------------------------------------------------------------------------------------------------
+
+DAY 1 AFTER FIRST EAVESDROP
+
+[title=Day1AfterEave-begin]
+Ying Yue: The coffeeshop, huh?
+Ying Yue: Those thugs are blocking its main entrance.
+Ying Yue: I'll have to find another way in.
+[title=Day1AfterEave-end]
 
 ----------------------------------------------------------------------------------------------------------
 

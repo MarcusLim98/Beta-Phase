@@ -17,6 +17,16 @@ Scarred Man: Sure, the other two already waiting for us in the usual room.
 
 ----------------------------------------------------------------------------------------------------------
 
+DAY 1 AFTER FIRST EAVESDROP
+
+[title=Day1AfterEave-begin]
+Ying Yue: The coffeeshop, huh?
+Ying Yue: Those thugs are blocking its main entrance.
+Ying Yue: I'll have to find another way in.
+[title=Day1AfterEave-end]
+
+----------------------------------------------------------------------------------------------------------
+
 Scene 1 CShop: Thugs inside the Coffee Shop.
 Info: Location of Gambling Den
 

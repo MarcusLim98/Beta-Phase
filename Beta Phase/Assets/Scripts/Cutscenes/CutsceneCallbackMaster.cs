@@ -128,6 +128,13 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("find another way into the coffeeshop");
     }
 
+    void Day1EaveComment()
+    {
+        EaveEnd();
+        cameraFocus = playerLogic.gameObject.transform;
+        contDialogue[3].SetActive(true);
+    }
+
     void Day1EnterCShop()
     {
         ChangeObjective("investigate the coffeeshop");
