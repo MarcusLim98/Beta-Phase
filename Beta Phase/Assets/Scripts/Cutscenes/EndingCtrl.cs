@@ -22,7 +22,7 @@ public class EndingCtrl : MonoBehaviour
         cameraL.movementSpeed = panSpeed;
         cameraL.targetOffset = targetOffset;
         cameraL.player = yingYue;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         rpgT.NewTalk();                         //otherwise, text speed causes bugs
     }
 }
