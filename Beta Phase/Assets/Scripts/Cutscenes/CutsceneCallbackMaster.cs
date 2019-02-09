@@ -190,7 +190,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2Notice()
     {
-        datasl.ObtainItem("Day2Notice");
+        datasl.ObtainItem("Day2PanToThugs");
         //PlayerPrefs.SetInt("Day2Notice", 1);
         ChangeObjective("distract the guards");
         EndCutscene();

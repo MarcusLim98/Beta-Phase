@@ -68,7 +68,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         keyItemList.Add(new KeyItem("Day1AfterGambleEavesdrop", 0));
 
         keyItemList.Add(new KeyItem("Day2AfterWork", 0));
-        keyItemList.Add(new KeyItem("Day2Notice", 0));
+        keyItemList.Add(new KeyItem("Day2PanToThugs", 0));
 
         keyItemList.Add(new KeyItem("AfterEaveDocs", 0));
         keyItemList.Add(new KeyItem("Day2Spotter", 0));
