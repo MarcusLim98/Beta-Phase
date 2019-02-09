@@ -64,7 +64,7 @@ public class UiBehaviour : MonoBehaviour {
 
     IEnumerator FadeFromBlack()                                             //ensures that canvas does not block input
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         fadeFromBlack.SetActive(false);
     }
     #endregion
