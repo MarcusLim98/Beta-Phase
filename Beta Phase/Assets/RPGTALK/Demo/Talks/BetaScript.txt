@@ -131,6 +131,16 @@ Ying Yue: Those thugs are blocking its main entrance.
 Ying Yue: I'll have to find another way in.
 [title=Day1AfterEave-end]
 
+
+----------------------------------------------------------------------------------------------------------
+
+DAY 1 AFTER GAMBLE EAVESDROP
+
+[title=Day1AfterGambleEave-begin]
+Ying Yue  : ...!
+Ying Yue  : I need to tell Chief Hank.
+[title=Day1AfterGambleEave-end]
+
 ----------------------------------------------------------------------------------------------------------
 
 DAY 2 INTRO

@@ -157,11 +157,18 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         StartCutscene();
         ChangeObjective("exit the area");
     }
+
+    void Day1GambleEaveComment()
+    {
+        EaveEnd();
+        cameraFocus = playerLogic.gameObject.transform;
+        contDialogue[0].SetActive(true);
+    }
     #endregion
 
 
 
-#region LEVEL 2
+    #region LEVEL 2
     void Day2Intro()
     {
         ui.LoadScene("Scene 3 OWHouse");
