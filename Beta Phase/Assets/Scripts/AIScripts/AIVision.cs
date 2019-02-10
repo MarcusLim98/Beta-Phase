@@ -136,7 +136,7 @@ public class AIVision : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        meshFilter.mesh = Cono();
+        //meshFilter.mesh = Cono();
         if (oldPosition != transform.position || oldRotation != transform.rotation || oldScale != transform.localScale)
         {
 
