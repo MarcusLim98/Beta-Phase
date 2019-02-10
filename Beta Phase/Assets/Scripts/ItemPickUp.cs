@@ -9,12 +9,15 @@ public class ItemPickUp : MonoBehaviour {
     public Text pressE;
 	public bool haveBottle;
     public Image bottleFilled;
-    public string fileName;
-    AudioSource externalAudio;
+    public string fileName, pickUpFileName;
+    AudioSource externalAudio, pickUpSound;
+
     private void Start()
     {
         externalAudio = GameObject.Find("Playershoot").GetComponent<AudioSource>();
         externalAudio.clip = (AudioClip)Resources.Load(fileName);
+        pickUpSound = GameObject.Find("PickUpSound").GetComponent<AudioSource>();
+        pickUpSound.clip = (AudioClip)Resources.Load(pickUpFileName);
     }
 
     private void OnTriggerStay(Collider other)
@@ -38,6 +41,7 @@ public class ItemPickUp : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 pressE.enabled = false;
+                pickUpSound.Play();
             }
         }
 
