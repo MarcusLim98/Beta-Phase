@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UiBehaviour : MonoBehaviour {
 
@@ -9,6 +10,16 @@ public class UiBehaviour : MonoBehaviour {
 
     private void Start()
     {
+
+        if (SceneManager.GetActiveScene().name == "FakeMenu")
+        {
+            Button resumeBtn = GameObject.Find("Resume").GetComponent<Button>();
+            if (!PlayerPrefs.HasKey("spawnscene"))
+            {
+                resumeBtn.interactable = false;
+            } else { resumeBtn.interactable = true; }
+        }
+
         StartCoroutine(FadeFromBlack());
     }
 
@@ -29,29 +40,23 @@ public class UiBehaviour : MonoBehaviour {
     }
     #endregion
 
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    StartCoroutine(FadeFromBlack());
-    //}
-
     #region Scene Needs
     public void LoadScene(string nextScene)
     {
         StartCoroutine(FadeToScene(nextScene));
     }
 
-    public void LoadGame()                                                  //loads the scene of the last checkpoint
+    public void LoadGame()                                              //loads the scene of the last checkpoint
     {
         if (PlayerPrefs.HasKey("spawnscene"))
         {
             LoadScene(PlayerPrefs.GetString("spawnscene"));
         }
-        else
-            LoadScene("Scene 0 Police Office");                                 //TEMP FOR PRE-BETA
     }
 
     public void NewGame()
     {
+        PlayerPrefs.DeleteAll();
         LoadScene("Scene 0 Police Office");
     }
 
