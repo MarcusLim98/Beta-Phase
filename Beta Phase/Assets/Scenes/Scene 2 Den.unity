@@ -2817,8 +2817,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 2042938992}
-  extraRenderTexture: {fileID: 405394194}
+  renderTexture: {fileID: 668490819}
+  extraRenderTexture: {fileID: 795577549}
 --- !u!114 &57532216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3341,13 +3341,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 79
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4621,22 +4621,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterOutline
       objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.6714023
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.17802638
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.71939015
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0018777797
-      objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4713,6 +4697,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b581fc204d077e74785a09e0663af3e2, type: 2}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6714023
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.17802638
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.71939015
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0018777797
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
 --- !u!4 &102816350 stripped
@@ -21568,38 +21568,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0897bfb8fc3ab7743bd8ea5132b38f40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0fb6a51de98d5d47b44cb3fa4d45653, type: 3}
---- !u!84 &405394194
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &408637817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25971,6 +25939,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &516463729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30193,13 +30162,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 79
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -36371,6 +36340,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000001, z: 1.6563878e-10}
   m_Center: {x: -0.00000047683716, y: 0, z: 0}
+--- !u!84 &668490819
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 699
+  m_Height: 393
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &671083803
 GameObject:
   m_ObjectHideFlags: 0
@@ -42964,6 +42965,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!84 &795577549
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 699
+  m_Height: 393
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &799232360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64744,6 +64777,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1085057998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69991,6 +70025,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1193799760
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70539,6 +70574,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1205551215
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -74310,18 +74346,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400086, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400088, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.11
@@ -74374,6 +74398,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e7e3a93dfbea8b641b95d4fefc5fb8dc, type: 2}
+    - target: {fileID: 400000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400086, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400088, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3f76e6c492e7848b3e929ce93e4328, type: 3}
 --- !u!1 &1289333588 stripped
@@ -84316,6 +84352,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1515248657
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85659,7 +85696,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2042938992}
+  m_TargetTexture: {fileID: 668490819}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -87242,6 +87279,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1588146574
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -100914,6 +100952,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1792641124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -103278,6 +103317,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1834961838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106865,6 +106905,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &1938680555
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -111100,38 +111141,6 @@ Transform:
   m_Father: {fileID: 578885046}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &2042938992
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &2042947211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114338,6 +114347,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isGun: 0
 --- !u!23 &2115774686
 MeshRenderer:
   m_ObjectHideFlags: 0
