@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UiBehaviour : MonoBehaviour {
 
-    public GameObject fadeToBlack, fadeFromBlack;
+    public GameObject fadeToBlack, fadeFromBlack, loadingScreen;
+    public Slider loadingBar;
 
     private void Start()
     {
@@ -56,15 +57,32 @@ public class UiBehaviour : MonoBehaviour {
 
     public void NewGame()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();                                        //clears past progress
         LoadScene("Scene 0 Police Office");
     }
 
     IEnumerator FadeToScene(string nextScene)
     {
-        fadeToBlack.SetActive(true);
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(nextScene);
+        loadingScreen.SetActive(true);
+
+        yield return new WaitForSeconds(1);                                 //so that fadeToBlack settles
+
+        AsyncOperation ao = SceneManager.LoadSceneAsync(nextScene);
+        ao.allowSceneActivation = false;
+
+        while (!ao.isDone)
+        {
+            loadingBar.value = ao.progress;                                 //change bar value
+
+            if (ao.progress >= 0.9f)                                        //if loading is done
+            {
+                fadeToBlack.SetActive(true);
+                yield return new WaitForSeconds(1);                         //so that fadeToBlack settles
+                ao.allowSceneActivation = true;                             //start next scene
+            }
+
+            yield return null;
+        }
     }
 
     IEnumerator FadeFromBlack()                                             //ensures that canvas does not block input
@@ -73,4 +91,6 @@ public class UiBehaviour : MonoBehaviour {
         fadeFromBlack.SetActive(false);
     }
     #endregion
+
+
 }

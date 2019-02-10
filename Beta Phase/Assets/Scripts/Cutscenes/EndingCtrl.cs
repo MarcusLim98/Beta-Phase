@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class EndingCtrl : MonoBehaviour
 {
     public CameraLogic cameraL;
-    public Transform yingYue;
+    public Transform yingYue;           // , cameraT, credits1, credits2, credits3, credits4, credits5, credits6, credits7, credits8;
     public Vector3 targetOffset;
     public float panSpeed;
     public RPGTalk rpgT;
-    public GameObject endTitle, fadeToBlack, fadeFromBlack;
+    public GameObject endTitle, fadeToBlack, fadeFromBlack, newspaper, tempCredits;
     public AudioSource originalBgm, creditBgm, altar;
+    public UiBehaviour uiB;
 
     void Start()
     {
@@ -28,12 +29,14 @@ public class EndingCtrl : MonoBehaviour
 
     IEnumerator PanOut()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1);
+        newspaper.SetActive(true);
+        yield return new WaitForSeconds(6);
         cameraL.movementSpeed = panSpeed;
         cameraL.targetOffset = targetOffset;
         cameraL.player = yingYue;
         yield return new WaitForSeconds(4);
-        rpgT.NewTalk();                         //otherwise, text speed causes bugs
+        rpgT.NewTalk();                             //otherwise, text speed causes bugs
     }
 
     void PreCredits()
@@ -48,11 +51,28 @@ public class EndingCtrl : MonoBehaviour
         endTitle.SetActive(true);
         yield return new WaitForSeconds(4);
         fadeToBlack.SetActive(true);
-        //camera changes position
+        //camera changes position to credits 1
         yield return new WaitForSeconds(2);
         endTitle.SetActive(false);
+        tempCredits.SetActive(true);                //temp until proper credits are used
         fadeToBlack.SetActive(false);
         fadeFromBlack.SetActive(true);
         creditBgm.Play();
+        yield return new WaitForSeconds(8);
+        uiB.LoadScene("FakeMenu");
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 2
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 3
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 4
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 5
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 6
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 7
+        //yield return new WaitForSeconds(4);
+        //camera changes position to credits 8
     }
 }
