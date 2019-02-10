@@ -35,7 +35,7 @@ public class ArtificialIntelligence : MonoBehaviour
     Image uiState;
     PlayerLogic playerLogic;
     FaderLogic faderLogic;
-    public BGMControl bgmLogic;
+    BGMControl bgmLogic;
     int destPoint = 0;
     float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
     bool turnBack, cannotTurn, playerWithinRadius;
