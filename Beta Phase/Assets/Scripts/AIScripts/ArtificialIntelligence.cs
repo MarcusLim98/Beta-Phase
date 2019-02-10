@@ -35,6 +35,7 @@ public class ArtificialIntelligence : MonoBehaviour
     Image uiState;
     PlayerLogic playerLogic;
     FaderLogic faderLogic;
+    public BGMControl bgmLogic;
     int destPoint = 0;
     float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
     bool turnBack, cannotTurn, playerWithinRadius;
@@ -47,6 +48,7 @@ public class ArtificialIntelligence : MonoBehaviour
         thisAI = GetComponent<Transform>();
         externalAudio = GetComponent<AudioSource>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        bgmLogic = GameObject.Find("BGMS").GetComponent<BGMControl>();
         if (stationery)
         {
             EmptyObj = new GameObject("Look Here");
@@ -151,8 +153,10 @@ public class ArtificialIntelligence : MonoBehaviour
                     if (spottedHighlight)
                     {
                         playerHighlight.transform.parent = null;
+                  
                     }
                     state = AIState.PATROLLING;
+                    
                 }
                 if (investigatingState == 1)
                 {
@@ -161,6 +165,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     playerHighlight.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    bgmLogic.ChangeDanger();
                     if (isInFov == 1)
                     {
                         playerHighlight.SetActive(false);
@@ -180,6 +185,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         {
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
+
                         }
                     }
                 }
@@ -196,6 +202,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     goToNoisySource = false;
                     agent.speed = runSpeed;
                     state = AIState.PATROLLING;
+                    bgmLogic.EscapeDanger();
                 }
                 else if (investigatingState == 1)
                 {
@@ -217,6 +224,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     playerHighlight.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    bgmLogic.ChangeDanger();
                 }
                 break;
         }
@@ -356,6 +364,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 firstFov.SetActive(true);
                 secondFov.SetActive(false);
                 stopHere = 3f;
+                bgmLogic.EscapeDanger();
                 GotoNextPoint();
             }
         }
