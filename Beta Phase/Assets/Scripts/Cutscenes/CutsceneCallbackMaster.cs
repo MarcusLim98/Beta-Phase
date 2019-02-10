@@ -19,8 +19,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     GameObject activeDialogue;
     [SerializeField]
     AudioSource objectiveChime;
-    [SerializeField]
-    string chimeName;
 
     DataSaveAndLoad datasl;
 
@@ -32,7 +30,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Start()
     {
         cameraFocus = playerLogic.gameObject.transform;
-        objectiveChime.clip = (AudioClip)Resources.Load(chimeName);
+        objectiveChime.clip = (AudioClip)Resources.Load("Objective Update");
     }
 
     void Update()
