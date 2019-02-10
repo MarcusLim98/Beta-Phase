@@ -264,12 +264,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
     }
 
-    void TheEnd()
-    {
-        spawnObj[0].SetActive(true);
-        //ui.LoadScene("Credits");
-    }
-
     #endregion
 
 }

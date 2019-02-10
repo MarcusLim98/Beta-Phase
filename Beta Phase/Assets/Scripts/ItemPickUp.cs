@@ -32,20 +32,20 @@ public class ItemPickUp : MonoBehaviour {
                 pressE.enabled = false;
             }
         }
-        if (/*other.CompareTag("SpawnPoint") || */other.CompareTag("KeyItem"))
+        if (other.CompareTag("KeyItem"))
         {
             pressE.enabled = true;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                pressE.enabled = false;
+            }
         }
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name.Contains("GlassBottle") && !haveBottle)
-        {
-            pressE.enabled = false;
-        }
-        if (/*other.CompareTag("SpawnPoint") || */other.CompareTag("KeyItem"))
+        if (other.name.Contains("GlassBottle") && !haveBottle || other.CompareTag("KeyItem"))
         {
             pressE.enabled = false;
         }
