@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/FakeMenu.unity
     guid: 4f069f7c55590664c866cae7c0e4fdbd
-  - enabled: 0
-    path: Assets/Scenes/Menu.unity
-    guid: c80e74c8bd499a84693563853ef47304
   - enabled: 1
     path: Assets/Scenes/Scene 0 Police Office.unity
     guid: 2cc02616f853e01409bdf40f342ec2d5
@@ -24,18 +18,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene 2 Den.unity
     guid: 9d9b7a8563cd0c34d9806c7385a04141
   - enabled: 1
+    path: Assets/Scenes/Scene 2.5 Police Office.unity
+    guid: 7a6d0a025af2cae48a4d4d2ba1f90747
+  - enabled: 1
     path: Assets/Scenes/Scene 3 OWHouse.unity
     guid: 3fcf2de01cf73a1489586719e28d6429
   - enabled: 1
     path: Assets/Scenes/Scene 4 CWHouse.unity
     guid: dbd3a065d27c3d845b8e4393155c943c
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Old Boss Warehouse.unity
-    guid: a6fcdfe3b8ffd11428d181b673de299e
+    path: Assets/Scenes/Scene 4.5 Police Office.unity
+    guid: 0b18409641e268b46bb8d48daa40df0c
   - enabled: 1
     path: Assets/Scenes/Scene 8 ABHouse.unity
     guid: e994f4ec93e416b4d9b5646ca3dc7451
+  - enabled: 1
+    path: Assets/Scenes/Scene 9 End.unity
+    guid: 98b41e1d7c1b0db41b5aa6a809b50daf
   m_configObjects: {}
