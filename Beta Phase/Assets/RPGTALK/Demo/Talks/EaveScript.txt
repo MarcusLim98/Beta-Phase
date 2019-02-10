@@ -45,20 +45,18 @@ Dealer: We're starting soon.
 
 ----------------------------------------------------------------------------------------------------------
 
-NO LONGER USED, THANK YOU FOR YOUR ENLIGHTENMENT, OH GREAT NOAH ALASTAIR, THE BENELOVENT CREATURE WHO HAS NO IDEA HOW TO MAKE PARENT OBJECTS AND ASSUMES EVERYTHING WHEN HE FORGETS, BUT GOD FORBID ANYONE ELSE FORGET ANYTHING HE SAYS.
-
-Scene 3 OWHouse: Thugs guarding the Warehouse entrance
+Scene 4 CWHouse: Thug on the phone.First part of Eavesdrop in Scene 4
 Info: The Big Boss' arrival tommorrow
 
 [title=Day2EaveCall-begin]
 Busy Thug: Make sure we have enough people for tommorrow.
 Busy Thug: The Boss is coming with the next batch of opium.
-Busy Thug: I want everyone to remember it.
+Busy Thug: I want everyone to be there.
 [title=Day2EaveCall-end]
 
 ----------------------------------------------------------------------------------------------------------
 
-Scene 4 CWHouse: 
+Scene 4 CWHouse: 2 Thugs in the room.Second part of Eavesdrop in Scene 4
 Info: Where Warehouse 2 is and the documents needed to prove there is opium here
 
 [title=Day2EaveDocs-begin]
