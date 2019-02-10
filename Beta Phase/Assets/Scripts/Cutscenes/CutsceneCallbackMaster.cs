@@ -17,7 +17,10 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     [SerializeField]
     GameObject activeDialogue;
-
+    [SerializeField]
+    AudioSource objectiveChime;
+    [SerializeField]
+    string chimeName;
 
     DataSaveAndLoad datasl;
 
@@ -29,6 +32,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Start()
     {
         cameraFocus = playerLogic.gameObject.transform;
+        objectiveChime.clip = (AudioClip)Resources.Load(chimeName);
     }
 
     void Update()
@@ -56,6 +60,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         objectiveText.text = newObjective;
         spawnBeha.StopCoroutine("NotifTextBehaviour");
         spawnBeha.StartCoroutine("NotifTextBehaviour", "new objective:" + "\n" + newObjective);
+        objectiveChime.Play();
     }
 
     void EaveEnd()
