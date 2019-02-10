@@ -21,6 +21,7 @@ public class CameraLogic : MonoBehaviour {
 
 
     void Start () {
+        length = 15f;
         thisCamera = GetComponent<Camera>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         //eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();

@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour {
             shardsMesh.enabled = true;
             shardCollider.enabled = true;
             //shards.transform.parent = null;
-            shards.transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+            shards.transform.position = new Vector3(transform.position.x, transform.position.y + 0.02f, transform.position.z);
             shards.transform.rotation = Quaternion.Euler(-90, 0, 0);
             externalAudio.Play();
         }

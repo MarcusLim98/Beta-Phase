@@ -7,6 +7,7 @@ public class AIVision : MonoBehaviour {
     public int angle = 45;
     public int range = 5;
     public LayerMask layerMask;
+    public bool isGun;
 
     MeshFilter meshFilter;
 
@@ -136,7 +137,10 @@ public class AIVision : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        //meshFilter.mesh = Cono();
+        if (isGun)
+        {
+            meshFilter.mesh = Cono();
+        }
         if (oldPosition != transform.position || oldRotation != transform.rotation || oldScale != transform.localScale)
         {
 

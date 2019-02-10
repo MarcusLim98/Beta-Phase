@@ -75,7 +75,7 @@ public class FaderLogic : MonoBehaviour {
         }
         if (this.gameObject.name == "EndGame1")
         {
-            SceneManager.LoadScene("Scene 7 ABHouse");
+            SceneManager.LoadScene("Scene 4.5 Police Office");
         }
         //fadeToBlack.SetActive(false);
     }
