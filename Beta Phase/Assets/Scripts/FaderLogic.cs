@@ -11,9 +11,11 @@ public class FaderLogic : MonoBehaviour {
     public string nextLevel;
     public bool restartFromTheStart, affectsPlayer, touchPlayer;
     string spawnPointName;
+    PlayerLogic playerLogic;
     // Use this for initialization
     void Start () {
         datasl = GameObject.Find("GameController").GetComponent<DataSaveAndLoad>();
+        playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         StartCoroutine(DisableFadeIn());
     }
 	

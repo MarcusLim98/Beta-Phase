@@ -193,6 +193,12 @@ public class PlayerLogic : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+        if(other.name == "LosingCondiiton" || other.name == "LaoDaBullet(Clone)")
+        {
+            walkSpeed = 0;
+            runSpeed = 0;
+        }
+
         if (other.tag == "EavesdropZone" && eavesDropLogic.currentAmount <= 100f)
         {
             playerEavesdrop = true;

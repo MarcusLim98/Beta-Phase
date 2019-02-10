@@ -7,7 +7,7 @@ public class SpawnAI : MonoBehaviour {
     public GameObject[] aiToSpawn, aiToDespawn;
     public Vector3[] moveGates;
     public Transform gate1, gate2;
-    public bool isSpawning, haveDoors;
+    public bool isSpawning, haveDoors, moveEndPoint;
     // Use this for initialization
     void Start () {
         //print(gate1.position);  
