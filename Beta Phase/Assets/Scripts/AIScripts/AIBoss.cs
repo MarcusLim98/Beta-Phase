@@ -12,13 +12,13 @@ public class AIBoss : MonoBehaviour {
     public Transform playerTarget;
     public GameObject playerHighlight;
     public Transform noisySource, stationeryPosition;
-    public GameObject alert, gunLine, bullet, crate, muzzleFlash, fadeToBlack;
+    public GameObject alert, gunLine, bullet, muzzleFlash, fadeToBlack;
     public AIVision aiVision;
     public Text toBeContinued;
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxAngle, maxAngle2, rotatingSpeed, walkSpeed, runSpeed;
+    public float maxRadius, maxAngle, rotatingSpeed, walkSpeed, runSpeed;
     public bool spottedHighlight, goToNoisySource, stationery;
     [Space]
     [Space]
@@ -258,30 +258,6 @@ public class AIBoss : MonoBehaviour {
             investigatingState = 0;
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-            //Instantiate(crate, new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z), Quaternion.Euler(0, 0, 0));
-        //}
-
-        RaycastHit hit2;
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 3, Color.red);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up) * 3, out hit2, 3))
-        {
-            if (hit2.transform.tag == "Crate" && hitByCrate == 0)
-            {
-                hitByCrate = 1;
-                agent.speed -= 0.5f;
-                walkSpeed -= 0.5f;
-                runSpeed -= 0.5f;
-                timesHit += 1;
-                if (timesHit == 4)
-                {
-                    fadeToBlack.SetActive(true);
-                    StartCoroutine(EndGame());
-                }
-            }
-        }
-        else hitByCrate = 0;
         return false;
     }
 
@@ -326,20 +302,13 @@ public class AIBoss : MonoBehaviour {
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
-        Gizmos.color = Color.grey;
-        Gizmos.DrawWireSphere(transform.position, maxRadius2);
 
         Vector3 fovLine1 = Quaternion.AngleAxis(maxAngle, transform.up) * transform.forward * maxRadius;
         Vector3 fovLine2 = Quaternion.AngleAxis(-maxAngle, transform.up) * transform.forward * maxRadius; //Ensures the second blue fov line goes the other angle
-        Vector3 fov2Line1 = Quaternion.AngleAxis(maxAngle2, transform.up) * transform.forward * maxRadius2;
-        Vector3 fov2Line2 = Quaternion.AngleAxis(-maxAngle2, transform.up) * transform.forward * maxRadius2;
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, fovLine1);
         Gizmos.DrawRay(transform.position, fovLine2);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawRay(transform.position, fov2Line1);
-        Gizmos.DrawRay(transform.position, fov2Line2);
 
         if (investigatingState == 0)
             Gizmos.color = Color.red;
@@ -370,21 +339,6 @@ public class AIBoss : MonoBehaviour {
         if (other.name == "Path" && timesFired >= 6 && investigatingState == 1)
         {
             aiPath = other.GetComponentInParent<AIPath>();
-        }
-
-        if (other.name == "Crate(Clone)")
-        {
-            if (firstStage < 3)
-            {
-                firstStage = 3;
-                timesFired = 6;
-            }
-            if (timesFired == 6)
-            {
-                walkSpeed -= 0.5f;
-                runSpeed -= 0.5f;
-                agent.speed -= 0.5f;
-            }
         }
 
         if (other.tag == "Thug" && timesFired >= 6 && spottedHighlight)
