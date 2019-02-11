@@ -71,14 +71,14 @@ public class FaderLogic : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (this.gameObject.name == "EndGame")
-        {
-            SceneManager.LoadScene(nextLevel);
-        }
-        if (this.gameObject.name == "EndGame1")
-        {
-            SceneManager.LoadScene("Scene 4.5 Police Office");
-        }
+        //if (this.gameObject.name == "EndGame")
+        //{
+        //    SceneManager.LoadScene(nextLevel);
+        //}
+        //if (this.gameObject.name == "EndGame1")
+        //{
+        //    SceneManager.LoadScene("Scene 4.5 Police Office");
+        //}
         //fadeToBlack.SetActive(false);
     }
 
