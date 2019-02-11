@@ -37,7 +37,7 @@ public class ArtificialIntelligence : MonoBehaviour
     FaderLogic faderLogic;
     BGMControl bgmLogic;
     int destPoint = 0;
-    public float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
+    float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
     bool turnBack, cannotTurn, playerWithinRadius;
     string fileName;
 
@@ -124,7 +124,6 @@ public class ArtificialIntelligence : MonoBehaviour
                         agent.SetDestination(noisySource.position);
                         if (stopToLook <= timeToStare)
                         {
-                            print("1");
                             anim.SetInteger("State", 0);
                             agent.speed = 0;
                             targetDir = noisySource.transform.position - thisAI.position;
@@ -133,7 +132,6 @@ public class ArtificialIntelligence : MonoBehaviour
                         }
                         else if (stopToLook >= timeToStare)
                         {
-                            print("2");
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
                         }
@@ -183,7 +181,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
-                        else if (stopToLook >= timeToStare)
+                        else if (stopToLook >= 1.5f)
                         {
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
@@ -334,11 +332,10 @@ public class ArtificialIntelligence : MonoBehaviour
         //}
         if (Vector3.Distance(thisAI.position, target.position) < stopHere)
         {
+            agent.speed = 0f;
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f )
             {
-                agent.speed = 0f;
-                print("3");
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
                 {
@@ -353,24 +350,22 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
-                print("4");
                 questionMark.SetActive(false);
                 exclamationMark.SetActive(false);
                 playerHighlight.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
+                stopToGoBack = 0;
+                stopToLook = 0;
+                isInFov = 0;
                 agent.speed = walkSpeed;
                 maxAngle = 40;
                 maxAngle2 = 40;
                 firstFov.SetActive(true);
                 secondFov.SetActive(false);
                 stopHere = 3f;
-                stopToGoBack = 0;
-                stopToLook = 0;
-                isInFov = 0;
                 bgmLogic.EscapeDanger();
                 GotoNextPoint();
-                print("go back");
             }
         }
     }
@@ -433,7 +428,6 @@ public class ArtificialIntelligence : MonoBehaviour
                     secondFov.SetActive(true);
                     stopHere = 12f;
                     stopToGoBack = 0;
-                    noisySource = null;
                     fileName = "ThugAlert";
                     SoundFX();
                     return true;
