@@ -116,7 +116,7 @@ public class AISpotter : MonoBehaviour {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position); //ensures the raycast is resting from this AI
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxRadius, layerMask))
+            if (Physics.Raycast(ray, out hit, maxRadius))
             {
                 if (hit.transform == playerTarget)
                 {
