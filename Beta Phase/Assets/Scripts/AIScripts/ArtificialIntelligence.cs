@@ -319,10 +319,10 @@ public class ArtificialIntelligence : MonoBehaviour
         else if (goToNoisySource && !spottedHighlight)
         {
             target = noisySource;
-            //if (noisySource.name == "Shards")
-            //{
-                //noisySource.tag = "Untagged";
-            //}
+            if (noisySource.name == "Shards")
+            {
+                noisySource.tag = "Untagged";
+            }
             stopHere = 2f;
         }
         //if (Vector3.Distance(thisAI.position, target.position) < 8 && isInFov == 2)
@@ -496,12 +496,12 @@ public class ArtificialIntelligence : MonoBehaviour
             playerWithinRadius = true;
         }
 
-        /*if (other.tag == "Bottle")
+        if (other.tag == "Bottle")
         {
             noisySource = GameObject.Find("Shards").transform;
             goToNoisySource = true;
             questionMark.SetActive(true);
-        }*/
+        }
     }
 
     private void OnTriggerEnter(Collider other)

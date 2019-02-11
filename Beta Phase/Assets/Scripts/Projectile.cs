@@ -59,13 +59,13 @@ public class Projectile : MonoBehaviour {
             disappear = true;
         }
 
-        if (other.name == "LosingCondiiton" && !cantInteract)
+        /*if (other.name == "LosingCondiiton" && !cantInteract)
         {
             other.GetComponentInParent<ArtificialIntelligence>().noisySource = GameObject.Find("Shards").transform;
             other.GetComponentInParent<ArtificialIntelligence>().goToNoisySource = true;
             other.GetComponentInParent<ArtificialIntelligence>().questionMark.SetActive(true);
             cantInteract = true;
-        }
+        }*/
     }
 
     private void OnTriggerStay(Collider other)
