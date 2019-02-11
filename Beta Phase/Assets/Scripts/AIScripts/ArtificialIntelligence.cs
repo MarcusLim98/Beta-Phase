@@ -38,7 +38,7 @@ public class ArtificialIntelligence : MonoBehaviour
     BGMControl bgmLogic;
     int destPoint = 0;
     float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
-    bool turnBack, cannotTurn, playerWithinRadius;
+    bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     string fileName;
 
     public void Start()
@@ -124,14 +124,16 @@ public class ArtificialIntelligence : MonoBehaviour
                         agent.SetDestination(noisySource.position);
                         if (stopToLook <= timeToStare)
                         {
+                            print("1");
                             anim.SetInteger("State", 0);
                             agent.speed = 0;
                             targetDir = noisySource.transform.position - thisAI.position;
                             newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
-                        else if (stopToLook >= timeToStare)
+                        else if (stopToLook >= timeToStare && !dontMove)
                         {
+                            print("2");
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
                         }
@@ -181,7 +183,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
-                        else if (stopToLook >= 1.5f)
+                        else if (stopToLook >= timeToStare)
                         {
                             anim.SetInteger("State", 1);
                             agent.speed = walkSpeed;
@@ -336,6 +338,8 @@ public class ArtificialIntelligence : MonoBehaviour
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f )
             {
+                dontMove = true;
+                print("3");
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
                 {
@@ -350,11 +354,13 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
+                print("4");
                 questionMark.SetActive(false);
                 exclamationMark.SetActive(false);
                 playerHighlight.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
+                dontMove = false;
                 stopToGoBack = 0;
                 stopToLook = 0;
                 isInFov = 0;
