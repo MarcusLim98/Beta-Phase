@@ -38,7 +38,7 @@ Gambling Thug: So how are the goods?
 Dealer: The opium arrived today. It's being stored at the <b>Warehouse.</b>
 Gambling Thug: The one <b>down the street</b>?
 Dealer: Yes, Hia Di, that one. You going there later?
-Gambling Thug: I go help push the remaing goods tomorrow then.
+Gambling Thug: I go help push the remaining goods tomorrow then.
 Dealer: Okay then. Let's finish setting up the table.
 Dealer: We're starting soon.
 [title=Day1EaveGamble-end]
@@ -49,7 +49,7 @@ Scene 4 CWHouse: Thug on the phone. First part of Eavesdrop in Scene 4
 Info: The Big Boss' arrival tommorrow
 
 [title=Day2EaveCall-begin]
-Busy Thug: Make sure we have enough people for tommorrow.
+Busy Thug: Make sure we have enough people for tomorrow.
 Busy Thug: The Boss is coming with the next batch of opium.
 Busy Thug: I want everyone to be there.
 [title=Day2EaveCall-end]
@@ -73,7 +73,7 @@ Scene 4 CWHouse: Conversation between a Spotter and Thug
 
 [title=Day2Spotter-begin]
 Spotter: Don't worry, nothing will get pass me, bro!
-Skeptical Thug: Sure, if you <b>see anything</b> ah-
+Skeptical Thug: Sure, if you <b>see anything</b> ah--
 Spotter: Ya ya, I'll call you. No need worry!
 [title=Day2Spotter-end]
 
