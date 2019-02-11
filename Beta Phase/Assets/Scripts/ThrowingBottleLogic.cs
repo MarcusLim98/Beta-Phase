@@ -18,6 +18,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
     Vector3 target, toTarget, aimingWhere, Vo;
     PlayerLogic playerLogic;
     ItemPickUp itemPickUp;
+    ParticleSystem.MainModule ps;
     float dist;
     private int numPoints = 50;
     private Vector3[] positions = new Vector3[50], newPointsInLine = null;
@@ -27,6 +28,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
     {
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         itemPickUp = GameObject.Find("Player").GetComponent<ItemPickUp>();
+        ps = cursor.transform.GetChild(0).GetComponent<ParticleSystem>().main;
         cam = Camera.main;
         launchFrom = GetComponent<Transform>();
         lr = GetComponent<LineRenderer>();
@@ -95,6 +97,9 @@ public class ThrowingBottleLogic : MonoBehaviour {
             lr.positionCount = newPointsInLine.Length;
 
             lr.SetPositions(newPointsInLine);
+            lr.startColor = new Color(1, 1, 1,0);
+            lr.endColor = new Color(1, 1, 1, 1);
+            ps.startColor = new Color(1, 1, 1, 1);
         }
         else
         {
@@ -102,6 +107,9 @@ public class ThrowingBottleLogic : MonoBehaviour {
             lr.positionCount = positions.Length;
 
             lr.SetPositions(positions);
+            lr.startColor = new Color(1, 0, 0, 0); 
+            lr.endColor = new Color(1, 0, 0, 1);
+            ps.startColor = new Color(1, 0, 0, 1);
         }
     }
 
