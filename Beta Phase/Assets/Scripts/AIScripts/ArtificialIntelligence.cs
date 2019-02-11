@@ -366,6 +366,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 stopHere = 3f;
                 bgmLogic.EscapeDanger();
                 GotoNextPoint();
+                print("go back");
             }
         }
     }
