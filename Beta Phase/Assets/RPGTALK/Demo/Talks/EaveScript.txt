@@ -1,5 +1,5 @@
 EAVESDROPPING DIALOGUE SCRIPT
-These lines are used by NPCs/enemies.
+These lines are used by NPCs/enemies during eavesdrops.
 Camera should STAY ON TALKING TARGETS after EAVESDROP METER is COMPLETED.
 After the dialogue is over, camera must RETURN TO YY.
 
@@ -79,3 +79,32 @@ Spotter: Ya ya, I'll call you. No need worry!
 
 ----------------------------------------------------------------------------------------------------------
 
+Scene 8 Boss Level: Lao Da's first scene / forced eavesdrop
+
+[title=BossEave1-begin]
+Lao Da: Enough with the excuses! You pigs keep losing papers like no one's business.
+Lao Da: <i>Find them,</i> unless you want to lose your fingers too.
+[title=BossEave1-end]
+
+----------------------------------------------------------------------------------------------------------
+
+Scene 8 Boss Level: Lao Da's second eavesdrop
+
+[title=BossEave2-begin]
+Lao Da: Well then, let's not waste any more time.
+Lao Da: She's dead in here anyway.
+Lao Da: And if she isn't, one of you will be.
+Lao Da: Now then, where were the other two documents?
+[title=BossEave2-end]
+
+----------------------------------------------------------------------------------------------------------
+
+Scene 8 Boss Level: Lao Da's third eavesdrop
+
+[title=BossEave3-begin]
+Lao Da: Are you telling me that you men can't handle a single little girl?
+Lao Da: Come now, you know I care about you all.
+Lao Da: ... But I would care more if one of you could actually find her.
+Lao Da: I don't care what you do to her or her corpse.
+Lao Da: Either look for her or the last three documents, okay? Can you do that?
+[title=BossEave3-end]

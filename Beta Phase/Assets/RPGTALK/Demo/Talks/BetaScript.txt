@@ -24,15 +24,16 @@ Lao Da:
 PROLOGUE
 
 [title=Prologue-begin]
-Unknown Man: Did you think your reasons were good enough, Ying Yue?
-YingYue: [speed=65]Hard to say.[/speed] [speed=30]I guess it was worth a shot.[/speed]
+Unknown Man: Do you think you can handle that, constable?
+Unknown Woman: For my caliber, sir?
+Unknown Woman: [speed=30]... I think it'll be worth a shot.[/speed]
 [title=Prologue-end]
 
 Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 INTRO
+Scene 0: DAY 1 INTRO
 
 YY is in Hank's office. She's clearly in trouble, too curious for her own good.
 
@@ -47,7 +48,7 @@ Objective: Pass documents to Chief Hank
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 INCOMPLETE TASK
+Scene 0: DAY 1 INCOMPLETE TASK
 
 If YY talks to Hank without completing her task:
 
@@ -57,7 +58,7 @@ Chief Hank: Are you daft? Get back to your <b>paperwork,</b> constable.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 COMPLETED TASK
+Scene 0: DAY 1 COMPLETED TASK
 
 After completing her task:
 
@@ -73,7 +74,7 @@ Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 AFTER WORK
+Scene 1: DAY 1 AFTER WORK
 
 YY stands outside the police station. It's sunset. She's tired from being pushed around.
 
@@ -87,7 +88,7 @@ CRASH! Some thugs are making a ruckus off-screen. The camera shifts to look at t
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 AFTER WORK (CONT'D)
+Scene 1: DAY 1 AFTER WORK (CONT'D)
 
 The camera moves back to YY.
 
@@ -99,7 +100,7 @@ Objective: Investigate the ruckus.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 APPROACHING THUGS
+Scene 1: DAY 1 APPROACHING THUGS
 
 YY approaches the thugs. They don't like her, and they don't believe she's a cop.
 
@@ -113,7 +114,7 @@ Objective: Eavesdrop from afar.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 APPROACHING THUGS AGAIN
+Scene 1: DAY 1 APPROACHING THUGS AGAIN
 
 If YY approaches them again.
 
@@ -123,7 +124,7 @@ Ying Yue: I shouldn't get too close.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 AFTER FIRST EAVESDROP
+Scene 1: DAY 1 AFTER FIRST EAVESDROP
 
 [title=Day1AfterEave-begin]
 Ying Yue: The coffeeshop, huh?
@@ -134,7 +135,7 @@ Ying Yue : I'll have to find another way in.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 1 AFTER GAMBLE EAVESDROP
+Scene 2: DAY 1 AFTER GAMBLE EAVESDROP
 
 [title=Day1AfterGambleEave-begin]
 Ying Yue  : ...!
@@ -143,7 +144,7 @@ Ying Yue  : I need to tell Chief Hank.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 2 INTRO
+Scene 2.5: DAY 2 INTRO
 
 Ying Yue stands in Hank's office. She has shown him the evidence that she stole the night prior.
 
@@ -161,7 +162,7 @@ Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 2 AFTER WORK
+Scene 3: DAY 2 AFTER WORK
 
 YY stands outside the police station, again. It's sunset, again. She's tired, again.
 
@@ -172,7 +173,7 @@ Ying Yue : I doubt I can do anything about the case at this rate.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 2 NOTICE THUGS
+Scene 3: DAY 2 NOTICE THUGS
 
 [title=Day2Notice-begin]
 Ying Yue  : ... Well, that won't work.
@@ -184,7 +185,7 @@ Objective: distract the guards
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 3 INTRO
+Scene 4.5: DAY 3 INTRO
 
 Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps a begrudgingly cool front.
 
@@ -205,7 +206,7 @@ Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 3 AFTER WORK
+Scene ?: DAY 3 AFTER WORK
 
 YY stands outside the police station, again. It's sunset, again. She's tired, yes, but now she's DETERMINED.
 
@@ -216,23 +217,37 @@ Ying Yue   : ... <i>I have to do something.</i>
 
 ----------------------------------------------------------------------------------------------------------
 
-DAY 3 LAO DA'S INTRO
+Scene 8: DAY 3 LAO DA'S INTRO
 
 It's Lao Da's level. He is cocky, confident and strangely charismatic. A cruel killer, no doubt. He sneers.
 
-[title=LaoDaIntro-begin]
-Lao Da: Ying Yue! Lovely lady of the law, welcome.
+[title=BossIntro-begin]
+Lao Da: Ying Yue! Lovely lady of the law, you're finally here!
+Lao Da: You know, your colleagues talk about you a lot.
 Lao Da: You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
 Lao Da: ... But impressive acts only last so long.
 Ying Yue   : ...
 Lao Da: <i>You are no hero, Ying Yue, just a troublemaker.</i>
-[title=LaoDaIntro-end]
+[title=BossIntro-end]
 
 The final boss fight has begun!
 
 ----------------------------------------------------------------------------------------------------------
 
-THE END
+Scene 8: DAY 3 LAO DA'S OUTRO
+
+Lao Da has no idea where Ying Yue is, but he knows she has been stealing documents. He yells into the mess of his warehouse.
+
+[title=BossOutro-begin]
+Lao Da: Well done, Ying Yue! Well done!
+Lao Da: But you forget: 
+Lao Da: You're on my turf! This is my town!
+Lao Da: Men, find her, <i>NOW!</i>
+[title=BossOutro-end]
+
+----------------------------------------------------------------------------------------------------------
+
+Scene 9: THE END
 
 [title=TheEnd-begin]
 Chief Hank: So, Constable Ying Yue.
@@ -246,12 +261,12 @@ Chief Hank: [speed=10]...[/speed] Perhaps in the same vein as how you shut down 
 Chief Hank: I suppose I should commemorate what is due[speed=10]...[/speed]
 Chief Hank: [speed=10]...[/speed] You did well, constable.
 Ying Yue: [speed=10]...[/speed]
-Ying Yue: Thank you, Chief Hank.
+Ying Yue    : Thank you, Chief Hank.
 Chief Hank: Now then, you have a new assignment: [speed=10]...[/speed] riot control.
 Chief Hank: Over a dozen dead and even more injured for both civilians and your fellow colleagues.
 Chief Hank: Do you think you can handle that, constable?
 Ying Yue: For my caliber, sir?
-Ying Yue: [speed=10]...[/speed] I think it'll be worth a shot.
+Ying Yue    : [speed=10]...[/speed] I think it'll be worth a shot.
 [title=TheEnd-end]
 
 ----------------------------------------------------------------------------------------------------------
