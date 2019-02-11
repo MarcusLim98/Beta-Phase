@@ -198,8 +198,8 @@ Ying Yue: The officers busy with riot control, sir?
 Chief Hank: Shut it, constable.
 Chief Hank: We will contact you if needed. You are to return to your paperwork.
 Chief Hank: Insubordination is an offense, if you still value your job.
+Ying Yue : Understood, sir.
 Chief Hank: <i>Dismissed.</i>
-Ying Yue : Yes, sir.
 [title=Day3Intro-end]
 
 Fade out.
@@ -211,7 +211,7 @@ Scene ?: DAY 3 AFTER WORK
 YY stands outside the police station, again. It's sunset, again. She's tired, yes, but now she's DETERMINED.
 
 [title=Day3AfterWork-begin]
-Ying Yue   : ...
+Ying Yue : ...
 Ying Yue   : ... <i>I have to do something.</i>
 [title=Day3AfterWork-end]
 

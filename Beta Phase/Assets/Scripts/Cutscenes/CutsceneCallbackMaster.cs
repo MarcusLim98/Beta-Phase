@@ -224,6 +224,19 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 #region LEVEL 3
     void Day3Intro()
     {
+        spawnObj[0].SetActive(true);
+        spawnObj[1].SetActive(false);
+        StartCoroutine(Day3IntroBeha());
+    }
+
+    IEnumerator Day3IntroBeha()
+    {
+        yield return new WaitForSeconds(2);
+        spawnObj[2].SetActive(true);
+    }
+
+    void Day3Determination()
+    {
         ui.LoadScene("Scene 8 ABHouse");
     }
 
