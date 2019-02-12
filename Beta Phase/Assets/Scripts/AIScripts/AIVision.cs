@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AIVision : MonoBehaviour {
 
-    public int angle = 45;
-    public int range = 5;
+    public int angle;
+    public int range;
     public LayerMask layerMask;
     public bool isGun;
 
