@@ -528,7 +528,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Thug" && isInFov == 2)
         {
@@ -544,7 +544,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 other.GetComponent<ArtificialIntelligence>().secondFov.SetActive(true);
             }
         }
-    }
+    }*/
 
     private void OnTriggerExit(Collider other)
     {
