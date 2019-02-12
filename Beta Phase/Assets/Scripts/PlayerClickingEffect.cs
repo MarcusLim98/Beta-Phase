@@ -12,6 +12,7 @@ public class PlayerClickingEffect : MonoBehaviour {
     List<GameObject> clickFeedBack = new List<GameObject>();
     List<GameObject> movingFeedBack = new List<GameObject>();
     PlayerLogic playerLogic;
+    PauseMenu pauseMenu;
     // Use this for initialization
     void Start () {
         for (int i = 0; i < 8; i++)
@@ -21,6 +22,7 @@ public class PlayerClickingEffect : MonoBehaviour {
             clickFeedBack.Add(objClick);
         }
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        pauseMenu = GameObject.Find("Main Camera").GetComponent<PauseMenu>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class PlayerClickingEffect : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 1000, playerLogic.layerMask))
         {
             whereToGo = hit.point;
-            if (hit.collider.tag == "Path" && playerLogic.noMoving == false && playerLogic.cursorIsOverUI == false)
+            if (hit.collider.tag == "Path" && playerLogic.noMoving == false && playerLogic.cursorIsOverUI == false && pauseMenu.isPaused == false)
             {
                 if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
                 {

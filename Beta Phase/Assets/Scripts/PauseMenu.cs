@@ -8,7 +8,8 @@ public class PauseMenu : MonoBehaviour {
     public GameObject blurBG;
     public Canvas inGameCanvas;
     public Canvas pauseMenu;
-    bool isPaused;
+    [HideInInspector]
+    public bool isPaused;
     UiBehaviour uiB;
 
 	void Start () {

@@ -23,6 +23,7 @@ public class PlayerLogic : MonoBehaviour {
     ArtificialIntelligence AI;
     EavesdropLogic eavesDropLogic;
     CameraLogic cameraLogic;
+    PauseMenu pauseMenu;
     AudioSource externalAudio;
     int alterSpots;
     void Start()
@@ -33,6 +34,7 @@ public class PlayerLogic : MonoBehaviour {
         AI = GameObject.FindObjectOfType<ArtificialIntelligence>();
         eavesDropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
         cameraLogic = GameObject.Find("Main Camera").GetComponent<CameraLogic>();
+        pauseMenu = GameObject.Find("Main Camera").GetComponent<PauseMenu>();
         externalAudio = GetComponent<AudioSource>();
         sb = GameObject.FindObjectsOfType<SpawnBehaviour>();
         StartCoroutine(WaitForNavMesh());
@@ -52,7 +54,7 @@ public class PlayerLogic : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
             clickPosition = hit.point;
-            if (hit.collider.tag == "Path" && !noMoving && !cursorIsOverUI && !inCutscene)
+            if (hit.collider.tag == "Path" && !noMoving && !cursorIsOverUI && !inCutscene && pauseMenu.isPaused == false)
             {
                 if (Input.GetMouseButtonDown(0))
                 {               
@@ -102,6 +104,14 @@ public class PlayerLogic : MonoBehaviour {
         else 
         {
             isMoving = true;
+        }
+        if (pauseMenu.isPaused == false)
+        {
+            externalAudio.enabled = true;
+        }
+        else if (pauseMenu.isPaused == true)
+        {
+            externalAudio.enabled = false;
         }
 
         if (movingStyle == 0)
