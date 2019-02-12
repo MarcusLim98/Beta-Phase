@@ -288,7 +288,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     turnBack = false;
                 }
-                if(patrolTurn && hit.transform.name == "RotatingLoop" )
+                if(patrolTurn && hit.transform.name == "RotatingLoop")
                 {
                     timesHitRotation += 1;
                 }
@@ -320,13 +320,13 @@ public class ArtificialIntelligence : MonoBehaviour
             if(timesHitRotation == 2)
             {
                 stationeryPosition.position = aiPath.path_objs[1].position;
-                lookHereStart = (new Vector3(-lookHereStart.x, -lookHereStart.y, -lookHereStart.z));
+                lookHereStart = new Vector3(-lookHereStart.x, -lookHereStart.y, -lookHereStart.z);
                 timesHitRotation = 3;
             }
             else if(timesHitRotation == 5)
             {
                 stationeryPosition.position = aiPath.path_objs[0].position;
-                lookHereStart = (new Vector3(lookHereStart.x, lookHereStart.y + 180, lookHereStart.z));
+                lookHereStart = new Vector3(lookHereStart.x, lookHereStart.y + 180, lookHereStart.z);
                 timesHitRotation = 0;
             }
         }
