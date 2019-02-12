@@ -36,11 +36,17 @@ public class DataSaveAndLoad : MonoBehaviour {
             playerObj = GameObject.FindGameObjectWithTag("Player");
             playerAgent = playerObj.GetComponent<NavMeshAgent>();
 
+            //if player has saved in this specific scene
             if (PlayerPrefs.HasKey("spawnpoint") && SceneManager.GetActiveScene().name == PlayerPrefs.GetString("spawnscene"))
             {
                 spawnPos = GameObject.Find(PlayerPrefs.GetString("spawnpoint")).transform.position;
                 playerObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
                 playerAgent.enabled = true;
+            }
+            //if not, because it's a new scene, save progress
+            else if (SceneManager.GetActiveScene().name != PlayerPrefs.GetString("spawnscene"))
+            {
+                SaveGame("StartPoint");
             }
             else return;
         }

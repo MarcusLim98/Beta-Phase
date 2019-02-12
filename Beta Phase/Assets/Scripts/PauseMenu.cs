@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -9,12 +9,12 @@ public class PauseMenu : MonoBehaviour {
     public Canvas inGameCanvas;
     public Canvas pauseMenu;
     bool isPaused;
-	// Use this for initialization
+    UiBehaviour uiB;
+
 	void Start () {
-		
+        uiB = GameObject.Find("UiBehaviour").GetComponent<UiBehaviour>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour {
     public void LoadLevel(string name)
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(name);
+        //SceneManager.LoadScene(name);
+        uiB.LoadScene(name);
     }
 }

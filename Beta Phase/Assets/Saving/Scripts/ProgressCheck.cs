@@ -9,7 +9,7 @@ public class ProgressCheck : MonoBehaviour
 
     void Awake()
     {
-        if (PlayerPrefs.GetInt(progressName) == 1 || PlayerPrefs.HasKey(progressName))
+        if (PlayerPrefs.GetInt(progressName) == 1)
         {
             gameObject.SetActive(false);
         }
