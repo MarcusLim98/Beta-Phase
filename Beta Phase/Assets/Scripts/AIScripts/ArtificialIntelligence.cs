@@ -11,14 +11,13 @@ public class ArtificialIntelligence : MonoBehaviour
 
     public Transform playerTarget;
     public GameObject playerHighlight, suspicious, alert;
-    public Transform noisySource;
-    public Transform stationeryPosition;
+    public Transform noisySource, stationeryPosition;
     public LayerMask layerMask;
     [Space]
     [Space]
     public AIPath aiPath;
     public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare;
-    public bool spottedHighlight, goToNoisySource, stationery, staticRotate;
+    public bool stationery, staticRotate;
     [Space]
     [Space]
     [HideInInspector]
@@ -27,6 +26,8 @@ public class ArtificialIntelligence : MonoBehaviour
     public Vector3 lookHereStart;
     [HideInInspector]
     public int isInFov, investigatingState;
+    [HideInInspector]
+    public bool spottedHighlight, goToNoisySource;
     NavMeshAgent agent;
     Animator anim;
     AudioSource externalAudio;
@@ -36,9 +37,9 @@ public class ArtificialIntelligence : MonoBehaviour
     PlayerLogic playerLogic;
     FaderLogic faderLogic;
     BGMControl bgmLogic;
-    int destPoint = 0;
+    int destPoint = 0, timesHitRotation;
     float stopToLook, stopToGoBack, angle, startToTurn, stopHere;
-    bool turnBack, cannotTurn, playerWithinRadius, dontMove;
+    bool turnBack, cannotTurn, playerWithinRadius, dontMove, turnForPatrol;
     string fileName;
 
     public void Start()
@@ -238,11 +239,27 @@ public class ArtificialIntelligence : MonoBehaviour
         secondFov.SetActive(false);
         if (!stationery && !staticRotate)
         {
-            anim.SetInteger("State", 1);
             if (aiPath.path_objs.Count == 0)
                 return;
             agent.destination = aiPath.path_objs[destPoint].position;
             destPoint = (destPoint + 1) % aiPath.path_objs.Count;
+            if (aiPath.path_objs.Count  != 2)
+            {
+                anim.SetInteger("State", 1);
+            }
+
+            if (Vector3.Distance(thisAI.position, aiPath.path_objs[destPoint].position) >= 0.5f && aiPath.path_objs.Count == 2)
+            {
+                agent.speed = walkSpeed;
+                anim.SetInteger("State", 1);
+            }
+           else if (Vector3.Distance(thisAI.position, aiPath.path_objs[destPoint].position) <= 0.5f && aiPath.path_objs.Count == 2) {
+                agent.speed = 0;
+                anim.SetInteger("State", 0);
+                stationeryPosition = aiPath.path_objs[destPoint].transform;
+                staticRotate = true;
+                stationery = true;
+            }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f)
         {
@@ -281,10 +298,12 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit.transform.name == "RotatingLoop" && !turnBack)
                 {
+                    print("HIT");
                     turnBack = true;
                 }
                 else if (hit.transform.name == "RotatingLoop" && turnBack)
                 {
+                    print("HIT");
                     turnBack = false;
                 }
             }
