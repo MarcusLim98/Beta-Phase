@@ -16,7 +16,7 @@ public class ArtificialIntelligence : MonoBehaviour
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare;
+    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack;
     public bool stationery, staticRotate, patrolTurn;
     [Space]
     [Space]
@@ -38,7 +38,7 @@ public class ArtificialIntelligence : MonoBehaviour
     FaderLogic faderLogic;
     BGMControl bgmLogic;
     int destPoint = 0, timesHitRotation;
-    float stopToLook, stopToGoBack, angle, startToTurn, stopHere, timeToResetView;
+    float stopToLook, angle, startToTurn, stopHere, timeToResetView, maxRadius4, maxAngle4;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     string fileName;
 
@@ -71,6 +71,8 @@ public class ArtificialIntelligence : MonoBehaviour
         firstFov = this.gameObject.transform.GetChild(3).gameObject;
         secondFov = this.gameObject.transform.GetChild(4).gameObject;
         timeToStare = 1.5f;
+        maxRadius4 = maxRadius;
+        maxAngle4 = maxAngle;
         state = AIState.PATROLLING;
     }
 
@@ -93,10 +95,12 @@ public class ArtificialIntelligence : MonoBehaviour
                     {
                         if (isInFov != 2)
                         {
+                            print("1");
                             stopToLook += Time.deltaTime;
                             agent.SetDestination(playerHighlight.transform.position);
-                            if (stopToLook <= timeToStare)
+                            if (stopToLook <= timeToStare && !dontMove)
                             {
+                                print("2");
                                 anim.SetInteger("State", 0);
                                 playerHighlight.transform.parent = null;
                                 agent.speed = 0;
@@ -104,11 +108,12 @@ public class ArtificialIntelligence : MonoBehaviour
                                 newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
                                 transform.rotation = Quaternion.LookRotation(newDir);
                             }
-                            else if (stopToLook >= timeToStare)
+                            else if (stopToLook >= timeToStare && !dontMove)
                             {
                                 anim.SetInteger("State", 1);
                                 agent.speed = walkSpeed;
                             }
+            
                             CheckAndReturn();
                         }
                         else if (isInFov == 2)
@@ -349,8 +354,8 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         //if (Vector3.Distance(thisAI.position, target.position) < 8 && isInFov == 2)
         //{
-            //playerHighlight.SetActive(true);
-            //playerHighlight.transform.parent = null;
+        //playerHighlight.SetActive(true);
+        //playerHighlight.transform.parent = null;
         //}
         if (Vector3.Distance(thisAI.position, target.position) < stopHere)
         {
@@ -358,6 +363,23 @@ public class ArtificialIntelligence : MonoBehaviour
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f )
             {
+                if (angle <= maxAngle4 )
+                {
+                    Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
+                    RaycastHit hit2;
+                    if (Physics.Raycast(ray, out hit2, maxRadius4) && isInFov != 2)
+                    {
+                        if (hit2.transform == playerTarget)
+                        {
+                            stopToGoBack = 0;
+                            investigatingState = 1;
+                            isInFov = 1;
+                            SuspiciousProperties();
+                            fileName = "ThugSuspicious";
+                            SoundFX();
+                        }
+                    }
+                }
                 dontMove = true;
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
@@ -411,20 +433,14 @@ public class ArtificialIntelligence : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, maxRadius))
             {
-                if (hit.transform == playerTarget && isInFov != 2)
+                if (hit.transform == playerTarget && isInFov != 1 && isInFov !=2)
                 {
-                    if (isInFov != 1)
-                    {
-                        fileName = "ThugSuspicious";
-                        SoundFX();
-                    }
+                    stopToGoBack = 0;
                     investigatingState = 1;
                     isInFov = 1;
-                    questionMark.SetActive(true);
-                    exclamationMark.SetActive(false);
-                    playerHighlight.transform.parent = playerTarget;
-                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-                    stopHere = 3f;
+                    SuspiciousProperties();
+                    fileName = "ThugSuspicious";
+                    SoundFX();
                 }
             }
             else
@@ -437,35 +453,61 @@ public class ArtificialIntelligence : MonoBehaviour
             investigatingState = 0;
         }
 
-        if (angle <= maxAngle2 || (angle <= maxAngle3 && playerLogic.movingStyle == 1))
+        if (angle <= maxAngle3 && playerLogic.movingStyle == 1)
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
-            if (Physics.Raycast(ray, out hit2, maxRadius2))
+            if (Physics.Raycast(ray, out hit2, maxRadius3) && isInFov != 2)
             {
                 if (hit2.transform == playerTarget)
                 {
-                    if(isInFov != 2)
-                    {
-                        fileName = "ThugAlert";
-                        SoundFX();
-                    }
+                    fileName = "ThugAlert";
+                    SoundFX();
+                    AlertProperties();
+                }
+            }
+        }
+
+        if (angle <= maxAngle2)
+        {
+            Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
+            RaycastHit hit2;
+            if (Physics.Raycast(ray, out hit2, maxRadius2) && isInFov != 2)
+            {
+                if (hit2.transform == playerTarget)
+                {
                     investigatingState = 2;
                     isInFov = 2;
-                    questionMark.SetActive(false);
-                    exclamationMark.SetActive(true);
-                    maxAngle = 60;
-                    maxAngle2 = 60;
-                    firstFov.SetActive(false);
-                    secondFov.SetActive(true);
-                    stopHere = 12f;
-                    stopToGoBack = 0;
-                    isInFov = 3;
+                    fileName = "ThugAlert";
+                    SoundFX();
+                    AlertProperties();
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    void SuspiciousProperties()
+    {
+        questionMark.SetActive(true);
+        exclamationMark.SetActive(false);
+        playerHighlight.transform.parent = playerTarget;
+        playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+        stopHere = 3f;
+    }
+
+    void AlertProperties()
+    {
+        agent.SetDestination(playerTarget.position);
+        questionMark.SetActive(false);
+        exclamationMark.SetActive(true);
+        maxAngle = 60;
+        maxAngle2 = 60;
+        firstFov.SetActive(false);
+        secondFov.SetActive(true);
+        stopHere = 12f;
+        stopToGoBack = 0;
     }
 
     void SoundFX()

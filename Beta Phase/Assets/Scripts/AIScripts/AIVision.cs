@@ -6,8 +6,9 @@ public class AIVision : MonoBehaviour {
 
     public int angle;
     public int range;
-    public LayerMask layerMask;
+    public LayerMask layerMask, layerMask2;
     public bool isGun;
+    ArtificialIntelligence ai;
 
     MeshFilter meshFilter;
 
@@ -87,6 +88,8 @@ public class AIVision : MonoBehaviour {
         meshFilter.mesh = Cono();
         initialPosition = meshFilter.mesh.vertices;
         initialUV = meshFilter.mesh.uv;
+
+        ai = transform.GetComponentInParent<ArtificialIntelligence>();
     }
 
     Mesh areaMesh(Mesh mesh)
@@ -110,7 +113,6 @@ public class AIVision : MonoBehaviour {
 
             if (Physics.Linecast(center, worldPoint, out hit, layerMask))
             {
-
                 vertices[i] = transform.worldToLocalMatrix.MultiplyPoint3x4(hit.point);
                 uv[i] = new Vector2((range + vertices[i].x) / (range * 2), (range + vertices[i].z) / (range * 2));
 
@@ -123,6 +125,10 @@ public class AIVision : MonoBehaviour {
 
             }
 
+            if (Physics.Linecast(center, worldPoint, out hit, layerMask2))
+            {
+                print("hit player");
+            }
         }
 
         _mesh.vertices = vertices;
@@ -154,4 +160,15 @@ public class AIVision : MonoBehaviour {
 
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            print("faster");
+            if (ai.stopToGoBack >= 0.1f)
+            {
+                ai.stopToGoBack = 3;
+            }
+        }
+    }
 }
