@@ -153,6 +153,7 @@ ModelImporter:
     4300000: Headlow
     7400000: Thug_Idle
     7400002: Thug_Run
+    7400004: Thug_Run (1)
     9500000: //RootNode
     13700000: Headlow
   externalObjects: {}
@@ -184,10 +185,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Thug_Idle
-      takeName: Thug_Idle
-      firstFrame: 1
-      lastFrame: 60
+      name: Thug_Run (1)
+      takeName: Thug_Run
+      firstFrame: 61
+      lastFrame: 121
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -206,7 +207,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: FootStop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
