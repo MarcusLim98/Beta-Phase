@@ -127,7 +127,7 @@ Ying Yue: I shouldn't get too close.
 Scene 1: DAY 1 AFTER FIRST EAVESDROP
 
 [title=Day1AfterEave-begin]
-Ying Yue: The coffeeshop, huh?
+Ying Yue: The Coffee Shop, huh?
 Ying Yue : Those thugs are blocking its main entrance.
 Ying Yue : I'll have to find another way in.
 [title=Day1AfterEave-end]

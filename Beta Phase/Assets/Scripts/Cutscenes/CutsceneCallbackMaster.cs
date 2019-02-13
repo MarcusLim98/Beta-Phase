@@ -106,7 +106,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1Suspicion()
     {
-        datasl.ObtainItem("Day1Suspicion");
+        datasl.ObtainItem("Day1Suspicion", 1);
         ChangeObjective("investigate the ruckus");
         EndCutscene();
     }
@@ -123,7 +123,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterEavesdrop()
     {
-        datasl.ObtainItem("Day1AfterEavesdrop");
+        datasl.ObtainItem("Day1AfterEavesdrop", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCutscene();
         ChangeObjective("find another way into the coffeeshop");
@@ -143,7 +143,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterCShopEavesdrop()
     {
-        datasl.ObtainItem("Day1AfterCShopEavesdrop");
+        datasl.ObtainItem("Day1AfterCShopEavesdrop", 1);
         cameraFocus = camFocusObj[1].transform;
         StartCutscene();
         ChangeObjective("exit area through the side door");
@@ -151,7 +151,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1AfterGambleEavesdrop()
     {
-        datasl.ObtainItem("Day1AfterGambleEavesdrop");
+        datasl.ObtainItem("Day1AfterGambleEavesdrop", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCutscene();
         ChangeObjective("exit the area");
@@ -175,7 +175,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2AfterWork()
     {
-        datasl.ObtainItem("Day2AfterWork");
+        datasl.ObtainItem("Day2AfterWork", 1);
         EndCutscene();
     }
 
@@ -188,28 +188,28 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2Notice()
     {
-        datasl.ObtainItem("Day2PanToThugs");
+        datasl.ObtainItem("Day2PanToThugs", 1);
         ChangeObjective("distract the guards");
         EndCutscene();
     }
 
     void AfterEaveCall()
     {
-        datasl.ObtainItem("AfterEaveCall");
+        datasl.ObtainItem("AfterEaveCall", 1);
         cameraFocus = camFocusObj[0].transform;
         StartCutscene();
     }
 
     void AfterEaveDocs()
     {
-        datasl.ObtainItem("AfterEaveDocs");
+        datasl.ObtainItem("AfterEaveDocs", 1);
         cameraFocus = camFocusObj[1].transform;
         StartCutscene();
     }
 
     void Day2Spotter()
     {
-        datasl.ObtainItem("Day2Spotter");
+        datasl.ObtainItem("Day2Spotter", 1);
         cameraFocus = camFocusObj[2].transform;
     }
 
@@ -242,16 +242,14 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void BossEave()                                                 //for first eavesdrop
     {
-        datasl.ObtainItem("BossEave");
-        //PlayerPrefs.SetInt("BossEave", 1);
+        datasl.ObtainItem("BossEave", 1);
         cameraFocus = camFocusObj[0].transform;                     //Lao Da
         StartCutscene();
     }
 
     IEnumerator BossEave1()                                         //after first eavesdrop
     {
-        datasl.ObtainItem("BossEave1");
-        //PlayerPrefs.SetInt("BossEave1", 1);
+        datasl.ObtainItem("BossEave1", 1);
         cameraFocus = camFocusObj[1].transform;                     //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
@@ -259,8 +257,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossEave2()                                         //after second eavesdrop
     {
-        datasl.ObtainItem("BossEave2");
-        //PlayerPrefs.SetInt("BossEave2", 1);
+        datasl.ObtainItem("BossEave2", 1);
         cameraFocus = camFocusObj[2].transform;                     //2nd doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[3].transform;                     //3rd doc
@@ -270,8 +267,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossEave3()                                         //after third eavesdrop
     {
-        datasl.ObtainItem("BossEave3");
-        //PlayerPrefs.SetInt("BossEave3", 1);
+        datasl.ObtainItem("BossEave3", 1);
         cameraFocus = camFocusObj[4].transform;                     //4th doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[5].transform;                     //5th doc

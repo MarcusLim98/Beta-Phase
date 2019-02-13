@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DataSaveAndLoad : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class DataSaveAndLoad : MonoBehaviour {
     static DataSaveAndLoad data;
     public static List<KeyItem> keyItemList = new List<KeyItem>();
     public NavMeshAgent playerAgent;
+    Text objectiveText;
 
     void Awake()                                                                    //ensures that this script is present in every scene
     {
@@ -35,6 +37,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         {
             playerObj = GameObject.FindGameObjectWithTag("Player");
             playerAgent = playerObj.GetComponent<NavMeshAgent>();
+            objectiveText = GameObject.Find("ObjectiveText").GetComponent<Text>();
 
             //if player has saved in this specific scene
             if (PlayerPrefs.HasKey("spawnpoint") && SceneManager.GetActiveScene().name == PlayerPrefs.GetString("spawnscene"))
@@ -42,6 +45,7 @@ public class DataSaveAndLoad : MonoBehaviour {
                 spawnPos = GameObject.Find(PlayerPrefs.GetString("spawnpoint")).transform.position;
                 playerObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
                 playerAgent.enabled = true;
+                objectiveText.text = PlayerPrefs.GetString("savedobjective");
             }
             //if not, because it's a new scene, save progress
             else if (SceneManager.GetActiveScene().name != PlayerPrefs.GetString("spawnscene"))
@@ -56,6 +60,7 @@ public class DataSaveAndLoad : MonoBehaviour {
     {
         PlayerPrefs.SetString("spawnpoint", spawnPointName);                        //saves name of last checkpoint
         PlayerPrefs.SetString("spawnscene", SceneManager.GetActiveScene().name);    //saves name of last scene
+        PlayerPrefs.SetString("savedobjective", objectiveText.text);                //saves last objective
 
         foreach (KeyItem item in keyItemList)                                       //check through entire item list
         {
@@ -67,32 +72,40 @@ public class DataSaveAndLoad : MonoBehaviour {
 
     void CreateItemList()
     {
+        //Scene 1
         keyItemList.Add(new KeyItem("Day1Suspicion", 0));
         keyItemList.Add(new KeyItem("Day1AfterEavesdrop", 0));
         keyItemList.Add(new KeyItem("Day1AfterCShopEavesdrop", 0));
 
+        //Scene 2
         keyItemList.Add(new KeyItem("Day1AfterGambleEavesdrop", 0));
 
+        //Scene 3
         keyItemList.Add(new KeyItem("Day2AfterWork", 0));
         keyItemList.Add(new KeyItem("Day2PanToThugs", 0));
 
+        //Scene 4
         keyItemList.Add(new KeyItem("AfterEaveCall", 0));
         keyItemList.Add(new KeyItem("AfterEaveDocs", 0));
         keyItemList.Add(new KeyItem("Day2Spotter", 0));
+        //keyItemList.Add(new KeyItem("WHDocs", 0));
 
+        //Scene 4.5
         keyItemList.Add(new KeyItem("Day3AfterWork", 0));
 
+        //Scene 8
         keyItemList.Add(new KeyItem("LaoDaIntro", 0));
         keyItemList.Add(new KeyItem("LaoDaDefeat", 0));
+        //keyItemList.Add(new KeyItem("BossDocs", 0));
     }
 
-    public void ObtainItem(string foundItemName)                                    //for obtaining items
+    public void ObtainItem(string foundItemName, int number)                        //for obtaining items
     {
         foreach (KeyItem item in keyItemList)                                       //check through entire item list
         {
             if (item.keyItemName == foundItemName)                                  //if an item matches the interacted object name
             {
-                item.taken = 1;                                                     //say that item has been taken
+                item.taken = number;                                                //say that item has been taken
             }
         }
     }

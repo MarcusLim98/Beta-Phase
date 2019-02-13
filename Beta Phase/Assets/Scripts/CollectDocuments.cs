@@ -8,9 +8,15 @@ public class CollectDocuments : MonoBehaviour
     public Text objectives, pressE;
     public GameObject[] obj;
     //public Vector3 pos;
-    public int collect, howMany;
-    int i;
+    public int collect;
+    public int i, sceneNo;
     bool gone;
+    DataSaveAndLoad dsal;
+
+    private void Start()
+    {
+        dsal = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
+    }
 
     private void Update()
     {
@@ -25,9 +31,17 @@ public class CollectDocuments : MonoBehaviour
             {
                 print("1");
                 i += 1;
-                objectives.text = "Collect documents" + " " + "(" + i + "/" + howMany +")";
+                objectives.text = "Collect documents" + " " + "(" + i + "/" + collect +")";
                 pressE.enabled = false;
                 other.gameObject.SetActive(false);
+                //if (sceneNo == 6)
+                //{
+                //    dsal.ObtainItem("WHDocs", i);
+                //}
+                //else if (sceneNo == 8)
+                //{
+                //    dsal.ObtainItem("BossDocs", i);
+                //}
             }
         }
         if (other.tag == "Documents" && i >= collect)
@@ -43,4 +57,17 @@ public class CollectDocuments : MonoBehaviour
     {
         pressE.enabled = false;
     }
+
+    //private void OnLevelWasLoaded(int level)
+    //{
+    //    if (level == 6 && PlayerPrefs.HasKey("WHDocs"))
+    //    {
+    //        i = PlayerPrefs.GetInt("WHDocs");
+    //    }
+
+    //    else if (level == 8 && PlayerPrefs.HasKey("BossDocs"))
+    //    {
+    //        i = PlayerPrefs.GetInt("BossDocs");
+    //    }
+    //}
 }

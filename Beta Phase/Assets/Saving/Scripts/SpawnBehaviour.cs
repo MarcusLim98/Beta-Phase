@@ -18,7 +18,6 @@ public class SpawnBehaviour : MonoBehaviour {
     void Awake()
     {
         datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
-        //PlayerPrefs.DeleteAll();
     }
 
     void OnTriggerStay(Collider other)
@@ -27,22 +26,6 @@ public class SpawnBehaviour : MonoBehaviour {
         {
             StopCoroutine("NotifTextBehaviour");
             StartCoroutine("NotifTextBehaviour", other.name + " obtained");
-
-            //if (PlayerPrefs.GetInt(other.name) == 0 || !PlayerPrefs.HasKey(other.name))
-            //{
-            //    foreach (KeyItem item in DataSaveAndLoad.keyItemList)
-            //    {
-            //        if (item.keyItemName == other.name)
-            //        {
-            //            if (item.taken == 0)
-            //            {
-            //                print(item.taken);
-                            
-            //                datasl.ObtainItem(other.name);
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         if (other.name == "Thug")                               //use name, if not listening colliders will affect player
@@ -64,8 +47,6 @@ public class SpawnBehaviour : MonoBehaviour {
         yield return new WaitForSeconds(3);
         notifText.text = "";
     }
-
-
 
     public void AutoSave()
     {
