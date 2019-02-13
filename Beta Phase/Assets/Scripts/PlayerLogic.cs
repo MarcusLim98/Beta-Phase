@@ -205,8 +205,9 @@ public class PlayerLogic : MonoBehaviour {
     {
         if(other.name == "LosingCondiiton" || other.name == "LaoDaBullet(Clone)")
         {
-            walkSpeed = 0;
-            runSpeed = 0;
+            cursorIsOverUI = true;
+            anim.SetInteger("State", 0);
+            agent.SetDestination(transform.position);
         }
 
         if (other.tag == "EavesdropZone" && eavesDropLogic.currentAmount <= 100f)
