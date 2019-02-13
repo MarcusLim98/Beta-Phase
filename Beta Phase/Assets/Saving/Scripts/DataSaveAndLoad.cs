@@ -88,7 +88,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         keyItemList.Add(new KeyItem("AfterEaveCall", 0));
         keyItemList.Add(new KeyItem("AfterEaveDocs", 0));
         keyItemList.Add(new KeyItem("Day2Spotter", 0));
-        //keyItemList.Add(new KeyItem("WHDocs", 0));
+        keyItemList.Add(new KeyItem("WHDocs", 0));
 
         //Scene 4.5
         keyItemList.Add(new KeyItem("Day3AfterWork", 0));
@@ -96,7 +96,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         //Scene 8
         keyItemList.Add(new KeyItem("LaoDaIntro", 0));
         keyItemList.Add(new KeyItem("LaoDaDefeat", 0));
-        //keyItemList.Add(new KeyItem("BossDocs", 0));
+        keyItemList.Add(new KeyItem("BossDocs", 0));
     }
 
     public void ObtainItem(string foundItemName, int number)                        //for obtaining items

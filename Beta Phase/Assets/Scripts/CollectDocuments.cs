@@ -9,19 +9,30 @@ public class CollectDocuments : MonoBehaviour
     public GameObject[] obj;
     //public Vector3 pos;
     public int collect;
-    public int i, sceneNo;
+    public int i, lvNo;
     bool gone;
     DataSaveAndLoad dsal;
 
     private void Start()
     {
         dsal = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
+
+        if (lvNo == 2 && PlayerPrefs.HasKey("WHDocs"))          //if CWHouse and you've taken docs before, load old int
+        {
+            i = PlayerPrefs.GetInt("WHDocs");
+        }
+
+        else if (lvNo == 3 && PlayerPrefs.HasKey("BossDocs"))   //if Boss Level and you've taken docs before, load old int
+        { 
+            i = PlayerPrefs.GetInt("BossDocs");
+        }
     }
 
     private void Update()
     {
         //print(endPoint.position);
     }
+
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Documents" && i <=collect)
@@ -34,14 +45,15 @@ public class CollectDocuments : MonoBehaviour
                 objectives.text = "Collect documents" + " " + "(" + i + "/" + collect +")";
                 pressE.enabled = false;
                 other.gameObject.SetActive(false);
-                //if (sceneNo == 6)
-                //{
-                //    dsal.ObtainItem("WHDocs", i);
-                //}
-                //else if (sceneNo == 8)
-                //{
-                //    dsal.ObtainItem("BossDocs", i);
-                //}
+                if (lvNo == 2)
+                {
+                    dsal.ObtainItem("WHDocs", i);               //updates int, saves as PlayerPref when at another altar
+                }
+                else if (lvNo == 3)
+                {
+                    dsal.ObtainItem("BossDocs", i);             //updates int
+                    dsal.SaveGame("SpawnHere84");               //saves int immediately afterwards
+                }
             }
         }
         if (other.tag == "Documents" && i >= collect)
@@ -58,16 +70,4 @@ public class CollectDocuments : MonoBehaviour
         pressE.enabled = false;
     }
 
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    if (level == 6 && PlayerPrefs.HasKey("WHDocs"))
-    //    {
-    //        i = PlayerPrefs.GetInt("WHDocs");
-    //    }
-
-    //    else if (level == 8 && PlayerPrefs.HasKey("BossDocs"))
-    //    {
-    //        i = PlayerPrefs.GetInt("BossDocs");
-    //    }
-    //}
 }
