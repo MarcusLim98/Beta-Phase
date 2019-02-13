@@ -413,6 +413,11 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit.transform == playerTarget && isInFov != 2)
                 {
+                    if (isInFov != 1)
+                    {
+                        fileName = "ThugSuspicious";
+                        SoundFX();
+                    }
                     investigatingState = 1;
                     isInFov = 1;
                     questionMark.SetActive(true);
@@ -420,8 +425,6 @@ public class ArtificialIntelligence : MonoBehaviour
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                     stopHere = 3f;
-                    fileName = "ThugSuspicious";
-                    SoundFX();
                 }
             }
             else
@@ -442,6 +445,11 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit2.transform == playerTarget)
                 {
+                    if(isInFov != 2)
+                    {
+                        fileName = "ThugAlert";
+                        SoundFX();
+                    }
                     investigatingState = 2;
                     isInFov = 2;
                     questionMark.SetActive(false);
@@ -452,8 +460,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     secondFov.SetActive(true);
                     stopHere = 12f;
                     stopToGoBack = 0;
-                    fileName = "ThugAlert";
-                    SoundFX();
+                    isInFov = 3;
                     return true;
                 }
             }
