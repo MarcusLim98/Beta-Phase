@@ -90,12 +90,10 @@ public class DataSaveAndLoad : MonoBehaviour {
         keyItemList.Add(new KeyItem("Day2Spotter", 0));
         keyItemList.Add(new KeyItem("WHDocs", 0));
 
-        //Scene 4.5
-        keyItemList.Add(new KeyItem("Day3AfterWork", 0));
-
         //Scene 8
-        keyItemList.Add(new KeyItem("LaoDaIntro", 0));
-        keyItemList.Add(new KeyItem("LaoDaDefeat", 0));
+        //keyItemList.Add(new KeyItem("LaoDaIntro", 0));
+        //keyItemList.Add(new KeyItem("LaoDaDefeat", 0));
+        keyItemList.Add(new KeyItem("BossEaveNo", 0));
         keyItemList.Add(new KeyItem("BossDocs", 0));
     }
 

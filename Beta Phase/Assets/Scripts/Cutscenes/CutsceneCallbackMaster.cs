@@ -41,7 +41,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         }
     }
 
-#region GENERAL BEHAVIOURS
+    #region GENERAL BEHAVIOURS
     void StartCutscene()
     {
         playerLogic.DisableMovement();
@@ -83,6 +83,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ui.LoadScene("Scene 0 Police Office");
     }
 
+    //Scene 0
     void Day1Intro()
     {
         ChangeObjective("pass chief hank the papers");
@@ -96,6 +97,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ui.LoadScene("Scene 1 CShop");
     }
 
+    //Scene 1
     void Day1Afterwork()
     {
         spawnObj[2].SetActive(true);
@@ -149,6 +151,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ChangeObjective("exit area through the side door");
     }
 
+    //Scene 2
     void Day1AfterGambleEavesdrop()
     {
         datasl.ObtainItem("Day1AfterGambleEavesdrop", 1);
@@ -168,11 +171,14 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
 
     #region LEVEL 2
+
+    //Scene 2.5
     void Day2Intro()
     {
         ui.LoadScene("Scene 3 OWHouse");
     }
 
+    //Scene 3
     void Day2AfterWork()
     {
         datasl.ObtainItem("Day2AfterWork", 1);
@@ -193,6 +199,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EndCutscene();
     }
 
+    //Scene 3
     void AfterEaveCall()
     {
         datasl.ObtainItem("AfterEaveCall", 1);
@@ -217,11 +224,13 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         ChangeObjective("Collect documents (0/3)");
     }
-#endregion
+    #endregion
 
 
 
     #region LEVEL 3
+
+    //Scene 4.5
     void Day3Intro()
     {
         spawnObj[0].SetActive(true);
@@ -240,24 +249,24 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         ui.LoadScene("Scene 8 ABHouse");
     }
 
-    void BossEave()                                                 //for first eavesdrop
+    //Scene 8
+    void BossEave()                                                 //for all boss eavesdrops dialogue
     {
-        datasl.ObtainItem("BossEave", 1);
         cameraFocus = camFocusObj[0].transform;                     //Lao Da
         StartCutscene();
     }
 
-    IEnumerator BossEave1()                                         //after first eavesdrop
+    IEnumerator BossEave1()                                         //for panning after first eavesdrop
     {
-        datasl.ObtainItem("BossEave1", 1);
+        //datasl.ObtainItem("BossEaveNo", 1);
         cameraFocus = camFocusObj[1].transform;                     //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
     }
 
-    IEnumerator BossEave2()                                         //after second eavesdrop
+    IEnumerator BossEave2()                                         //for panning after second eavesdrop
     {
-        datasl.ObtainItem("BossEave2", 1);
+        //datasl.ObtainItem("BossEaveNo", 2);
         cameraFocus = camFocusObj[2].transform;                     //2nd doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[3].transform;                     //3rd doc
@@ -265,9 +274,9 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
     }
 
-    IEnumerator BossEave3()                                         //after third eavesdrop
+    IEnumerator BossEave3()                                         //for panning after third eavesdrop
     {
-        datasl.ObtainItem("BossEave3", 1);
+        //datasl.ObtainItem("BossEaveNo", 3);
         cameraFocus = camFocusObj[4].transform;                     //4th doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[5].transform;                     //5th doc
