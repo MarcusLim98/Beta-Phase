@@ -10,6 +10,7 @@ public class WalkSoundTest : MonoBehaviour
     public bool Rstop, Lstop;
     void Start()
     {
+        footSource = GetComponent<AudioSource>();
         right = "ThugWalkR";
         left = "ThugWalkL";
     }
@@ -21,12 +22,14 @@ public class WalkSoundTest : MonoBehaviour
     }
     void RightFoot()
     {
+        footSource.volume = 0.05f;
         footSource.clip = (AudioClip)Resources.Load(right);
         footSource.Play();
         Rstop = false;
     }
     void LeftFoot()
     {
+        footSource.volume = 0.05f;
         footSource.clip = (AudioClip)Resources.Load(left);
         footSource.Play();
         Lstop = false;

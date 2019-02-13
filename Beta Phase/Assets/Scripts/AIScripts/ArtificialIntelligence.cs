@@ -496,6 +496,7 @@ public class ArtificialIntelligence : MonoBehaviour
     {
         if (!externalAudio.isPlaying)
         {
+            externalAudio.volume = 1;
             externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
         }
     }

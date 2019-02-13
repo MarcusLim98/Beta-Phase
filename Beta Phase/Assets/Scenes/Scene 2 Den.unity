@@ -233,6 +233,7 @@ MonoBehaviour:
   walkSpeed: 3.5
   runSpeed: 9
   timeToStare: 0
+  stopToGoBack: 0
   stationery: 1
   staticRotate: 1
   patrolTurn: 0
@@ -2819,8 +2820,8 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 3c30d1a2a85b9d4499dfc9ebea9ade8b, type: 3}
   outlineBufferShader: {fileID: 4800000, guid: 17f3e80406929b64f90154b46d4f453c, type: 3}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 2045868521}
-  extraRenderTexture: {fileID: 1074725531}
+  renderTexture: {fileID: 821025507}
+  extraRenderTexture: {fileID: 1446390470}
 --- !u!114 &57532216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13699,6 +13700,7 @@ MonoBehaviour:
   walkSpeed: 3.5
   runSpeed: 9
   timeToStare: 0
+  stopToGoBack: 0
   stationery: 1
   staticRotate: 1
   patrolTurn: 1
@@ -13887,6 +13889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footSource: {fileID: 0}
+  Rstop: 0
+  Lstop: 0
 --- !u!1001 &324723859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26249,6 +26253,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &516463729
 MeshRenderer:
@@ -44507,6 +44514,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820410992}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!84 &821025507
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1017
+  m_Height: 572
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &826193050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59746,38 +59785,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1074174262}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1074725531
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1076698908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65259,6 +65266,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1085057998
 MeshRenderer:
@@ -70504,6 +70514,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1193799760
 MeshRenderer:
@@ -71053,6 +71066,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1205551215
 MeshRenderer:
@@ -74472,6 +74488,7 @@ MonoBehaviour:
   walkSpeed: 3.5
   runSpeed: 9
   timeToStare: 0
+  stopToGoBack: 0
   stationery: 0
   staticRotate: 0
   patrolTurn: 0
@@ -74660,6 +74677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footSource: {fileID: 1316007699}
+  Rstop: 0
+  Lstop: 0
 --- !u!1001 &1282912093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81408,6 +81427,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1991106674}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1446390470
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1017
+  m_Height: 572
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1447129709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84737,6 +84788,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1515248657
 MeshRenderer:
@@ -86094,7 +86148,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2045868521}
+  m_TargetTexture: {fileID: 821025507}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -87709,6 +87763,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1588146574
 MeshRenderer:
@@ -101621,6 +101678,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1792641124
 MeshRenderer:
@@ -102328,6 +102388,7 @@ MonoBehaviour:
   walkSpeed: 3.5
   runSpeed: 9
   timeToStare: 0
+  stopToGoBack: 0
   stationery: 1
   staticRotate: 1
   patrolTurn: 0
@@ -103987,6 +104048,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1834961838
 MeshRenderer:
@@ -105783,6 +105847,7 @@ MonoBehaviour:
   walkSpeed: 3.5
   runSpeed: 9
   timeToStare: 0
+  stopToGoBack: 0
   stationery: 1
   staticRotate: 1
   patrolTurn: 0
@@ -107663,6 +107728,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &1938680555
 MeshRenderer:
@@ -112053,38 +112121,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2044848430}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &2045868521
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 416
-  m_Height: 233
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &2049625003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115224,6 +115260,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
   isGun: 0
 --- !u!23 &2115774686
 MeshRenderer:
