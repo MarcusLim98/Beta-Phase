@@ -38,7 +38,7 @@ public class ArtificialIntelligence : MonoBehaviour
     FaderLogic faderLogic;
     BGMControl bgmLogic;
     int destPoint = 0, timesHitRotation;
-    float stopToLook, angle, startToTurn, stopHere, timeToResetView, maxRadius4, maxAngle4;
+    float stopToLook, angle, startToTurn, stopHere, timeToResetView, maxRadius4, maxAngle4, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     string fileName;
 
@@ -71,8 +71,7 @@ public class ArtificialIntelligence : MonoBehaviour
         firstFov = this.gameObject.transform.GetChild(3).gameObject;
         secondFov = this.gameObject.transform.GetChild(4).gameObject;
         timeToStare = 1.5f;
-        maxRadius4 = maxRadius;
-        maxAngle4 = maxAngle;
+        currentAngle1 = maxAngle;
         state = AIState.PATROLLING;
     }
 
@@ -363,23 +362,6 @@ public class ArtificialIntelligence : MonoBehaviour
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f )
             {
-                if (angle <= maxAngle4 )
-                {
-                    Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
-                    RaycastHit hit2;
-                    if (Physics.Raycast(ray, out hit2, maxRadius4) && isInFov != 2)
-                    {
-                        if (hit2.transform == playerTarget)
-                        {
-                            stopToGoBack = 0;
-                            investigatingState = 1;
-                            isInFov = 1;
-                            SuspiciousProperties();
-                            fileName = "ThugSuspicious";
-                            SoundFX();
-                        }
-                    }
-                }
                 dontMove = true;
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
@@ -502,8 +484,8 @@ public class ArtificialIntelligence : MonoBehaviour
         agent.SetDestination(playerTarget.position);
         questionMark.SetActive(false);
         exclamationMark.SetActive(true);
-        maxAngle = 60;
-        maxAngle2 = 60;
+        maxAngle = currentAngle1;
+        maxAngle2 = currentAngle1;
         firstFov.SetActive(false);
         secondFov.SetActive(true);
         stopHere = 12f;
