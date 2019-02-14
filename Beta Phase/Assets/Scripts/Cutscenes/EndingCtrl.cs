@@ -6,16 +6,21 @@ using UnityEngine.UI;
 public class EndingCtrl : MonoBehaviour
 {
     public CameraLogic cameraL;
-    public Transform yingYue;           // , cameraT, credits1, credits2, credits3, credits4, credits5, credits6, credits7, credits8;
+    public Transform yingYue, cameraT, credits1, credits2, credits3, credits4, credits5, credits6, credits7, credits8;
     public Vector3 targetOffset;
     public float panSpeed;
     public RPGTalk rpgT;
-    public GameObject endTitle, fadeToBlack, fadeFromBlack, newspaper, tempCredits;
+    public GameObject endTitle, fadeToBlack, fadeFromBlack, newspaper;
     public AudioSource originalBgm, creditBgm, altar;
     public UiBehaviour uiB;
+    [SerializeField]
+    Camera creditCam;
+    [SerializeField]
+    CutsceneCallbackMaster callback;
 
     void Start()
     {
+        callback.StartCutscene();
         StartCoroutine(PanOut());
     }
 
@@ -51,15 +56,36 @@ public class EndingCtrl : MonoBehaviour
         endTitle.SetActive(true);
         yield return new WaitForSeconds(4);
         fadeToBlack.SetActive(true);
-        //camera changes position to credits 1
         yield return new WaitForSeconds(2);
         endTitle.SetActive(false);
-        tempCredits.SetActive(true);                //temp until proper credits are used
+        creditCam.enabled = true;
         fadeToBlack.SetActive(false);
         fadeFromBlack.SetActive(true);
         creditBgm.Play();
-        //camera should start panning
-        yield return new WaitForSeconds(8);         //change to fit camera pan duration
+        cameraT.position = credits1.position;
+        cameraT.rotation = credits1.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits2.position;
+        cameraT.rotation = credits2.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits3.position;
+        cameraT.rotation = credits3.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits4.position;
+        cameraT.rotation = credits4.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits5.position;
+        cameraT.rotation = credits5.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits6.position;
+        cameraT.rotation = credits6.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits7.position;
+        cameraT.rotation = credits7.rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits8.position;
+        cameraT.rotation = credits8.rotation;
+        yield return new WaitForSeconds(4);
         uiB.LoadScene("FakeMenu");
     }
 }
