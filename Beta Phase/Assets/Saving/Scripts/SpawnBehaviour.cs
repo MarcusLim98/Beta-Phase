@@ -28,10 +28,11 @@ public class SpawnBehaviour : MonoBehaviour {
             StartCoroutine("NotifTextBehaviour", other.name + " obtained");
         }
 
-        if (other.name == "Thug")                               //use name, if not listening colliders will affect player
-        {
-            ui.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        //if (other.name == "Thug")                               //use name, if not listening colliders will affect player
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //    //ui.LoadScene(SceneManager.GetActiveScene().name);
+        //}
 
         if (other.name == "EndGame")
         {
