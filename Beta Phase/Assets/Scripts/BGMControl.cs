@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class BGMControl : MonoBehaviour
 {
     public AudioSource Bgm, Chase;
-    string Office, Tutorial, Den, Warehouse, Chasing, Boss;
+    public GameObject Spotlight, darkUI;
+    string Office, Tutorial, Den, Warehouse, Chasing, Boss , Loss;
     ArtificialIntelligence ChaseCheck;
 
     // Start is called before the first frame update
@@ -18,6 +19,10 @@ public class BGMControl : MonoBehaviour
         Warehouse = "Warehouse 1";
         Chasing = "Danger Chase";
         Boss = "Boss Level";
+        Loss = "Loss";
+        Spotlight.SetActive(false);
+        darkUI.SetActive(false);
+
         SceneCheck();
 
     }
@@ -87,7 +92,10 @@ public class BGMControl : MonoBehaviour
         if (!Chase.isPlaying)
         {
             Chase.Play();
+            Spotlight.SetActive(true);
+            darkUI.SetActive(true);
         }
+
         Bgm.Stop();
     }
     //call this function when YY escapes AI
@@ -98,6 +106,13 @@ public class BGMControl : MonoBehaviour
         {
             Bgm.Play();
         }
+        Spotlight.SetActive(false);
+        darkUI.SetActive(false);
+    }
+
+    public void GotCaught()
+    {
+
     }
     //Chase volume will decrease before stopping. FadeOut
     IEnumerator FadeOut(AudioSource Chase, float FadeTime)
