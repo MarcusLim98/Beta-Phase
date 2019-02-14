@@ -42,7 +42,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     }
 
     #region GENERAL BEHAVIOURS
-    void StartCutscene()
+    public void StartCutscene()
     {
         playerLogic.DisableMovement();
         cameraLogic.target = cameraFocus;
