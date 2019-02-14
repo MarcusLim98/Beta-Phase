@@ -125,10 +125,10 @@ public class AIVision : MonoBehaviour {
 
             }
 
-            if (Physics.Linecast(center, worldPoint, out hit, layerMask2))
-            {
-                print("hit player");
-            }
+            //if (Physics.Linecast(center, worldPoint, out hit, layerMask2))
+            //{
+                //print("hit player");
+            //}
         }
 
         _mesh.vertices = vertices;

@@ -240,6 +240,8 @@ public class ArtificialIntelligence : MonoBehaviour
     {
         firstFov.SetActive(true);
         secondFov.SetActive(false);
+        questionMark.SetActive(false);
+        exclamationMark.SetActive(false);
         if (!stationery && !staticRotate)
         {
             anim.SetInteger("State", 1);
@@ -250,8 +252,6 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f)
         {
-            questionMark.SetActive(false);
-            exclamationMark.SetActive(false);
             anim.SetInteger("State", 0);
             if (!staticRotate)
             {
@@ -377,8 +377,6 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
-                questionMark.SetActive(false);
-                exclamationMark.SetActive(false);
                 playerHighlight.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
@@ -390,8 +388,6 @@ public class ArtificialIntelligence : MonoBehaviour
                 agent.speed = walkSpeed;
                 maxAngle = 40;
                 maxAngle2 = 40;
-                firstFov.SetActive(true);
-                secondFov.SetActive(false);
                 stopHere = 3f;
                 timeToResetView = 3f;
                 bgmLogic.EscapeDanger();
