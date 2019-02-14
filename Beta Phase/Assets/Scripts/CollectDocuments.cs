@@ -12,6 +12,8 @@ public class CollectDocuments : MonoBehaviour
     public int i, lvNo;
     bool gone;
     DataSaveAndLoad dsal;
+    [SerializeField]
+    AudioSource externalAudio;
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class CollectDocuments : MonoBehaviour
     {
         if(other.tag == "Documents" && i <=collect)
         {
+            pressE.text = "Press E to pick up";
             pressE.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -45,6 +48,7 @@ public class CollectDocuments : MonoBehaviour
                 objectives.text = "Collect documents" + " " + "(" + i + "/" + collect +")";
                 pressE.enabled = false;
                 other.gameObject.SetActive(false);
+                externalAudio.Play();
                 if (lvNo == 2)
                 {
                     dsal.ObtainItem("WHDocs", i);               //updates int, saves as PlayerPref when at another altar

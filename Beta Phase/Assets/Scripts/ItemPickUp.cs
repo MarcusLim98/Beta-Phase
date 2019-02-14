@@ -24,7 +24,7 @@ public class ItemPickUp : MonoBehaviour {
     {
         if (other.name.Contains("GlassBottle") && !haveBottle)
         {
-            pressE.text = "Press E to interact";
+            pressE.text = "Press E to pick up";
             pressE.enabled = true;
             if (Input.GetKey(KeyCode.E))
             {
@@ -37,6 +37,7 @@ public class ItemPickUp : MonoBehaviour {
         }
         if (other.CompareTag("KeyItem"))
         {
+            pressE.text = "Press E to pick up";
             pressE.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {

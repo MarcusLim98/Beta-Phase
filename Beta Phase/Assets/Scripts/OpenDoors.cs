@@ -39,6 +39,7 @@ public class OpenDoors : MonoBehaviour {
         {
             if (!canBeOpen)
             {
+                pressE.text = "Press E to open";
                 pressE.enabled = true;
             }
             if (Input.GetKeyDown(KeyCode.E))

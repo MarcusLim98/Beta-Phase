@@ -76,6 +76,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     }
     #endregion
 
+
+
     #region LEVEL 1
     void EndPrologue()
     {

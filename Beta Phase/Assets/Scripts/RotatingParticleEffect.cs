@@ -125,6 +125,7 @@ public class RotatingParticleEffect : MonoBehaviour {
             }
             else if (eavesdropLogic.isInteracted == false)
             {
+                pressE.text = "Hold E to eavesdrop";
                 pressE.enabled = true;
             }
         }
