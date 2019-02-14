@@ -159,16 +159,4 @@ public class AIVision : MonoBehaviour {
         }
 
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            print("faster");
-            if (ai.stopToGoBack >= 0.1f)
-            {
-                ai.stopToGoBack = 3;
-            }
-        }
-    }
 }

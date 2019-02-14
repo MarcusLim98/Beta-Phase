@@ -86,7 +86,7 @@ public class AISpotter : MonoBehaviour {
             {
                 if (hit.transform.name == "Look Here")
                 {
-                    rotatingSpeed = 20f;
+                    rotatingSpeed = 30f;
                     canRotateLoop = true;
                     exclamationMark.SetActive(false);
                 }
@@ -130,11 +130,11 @@ public class AISpotter : MonoBehaviour {
                     playerHighlight.SetActive(false);
                     playerHighlight.transform.parent = playerTarget;
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-                    seenPlayer = 1;
+
                     foreach (ArtificialIntelligence ai in thugsToCall)
                     {
-                    ai.maxRadius3 = 30;
-                        ai.stopHere = 0f;
+                        ai.playerMask = LayerMask.GetMask("Player");
+                        ai.maxRadius3 = 60;
                     }
 
                     if (gunLine.angle >= 4)
@@ -161,22 +161,20 @@ public class AISpotter : MonoBehaviour {
                     }
                 }
             }
-            else if (hit.transform != playerTarget && seenPlayer == 1)
+            if (hit.transform != playerTarget && investigatingState == 1)
             {
                 print("go back");
                 playerHighlight.transform.parent = null;
                 playerHighlight.SetActive(true);
-                investigatingState = 0;
                 gunLine.angle = 51;
                 gunVision.SetActive(false);
-                rotatingSpeed = 30f;
                 shotOnce = 0;
-                seenPlayer = 0;
                 foreach (ArtificialIntelligence ai in thugsToCall)
                 {
+                    ai.playerMask = LayerMask.GetMask("Nothing");
                     ai.maxRadius3 = 2.5f;
-                    ai.stopHere = 3f;
                 }
+                investigatingState = 0;
             }
         }
 
@@ -185,7 +183,7 @@ public class AISpotter : MonoBehaviour {
             var lookPos = startingAngle.position - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5f);
         }
         return false;
     }

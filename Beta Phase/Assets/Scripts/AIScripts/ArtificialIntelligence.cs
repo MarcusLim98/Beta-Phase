@@ -12,11 +12,11 @@ public class ArtificialIntelligence : MonoBehaviour
     public Transform playerTarget;
     public GameObject playerHighlight, suspicious, alert;
     public Transform noisySource, stationeryPosition;
-    public LayerMask layerMask;
+    public LayerMask layerMask, playerMask;
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
+    public float maxRadius, maxRadius2, maxRadius3,maxRadius4, maxAngle, maxAngle2, maxAngle3, maxAngle4, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
     public bool stationery, staticRotate, patrolTurn;
     [Space]
     [Space]
@@ -38,7 +38,7 @@ public class ArtificialIntelligence : MonoBehaviour
     FaderLogic faderLogic;
     BGMControl bgmLogic;
     int destPoint = 0, timesHitRotation;
-    float stopToLook, angle, startToTurn, timeToResetView, maxRadius4, maxAngle4, currentAngle1;
+    float stopToLook, angle, startToTurn, timeToResetView, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     public string fileName;
 
@@ -117,6 +117,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         }
                         else if (isInFov == 2)
                         {
+                            print("1");
                             anim.SetInteger("State", 1);
                             agent.speed = runSpeed;
                             playerHighlight.transform.parent = null;
@@ -338,6 +339,7 @@ public class ArtificialIntelligence : MonoBehaviour
 
     void CheckAndReturn()
     {
+        print("2");
         if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
         {
             target = playerHighlight.transform;
@@ -362,6 +364,7 @@ public class ArtificialIntelligence : MonoBehaviour
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 3f )
             {
+                print("3");
                 dontMove = true;
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
@@ -377,6 +380,7 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 3f)
             {
+                print("4");
                 playerHighlight.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
@@ -436,7 +440,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
-            if (Physics.Raycast(ray, out hit2, maxRadius3) && isInFov != 2)
+            if (Physics.Raycast(ray, out hit2, maxRadius3, playerMask) && isInFov != 2)
             {
                 if (hit2.transform == playerTarget)
                 {
@@ -476,8 +480,10 @@ public class ArtificialIntelligence : MonoBehaviour
 
     public void AlertProperties()
     {
+        print("alert");
         investigatingState = 2;
         isInFov = 2;
+        agent.speed = runSpeed;
         agent.SetDestination(playerTarget.position);
         questionMark.SetActive(false);
         exclamationMark.SetActive(true);

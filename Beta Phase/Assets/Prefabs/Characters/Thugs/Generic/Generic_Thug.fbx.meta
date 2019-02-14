@@ -185,10 +185,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Thug_Run (1)
-      takeName: Thug_Run
-      firstFrame: 61
-      lastFrame: 121
+      name: Thug_Idle
+      takeName: Thug_Idle
+      firstFrame: 1
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
