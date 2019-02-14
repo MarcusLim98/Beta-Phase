@@ -244,7 +244,7 @@ public class PlayerLogic : MonoBehaviour {
         {
             playerEavesdrop = false;
         }
-        if (other.name == "NoisyFloor" && movingStyle == 1)
+        if (other.name == "NoisyFloor")
         {
             stepOnNoisyFloor = false;
         }
