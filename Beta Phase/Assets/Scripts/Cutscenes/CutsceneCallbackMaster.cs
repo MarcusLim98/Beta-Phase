@@ -190,6 +190,14 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day2PanToThugs()
     {
         cameraFocus = camFocusObj[0].transform;             //guarding thug area
+        StartCoroutine(Scene3EndPoint());
+        StartCutscene();
+    }
+
+    IEnumerator Scene3EndPoint()
+    {
+        yield return new WaitForSeconds(2);
+        cameraFocus = camFocusObj[1].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
     }
