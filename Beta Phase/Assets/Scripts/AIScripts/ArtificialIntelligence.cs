@@ -16,7 +16,7 @@ public class ArtificialIntelligence : MonoBehaviour
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack;
+    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
     public bool stationery, staticRotate, patrolTurn;
     [Space]
     [Space]
@@ -38,9 +38,9 @@ public class ArtificialIntelligence : MonoBehaviour
     FaderLogic faderLogic;
     BGMControl bgmLogic;
     int destPoint = 0, timesHitRotation;
-    float stopToLook, angle, startToTurn, stopHere, timeToResetView, maxRadius4, maxAngle4, currentAngle1;
+    float stopToLook, angle, startToTurn, timeToResetView, maxRadius4, maxAngle4, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
-    string fileName;
+    public string fileName;
 
     public void Start()
     {
@@ -459,8 +459,6 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit2.transform == playerTarget)
                 {
-                    investigatingState = 2;
-                    isInFov = 2;
                     fileName = "ThugAlert";
                     SoundFX();
                     AlertProperties();
@@ -480,8 +478,10 @@ public class ArtificialIntelligence : MonoBehaviour
         stopHere = 3f;
     }
 
-    void AlertProperties()
+    public void AlertProperties()
     {
+        investigatingState = 2;
+        isInFov = 2;
         agent.SetDestination(playerTarget.position);
         questionMark.SetActive(false);
         exclamationMark.SetActive(true);
@@ -489,11 +489,11 @@ public class ArtificialIntelligence : MonoBehaviour
         maxAngle2 = currentAngle1;
         firstFov.SetActive(false);
         secondFov.SetActive(true);
-        stopHere = 12f;
+        stopHere = 3f;
         stopToGoBack = 0;
     }
 
-    void SoundFX()
+    public void SoundFX()
     {
         if (!externalAudio.isPlaying)
         {

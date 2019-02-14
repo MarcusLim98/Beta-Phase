@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class AISpotter : MonoBehaviour {
 
     public Transform playerTarget;
-    public Transform playerHighlight;
+    public GameObject playerHighlight;
     public Transform noisySource;
     public GameObject alert, bullet;
     public LayerMask layerMask, layerMask2;
@@ -29,7 +29,7 @@ public class AISpotter : MonoBehaviour {
     bool playerWithinRadius;
     PlayerLogic playerLogic;
     AIVision gunLine;
-    int investigatingState, isInFov, shotOnce;
+    int investigatingState, isInFov, shotOnce, seenPlayer;
     // Use this for initialization
     void Start()
     {
@@ -122,32 +122,32 @@ public class AISpotter : MonoBehaviour {
                 {
                     investigatingState = 1;
                     canRotateLoop = false;
-                    var lookPos = playerTarget.position - transform.position;
-                    lookPos.y = 0;
-                    var rotation = Quaternion.LookRotation(lookPos);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
+
                     exclamationMark.SetActive(true);
                     fileName = "ThugAlert";
                     SoundFX();
 
+                    playerHighlight.SetActive(false);
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    seenPlayer = 1;
                     foreach (ArtificialIntelligence ai in thugsToCall)
                     {
-                        ai.spottedHighlight = true;
-                        ai.isInFov = 2;
-                        ai.exclamationMark.SetActive(true);
-                        ai.maxAngle = 45;
-                        ai.maxAngle2 = 45;
-                        ai.firstFov.SetActive(false);
-                        ai.secondFov.SetActive(true);
-                        playerHighlight.transform.parent = playerTarget;
-                        playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-                        playerHighlight.transform.parent = null;
+                    ai.maxRadius3 = 30;
+                        ai.stopHere = 0f;
                     }
 
-                    if(gunLine.angle >= 4)
+                    if (gunLine.angle >= 4)
                     {
                         gunVision.SetActive(true);
                         gunLine.angle -= 1;
+                        if(gunLine.angle >= 23)
+                        {
+                            var lookPos = playerTarget.position - transform.position;
+                            lookPos.y = 0;
+                            var rotation = Quaternion.LookRotation(lookPos);
+                            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
+                        }
                     }
                     else if (gunLine.angle <= 4)
                     {
@@ -161,22 +161,23 @@ public class AISpotter : MonoBehaviour {
                     }
                 }
             }
-            else
+            else if (hit.transform != playerTarget && seenPlayer == 1)
             {
+                print("go back");
+                playerHighlight.transform.parent = null;
+                playerHighlight.SetActive(true);
                 investigatingState = 0;
                 gunLine.angle = 51;
                 gunVision.SetActive(false);
-                shotOnce = 0;
                 rotatingSpeed = 30f;
+                shotOnce = 0;
+                seenPlayer = 0;
+                foreach (ArtificialIntelligence ai in thugsToCall)
+                {
+                    ai.maxRadius3 = 2.5f;
+                    ai.stopHere = 3f;
+                }
             }
-        }
-        else
-        {
-            investigatingState = 0;
-            gunLine.angle = 51;
-            gunVision.SetActive(false);
-            shotOnce = 0;
-            rotatingSpeed = 30f;
         }
 
         if (investigatingState == 0 && !canRotateLoop)
@@ -184,7 +185,7 @@ public class AISpotter : MonoBehaviour {
             var lookPos = startingAngle.position - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1);
         }
         return false;
     }
@@ -194,44 +195,6 @@ public class AISpotter : MonoBehaviour {
         if (!externalAudio.isPlaying)
         {
             externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.name == "NoisyFloor")
-        {
-            if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
-            {
-                canRotateLoop = false;
-                var lookPos = playerTarget.position - transform.position;
-                lookPos.y = 0;
-                var rotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotatingSpeed);
-                exclamationMark.SetActive(true);
-
-                foreach (ArtificialIntelligence ai in thugsToCall)
-                {
-                    ai.spottedHighlight = true;
-                    ai.isInFov = 2;
-                    //playerHighlight.transform.parent = playerTarget;
-                    //playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-                    //playerHighlight.transform.parent = null;
-                }
-            }
-        }
-
-        if (other.tag == "Player")
-        {
-            playerWithinRadius = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            playerWithinRadius = false;
         }
     }
 
