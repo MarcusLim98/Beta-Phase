@@ -71,6 +71,7 @@ public class ArtificialIntelligence : MonoBehaviour
         firstFov = this.gameObject.transform.GetChild(3).gameObject;
         secondFov = this.gameObject.transform.GetChild(4).gameObject;
         timeToStare = 1.5f;
+        stopHere = 3f;
         currentAngle1 = maxAngle;
         state = AIState.PATROLLING;
     }
@@ -491,7 +492,6 @@ public class ArtificialIntelligence : MonoBehaviour
         maxAngle2 = currentAngle1;
         firstFov.SetActive(false);
         secondFov.SetActive(true);
-        stopHere = 3f;
         stopToGoBack = 0;
     }
 

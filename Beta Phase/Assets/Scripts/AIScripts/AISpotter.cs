@@ -135,6 +135,7 @@ public class AISpotter : MonoBehaviour {
                     {
                         ai.playerMask = LayerMask.GetMask("Player");
                         ai.maxRadius3 = 60;
+                        ai.stopHere = 0;
                     }
 
                     if (gunLine.angle >= 4)
@@ -173,6 +174,7 @@ public class AISpotter : MonoBehaviour {
                 {
                     ai.playerMask = LayerMask.GetMask("Nothing");
                     ai.maxRadius3 = 2.5f;
+                    ai.stopHere = 3;
                 }
                 investigatingState = 0;
             }
