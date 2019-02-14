@@ -383,6 +383,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 spottedHighlight = false;
                 goToNoisySource = false;
                 dontMove = false;
+                noisySource = null;
                 stopToGoBack = 0;
                 stopToLook = 0;
                 isInFov = 0;
