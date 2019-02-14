@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a12d5a62739cc24a9b7a0e6030eda04
+guid: 11d3eec6724438c408437e17eabdaa5b
 TextureImporter:
   fileIDToRecycleName:
     21300000: Xin_Pei
@@ -9,13 +9,13 @@ TextureImporter:
     21300008: Skyler
     21300010: Harits
     21300012: Kaffy
-    21300014: Xin_Pei_Role
-    21300016: Noah_Roles
-    21300018: Cherie_Roles
+    21300014: Kaffy_Roles
+    21300016: Harits_Roles
+    21300018: Skyler_Roles
     21300020: Marcus_Roles
-    21300022: Skyler_Roles
-    21300024: Harits_Roles
-    21300026: Kaffy_Roles
+    21300022: Cherie_Roles
+    21300024: Noah_Roles
+    21300026: Xin_Pei_Roles
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -101,10 +101,10 @@ TextureImporter:
       name: Xin_Pei
       rect:
         serializedVersion: 2
-        x: 259
-        y: 1201
-        width: 644
-        height: 99
+        x: 272
+        y: 1206
+        width: 624
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,7 +112,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 148bc008431dc3a469e56e8b116bf46b
+      spriteID: 64add0700ea85a5448c716239d680adc
       vertices: []
       indices: 
       edges: []
@@ -121,10 +121,10 @@ TextureImporter:
       name: Noah
       rect:
         serializedVersion: 2
-        x: 150
-        y: 1009
-        width: 865
-        height: 99
+        x: 162
+        y: 1004
+        width: 850
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,7 +132,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e2204837b5cab48ab9071fad3a6153
+      spriteID: a0b28c5b7bc73024f8f49fefe4965d99
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: Cherie
       rect:
         serializedVersion: 2
-        x: 327
-        y: 808
-        width: 514
-        height: 90
+        x: 329
+        y: 804
+        width: 511
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,7 +152,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff15d2cea3413c8419adace0405a84b7
+      spriteID: 9592630ff9a4425459401aedecc93df7
       vertices: []
       indices: 
       edges: []
@@ -161,10 +161,10 @@ TextureImporter:
       name: Marcus
       rect:
         serializedVersion: 2
-        x: 311
-        y: 607
-        width: 554
-        height: 87
+        x: 314
+        y: 603
+        width: 547
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,7 +172,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fac42156362b24793edcdc76c2f593
+      spriteID: 038d752f471e8b2469003a1a071d2279
       vertices: []
       indices: 
       edges: []
@@ -181,10 +181,10 @@ TextureImporter:
       name: Skyler
       rect:
         serializedVersion: 2
-        x: 11
-        y: 400
-        width: 1151
-        height: 103
+        x: 15
+        y: 401
+        width: 1148
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,7 +192,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19c028c50c1d14e4888a50e78589bd18
+      spriteID: 5747c9a451d329143a8fa5cdb45604b4
       vertices: []
       indices: 
       edges: []
@@ -201,10 +201,10 @@ TextureImporter:
       name: Harits
       rect:
         serializedVersion: 2
-        x: 240
-        y: 204
-        width: 693
-        height: 89
+        x: 241
+        y: 199
+        width: 694
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,7 +212,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 681f83a823b6633499ba8f9541251107
+      spriteID: a7f39e2c92a77e647928d77b04670e03
       vertices: []
       indices: 
       edges: []
@@ -223,8 +223,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1182
-        height: 91
+        width: 1181
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,19 +232,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f486b846da1a6e419c0c06baccca762
+      spriteID: 633268a592b3c844e8c61039abcfd6b4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Xin_Pei_Role
+      name: Kaffy_Roles
       rect:
         serializedVersion: 2
-        x: 1315
-        y: 1151
-        width: 1275
-        height: 129
+        x: 1658
+        y: 28
+        width: 607
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,19 +252,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c7f16b7ac514764e815d01bc24a33e4
+      spriteID: beef85ba088166147a0ad6460e08dc05
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Noah_Roles
+      name: Harits_Roles
       rect:
         serializedVersion: 2
-        x: 1432
-        y: 949
-        width: 1051
-        height: 132
+        x: 1422
+        y: 189
+        width: 1119
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,7 +272,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcac93010e6f0d541a3c766d1b33ba87
+      spriteID: cec5a7b1cb9d2c549820f5ffd646358f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skyler_Roles
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 384
+        width: 1159
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012ea142864261c4283325ab1286b877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcus_Roles
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 602
+        width: 1082
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51116798546b2d34ca868a7c114e2149
       vertices: []
       indices: 
       edges: []
@@ -282,9 +322,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1437
-        y: 741
-        width: 1044
-        height: 146
+        y: 745
+        width: 1046
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,19 +332,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af244f6e1d683544990d64c9e62e14a8
+      spriteID: 500ffe8eb9c0de8408663b3ef961d21a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Marcus_Roles
+      name: Noah_Roles
       rect:
         serializedVersion: 2
-        x: 1419
-        y: 608
-        width: 1082
-        height: 72
+        x: 1438
+        y: 946
+        width: 1046
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,19 +352,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7abd31fa5f82cbc48bc5013f5af8e4ef
+      spriteID: 6c2a1e555eaaa1e40a35efeacd072745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skyler_Roles
+      name: Xin_Pei_Roles
       rect:
         serializedVersion: 2
-        x: 1404
-        y: 388
-        width: 1156
-        height: 138
+        x: 1326
+        y: 1145
+        width: 1269
+        height: 142
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,47 +372,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1f5d05d2c035346b2892ec0d23d6c4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Harits_Roles
-      rect:
-        serializedVersion: 2
-        x: 1430
-        y: 187
-        width: 1106
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52cfd4c9cbaf837428cf778d24fefb35
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kaffy_Roles
-      rect:
-        serializedVersion: 2
-        x: 1642
-        y: 33
-        width: 621
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffaa393dcfd00404f9c6265ff978441f
+      spriteID: b24787d2346566e4e842d8bd80bbb853
       vertices: []
       indices: 
       edges: []
@@ -380,7 +380,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e3fd40a9cd7e76b4d9159865050a4eb4
+    spriteID: 7019d79b4e96dd34d9cb1f89b5c49fde
     vertices: []
     indices: 
     edges: []
