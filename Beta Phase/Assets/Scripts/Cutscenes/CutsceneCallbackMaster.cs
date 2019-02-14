@@ -108,7 +108,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day1Suspicion()
     {
-        datasl.ObtainItem("Day1Suspicion", 1);
+        datasl.ObtainItem("Day1Afterwork", 1);
         ChangeObjective("investigate the ruckus");
         EndCutscene();
     }
@@ -126,7 +126,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1AfterEavesdrop()
     {
         datasl.ObtainItem("Day1AfterEavesdrop", 1);
-        cameraFocus = camFocusObj[0].transform;
+        cameraFocus = camFocusObj[0].transform;             //ext coffee shop thugs eaves area
         StartCutscene();
         ChangeObjective("find another way into the coffeeshop");
     }
@@ -134,8 +134,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1EaveComment()
     {
         EaveEnd();
-        cameraFocus = playerLogic.gameObject.transform;
-        contDialogue[3].SetActive(true);
+        cameraFocus = playerLogic.gameObject.transform;     //return to YY
+        contDialogue[3].SetActive(true);                    //YY comment on ext coffee shop eaves
     }
 
     void Day1EnterCShop()
@@ -146,7 +146,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1AfterCShopEavesdrop()
     {
         datasl.ObtainItem("Day1AfterCShopEavesdrop", 1);
-        cameraFocus = camFocusObj[1].transform;
+        cameraFocus = camFocusObj[1].transform;             //int coffee shop thugs eaves area
         StartCutscene();
         ChangeObjective("exit area through the side door");
     }
@@ -155,7 +155,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1AfterGambleEavesdrop()
     {
         datasl.ObtainItem("Day1AfterGambleEavesdrop", 1);
-        cameraFocus = camFocusObj[0].transform;
+        cameraFocus = camFocusObj[0].transform;             //gambling thugs eaves area
         StartCutscene();
         ChangeObjective("exit the area");
     }
@@ -163,8 +163,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1GambleEaveComment()
     {
         EaveEnd();
-        cameraFocus = playerLogic.gameObject.transform;
-        contDialogue[0].SetActive(true);
+        cameraFocus = playerLogic.gameObject.transform;     //return to YY
+        contDialogue[0].SetActive(true);                    //YY comment on gamble eaves
     }
     #endregion
 
@@ -187,7 +187,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2PanToThugs()
     {
-        cameraFocus = camFocusObj[0].transform;
+        cameraFocus = camFocusObj[0].transform;             //guarding thug area
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
     }
@@ -203,26 +203,26 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void AfterEaveCall()
     {
         datasl.ObtainItem("AfterEaveCall", 1);
-        cameraFocus = camFocusObj[0].transform;
+        cameraFocus = camFocusObj[0].transform;             //thug solo call eaves area
         StartCutscene();
     }
 
     void AfterEaveDocs()
     {
         datasl.ObtainItem("AfterEaveDocs", 1);
-        cameraFocus = camFocusObj[1].transform;
+        cameraFocus = camFocusObj[1].transform;             //two thugs talking about docs eaves area
         StartCutscene();
     }
 
     void Day2Spotter()
     {
         datasl.ObtainItem("Day2Spotter", 1);
-        cameraFocus = camFocusObj[2].transform;
+        cameraFocus = camFocusObj[2].transform;             //spotter area
     }
 
     void CMWHObjective()
     {
-        ChangeObjective("Collect documents (0/3)");
+        ChangeObjective("Collect documents (0/3)");         //may not be used
     }
     #endregion
 
@@ -233,15 +233,15 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     //Scene 4.5
     void Day3Intro()
     {
-        spawnObj[0].SetActive(true);
-        spawnObj[1].SetActive(false);
-        StartCoroutine(Day3IntroBeha());
+        spawnObj[0].SetActive(true);                        //temp blackout
+        spawnObj[1].SetActive(false);                       //npc sprite
+        StartCoroutine(Day3IntroBeha());                    
     }
 
     IEnumerator Day3IntroBeha()
     {
         yield return new WaitForSeconds(2);
-        spawnObj[2].SetActive(true);
+        spawnObj[2].SetActive(true);                        //TalkArea to trigger monolouge
     }
 
     void Day3Determination()
@@ -250,38 +250,38 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     }
 
     //Scene 8
-    void BossEave()                                                 //for all boss eavesdrops dialogue
+    void BossEave()                                         //for all boss eavesdrops dialogue
     {
-        cameraFocus = camFocusObj[0].transform;                     //Lao Da
+        cameraFocus = camFocusObj[0].transform;             //Lao Da
         StartCutscene();
     }
 
-    IEnumerator BossEave1()                                         //for panning after first eavesdrop
+    IEnumerator BossEave1()                                 //for panning after first eavesdrop
     {
         //datasl.ObtainItem("BossEaveNo", 1);
-        cameraFocus = camFocusObj[1].transform;                     //1st doc
+        cameraFocus = camFocusObj[1].transform;             //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
     }
 
-    IEnumerator BossEave2()                                         //for panning after second eavesdrop
+    IEnumerator BossEave2()                                 //for panning after second eavesdrop
     {
         //datasl.ObtainItem("BossEaveNo", 2);
-        cameraFocus = camFocusObj[2].transform;                     //2nd doc
+        cameraFocus = camFocusObj[2].transform;             //2nd doc
         yield return new WaitForSeconds(2);
-        cameraFocus = camFocusObj[3].transform;                     //3rd doc
+        cameraFocus = camFocusObj[3].transform;             //3rd doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
     }
 
-    IEnumerator BossEave3()                                         //for panning after third eavesdrop
+    IEnumerator BossEave3()                                 //for panning after third eavesdrop
     {
         //datasl.ObtainItem("BossEaveNo", 3);
-        cameraFocus = camFocusObj[4].transform;                     //4th doc
+        cameraFocus = camFocusObj[4].transform;             //4th doc
         yield return new WaitForSeconds(2);
-        cameraFocus = camFocusObj[5].transform;                     //5th doc
+        cameraFocus = camFocusObj[5].transform;             //5th doc
         yield return new WaitForSeconds(2);
-        cameraFocus = camFocusObj[6].transform;                     //6th doc
+        cameraFocus = camFocusObj[6].transform;             //6th doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
     }

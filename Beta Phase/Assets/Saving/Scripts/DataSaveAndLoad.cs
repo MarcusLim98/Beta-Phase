@@ -29,6 +29,10 @@ public class DataSaveAndLoad : MonoBehaviour {
 
         CreateItemList();
         CheckItem();
+        foreach (KeyItem item in keyItemList)                                       //check through entire item list
+        {
+            print(item.keyItemName + ": " + item.taken);
+        }
     }
 
     private void OnLevelWasLoaded(int level)                                        //spawns player at last checkpoint in playable levels
@@ -47,11 +51,11 @@ public class DataSaveAndLoad : MonoBehaviour {
                 playerAgent.enabled = true;
                 objectiveText.text = PlayerPrefs.GetString("savedobjective");
             }
-            //if not, because it's a new scene, save progress
-            else if (SceneManager.GetActiveScene().name != PlayerPrefs.GetString("spawnscene"))
-            {
-                SaveGame("StartPoint");
-            }
+            ////if not, because it's a new scene, save progress
+            //else if (SceneManager.GetActiveScene().name != PlayerPrefs.GetString("spawnscene"))
+            //{
+            //    SaveGame("StartPoint");
+            //}
             else return;
         }
     }
@@ -65,6 +69,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         foreach (KeyItem item in keyItemList)                                       //check through entire item list
         {
             PlayerPrefs.SetInt(item.keyItemName, item.taken);                       //if taken, save the value as 1 (true)
+            print(item.keyItemName + ": " + item.taken);
         }
 
         PlayerPrefs.Save();
@@ -73,7 +78,7 @@ public class DataSaveAndLoad : MonoBehaviour {
     void CreateItemList()
     {
         //Scene 1
-        keyItemList.Add(new KeyItem("Day1Suspicion", 0));
+        keyItemList.Add(new KeyItem("Day1Afterwork", 0));
         keyItemList.Add(new KeyItem("Day1AfterEavesdrop", 0));
         keyItemList.Add(new KeyItem("Day1AfterCShopEavesdrop", 0));
 

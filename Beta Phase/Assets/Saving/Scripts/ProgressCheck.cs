@@ -7,7 +7,7 @@ public class ProgressCheck : MonoBehaviour
     [SerializeField]
     string progressName;
 
-    void Awake()
+    void Start()
     {
         if (PlayerPrefs.GetInt(progressName) >= 1)
         {
