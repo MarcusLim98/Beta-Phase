@@ -8,7 +8,7 @@ public class AutoSaving : MonoBehaviour
     SpawnBehaviour spawnBeha;
     [SerializeField]
     GameObject lightFeedback;
-    bool happened;
+    //bool happened;
 
     void Awake()
     {
@@ -17,12 +17,13 @@ public class AutoSaving : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !happened)
+        if (other.CompareTag("Player") /*&& !happened*/)
         {
             spawnBeha.spawnPointName = gameObject.transform.GetChild(0).name;
             spawnBeha.AutoSave();
             lightFeedback.SetActive(true);
-            happened = true;
+            //happened = true;
+            print("altar saving");
         }
     }
 }

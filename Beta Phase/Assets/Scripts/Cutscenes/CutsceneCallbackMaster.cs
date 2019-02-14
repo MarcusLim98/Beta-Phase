@@ -250,33 +250,61 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     }
 
     //Scene 8
-    void BossEave()                                         //for all boss eavesdrops dialogue
+    void BossEaveGen()                                      //for all boss eavesdrops dialogue
     {
         cameraFocus = camFocusObj[0].transform;             //Lao Da
         StartCutscene();
     }
 
-    IEnumerator BossEave1()                                 //for panning after first eavesdrop
+    void BossEave1()
+    {
+        camFocusObj[1].SetActive(true);                     //1st doc
+
+        StartCoroutine(BossPan1());
+    }
+
+    void BossEave2()
+    {
+        camFocusObj[2].SetActive(true);                     //2nd doc
+        camFocusObj[3].SetActive(true);                     //3rd doc
+
+        StartCoroutine(BossPan2());
+    }
+
+    void BossEave3()
+    {
+        camFocusObj[4].SetActive(true);                     //4th doc
+        camFocusObj[5].SetActive(true);                     //5th doc
+        camFocusObj[6].SetActive(true);                     //6th doc
+
+        StartCoroutine(BossPan3());
+    }
+
+    IEnumerator BossPan1()                                 //for panning after first eavesdrop
     {
         //datasl.ObtainItem("BossEaveNo", 1);
         cameraFocus = camFocusObj[1].transform;             //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
+        EndCutscene();
     }
 
-    IEnumerator BossEave2()                                 //for panning after second eavesdrop
+    IEnumerator BossPan2()                                 //for panning after second eavesdrop
     {
         //datasl.ObtainItem("BossEaveNo", 2);
+
         cameraFocus = camFocusObj[2].transform;             //2nd doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[3].transform;             //3rd doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
+        EndCutscene();
     }
 
-    IEnumerator BossEave3()                                 //for panning after third eavesdrop
+    IEnumerator BossPan3()                                 //for panning after third eavesdrop
     {
         //datasl.ObtainItem("BossEaveNo", 3);
+
         cameraFocus = camFocusObj[4].transform;             //4th doc
         yield return new WaitForSeconds(2);
         cameraFocus = camFocusObj[5].transform;             //5th doc
@@ -284,6 +312,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = camFocusObj[6].transform;             //6th doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
+        EndCutscene();
     }
 
     #endregion

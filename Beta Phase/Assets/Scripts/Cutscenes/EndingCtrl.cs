@@ -58,21 +58,8 @@ public class EndingCtrl : MonoBehaviour
         fadeToBlack.SetActive(false);
         fadeFromBlack.SetActive(true);
         creditBgm.Play();
-        yield return new WaitForSeconds(8);
+        //camera should start panning
+        yield return new WaitForSeconds(8);         //change to fit camera pan duration
         uiB.LoadScene("FakeMenu");
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 2
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 3
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 4
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 5
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 6
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 7
-        //yield return new WaitForSeconds(4);
-        //camera changes position to credits 8
     }
 }
