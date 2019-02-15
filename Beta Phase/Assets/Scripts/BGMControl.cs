@@ -101,7 +101,7 @@ public class BGMControl : MonoBehaviour
     //call this function when YY escapes AI
     public void EscapeDanger()
     {
-        StartCoroutine(FadeOut(Chase ,0.5f));
+        StartCoroutine(FadeOut(Chase ,1.5f));
         if (!Bgm.isPlaying)
         {
             Bgm.Play();
@@ -112,7 +112,9 @@ public class BGMControl : MonoBehaviour
 
     public void GotCaught()
     {
-
+        StartCoroutine(FadeOut(Chase, 0.5f));
+        Bgm.clip = (AudioClip)Resources.Load(Loss);
+        Bgm.Play();
     }
     //Chase volume will decrease before stopping. FadeOut
     IEnumerator FadeOut(AudioSource Chase, float FadeTime)
