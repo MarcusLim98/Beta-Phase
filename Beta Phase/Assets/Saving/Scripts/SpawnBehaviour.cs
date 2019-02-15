@@ -20,6 +20,14 @@ public class SpawnBehaviour : MonoBehaviour {
         datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "EndGame")
+        {
+            ui.LoadScene(nextLevel);
+        }
+    }
+
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("KeyItem") && Input.GetKeyDown(KeyCode.E))
@@ -34,10 +42,10 @@ public class SpawnBehaviour : MonoBehaviour {
         //    //ui.LoadScene(SceneManager.GetActiveScene().name);
         //}
 
-        if (other.name == "EndGame")
-        {
-            ui.LoadScene(nextLevel);
-        }
+        //if (other.name == "EndGame")
+        //{
+        //    ui.LoadScene(nextLevel);
+        //}
 
         else return;
     }
