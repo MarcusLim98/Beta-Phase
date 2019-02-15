@@ -114,7 +114,7 @@ public class ArtificialIntelligence : MonoBehaviour
                                 playerHighlight.transform.parent = null;
                                 agent.speed = 0;
                                 targetDir = playerHighlight.transform.position - thisAI.position;
-                                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                                newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
                                 transform.rotation = Quaternion.LookRotation(newDir);
                             }
                             else if (stopToLook >= timeToStare && !dontMove)
@@ -144,7 +144,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             anim.SetInteger("State", 0);
                             agent.speed = 0;
                             targetDir = noisySource.transform.position - thisAI.position;
-                            newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                            newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
                         else if (stopToLook >= timeToStare && !dontMove)
@@ -195,7 +195,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             playerHighlight.transform.parent = null;
                             agent.speed = 0;
                             targetDir = playerHighlight.transform.position - thisAI.position;
-                            newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                            newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
                             transform.rotation = Quaternion.LookRotation(newDir);
                         }
                         else if (stopToLook >= timeToStare)
@@ -384,7 +384,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         playerHighlight.SetActive(true);
                     }
                     targetDir = playerHighlight.transform.position - thisAI.position;
-                    newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                    newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
                     transform.rotation = Quaternion.LookRotation(newDir);
                 }
             }
@@ -450,7 +450,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
-            if (Physics.Raycast(ray, out hit2, maxRadius3, playerMask) && isInFov != 2)
+            if (Physics.Raycast(ray, out hit2, maxRadius3) && isInFov != 2)
             {
                 if (hit2.transform == playerTarget)
                 {
@@ -513,7 +513,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    /*private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
+    private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
@@ -544,7 +544,7 @@ public class ArtificialIntelligence : MonoBehaviour
         else if (investigatingState == 2)
             Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, (playerTarget.position - transform.position).normalized * maxRadius); //ensures the middle raycasting line turns to green when hitting the target
-    }*/
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -552,12 +552,15 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
             {
-                fileName = "ThugSuspicious";
-                SoundFX();
-                noisySource = playerLogic.thisNoisyFloor;
-                goToNoisySource = true;
-                questionMark.SetActive(true);
-                exclamationMark.SetActive(false);
+                if (spottedHighlight == false)
+                {
+                    fileName = "ThugSuspicious";
+                    SoundFX();
+                    noisySource = playerLogic.thisNoisyFloor;
+                    goToNoisySource = true;
+                    questionMark.SetActive(true);
+                    exclamationMark.SetActive(false);
+                }
             }
         }
 
@@ -568,9 +571,12 @@ public class ArtificialIntelligence : MonoBehaviour
 
         if (other.tag == "Bottle")
         {
-            noisySource = GameObject.Find("Shards").transform;
-            goToNoisySource = true;
-            questionMark.SetActive(true);
+            if(spottedHighlight == true)
+            {
+                noisySource = GameObject.Find("Shards").transform;
+                goToNoisySource = true;
+                questionMark.SetActive(true);
+            }
         }
     }
 
