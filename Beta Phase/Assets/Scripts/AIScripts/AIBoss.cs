@@ -75,7 +75,7 @@ public class AIBoss : MonoBehaviour {
                         anim.SetInteger("State", 1);
                         agent.speed = walkSpeed;
                     }
-                    else if (stopLaoDa && !triggerFirstEvent)                   //don't move, first cutscene not done
+                    else if (stopLaoDa /*&& !triggerFirstEvent*/)                   //don't move, first cutscene not done
                     {
                         anim.SetInteger("State", 0);
                         agent.speed = 0;
@@ -164,7 +164,7 @@ public class AIBoss : MonoBehaviour {
     {
         if(destPoint + 1 == aiPath[pathWay].path_objs.Count)
         {
-            if (pathWay != 2)
+            if (pathWay != 4)
             {
                 stopLaoDa = true;
                 pathWay += 1;

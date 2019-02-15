@@ -51,6 +51,7 @@ public class EndingCtrl : MonoBehaviour
 
     IEnumerator RollCredits()
     {
+        PlayerPrefs.DeleteAll();
         originalBgm.Stop();
         altar.Play();
         endTitle.SetActive(true);

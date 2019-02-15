@@ -283,9 +283,43 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         StartCutscene();
     }
 
+    public void FirstDoc()
+    {
+        bossAi.stopLaoDa = false;
+        contDialogue[0].SetActive(true);                    //Lao Da's intro cutscene
+    }
+
+    void BossIntro()                                        //for after intro
+    {
+        datasl.ObtainItem("BossIntro", 1);
+        bossAi.stopLaoDa = false;
+        EndCutscene();
+    }
+
+    public void LastDoc()                                   //Lao Da's outro cutscene
+    {
+        contDialogue[1].SetActive(true);
+    }
+
+    void BossOutro()                                        //for after outro
+    {
+        datasl.ObtainItem("BossOutro", 1);
+        //all thugs go alert
+        StartCoroutine(BossExitPan());
+        StartCutscene();
+    }
+
+    IEnumerator BossExitPan()
+    {
+        cameraFocus = camFocusObj[7].transform;             //exit
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+        EndCutscene();
+    }
+
     void BossEave1()
     {
-        camFocusObj[1].SetActive(true);                     //1st doc
+        //camFocusObj[1].SetActive(true);                     //1st doc
 
         StartCoroutine(BossPan1());
         StartCutscene();
@@ -293,8 +327,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void BossEave2()
     {
-        camFocusObj[2].SetActive(true);                     //2nd doc
-        camFocusObj[3].SetActive(true);                     //3rd doc
+        //camFocusObj[2].SetActive(true);                     //2nd doc
+        //camFocusObj[3].SetActive(true);                     //3rd doc
 
         StartCoroutine(BossPan2());
         StartCutscene();
@@ -302,9 +336,9 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void BossEave3()
     {
-        camFocusObj[4].SetActive(true);                     //4th doc
-        camFocusObj[5].SetActive(true);                     //5th doc
-        camFocusObj[6].SetActive(true);                     //6th doc
+        //camFocusObj[4].SetActive(true);                     //4th doc
+        //camFocusObj[5].SetActive(true);                     //5th doc
+        //camFocusObj[6].SetActive(true);                     //6th doc
 
         StartCoroutine(BossPan3());
         StartCutscene();
@@ -312,7 +346,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossPan1()                                 //for panning after first eavesdrop
     {
-        //datasl.ObtainItem("BossEaveNo", 1);
+        datasl.ObtainItem("BossEaveNo1", 1);
         cameraFocus = camFocusObj[1].transform;             //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
@@ -323,8 +357,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossPan2()                                 //for panning after second eavesdrop
     {
-        //datasl.ObtainItem("BossEaveNo", 2);
-
+        datasl.ObtainItem("BossEaveNo2", 1);
         cameraFocus = camFocusObj[2].transform;             //2nd doc
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan21());
@@ -342,8 +375,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     IEnumerator BossPan3()                                 //for panning after third eavesdrop
     {
-        //datasl.ObtainItem("BossEaveNo", 3);
-
+        datasl.ObtainItem("BossEaveNo3", 1);
         cameraFocus = camFocusObj[4].transform;             //4th doc
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan31());

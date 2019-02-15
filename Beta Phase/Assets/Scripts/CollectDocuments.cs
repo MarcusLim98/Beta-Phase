@@ -14,10 +14,12 @@ public class CollectDocuments : MonoBehaviour
     DataSaveAndLoad dsal;
     [SerializeField]
     AudioSource externalAudio;
+    CutsceneCallbackMaster callback;
 
     private void Start()
     {
         dsal = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
+        callback = GameObject.Find("CutsceneCallbackMaster").GetComponent<CutsceneCallbackMaster>();
 
         if (lvNo == 2 && PlayerPrefs.HasKey("WHDocs"))          //if CWHouse and you've taken docs before, load old int
         {
@@ -55,12 +57,16 @@ public class CollectDocuments : MonoBehaviour
                 }
                 else if (lvNo == 3)
                 {
+                    dsal.ObtainItem(other.name, 1);
                     dsal.ObtainItem("BossDocs", i);             //updates int
                     dsal.SaveGame("SpawnHere84");               //saves int immediately afterwards
+                    if (i == 1) { callback.FirstDoc(); }
+                    else if (i == collect) { callback.LastDoc(); }
                 }
             }
         }
-        if (other.tag == "Documents" && i >= collect)
+
+        if (other.tag == "Documents" && i >= collect)           //activates end point
         {
             foreach(GameObject indicators in obj)
             {

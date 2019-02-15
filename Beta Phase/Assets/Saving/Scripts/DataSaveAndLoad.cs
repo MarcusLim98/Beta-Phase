@@ -91,10 +91,18 @@ public class DataSaveAndLoad : MonoBehaviour {
         keyItemList.Add(new KeyItem("WHDocs", 0));
 
         //Scene 8
-        //keyItemList.Add(new KeyItem("LaoDaIntro", 0));
-        //keyItemList.Add(new KeyItem("LaoDaDefeat", 0));
-        keyItemList.Add(new KeyItem("BossEaveNo", 0));
+        keyItemList.Add(new KeyItem("BossIntro", 0));
+        keyItemList.Add(new KeyItem("BossOutro", 0));
+        keyItemList.Add(new KeyItem("BossEaveNo1", 0));
+        keyItemList.Add(new KeyItem("BossEaveNo2", 0));
+        keyItemList.Add(new KeyItem("BossEaveNo3", 0));
         keyItemList.Add(new KeyItem("BossDocs", 0));
+        keyItemList.Add(new KeyItem("Documents - 1", 0));
+        keyItemList.Add(new KeyItem("Documents - 2", 0));
+        keyItemList.Add(new KeyItem("Documents - 3", 0));
+        keyItemList.Add(new KeyItem("Documents - 4", 0));
+        keyItemList.Add(new KeyItem("Documents - 5", 0));
+        keyItemList.Add(new KeyItem("Documents - 6", 0));
     }
 
     public void ObtainItem(string foundItemName, int number)                        //for obtaining items
