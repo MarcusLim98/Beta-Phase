@@ -18,9 +18,12 @@ public class AIBoss : MonoBehaviour {
     [Space]
     [Space]
     public AIPath[] aiPath;
-    public float maxRadius, maxAngle, rotatingSpeed, walkSpeed, runSpeed;
+    public ArtificialIntelligence aiFollower;
+    public float maxRadius, maxAngle, maxRadius2, maxAngle2, rotatingSpeed, walkSpeed, runSpeed;
     public int investigatingState,pathWay;
-    public bool spottedHighlight, goToNoisySource, stopLaoDa;
+    public bool spottedHighlight, goToNoisySource;
+    public bool stopLaoDa;//stops lao da from moving when he reaches the end point of his paths, it triggers automatically
+    public bool triggerFirstEvent; //controls the fov whether it can react to YY
     [Space]
     [Space]
     NavMeshAgent agent;
@@ -34,7 +37,7 @@ public class AIBoss : MonoBehaviour {
     public int timesFired, timesHit;
     int destPoint = 0, isInFov, firstStage, canFire, hitByCrate;
     float stopToGoBack, angle, stopToLook;
-    bool turnBack, cannotTurn, playerWithinRadius, triggerFirstEvent;
+    bool turnBack, cannotTurn, playerWithinRadius;
     string fileName;
     [Space]
     [Space]
@@ -62,7 +65,6 @@ public class AIBoss : MonoBehaviour {
     public void Update()
     {
         InFov();
-        print(state);
         switch (state)
         {
             case AIState.PATROLLING:
@@ -97,6 +99,15 @@ public class AIBoss : MonoBehaviour {
                     gunLine.SetActive(false);
                     aiVision.angle = 51;
                     stopToLook = 0;
+                    if (canFire == 1)
+                    {
+                        playerHighlight.SetActive(true);
+                        playerHighlight.transform.parent = null;
+                        aiFollower.playerMask = LayerMask.GetMask("Nothing");
+                        aiFollower.maxRadius3 = 2.5f;
+                        aiFollower.stopHere = 3;
+                    }
+                    canFire = 0;
                     state = AIState.PATROLLING;
                 }
                 else if (investigatingState == 1)
@@ -111,11 +122,14 @@ public class AIBoss : MonoBehaviour {
 
     void FiringPropeties()
     {
-        triggerFirstEvent = true;
+        //triggerFirstEvent = true;
         anim.SetInteger("State", 2);
         agent.speed = 0;
         exclamationMark.SetActive(true);
         gunLine.SetActive(true);
+        playerHighlight.SetActive(false);
+        playerHighlight.transform.parent = playerTarget;
+        playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
         walkSpeed = 6;
         if (aiVision.angle >= 4)
         {
@@ -125,13 +139,24 @@ public class AIBoss : MonoBehaviour {
             if (aiVision.angle >= 23)
             {
                 targetDir = playerHighlight.transform.position - thisAI.position;
-                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                newDir = Vector3.RotateTowards(transform.forward, targetDir, rotatingSpeed * Time.deltaTime, 0.0f);
                 transform.rotation = Quaternion.LookRotation(newDir);
             }
         }
         else if (aiVision.angle <= 4)
         {
-            muzzleFlash.SetActive(true);
+            if(canFire == 0)
+            {
+                fileName = "LaoDaGunShot";
+                SoundFX();
+                muzzleFlash.SetActive(true);
+                Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
+                aiFollower.playerMask = LayerMask.GetMask("Player");
+                aiFollower.maxRadius3 = 60;
+                aiFollower.stopHere = 0;
+                canFire = 1;
+                rotatingSpeed = 1.85f;
+            }
         }
     }
 
@@ -139,7 +164,6 @@ public class AIBoss : MonoBehaviour {
     {
         if(destPoint + 1 == aiPath[pathWay].path_objs.Count)
         {
-            lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
             if (pathWay != 2)
             {
                 stopLaoDa = true;
@@ -167,12 +191,13 @@ public class AIBoss : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit, maxRadius))
             {
-                if (hit.transform == playerTarget)
+                if (hit.transform == playerTarget && triggerFirstEvent)
                 {
                     investigatingState = 1;
-                    /*fileName = "ThugAlert";
+                    fileName = "ThugAlert";
                     SoundFX();
-                    investigatingState = 1;
+                    rotatingSpeed = 1.85f;
+                    /*investigatingState = 1;
                     goToNoisySource = false;
                     stopToLook = 0;
                     exclamationMark.SetActive(true);
@@ -201,6 +226,22 @@ public class AIBoss : MonoBehaviour {
         else
         {
             investigatingState = 0;
+        }
+
+        if (angle <= maxAngle2 && playerLogic.movingStyle == 1)
+        {
+            Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
+            RaycastHit hit2;
+            if (Physics.Raycast(ray, out hit2, maxRadius2) && isInFov != 2)
+            {
+                if (hit2.transform == playerTarget && triggerFirstEvent)
+                {
+                    investigatingState = 1;
+                    fileName = "ThugAlert";
+                    SoundFX();
+                    rotatingSpeed = 10f;
+                }
+            }
         }
 
         return false;
@@ -247,13 +288,20 @@ public class AIBoss : MonoBehaviour {
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, maxRadius2);
 
         Vector3 fovLine1 = Quaternion.AngleAxis(maxAngle, transform.up) * transform.forward * maxRadius;
         Vector3 fovLine2 = Quaternion.AngleAxis(-maxAngle, transform.up) * transform.forward * maxRadius; //Ensures the second blue fov line goes the other angle
+        Vector3 fov2Line1 = Quaternion.AngleAxis(maxAngle2, transform.up) * transform.forward * maxRadius2;
+        Vector3 fov2Line2 = Quaternion.AngleAxis(-maxAngle2, transform.up) * transform.forward * maxRadius2;
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, fovLine1);
         Gizmos.DrawRay(transform.position, fovLine2);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(transform.position, fov2Line1);
+        Gizmos.DrawRay(transform.position, fov2Line2);
 
         if (investigatingState == 0)
             Gizmos.color = Color.red;

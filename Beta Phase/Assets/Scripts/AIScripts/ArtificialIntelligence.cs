@@ -17,7 +17,7 @@ public class ArtificialIntelligence : MonoBehaviour
     [Space]
     public AIPath aiPath;
     public float maxRadius, maxRadius2, maxRadius3,maxRadius4, maxAngle, maxAngle2, maxAngle3, maxAngle4, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
-    public bool stationery, staticRotate, patrolTurn;
+    public bool stationery, staticRotate, patrolTurn, followingLaoDa;
     [Space]
     [Space]
     [HideInInspector]
@@ -54,7 +54,14 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             EmptyObj = new GameObject("Look Here");
             EmptyObj.transform.parent = this.gameObject.transform;
-            EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            if (!followingLaoDa)
+            {
+                EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
+            else if (followingLaoDa)
+            {
+                EmptyObj.transform.position = new Vector3(GameObject.Find("Lao_Dav2").transform.position.x, GameObject.Find("Lao_Dav2").transform.position.y, GameObject.Find("Lao_Dav2").transform.position.z + 3);
+            }
             stationeryPosition = this.gameObject.transform.GetChild(6);
             EmptyObj.transform.parent = null;
             lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -73,6 +80,7 @@ public class ArtificialIntelligence : MonoBehaviour
         timeToStare = 1.5f;
         stopHere = 3f;
         currentAngle1 = maxAngle;
+        maxRadius3 = 3.5f;
         state = AIState.PATROLLING;
     }
 
@@ -504,7 +512,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
+    /*private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
@@ -535,7 +543,7 @@ public class ArtificialIntelligence : MonoBehaviour
         else if (investigatingState == 2)
             Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, (playerTarget.position - transform.position).normalized * maxRadius); //ensures the middle raycasting line turns to green when hitting the target
-    }
+    }*/
 
     private void OnTriggerStay(Collider other)
     {
