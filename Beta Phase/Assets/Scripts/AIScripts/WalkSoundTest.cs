@@ -24,14 +24,14 @@ public class WalkSoundTest : MonoBehaviour
     }
     public void RightFoot()
     {
-        footSource.volume = 0.5f;
+        footSource.volume = 0.2f;
         footSource.clip = (AudioClip)Resources.Load(right);
         footSource.Play();
         Rstop = false;
     }
     public void LeftFoot()
     {
-        footSource.volume = 0.5f;
+        footSource.volume = 0.2f;
         footSource.clip = (AudioClip)Resources.Load(left);
         footSource.Play();
         Lstop = false;
