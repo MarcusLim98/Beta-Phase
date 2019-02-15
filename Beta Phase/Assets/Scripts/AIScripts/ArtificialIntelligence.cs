@@ -78,10 +78,13 @@ public class ArtificialIntelligence : MonoBehaviour
         faderLogic = this.gameObject.transform.GetChild(2).gameObject.GetComponent<FaderLogic>();
         firstFov = this.gameObject.transform.GetChild(3).gameObject;
         secondFov = this.gameObject.transform.GetChild(4).gameObject;
-        timeToStare = 1.5f;
+        timeToStare = 0.8f;
         stopHere = 3f;
         currentAngle1 = maxAngle;
-        maxRadius3 = 3.5f;
+        maxRadius3 = 4f;
+        agent.acceleration = 700f;
+        walkSpeed = 3;
+        runSpeed = 9;
         state = AIState.PATROLLING;
     }
 
@@ -167,13 +170,7 @@ public class ArtificialIntelligence : MonoBehaviour
             case AIState.INVESTIGATING:
                 if (investigatingState == 0)
                 {
-                    if (spottedHighlight)
-                    {
-                        playerHighlight.transform.parent = null;
-                  
-                    }
-                    state = AIState.PATROLLING;
-                    
+                    state = AIState.PATROLLING;                
                 }
                 if (investigatingState == 1)
                 {
@@ -214,7 +211,6 @@ public class ArtificialIntelligence : MonoBehaviour
             case AIState.CHASE:
                 if (investigatingState == 0)
                 {
-                    playerHighlight.transform.parent = null;
                     spottedHighlight = true;
                     goToNoisySource = false;
                     agent.speed = runSpeed;
@@ -229,7 +225,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     if (faderLogic.touchPlayer == false)
                     {
-                        agent.speed = 9;
+                        agent.speed = runSpeed;
                         anim.SetInteger("State", 1);
                     }
                     else if (faderLogic.touchPlayer == true)
@@ -372,7 +368,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             agent.speed = 0f;
             stopToGoBack += Time.deltaTime;
-            if (stopToGoBack <= 3f )
+            if (stopToGoBack <= 1.5f)
             {
                 print("3");
                 dontMove = true;
@@ -388,7 +384,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     transform.rotation = Quaternion.LookRotation(newDir);
                 }
             }
-            else if (stopToGoBack >= 3f)
+            else if (stopToGoBack >= 1.5f)
             {
                 print("4");
                 playerHighlight.SetActive(false);
@@ -450,7 +446,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
-            if (Physics.Raycast(ray, out hit2, maxRadius3) && isInFov != 2)
+            if (Physics.Raycast(ray, out hit2, maxRadius3))
             {
                 if (hit2.transform == playerTarget)
                 {
