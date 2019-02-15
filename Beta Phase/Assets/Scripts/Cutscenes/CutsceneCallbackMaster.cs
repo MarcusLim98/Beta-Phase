@@ -168,6 +168,20 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;     //return to YY
         contDialogue[0].SetActive(true);                    //YY comment on gamble eaves
     }
+
+    void Day1EndPoint()                                      //for end
+    {
+        StartCoroutine(Scene2EndPoint());
+        StartCutscene();
+    }
+
+    IEnumerator Scene2EndPoint()                            //pans to end point
+    {
+        cameraFocus = camFocusObj[1].transform;             //end point
+        yield return new WaitForSeconds(2);
+        cameraFocus = playerLogic.gameObject.transform;
+        EndCutscene();
+    }
     #endregion
 
 
