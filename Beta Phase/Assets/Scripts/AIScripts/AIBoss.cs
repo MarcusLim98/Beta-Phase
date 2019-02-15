@@ -17,10 +17,10 @@ public class AIBoss : MonoBehaviour {
     //public Text toBeContinued;
     [Space]
     [Space]
-    public AIPath aiPath;
+    public AIPath[] aiPath;
     public float maxRadius, maxAngle, rotatingSpeed, walkSpeed, runSpeed;
-    public int investigatingState;
-    public bool spottedHighlight, goToNoisySource, stationery;
+    public int investigatingState,pathWay;
+    public bool spottedHighlight, goToNoisySource, stopLaoDa;
     [Space]
     [Space]
     NavMeshAgent agent;
@@ -33,8 +33,8 @@ public class AIBoss : MonoBehaviour {
     AudioSource externalAudio;
     public int timesFired, timesHit;
     int destPoint = 0, isInFov, firstStage, canFire, hitByCrate;
-    float stopToLook, stopToGoBack, angle;
-    bool turnBack, cannotTurn, playerWithinRadius;
+    float stopToGoBack, angle, stopToLook;
+    bool turnBack, cannotTurn, playerWithinRadius, triggerFirstEvent;
     string fileName;
     [Space]
     [Space]
@@ -52,7 +52,11 @@ public class AIBoss : MonoBehaviour {
         exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
         exclamationMark.transform.parent = uiAbove;
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
-        //state = AIState.PATROLLING;
+        lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        walkSpeed = 0;
+        agent.speed = 0;
+        anim.SetInteger("State", 0);
+        state = AIState.PATROLLING;
     }
 
     public void Update()
@@ -62,8 +66,19 @@ public class AIBoss : MonoBehaviour {
         switch (state)
         {
             case AIState.PATROLLING:
-                if(investigatingState == 0)
+                if (investigatingState == 0)
                 {
+                    if (!stopLaoDa && triggerFirstEvent)
+                    {
+                        anim.SetInteger("State", 1);
+                        agent.speed = walkSpeed;
+                    }
+                    else if (stopLaoDa && triggerFirstEvent)
+                    {
+                        anim.SetInteger("State", 0);
+                        agent.speed = 0;
+                        destPoint = 0;
+                    }
                     if (!agent.pathPending && agent.remainingDistance < 0.5f)
                     {
                         GotoNextPoint();
@@ -77,17 +92,16 @@ public class AIBoss : MonoBehaviour {
             case AIState.INVESTIGATING:
                 if (investigatingState == 0)
                 {
-                    anim.SetInteger("State", 1);
                     agent.speed = walkSpeed;
+                    exclamationMark.SetActive(false);
+                    gunLine.SetActive(false);
+                    aiVision.angle = 51;
+                    stopToLook = 0;
                     state = AIState.PATROLLING;
                 }
                 else if (investigatingState == 1)
                 {
-                    agent.speed = 0;
-                    anim.SetInteger("State", 3);
-                    targetDir = playerHighlight.transform.position - thisAI.position;
-                    newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
-                    transform.rotation = Quaternion.LookRotation(newDir);
+                    FiringPropeties();
                 }
                 break;
             case AIState.CHASE:
@@ -95,13 +109,47 @@ public class AIBoss : MonoBehaviour {
         }
     }
 
+    void FiringPropeties()
+    {
+        triggerFirstEvent = true;
+        anim.SetInteger("State", 2);
+        agent.speed = 0;
+        exclamationMark.SetActive(true);
+        gunLine.SetActive(true);
+        walkSpeed = 6;
+        if (aiVision.angle >= 4)
+        {
+            print("fire");
+            aiVision.angle -= 1;
+            muzzleFlash.SetActive(false);
+            if (aiVision.angle >= 23)
+            {
+                targetDir = playerHighlight.transform.position - thisAI.position;
+                newDir = Vector3.RotateTowards(transform.forward, targetDir, 1.85f * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDir);
+            }
+        }
+        else if (aiVision.angle <= 4)
+        {
+            muzzleFlash.SetActive(true);
+        }
+    }
+
     void GotoNextPoint()
     {
-        anim.SetInteger("State", 1);
-        if (aiPath.path_objs.Count == 0)
+        if(destPoint + 1 == aiPath[pathWay].path_objs.Count)
+        {
+            lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+            if (pathWay != 2)
+            {
+                stopLaoDa = true;
+                pathWay += 1;
+            }
+        }
+        if (aiPath[pathWay].path_objs.Count == 0)
             return;
-        agent.destination = aiPath.path_objs[destPoint].position;
-        destPoint = (destPoint + 1) % aiPath.path_objs.Count;
+        agent.destination = aiPath[pathWay].path_objs[destPoint].position;
+        destPoint = (destPoint + 1) % aiPath[pathWay].path_objs.Count;
     }
 
     public bool InFov()
