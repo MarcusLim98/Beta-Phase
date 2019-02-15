@@ -327,15 +327,17 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
         cameraFocus = camFocusObj[2].transform;             //2nd doc
         yield return new WaitForSeconds(2);
-        StartCoroutine(BossPan25());
+        StartCoroutine(BossPan21());
+        StartCutscene();
     }
 
-    IEnumerator BossPan25()
+    IEnumerator BossPan21()
     {
         cameraFocus = camFocusObj[3].transform;             //3rd doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
-        EndCutscene();
+        bossAi.stopLaoDa = false;
+        EaveEnd();
     }
 
     IEnumerator BossPan3()                                 //for panning after third eavesdrop
@@ -344,12 +346,25 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
         cameraFocus = camFocusObj[4].transform;             //4th doc
         yield return new WaitForSeconds(2);
+        StartCoroutine(BossPan31());
+        StartCutscene();
+    }
+
+    IEnumerator BossPan31()
+    {
         cameraFocus = camFocusObj[5].transform;             //5th doc
         yield return new WaitForSeconds(2);
+        StartCoroutine(BossPan32());
+        StartCutscene();
+    }
+
+    IEnumerator BossPan32()
+    {
         cameraFocus = camFocusObj[6].transform;             //6th doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
-        EndCutscene();
+        bossAi.stopLaoDa = false;
+        EaveEnd();
     }
 
     #endregion
