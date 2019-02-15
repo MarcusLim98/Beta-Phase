@@ -54,16 +54,17 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             EmptyObj = new GameObject("Look Here");
             EmptyObj.transform.parent = this.gameObject.transform;
+            stationeryPosition = this.gameObject.transform.GetChild(6);
             if (!followingLaoDa)
             {
                 EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                EmptyObj.transform.parent = null;
             }
             else if (followingLaoDa)
             {
-                EmptyObj.transform.position = new Vector3(GameObject.Find("Lao_Dav2").transform.position.x, GameObject.Find("Lao_Dav2").transform.position.y, GameObject.Find("Lao_Dav2").transform.position.z + 3);
+                EmptyObj.transform.position = new Vector3(GameObject.Find("Lao_Dav2").transform.position.x + 3, GameObject.Find("Lao_Dav2").transform.position.y, GameObject.Find("Lao_Dav2").transform.position.z);
+                EmptyObj.transform.parent = GameObject.Find("Lao_Dav2").transform;
             }
-            stationeryPosition = this.gameObject.transform.GetChild(6);
-            EmptyObj.transform.parent = null;
             lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
             timeToResetView = 0.5f;
         }

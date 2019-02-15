@@ -22,6 +22,9 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     DataSaveAndLoad datasl;
 
+    [SerializeField]
+    AIBoss bossAi;
+
     void Awake()
     {
         datasl = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
@@ -285,6 +288,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         camFocusObj[1].SetActive(true);                     //1st doc
 
         StartCoroutine(BossPan1());
+        StartCutscene();
     }
 
     void BossEave2()
@@ -293,6 +297,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         camFocusObj[3].SetActive(true);                     //3rd doc
 
         StartCoroutine(BossPan2());
+        StartCutscene();
     }
 
     void BossEave3()
@@ -302,6 +307,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         camFocusObj[6].SetActive(true);                     //6th doc
 
         StartCoroutine(BossPan3());
+        StartCutscene();
     }
 
     IEnumerator BossPan1()                                 //for panning after first eavesdrop
@@ -311,6 +317,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
         EndCutscene();
+        bossAi.triggerFirstEvent = true;
+        bossAi.stopLaoDa = false;
     }
 
     IEnumerator BossPan2()                                 //for panning after second eavesdrop
@@ -319,6 +327,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
         cameraFocus = camFocusObj[2].transform;             //2nd doc
         yield return new WaitForSeconds(2);
+        StartCoroutine(BossPan25());
+    }
+
+    IEnumerator BossPan25()
+    {
         cameraFocus = camFocusObj[3].transform;             //3rd doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;

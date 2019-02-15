@@ -56,7 +56,7 @@ public class AIBoss : MonoBehaviour {
         exclamationMark.transform.parent = uiAbove;
         exclamationMark.transform.position = new Vector3(uiAbove.position.x, uiAbove.position.y, uiAbove.position.z);
         lookHereStart = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
-        walkSpeed = 0;
+        walkSpeed = 3;
         agent.speed = 0;
         anim.SetInteger("State", 0);
         state = AIState.PATROLLING;
@@ -75,7 +75,7 @@ public class AIBoss : MonoBehaviour {
                         anim.SetInteger("State", 1);
                         agent.speed = walkSpeed;
                     }
-                    else if (stopLaoDa && triggerFirstEvent)
+                    else if (stopLaoDa && !triggerFirstEvent)                   //don't move, first cutscene not done
                     {
                         anim.SetInteger("State", 0);
                         agent.speed = 0;
