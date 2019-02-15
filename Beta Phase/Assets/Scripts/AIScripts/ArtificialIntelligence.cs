@@ -543,6 +543,8 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
             {
+                fileName = "ThugSuspicious";
+                SoundFX();
                 noisySource = playerLogic.thisNoisyFloor;
                 goToNoisySource = true;
                 questionMark.SetActive(true);

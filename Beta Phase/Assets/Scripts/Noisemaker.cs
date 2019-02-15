@@ -13,6 +13,13 @@ public class Noisemaker : MonoBehaviour {
     public Vector3[] movePaths;
     public Vector3[] whereToLook;
     public bool hasInteracted, mustInteract;
+    AudioSource externalAudio;
+    string fileName;
+    private void Start()
+    {
+        externalAudio = GetComponent<AudioSource>();
+        fileName = "CrateSmash";
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -40,7 +47,7 @@ public class Noisemaker : MonoBehaviour {
             else if (hasInteracted)
             {
                 pressE.enabled = false;
-                this.gameObject.SetActive(false);
+                SoundFX();
             }
         }
 
@@ -55,7 +62,7 @@ public class Noisemaker : MonoBehaviour {
             {
                 ai[i].lookHereStart = whereToLook[i];
             }
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
         }
     }
 
@@ -64,6 +71,15 @@ public class Noisemaker : MonoBehaviour {
         if (other.tag == "Player" && !hasInteracted)
         {
             pressE.enabled = false;
+        }
+    }
+
+    public void SoundFX()
+    {
+        if (!externalAudio.isPlaying)
+        {
+            externalAudio.volume = 1;
+            externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
         }
     }
 }
