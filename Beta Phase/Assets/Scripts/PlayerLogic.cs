@@ -118,9 +118,13 @@ public class PlayerLogic : MonoBehaviour {
         {
             anim.SetInteger("State", 0);
         }
-        else if(movingStyle > 0)
+        else if(movingStyle == 1)
         {
             anim.SetInteger("State", 1);
+        }
+        else if (movingStyle == 2)
+        {
+            anim.SetInteger("State", 2);
         }
     }
 
