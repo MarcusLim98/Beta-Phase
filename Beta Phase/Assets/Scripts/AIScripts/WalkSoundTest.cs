@@ -5,12 +5,14 @@ using UnityEngine;
 public class WalkSoundTest : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioSource footSource;
+    [SerializeField] AudioSource footSource;
+    Animator thug;
     string right, left;
     public bool Rstop, Lstop;
     void Start()
     {
         footSource = GetComponent<AudioSource>();
+        thug = GetComponent<Animator>();
         right = "ThugWalkR";
         left = "ThugWalkL";
     }
@@ -20,21 +22,21 @@ public class WalkSoundTest : MonoBehaviour
     {
         
     }
-    void RightFoot()
+    public void RightFoot()
     {
-        footSource.volume = 0.05f;
+        footSource.volume = 0.5f;
         footSource.clip = (AudioClip)Resources.Load(right);
         footSource.Play();
         Rstop = false;
     }
-    void LeftFoot()
+    public void LeftFoot()
     {
-        footSource.volume = 0.05f;
+        footSource.volume = 0.5f;
         footSource.clip = (AudioClip)Resources.Load(left);
         footSource.Play();
         Lstop = false;
     }
-    void StopFoot()
+    public void FootStop()
     {
         if (Rstop == false || Lstop == false)
         {
