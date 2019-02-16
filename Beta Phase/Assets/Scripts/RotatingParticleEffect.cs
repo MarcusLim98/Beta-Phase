@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class RotatingParticleEffect : MonoBehaviour {
 
-    public bool onlyTurn, makeObjDisappear, makeAIMove;
+    public bool makeObjDisappear, makeObjAppear;
+    public bool onlyTurn, makeAIMove;
     public Text pressE;
     public Vector3 speed;
     //public ParticleSystem ps1, ps2, ps3;
@@ -57,10 +58,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                 main2.startSize = 0.0f;
                 var main3 = ps3.main;
                 main3.startLifetime = 5f;
-                if (makeObjDisappear)
-                {
-                    objBeGone.SetActive(false);
-                }
+
                 if(makeAIMove)
                 {
                     for (int i = 0; i < newPos.Length; i++)
@@ -82,6 +80,14 @@ public class RotatingParticleEffect : MonoBehaviour {
                 //    }
                 //}
                 //StartCoroutine(Gone());
+                if (makeObjDisappear)
+                {
+                    objBeGone.SetActive(false);
+                }
+                else if (makeObjAppear == true)
+                {
+                    objBeGone.SetActive(true);
+                }
             }
         }
         else if (onlyTurn)
