@@ -17,6 +17,7 @@ public class ArtificialIntelligence : MonoBehaviour
     [Space]
     public AIPath aiPath;
     public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
+    //time to start = determines how long does the thug stare at YY/noise source before approaching, stopToGoBack = determines how long does the thug investigates before returning
     //maxRadius && maxAngle = suspicious FOV, //maxRadius2 && maxAngle2 = danger FOV, maxRadius3 && maxAngle3 = FOV to detect players running behind
     public bool stationery, staticRotate, patrolTurn, followingLaoDa;
     [Space]

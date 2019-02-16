@@ -108,7 +108,6 @@ public class AIBoss : MonoBehaviour {
                     {
                         playerHighlight.SetActive(true);
                         playerHighlight.transform.parent = null;
-                        aiFollower.playerMask = LayerMask.GetMask("Nothing");
                         aiFollower.maxRadius3 = 2.5f;
                         aiFollower.stopHere = 3;
                     }
@@ -156,7 +155,6 @@ public class AIBoss : MonoBehaviour {
                 SoundFX();
                 muzzleFlash.SetActive(true);
                 Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
-                aiFollower.playerMask = LayerMask.GetMask("Player");
                 aiFollower.maxRadius3 = 60;
                 aiFollower.stopHere = 0;
                 canFire = 1;
