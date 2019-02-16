@@ -29,8 +29,8 @@ public class EavesdropLogic : MonoBehaviour
 
         if (playerLogic.playerEavesdrop == false)
         {
-            //images[0].enabled = false;
-            //images[1].enabled = false;
+            images[0].enabled = false;
+            images[1].enabled = false;
             ear.enabled = false;
             ear2.enabled = false;
         }
