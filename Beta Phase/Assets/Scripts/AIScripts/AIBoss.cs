@@ -59,6 +59,12 @@ public class AIBoss : MonoBehaviour {
         agent.speed = 0;
         anim.SetInteger("State", 0);
         state = AIState.PATROLLING;
+
+        if (PlayerPrefs.GetInt("BossEaveNo1") == 1)
+        {
+            stopLaoDa = false;
+            triggerFirstEvent = true;
+        }
     }
 
     public void Update()

@@ -47,7 +47,7 @@ public class DataSaveAndLoad : MonoBehaviour {
                 playerAgent.enabled = true;
                 objectiveText.text = PlayerPrefs.GetString("savedobjective");
             }
-            ////if not, because it's a new scene, save progress
+            ////if not, because it's a new scene, save progress                     //THIS CAUSES DATA ERRORS
             //else if (SceneManager.GetActiveScene().name != PlayerPrefs.GetString("spawnscene"))
             //{
             //    SaveGame("StartPoint");
