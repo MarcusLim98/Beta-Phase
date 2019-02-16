@@ -37,7 +37,7 @@ public class ArtificialIntelligence : MonoBehaviour
     PlayerLogic playerLogic;
     FaderLogic faderLogic;
     BGMControl bgmLogic;
-    int destPoint = 0, timesHitRotation;
+    int destPoint = 0, timesHitRotation, randomIdle;
     float stopToLook, angle, startToTurn, timeToResetView, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     public string fileName;
@@ -85,6 +85,7 @@ public class ArtificialIntelligence : MonoBehaviour
         agent.acceleration = 700f;
         walkSpeed = 3;
         runSpeed = 9;
+        randomIdle = Random.Range(0, 2);
         state = AIState.PATROLLING;
     }
 
@@ -111,7 +112,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             agent.SetDestination(playerHighlight.transform.position);
                             if (stopToLook <= timeToStare && !dontMove)
                             {
-                                anim.SetInteger("State", 0);
+                                anim.SetInteger("State", randomIdle);
                                 playerHighlight.transform.parent = null;
                                 agent.speed = 0;
                                 targetDir = playerHighlight.transform.position - thisAI.position;
@@ -120,7 +121,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             }
                             else if (stopToLook >= timeToStare && !dontMove)
                             {
-                                anim.SetInteger("State", 1);
+                                anim.SetInteger("State", 2);
                                 agent.speed = walkSpeed;
                             }
             
@@ -128,7 +129,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         }
                         else if (isInFov == 2)
                         {
-                            anim.SetInteger("State", 1);
+                            anim.SetInteger("State", 2);
                             agent.speed = runSpeed;
                             stopHere = 3f;
                             playerHighlight.transform.parent = null;
@@ -142,7 +143,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         agent.SetDestination(noisySource.position);
                         if (stopToLook <= timeToStare)
                         {
-                            anim.SetInteger("State", 0);
+                            anim.SetInteger("State", randomIdle);
                             agent.speed = 0;
                             targetDir = noisySource.transform.position - thisAI.position;
                             newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
@@ -150,7 +151,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         }
                         else if (stopToLook >= timeToStare && !dontMove)
                         {
-                            anim.SetInteger("State", 1);
+                            anim.SetInteger("State", 2);
                             agent.speed = walkSpeed;
                         }
                         CheckAndReturn();
@@ -186,7 +187,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         stopToLook += Time.deltaTime;
                         if (stopToLook <= timeToStare)
                         {
-                            anim.SetInteger("State", 0);
+                            anim.SetInteger("State", randomIdle);
                             playerHighlight.transform.parent = null;
                             agent.speed = 0;
                             targetDir = playerHighlight.transform.position - thisAI.position;
@@ -195,7 +196,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         }
                         else if (stopToLook >= timeToStare)
                         {
-                            anim.SetInteger("State", 1);
+                            anim.SetInteger("State", 2);
                             agent.speed = walkSpeed;
 
                         }
@@ -224,12 +225,12 @@ public class ArtificialIntelligence : MonoBehaviour
                     if (faderLogic.touchPlayer == false)
                     {
                         agent.speed = runSpeed;
-                        anim.SetInteger("State", 1);
+                        anim.SetInteger("State", 2);
                     }
                     else if (faderLogic.touchPlayer == true)
                     {
                         agent.speed = 0;
-                        anim.SetInteger("State", 0);
+                        anim.SetInteger("State", randomIdle);
                     }
                     agent.SetDestination(playerTarget.position);
                     playerHighlight.SetActive(false);
@@ -249,7 +250,7 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.SetActive(false);
         if (!stationery && !staticRotate)
         {
-            anim.SetInteger("State", 1);
+            anim.SetInteger("State", 2);
             if (aiPath.path_objs.Count == 0)
                 return;
             agent.destination = aiPath.path_objs[destPoint].position;
@@ -257,7 +258,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f)
         {
-            anim.SetInteger("State", 0);
+            anim.SetInteger("State", randomIdle);
             if (!staticRotate)
             {
                 rotatingSpeed = 0.5f;
@@ -271,7 +272,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) >= 1f)
         {
-            anim.SetInteger("State", 1);
+            anim.SetInteger("State", 2);
             cannotTurn = true;
             agent.SetDestination(stationeryPosition.position);
         }
@@ -368,7 +369,7 @@ public class ArtificialIntelligence : MonoBehaviour
             if (stopToGoBack <= 1.5f)
             {
                 dontMove = true;
-                anim.SetInteger("State", 0);
+                anim.SetInteger("State", randomIdle);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
                 {
                     if(investigatingState != 2)
