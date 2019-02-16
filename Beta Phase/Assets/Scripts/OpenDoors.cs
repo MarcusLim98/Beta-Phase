@@ -11,9 +11,11 @@ public class OpenDoors : MonoBehaviour {
     public NavMeshObstacle obstacle;
     float timer;
     AudioSource externalAudio;
+    Outline2 outline2;
     // Use this for initialization
     void Start () {
         externalAudio = GetComponent<AudioSource>();
+        outline2 = gameObject.transform.GetChild(0).GetComponent<Outline2>();
     }
 	
 	// Update is called once per frame
@@ -48,6 +50,7 @@ public class OpenDoors : MonoBehaviour {
                 externalAudio.Play();
                 canBeOpen = true;
                 pressE.enabled = false;
+                outline2.enabled = false;
             }
         }
     }

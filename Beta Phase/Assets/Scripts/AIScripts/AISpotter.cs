@@ -133,8 +133,9 @@ public class AISpotter : MonoBehaviour {
 
                     foreach (ArtificialIntelligence ai in thugsToCall)
                     {
-                        ai.playerMask = LayerMask.GetMask("Player");
-                        ai.maxRadius3 = 60;
+                        //ai.playerMask = LayerMask.GetMask("Player");
+                        ai.AlertProperties();
+                        //ai.maxRadius3 = 60;
                         ai.stopHere = 0;
                     }
 
@@ -172,8 +173,7 @@ public class AISpotter : MonoBehaviour {
                 shotOnce = 0;
                 foreach (ArtificialIntelligence ai in thugsToCall)
                 {
-                    ai.playerMask = LayerMask.GetMask("Nothing");
-                    ai.maxRadius3 = 2.5f;
+                    ai.AlertProperties();
                     ai.stopHere = 3;
                 }
                 investigatingState = 0;
