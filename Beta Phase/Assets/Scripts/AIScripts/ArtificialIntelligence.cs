@@ -83,8 +83,8 @@ public class ArtificialIntelligence : MonoBehaviour
         currentAngle1 = maxAngle;
         maxRadius3 = 4f;
         agent.acceleration = 700f;
-        walkSpeed = 3;
-        runSpeed = 9;
+        walkSpeed = 0;
+        runSpeed = 0;
         randomIdle = Random.Range(0, 2);
         state = AIState.PATROLLING;
     }

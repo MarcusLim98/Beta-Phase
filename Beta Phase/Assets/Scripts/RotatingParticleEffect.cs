@@ -119,7 +119,7 @@ public class RotatingParticleEffect : MonoBehaviour {
         if(other.tag == "Player")
         {
             thisPlayer = true;
-            if (eavesdropLogic.isInteracted == true)
+            /*if (eavesdropLogic.isInteracted == true)
             {
                 pressE.enabled = false;
             }
@@ -127,7 +127,7 @@ public class RotatingParticleEffect : MonoBehaviour {
             {
                 pressE.text = "Hold E to eavesdrop";
                 pressE.enabled = true;
-            }
+            }*/
         }
     }
 
@@ -136,7 +136,7 @@ public class RotatingParticleEffect : MonoBehaviour {
         if (other.tag == "Player")
         {
             thisPlayer = false;
-            pressE.enabled = false;
+            //pressE.enabled = false;
         }
     }
 }
