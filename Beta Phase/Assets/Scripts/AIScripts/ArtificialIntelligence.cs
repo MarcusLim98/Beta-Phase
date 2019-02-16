@@ -562,7 +562,7 @@ public class ArtificialIntelligence : MonoBehaviour
 
         if (other.tag == "Bottle")
         {
-            if(spottedHighlight == true)
+            if(spottedHighlight == false)
             {
                 noisySource = GameObject.Find("Shards").transform;
                 goToNoisySource = true;
