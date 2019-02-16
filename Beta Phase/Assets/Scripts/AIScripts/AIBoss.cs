@@ -60,11 +60,14 @@ public class AIBoss : MonoBehaviour {
         anim.SetInteger("State", 0);
         state = AIState.PATROLLING;
 
-        if (PlayerPrefs.GetInt("BossEaveNo1") == 1)
+        if (PlayerPrefs.GetInt("BossPhase") > 0)                                //did forced eave
         {
             stopLaoDa = false;
             triggerFirstEvent = true;
+            pathWay = PlayerPrefs.GetInt("BossPhase") - 1;                      //sets last path
+            transform.position = aiPath[pathWay].path_objs[0].position;         //starts at last route's first point
         }
+
     }
 
     public void Update()
