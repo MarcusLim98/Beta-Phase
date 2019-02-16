@@ -298,6 +298,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         bossAi.stopLaoDa = false;
         EndCutscene();
         spawnObj[0].SetActive(false);
+        //make LD shoot here
     }
 
     public void LastDoc()                                   //Lao Da's outro cutscene
