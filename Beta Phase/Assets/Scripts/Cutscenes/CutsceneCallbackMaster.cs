@@ -226,7 +226,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EndCutscene();
     }
 
-    //Scene 3
+    //Scene 4
     void AfterEaveCall()
     {
         datasl.ObtainItem("AfterEaveCall", 1);
@@ -287,6 +287,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         bossAi.stopLaoDa = false;
         contDialogue[0].SetActive(true);                    //Lao Da's intro cutscene
+        spawnObj[0].SetActive(true);
         datasl.ObtainItem("BossPhase", 2);                  //got first doc, for LD behaviour
     }
 
@@ -296,6 +297,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         datasl.ObtainItem("BossPhase", 3);                  //done intro, for LD behaviour
         bossAi.stopLaoDa = false;
         EndCutscene();
+        spawnObj[0].SetActive(false);
     }
 
     public void LastDoc()                                   //Lao Da's outro cutscene
