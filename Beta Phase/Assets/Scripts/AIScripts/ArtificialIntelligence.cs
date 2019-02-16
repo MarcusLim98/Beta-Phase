@@ -133,6 +133,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             print("1");
                             anim.SetInteger("State", 1);
                             agent.speed = runSpeed;
+                            stopHere = 3f;
                             playerHighlight.transform.parent = null;
                             agent.SetDestination(playerHighlight.transform.position);
                             CheckAndReturn();
@@ -465,6 +466,7 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit2.transform == playerTarget)
                 {
+                    print("saw you");
                     fileName = "ThugAlert";
                     SoundFX();
                     AlertProperties();
@@ -487,6 +489,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public void AlertProperties()
     {
         print("alert");
+        stopHere = 0;
         investigatingState = 2;
         isInFov = 2;
         agent.speed = runSpeed;
