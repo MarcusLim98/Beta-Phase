@@ -107,12 +107,10 @@ public class ArtificialIntelligence : MonoBehaviour
                     {
                         if (isInFov != 2)
                         {
-                            print("1");
                             stopToLook += Time.deltaTime;
                             agent.SetDestination(playerHighlight.transform.position);
                             if (stopToLook <= timeToStare && !dontMove)
                             {
-                                print("2");
                                 anim.SetInteger("State", 0);
                                 playerHighlight.transform.parent = null;
                                 agent.speed = 0;
@@ -130,7 +128,6 @@ public class ArtificialIntelligence : MonoBehaviour
                         }
                         else if (isInFov == 2)
                         {
-                            print("1");
                             anim.SetInteger("State", 1);
                             agent.speed = runSpeed;
                             stopHere = 3f;
@@ -346,7 +343,6 @@ public class ArtificialIntelligence : MonoBehaviour
 
     void CheckAndReturn()
     {
-        print("2");
         if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
         {
             target = playerHighlight.transform;
@@ -371,7 +367,6 @@ public class ArtificialIntelligence : MonoBehaviour
             stopToGoBack += Time.deltaTime;
             if (stopToGoBack <= 1.5f)
             {
-                print("3");
                 dontMove = true;
                 anim.SetInteger("State", 0);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
@@ -387,7 +382,6 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else if (stopToGoBack >= 1.5f)
             {
-                print("4");
                 playerHighlight.SetActive(false);
                 spottedHighlight = false;
                 goToNoisySource = false;
@@ -466,7 +460,6 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 if (hit2.transform == playerTarget)
                 {
-                    print("saw you");
                     fileName = "ThugAlert";
                     SoundFX();
                     AlertProperties();
@@ -488,7 +481,6 @@ public class ArtificialIntelligence : MonoBehaviour
 
     public void AlertProperties()
     {
-        print("alert");
         stopHere = 0;
         investigatingState = 2;
         isInFov = 2;
