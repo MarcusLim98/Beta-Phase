@@ -12,11 +12,12 @@ public class ArtificialIntelligence : MonoBehaviour
     public Transform playerTarget;
     public GameObject playerHighlight, suspicious, alert;
     public Transform noisySource, stationeryPosition;
-    public LayerMask layerMask, playerMask;
+    public LayerMask layerMask;
     [Space]
     [Space]
     public AIPath aiPath;
-    public float maxRadius, maxRadius2, maxRadius3,maxRadius4, maxAngle, maxAngle2, maxAngle3, maxAngle4, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
+    public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
+    //maxRadius && maxAngle = suspicious FOV, //maxRadius2 && maxAngle2 = danger FOV, maxRadius3 && maxAngle3 = FOV to detect players running behind
     public bool stationery, staticRotate, patrolTurn, followingLaoDa;
     [Space]
     [Space]
@@ -55,12 +56,12 @@ public class ArtificialIntelligence : MonoBehaviour
             EmptyObj = new GameObject("Look Here");
             EmptyObj.transform.parent = this.gameObject.transform;
             stationeryPosition = this.gameObject.transform.GetChild(6);
-            if (!followingLaoDa)
+            if (!followingLaoDa) //spawns the guarding position on this ai
             {
                 EmptyObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 EmptyObj.transform.parent = null;
             }
-            else if (followingLaoDa)
+            else if (followingLaoDa) //spawns the guarding position onto lao da to ensure this AI always follows him
             {
                 EmptyObj.transform.position = new Vector3(GameObject.Find("Lao_Dav2").transform.position.x + 3, GameObject.Find("Lao_Dav2").transform.position.y, GameObject.Find("Lao_Dav2").transform.position.z);
                 EmptyObj.transform.parent = GameObject.Find("Lao_Dav2").transform;
@@ -94,17 +95,17 @@ public class ArtificialIntelligence : MonoBehaviour
         InFov();
         switch (state)
         {
-            case AIState.PATROLLING:
+            case AIState.PATROLLING: //gets called when player is out of any FOV
                 if (investigatingState == 0)
                 {
                     if (!goToNoisySource && !spottedHighlight)
                     {
                         if (!agent.pathPending && agent.remainingDistance < 0.5f)
                         {
-                            GotoNextPoint();
+                            GotoNextPoint(); // returns to its duties when player is not in sight or no noise was heard
                         }
                     }
-                    else if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
+                    else if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight)) //investigates for player when out of suspicious view or/and heard from noisy source
                     {
                         if (isInFov != 2)
                         {
@@ -113,7 +114,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             if (stopToLook <= timeToStare && !dontMove)
                             {
                                 anim.SetInteger("State", randomIdle);
-                                playerHighlight.transform.parent = null;
+                                playerHighlight.transform.parent = null; //player leaves behind highlight for thug to investigate
                                 agent.speed = 0;
                                 targetDir = playerHighlight.transform.position - thisAI.position;
                                 newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
@@ -125,19 +126,19 @@ public class ArtificialIntelligence : MonoBehaviour
                                 agent.speed = walkSpeed;
                             }
             
-                            CheckAndReturn();
+                            CheckAndReturn(); //ensures after investigating, the thug returns to its duties
                         }
-                        else if (isInFov == 2)
+                        else if (isInFov == 2)  //invesitgates for player when out of danger FOV
                         {
                             anim.SetInteger("State", 2);
                             agent.speed = runSpeed;
                             stopHere = 3f;
                             playerHighlight.transform.parent = null;
                             agent.SetDestination(playerHighlight.transform.position);
-                            CheckAndReturn();
+                            CheckAndReturn(); //ensures after investigating, the thug returns to its duties
                         }
                     }
-                    else if (goToNoisySource && !spottedHighlight)
+                    else if (goToNoisySource && !spottedHighlight) //ensures to investigate the location of the noise source
                     {
                         stopToLook += Time.deltaTime;
                         agent.SetDestination(noisySource.position);
@@ -154,7 +155,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             anim.SetInteger("State", 2);
                             agent.speed = walkSpeed;
                         }
-                        CheckAndReturn();
+                        CheckAndReturn(); //ensures after investigating, the thug returns to its duties
                     }
                 }
                 else if (investigatingState == 1)
@@ -171,7 +172,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     state = AIState.PATROLLING;                
                 }
-                if (investigatingState == 1)
+                if (investigatingState == 1) //stares and approaches player if within the suspicious FOV
                 {
                     spottedHighlight = true;
                     goToNoisySource = false;
@@ -220,7 +221,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     agent.speed = runSpeed;
                 }
-                else if (investigatingState == 2)
+                else if (investigatingState == 2) //chases player if player is within danger FOV
                 {
                     if (faderLogic.touchPlayer == false)
                     {
@@ -242,13 +243,13 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    void GotoNextPoint()
+    void GotoNextPoint() //ensures the thug resumes its guarding duties
     {
         firstFov.SetActive(true);
         secondFov.SetActive(false);
         questionMark.SetActive(false);
         exclamationMark.SetActive(false);
-        if (!stationery && !staticRotate)
+        if (!stationery && !staticRotate) //patrolling
         {
             anim.SetInteger("State", 2);
             if (aiPath.path_objs.Count == 0)
@@ -256,7 +257,7 @@ public class ArtificialIntelligence : MonoBehaviour
             agent.destination = aiPath.path_objs[destPoint].position;
             destPoint = (destPoint + 1) % aiPath.path_objs.Count;
         }
-        else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f)
+        else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f) //static guarding
         {
             anim.SetInteger("State", randomIdle);
             if (!staticRotate)
@@ -265,12 +266,12 @@ public class ArtificialIntelligence : MonoBehaviour
                 var desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
                 transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQ, Time.deltaTime * rotatingSpeed);
             }
-            else if (staticRotate)
+            else if (staticRotate) //calls function for rotating properties
             {
                 StationeryRotation();
             }
         }
-        else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) >= 1f)
+        else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) >= 1f) //ensures the thug returns to its original position 
         {
             anim.SetInteger("State", 2);
             cannotTurn = true;
@@ -278,13 +279,13 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    void StationeryRotation()
+    void StationeryRotation() //function reserved for static rotation thugs
     {
         var up = transform.TransformDirection(Vector3.forward);
         RaycastHit hit;
         Debug.DrawRay(transform.position, up * 10f, Color.black);
 
-        if (!cannotTurn)
+        if (!cannotTurn) //this raycast determines which way will the thug be rotating
         {
             rotatingSpeed = 30f;
             if (Physics.Raycast(transform.position, up, out hit, 10f, layerMask))
@@ -304,7 +305,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 }
             }
         }
-        else if (cannotTurn)
+        else if (cannotTurn) //ensure that the thug faces its starting angle before rotating left and right again after chasing player or investigating a noise source
         {
             rotatingSpeed = 0.5f;
             Quaternion desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
@@ -325,7 +326,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             transform.Rotate(0, Time.deltaTime * -rotatingSpeed, 0);
         }
-        if (patrolTurn)
+        if (patrolTurn) //ensures that any thug with only 2 points to patrol always rotates at each end
         {
             if(timesHitRotation == 2)
             {
@@ -342,7 +343,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    void CheckAndReturn()
+    void CheckAndReturn() //causes thug to stop infront of highlight/noise source for a while and return to its duties
     {
         if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
         {
@@ -372,16 +373,13 @@ public class ArtificialIntelligence : MonoBehaviour
                 anim.SetInteger("State", randomIdle);
                 if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight))
                 {
-                    if(investigatingState != 2)
-                    {
-                        playerHighlight.SetActive(true);
-                    }
+                    playerHighlight.SetActive(true);
                     targetDir = playerHighlight.transform.position - thisAI.position;
                     newDir = Vector3.RotateTowards(transform.forward, targetDir, 3f * Time.deltaTime, 0.0f);
                     transform.rotation = Quaternion.LookRotation(newDir);
                 }
             }
-            else if (stopToGoBack >= 1.5f)
+            else if (stopToGoBack >= 1.5f)  //resets the values
             {
                 playerHighlight.SetActive(false);
                 spottedHighlight = false;
@@ -392,8 +390,8 @@ public class ArtificialIntelligence : MonoBehaviour
                 stopToLook = 0;
                 isInFov = 0;
                 agent.speed = walkSpeed;
-                maxAngle = 40;
-                maxAngle2 = 40;
+                maxAngle = currentAngle1;
+                maxAngle2 = currentAngle1;
                 stopHere = 3f;
                 timeToResetView = 3f;
                 bgmLogic.EscapeDanger();
@@ -405,13 +403,13 @@ public class ArtificialIntelligence : MonoBehaviour
     public bool InFov()
     {
         questionMark.transform.LookAt(Camera.main.transform);
-        exclamationMark.transform.LookAt(Camera.main.transform);
+        exclamationMark.transform.LookAt(Camera.main.transform); //ensures the exclamation and question mark icon is always looking at the main camera
 
         directionBetween = (playerTarget.position - thisAI.position).normalized;
         directionBetween.y *= 0; //height difference is able to influence its angle, it makes height is not a factor
         angle = Vector3.Angle(thisAI.forward, directionBetween); //ensures chasing only resumes when it is within the AI's view
 
-        if (angle <= maxAngle)
+        if (angle <= maxAngle) //when player is within this fov, thug slowly approaches
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position); //ensures the raycast is resting from this AI
             RaycastHit hit;
@@ -423,7 +421,11 @@ public class ArtificialIntelligence : MonoBehaviour
                     stopToGoBack = 0;
                     investigatingState = 1;
                     isInFov = 1;
-                    SuspiciousProperties();
+                    questionMark.SetActive(true);
+                    exclamationMark.SetActive(false);
+                    playerHighlight.transform.parent = playerTarget;
+                    playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
+                    stopHere = 3f;
                     fileName = "ThugSuspicious";
                     SoundFX();
                 }
@@ -438,7 +440,7 @@ public class ArtificialIntelligence : MonoBehaviour
             investigatingState = 0;
         }
 
-        if (angle <= maxAngle3 && playerLogic.movingStyle == 1)
+        if (angle <= maxAngle3 && playerLogic.movingStyle == 1)  //detects players when running behind thugs
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
@@ -448,12 +450,12 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     fileName = "ThugAlert";
                     SoundFX();
-                    AlertProperties();
+                    AlertProperties(); //calls for the values and conditions to turn the thug into alert mode to chase the player
                 }
             }
         }
 
-        if (angle <= maxAngle2)
+        if (angle <= maxAngle2) //when player is within this fov, thug chases
         {
             Ray ray = new Ray(thisAI.position, playerTarget.position - thisAI.position);
             RaycastHit hit2;
@@ -463,21 +465,12 @@ public class ArtificialIntelligence : MonoBehaviour
                 {
                     fileName = "ThugAlert";
                     SoundFX();
-                    AlertProperties();
+                    AlertProperties(); //calls for the values and conditions to turn the thug into alert mode to chase the player
                     return true;
                 }
             }
         }
         return false;
-    }
-
-    void SuspiciousProperties()
-    {
-        questionMark.SetActive(true);
-        exclamationMark.SetActive(false);
-        playerHighlight.transform.parent = playerTarget;
-        playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
-        stopHere = 3f;
     }
 
     public void AlertProperties()
@@ -544,7 +537,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             if (playerLogic.stepOnNoisyFloor == true && playerWithinRadius == true)
             {
-                if (spottedHighlight == false)
+                if (spottedHighlight == false) //prevents thugs from reacting to noisy floors when spotted YY
                 {
                     fileName = "ThugSuspicious";
                     SoundFX();
@@ -563,7 +556,7 @@ public class ArtificialIntelligence : MonoBehaviour
 
         if (other.tag == "Bottle")
         {
-            if(spottedHighlight == false)
+            if(spottedHighlight == false) //prevents thug from reacting to bottles if he has spotted YY
             {
                 noisySource = GameObject.Find("Shards").transform;
                 goToNoisySource = true;

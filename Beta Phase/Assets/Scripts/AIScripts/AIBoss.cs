@@ -20,7 +20,7 @@ public class AIBoss : MonoBehaviour {
     public AIPath[] aiPath;
     public ArtificialIntelligence aiFollower;
     public float maxRadius, maxAngle, maxRadius2, maxAngle2, rotatingSpeed, walkSpeed, runSpeed;
-    public int investigatingState,pathWay;
+    public int investigatingState, pathWay, destPoint = 0;
     public bool spottedHighlight, goToNoisySource;
     public bool stopLaoDa;//stops lao da from moving when he reaches the end point of his paths, it triggers automatically
     public bool triggerFirstEvent; //controls the fov whether it can react to YY
@@ -34,7 +34,7 @@ public class AIBoss : MonoBehaviour {
     Image uiState;
     PlayerLogic playerLogic;
     AudioSource externalAudio;
-    int destPoint = 0, isInFov, firstStage, canFire, hitByCrate;
+    int isInFov, firstStage, canFire, hitByCrate;
     float stopToGoBack, angle, stopToLook;
     bool turnBack, cannotTurn, playerWithinRadius;
     string fileName;
@@ -60,14 +60,11 @@ public class AIBoss : MonoBehaviour {
         anim.SetInteger("State", 0);
         state = AIState.PATROLLING;
 
-        if (PlayerPrefs.GetInt("BossPhase") > 0)                                //did forced eave
+        if (PlayerPrefs.GetInt("BossEaveNo1") == 1)
         {
             stopLaoDa = false;
             triggerFirstEvent = true;
-            pathWay = PlayerPrefs.GetInt("BossPhase") - 1;                      //sets last path
-            transform.position = aiPath[pathWay].path_objs[0].position;         //starts at last route's first point
         }
-
     }
 
     public void Update()
