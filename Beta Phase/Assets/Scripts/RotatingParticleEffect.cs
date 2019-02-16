@@ -8,7 +8,7 @@ public class RotatingParticleEffect : MonoBehaviour {
     public bool onlyTurn, makeObjDisappear, makeAIMove;
     public Text pressE;
     public Vector3 speed;
-    public ParticleSystem ps1, ps2, ps3;
+    //public ParticleSystem ps1, ps2, ps3;
     public SphereCollider thisCollider;
     public GameObject objBeGone, eaveDialogue;
     //public Transform[] movePaths;
@@ -32,7 +32,7 @@ public class RotatingParticleEffect : MonoBehaviour {
 	void Update () {
         if (!onlyTurn)
         {
-            if (eavesdropLogic.isInteracted == false && thisCollider.enabled == true && thisPlayer)
+            /*if (eavesdropLogic.isInteracted == false && thisCollider.enabled == true && thisPlayer)
             {
                 var main = ps1.main;
                 main.startLifetime = 2;
@@ -48,9 +48,9 @@ public class RotatingParticleEffect : MonoBehaviour {
                 main2.startLifetime = 1f;
                 main2.startSize = 0.25f;
             }
-            else if (thisCollider.enabled == false)
+            else */if (thisCollider.enabled == false)
             {
-                var main = ps1.main;
+                /*var main = ps1.main;
                 main.startLifetime = 0.00001f;
                 var main2 = ps2.main;
                 main2.startLifetime = 0.00001f;
@@ -67,7 +67,7 @@ public class RotatingParticleEffect : MonoBehaviour {
                     {
                         ai[i].stationeryPosition.position = newPos[i];
                     }
-                }
+                }*/
                 //if (this.gameObject.name == "EavesdropZone2")
                 //{
                 //    Text objective = GameObject.Find("ObjectiveText").GetComponent<Text>();
@@ -103,7 +103,7 @@ public class RotatingParticleEffect : MonoBehaviour {
         print("run");
         stopRunningCoroutine = true;
         yield return new WaitForSeconds(0.5f);
-        var main3 = ps3.main;
+        /*var main3 = ps3.main;
         main3.startLifetime = 0.00001f;
         yield return new WaitForSeconds(2f);
         /*foreach (ArtificialIntelligence ais in ai)
