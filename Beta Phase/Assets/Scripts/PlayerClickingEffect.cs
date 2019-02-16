@@ -15,7 +15,7 @@ public class PlayerClickingEffect : MonoBehaviour {
     PauseMenu pauseMenu;
     // Use this for initialization
     void Start () {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
         {
             GameObject objClick = (GameObject)Instantiate(clickEffect);
             clickEffect.SetActive(false);
