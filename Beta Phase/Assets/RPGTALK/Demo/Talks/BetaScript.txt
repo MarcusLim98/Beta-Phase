@@ -222,7 +222,7 @@ Scene 8: DAY 3 LAO DA'S INTRO
 It's Lao Da's level. He is cocky, confident and strangely charismatic. A cruel killer, no doubt. He sneers.
 
 [title=BossIntro-begin]
-Lao Da: Ying Yue! Lovely lady of the law, you're finally here!
+Lao Da: Ying Yue! Lovely lady of the law, come on out!
 Lao Da: You know, your colleagues talk about you a lot.
 Lao Da: You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
 Lao Da: ... But impressive acts only last so long.
