@@ -287,11 +287,13 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         bossAi.stopLaoDa = false;
         contDialogue[0].SetActive(true);                    //Lao Da's intro cutscene
+        datasl.ObtainItem("BossPhase", 2);                  //got first doc, for LD behaviour
     }
 
     void BossIntro()                                        //for after intro
     {
-        datasl.ObtainItem("BossIntro", 1);
+        datasl.ObtainItem("BossIntro", 1);                  //for if player saves and dies
+        datasl.ObtainItem("BossPhase", 3);                  //done intro, for LD behaviour
         bossAi.stopLaoDa = false;
         EndCutscene();
     }
@@ -303,7 +305,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void BossOutro()                                        //for after outro
     {
-        datasl.ObtainItem("BossOutro", 1);
+        datasl.ObtainItem("BossOutro", 1);                  //for if player saves and dies
         //all thugs go alert
         StartCoroutine(BossExitPan());
         StartCutscene();
@@ -319,34 +321,26 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void BossEave1()
     {
-        //camFocusObj[1].SetActive(true);                     //1st doc
-
         StartCoroutine(BossPan1());
         StartCutscene();
     }
 
     void BossEave2()
     {
-        //camFocusObj[2].SetActive(true);                     //2nd doc
-        //camFocusObj[3].SetActive(true);                     //3rd doc
-
         StartCoroutine(BossPan2());
         StartCutscene();
     }
 
     void BossEave3()
     {
-        //camFocusObj[4].SetActive(true);                     //4th doc
-        //camFocusObj[5].SetActive(true);                     //5th doc
-        //camFocusObj[6].SetActive(true);                     //6th doc
-
         StartCoroutine(BossPan3());
         StartCutscene();
     }
 
-    IEnumerator BossPan1()                                 //for panning after first eavesdrop
+    IEnumerator BossPan1()                                  //for panning after first eavesdrop
     {
-        datasl.ObtainItem("BossEaveNo1", 1);
+        datasl.ObtainItem("BossEaveNo1", 1);                //for eavesdrop zone, if player saves and dies
+        datasl.ObtainItem("BossPhase", 1);                  //done forced eave 1, for LD behaviour
         cameraFocus = camFocusObj[1].transform;             //1st doc
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
@@ -355,9 +349,10 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         bossAi.stopLaoDa = false;
     }
 
-    IEnumerator BossPan2()                                 //for panning after second eavesdrop
+    IEnumerator BossPan2()                                  //for panning after second eavesdrop
     {
-        datasl.ObtainItem("BossEaveNo2", 1);
+        datasl.ObtainItem("BossEaveNo2", 1);                //for eavesdrop zone, if player saves and dies
+        datasl.ObtainItem("BossPhase", 4);                  //done eave 2, for LD behaviour
         cameraFocus = camFocusObj[2].transform;             //2nd doc
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan21());
@@ -373,9 +368,10 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EaveEnd();
     }
 
-    IEnumerator BossPan3()                                 //for panning after third eavesdrop
+    IEnumerator BossPan3()                                  //for panning after third eavesdrop
     {
-        datasl.ObtainItem("BossEaveNo3", 1);
+        datasl.ObtainItem("BossEaveNo3", 1);                //for eavesdrop zone, if player saves and dies
+        datasl.ObtainItem("BossPhase", 5);                  //done eave 3, for LD behaviour
         cameraFocus = camFocusObj[4].transform;             //4th doc
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan31());

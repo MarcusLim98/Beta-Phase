@@ -91,6 +91,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         keyItemList.Add(new KeyItem("WHDocs", 0));
 
         //Scene 8
+        keyItemList.Add(new KeyItem("BossPhase", 0));                               // 0 - nothing // 1 - forced eave1 // 2 - picked up first doc // 3 - intro // 4 - eave 2 // 5 - eave 3
         keyItemList.Add(new KeyItem("BossIntro", 0));
         keyItemList.Add(new KeyItem("BossOutro", 0));
         keyItemList.Add(new KeyItem("BossEaveNo1", 0));
