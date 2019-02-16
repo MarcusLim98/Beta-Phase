@@ -34,7 +34,6 @@ public class AIBoss : MonoBehaviour {
     Image uiState;
     PlayerLogic playerLogic;
     AudioSource externalAudio;
-    public int timesFired, timesHit;
     int destPoint = 0, isInFov, firstStage, canFire, hitByCrate;
     float stopToGoBack, angle, stopToLook;
     bool turnBack, cannotTurn, playerWithinRadius;

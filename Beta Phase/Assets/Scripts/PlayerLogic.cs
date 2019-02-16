@@ -11,7 +11,7 @@ public class PlayerLogic : MonoBehaviour {
     public int movingStyle;
     public LayerMask layerMask;
     public Transform thisNoisyFloor;
-    [HideInInspector]
+    //[HideInInspector]
     public bool playerEavesdrop, isMoving, noMoving, cursorIsOverUI, enableSpawnCheat, stepOnNoisyFloor, inCutscene;
     public string fileName;
     public SpawnBehaviour[] sb;
@@ -112,6 +112,12 @@ public class PlayerLogic : MonoBehaviour {
         else if (pauseMenu.isPaused == true)
         {
             externalAudio.enabled = false;
+        }
+
+        if (inCutscene)
+        {
+            agent.speed = 0;
+            movingStyle = 0;
         }
 
         if (movingStyle == 0)
