@@ -82,6 +82,7 @@ public class Outline2 : MonoBehaviour {
   [Space]
   public bool flashing;
   public float speedFlashing;
+    Color black = new Color(1, 1, 1, 0);
 
   void Awake() {
 
@@ -141,7 +142,7 @@ public class Outline2 : MonoBehaviour {
 
         if (flashing)
         {
-            OutlineColor = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, speedFlashing));
+            OutlineColor = Color.Lerp(Color.white, black, Mathf.PingPong(Time.time, speedFlashing));
             /*timer += Time.deltaTime;
             if (timer <= 1.5f)
             {
