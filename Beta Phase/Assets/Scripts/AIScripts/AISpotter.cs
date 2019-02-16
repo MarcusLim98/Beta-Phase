@@ -29,7 +29,7 @@ public class AISpotter : MonoBehaviour {
     bool playerWithinRadius;
     PlayerLogic playerLogic;
     AIVision gunLine;
-    int investigatingState, isInFov, shotOnce, seenPlayer;
+    int investigatingState, isInFov, shotOnce, seenPlayer, randomIdle;
     // Use this for initialization
     void Start()
     {
@@ -54,7 +54,8 @@ public class AISpotter : MonoBehaviour {
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
         externalAudio = GetComponent<AudioSource>();
-        anim.SetInteger("State", 0);
+        randomIdle = Random.Range(0, 2);
+        anim.SetInteger("State", randomIdle);
     }
 
     // Update is called once per frame
