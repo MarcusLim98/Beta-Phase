@@ -11,10 +11,11 @@ public class LaoDaBullet : MonoBehaviour {
     void Start () {
         player = GameObject.Find("Player").transform;
         //transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        transform.LookAt(player.position);
         externalAudio = GetComponent<AudioSource>();
         externalAudio.clip = (AudioClip)Resources.Load("LaoDaGunShot");
         externalAudio.Play();
-        StartCoroutine(GainSpeed());
+        //StartCoroutine(GainSpeed());
     }
 	
 	// Update is called once per frame
@@ -22,10 +23,10 @@ public class LaoDaBullet : MonoBehaviour {
         transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
-    IEnumerator GainSpeed()
+    /*IEnumerator GainSpeed()
     {
         transform.LookAt(player.position);
         yield return new WaitForSeconds(0.85f);
         speed = 50;
-    }
+    }*/
 }
