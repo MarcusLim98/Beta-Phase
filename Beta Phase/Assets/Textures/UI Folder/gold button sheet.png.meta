@@ -6,9 +6,9 @@ TextureImporter:
     21300002: EaveEmpty
     21300004: EaveBar
     21300006: EarIcon
-    21300008: BackArrow
+    21300008: ArrowB
     21300010: gold button sheet_5
-    21300012: Mute
+    21300012: CrossB
     21300014: Exclamation
     21300016: Question
     21300018: Voice1
@@ -34,6 +34,8 @@ TextureImporter:
     21300058: Exit3
     21300060: SFX3
     21300062: LoadingBar
+    21300064: ArrowW
+    21300066: CrossW
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -196,7 +198,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackArrow
+      name: ArrowB
       rect:
         serializedVersion: 2
         x: 1223
@@ -236,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mute
+      name: CrossB
       rect:
         serializedVersion: 2
         x: 1235
@@ -751,6 +753,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9616d01233473df4dbc6465993c3efc7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArrowW
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 984
+        width: 102
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1eeadac7a3e1a7479cd0a8f30fa01e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrossW
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 864
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5cc604d50c24a4499ace52dbd97fe5
       vertices: []
       indices: 
       edges: []
