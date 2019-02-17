@@ -51,7 +51,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraLogic.target = cameraFocus;
     }
 
-    void EndCutscene()
+    public void EndCutscene()
     {
         playerLogic.EnableMovement();
     }
@@ -92,9 +92,10 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     void Day1Intro()
     {
         ChangeObjective("pass chief hank the papers");
-        EndCutscene();
+        //EndCutscene();
         spawnObj[0].SetActive(true);
         spawnObj[1].SetActive(true);
+        StartCutscene();
     }
 
     void Day1DonePapers()
