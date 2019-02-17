@@ -77,6 +77,18 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         contDialogue[0].SetActive(true);
         StartCutscene();
     }
+
+    void Tutorial0()
+    {
+        spawnObj[0].SetActive(true);
+        StartCutscene();
+    }
+
+    void Tutorial1()
+    {
+        spawnObj[1].SetActive(true);
+        StartCutscene();
+    }
     #endregion
 
 
@@ -125,8 +137,8 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EndCutscene();
         contDialogue[1].SetActive(false);
         contDialogue[2].SetActive(true);
-        spawnObj[0].SetActive(true);
-        spawnObj[1].SetActive(true);
+        Tutorial0();
+        spawnObj[3].SetActive(true);
     }
 
     void Day1AfterEavesdrop()
@@ -296,9 +308,10 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         datasl.ObtainItem("BossIntro", 1);                  //for if player saves and dies
         datasl.ObtainItem("BossPhase", 3);                  //done intro, for LD behaviour
-        bossAi.stopLaoDa = false;
+        bossAi.stopLaoDa = false;                           //lets LD move and shoot
         EndCutscene();
-        spawnObj[0].SetActive(false);
+        spawnObj[0].SetActive(false);                       //turns off YY's talksprite for future eavesdrops
+        datasl.SaveGame("SpawnHere84");                     //saves game in case player dies from the first shot
         //make LD shoot here
     }
 
@@ -311,6 +324,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         datasl.ObtainItem("BossOutro", 1);                  //for if player saves and dies
         //all thugs go alert
+        datasl.SaveGame("SpawnHere84");                     //saves after the outro
         StartCoroutine(BossExitPan());
         StartCutscene();
     }
