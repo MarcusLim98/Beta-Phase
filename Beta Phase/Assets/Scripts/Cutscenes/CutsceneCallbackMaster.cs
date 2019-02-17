@@ -313,6 +313,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     public void FirstDoc()
     {
+        datasl.ObtainItem("BossIntro", 0);
         bossAi.stopLaoDa = false;
         contDialogue[0].SetActive(true);                    //Lao Da's intro cutscene
         spawnObj[0].SetActive(true);
