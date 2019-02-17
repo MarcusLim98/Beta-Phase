@@ -9,7 +9,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     public CameraLogic cameraLogic;
     public SpawnBehaviour spawnBeha;
     Transform cameraFocus;
-    public GameObject[] camFocusObj, contDialogue, spawnObj;
+    public GameObject[] camFocusObj, contDialogue, spawnObj, tutObj;
 
     public UiBehaviour ui;
     [SerializeField]
@@ -80,13 +80,19 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Tutorial0()
     {
-        spawnObj[0].SetActive(true);
+        tutObj[0].SetActive(true);
         StartCutscene();
     }
 
     void Tutorial1()
     {
-        spawnObj[1].SetActive(true);
+        tutObj[1].SetActive(true);
+        StartCutscene();
+    }
+
+    void Tutorial2()
+    {
+        tutObj[2].SetActive(true);
         StartCutscene();
     }
     #endregion
@@ -118,7 +124,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     //Scene 1
     void Day1Afterwork()
     {
-        spawnObj[2].SetActive(true);
+        spawnObj[0].SetActive(true);
         cameraFocus = camFocusObj[0].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
@@ -138,7 +144,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         contDialogue[1].SetActive(false);
         contDialogue[2].SetActive(true);
         Tutorial0();
-        spawnObj[3].SetActive(true);
+        spawnObj[1].SetActive(true);
     }
 
     void Day1AfterEavesdrop()
