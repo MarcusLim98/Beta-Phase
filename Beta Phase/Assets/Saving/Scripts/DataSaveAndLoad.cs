@@ -77,6 +77,13 @@ public class DataSaveAndLoad : MonoBehaviour {
 
     void CreateItemList()
     {
+        //Tutorials
+        //keyItemList.Add(new KeyItem("TutorialEave", 0));
+        keyItemList.Add(new KeyItem("TutorialSave", 0));
+        keyItemList.Add(new KeyItem("TutorialStealth", 0));
+        keyItemList.Add(new KeyItem("TutorialNoise", 0));
+        keyItemList.Add(new KeyItem("TutorialSpotter", 0));
+
         //Scene 1
         keyItemList.Add(new KeyItem("Day1Afterwork", 0));
         keyItemList.Add(new KeyItem("Day1AfterEavesdrop", 0));
@@ -92,7 +99,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         //Scene 4
         keyItemList.Add(new KeyItem("AfterEaveCall", 0));
         keyItemList.Add(new KeyItem("AfterEaveDocs", 0));
-        keyItemList.Add(new KeyItem("Day2Spotter", 0));
+        //keyItemList.Add(new KeyItem("Day2Spotter", 0));
         keyItemList.Add(new KeyItem("WHDocs", 0));
 
         //Scene 8

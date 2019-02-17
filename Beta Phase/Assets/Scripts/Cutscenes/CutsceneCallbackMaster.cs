@@ -96,6 +96,11 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         tutObj[2].SetActive(true);
         StartCutscene();
     }
+
+    public void TutorialCheck(string tutName)
+    {
+        datasl.ObtainItem(tutName, 1);
+    }
     #endregion
 
 
@@ -265,7 +270,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void Day2Spotter()
     {
-        datasl.ObtainItem("Day2Spotter", 1);
+        //datasl.ObtainItem("Day2Spotter", 1);
         cameraFocus = camFocusObj[2].transform;             //spotter area
     }
 
