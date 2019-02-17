@@ -30,7 +30,11 @@ public class Projectile : MonoBehaviour {
         if (disappear)
         {
             timeToDisappear += Time.deltaTime;
-            if (timeToDisappear > 10f)
+            if(timeToDisappear > 1f)
+            {
+                shards.name = "Shardz";
+            }
+            else if (timeToDisappear > 10f)
             {
                 this.gameObject.SetActive(false);
             }
@@ -48,6 +52,7 @@ public class Projectile : MonoBehaviour {
             shardsMesh.enabled = true;
             shardCollider.enabled = true;
             //shards.transform.parent = null;
+            this.gameObject.name = "GoneHope";   
             shards.transform.position = new Vector3(transform.position.x, transform.position.y + 0.02f, transform.position.z);
             shards.transform.rotation = Quaternion.Euler(-90, 0, 0);
             externalAudio.Play();
