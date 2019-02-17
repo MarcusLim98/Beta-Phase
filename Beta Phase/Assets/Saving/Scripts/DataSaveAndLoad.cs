@@ -35,29 +35,37 @@ public class DataSaveAndLoad : MonoBehaviour {
         //}
     }
 
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            LoadData();
+        }
+    }
+
     private void OnLevelWasLoaded(int level)                                        //spawns player at last checkpoint in playable levels
     {
         if (level > 0)
         {
-            playerObj = GameObject.FindGameObjectWithTag("Player");
-            playerAgent = playerObj.GetComponent<NavMeshAgent>();
-            objectiveText = GameObject.Find("ObjectiveText").GetComponent<Text>();
-
-            //if player has saved in this specific scene
-            if (PlayerPrefs.HasKey("spawnpoint") && SceneManager.GetActiveScene().name == PlayerPrefs.GetString("spawnscene"))
-            {
-                spawnPos = GameObject.Find(PlayerPrefs.GetString("spawnpoint")).transform.position;
-                playerObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
-                playerAgent.enabled = true;
-                objectiveText.text = PlayerPrefs.GetString("savedobjective");
-            }
-            ////if not, because it's a new scene, save progress                     //THIS CAUSES DATA ERRORS
-            //else if (SceneManager.GetActiveScene().name != PlayerPrefs.GetString("spawnscene"))
-            //{
-            //    SaveGame("StartPoint");
-            //}
-            else return;
+            LoadData();
         }
+    }
+
+    void LoadData()
+    {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerAgent = playerObj.GetComponent<NavMeshAgent>();
+        objectiveText = GameObject.Find("ObjectiveText").GetComponent<Text>();
+
+        //if player has saved in this specific scene
+        if (PlayerPrefs.HasKey("spawnpoint") && SceneManager.GetActiveScene().name == PlayerPrefs.GetString("spawnscene"))
+        {
+            spawnPos = GameObject.Find(PlayerPrefs.GetString("spawnpoint")).transform.position;
+            playerObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
+            playerAgent.enabled = true;
+            objectiveText.text = PlayerPrefs.GetString("savedobjective");
+        }
+        else return;
     }
 
     public void SaveGame(string spawnPointName)
