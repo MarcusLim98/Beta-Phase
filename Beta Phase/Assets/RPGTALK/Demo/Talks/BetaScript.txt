@@ -11,13 +11,14 @@ Ying Yue:
 Chief Hank:
 		0 neutral
 		1 disdain
-		2 tired
-		3 firm
+		2 sarcastic
+		3 angry
+		4 tired
 
 Lao Da:
 		0 neutral
-		1 menacing
-		2 villainous ahegao (sarcastic glee)
+		1 smug
+		2 menacing
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -38,9 +39,9 @@ Scene 0: DAY 1 INTRO
 YY is in Hank's office. She's clearly in trouble, too curious for her own good.
 
 [title=Day1Intro-begin]
-Chief Hank: You've got a lot of nerve, constable. Less than a week and there are already complaints.
-Chief Hank: You need to remember that your superiors know best.
-Chief Hank: Get back to your <b>paperwork.</b> We'll talk later.
+Chief Hank : You've got a lot of nerve, constable. Less than a week and there are already complaints.
+Chief Hank : You need to remember that your superiors know best.
+Chief Hank   : Get back to your <b>paperwork.</b> We'll talk later.
 Ying Yue: Yes, sir.
 [title=Day1Intro-end]
 
@@ -53,7 +54,7 @@ Scene 0: DAY 1 INCOMPLETE TASK
 If YY talks to Hank without completing her task:
 
 [title=Day1NoPapers-begin]
-Chief Hank: Are you daft? Get back to your <b>paperwork,</b> constable.
+Chief Hank  : Are you daft? Get back to your <b>paperwork,</b> constable.
 [title=Day1NoPapers-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -63,11 +64,11 @@ Scene 0: DAY 1 COMPLETED TASK
 After completing her task:
 
 [title=Day1DonePapers-begin]
-Chief Hank: Wow, great job, I guess you have some talent after all -- at fetching papers.
+Chief Hank  : Wow, great job, I guess you have some talent after all -- at fetching papers.
 Ying Yue: Thank you, sir.
-Chief Hank: About the previous incident...
-Chief Hank: Don't stick your nose into businesses that aren't yours.
-Chief Hank: You're dismissed. Curfew applies soon, so don't loiter.
+Chief Hank : About the previous incident...
+Chief Hank    : Don't stick your nose into businesses that aren't yours.
+Chief Hank   : You're dismissed. Curfew applies soon, so don't loiter.
 [title=Day1DonePapers-end]
 
 Fade out.
@@ -149,13 +150,13 @@ Scene 2.5: DAY 2 INTRO
 Ying Yue stands in Hank's office. She has shown him the evidence that she stole the night prior.
 
 [title=Day2Intro-begin]
-Chief Hank: What did I tell you yesterday?
-Chief Hank: Do not stick your nose into businesses that aren't yours.
+Chief Hank  : What did I tell you yesterday?
+Chief Hank   : Do not stick your nose into businesses that aren't yours.
 Ying Yue: Sorry, sir.
-Chief Hank: ... As for your "secret society activities", we will investigate if needed.
-Chief Hank: Our officers are busy enough with the riots.
-Chief Hank: Return to your paperwork, constable. It's more suitable for someone of your...
-Chief Hank: ... caliber.
+Chief Hank    : ... As for your "secret society activities", we will investigate if needed.
+Chief Hank    : Our officers are busy enough with the riots.
+Chief Hank   : Return to your paperwork, constable. It's more suitable for someone of your...
+Chief Hank : ... caliber.
 [title=Day2Intro-end]
 
 Fade out.
@@ -190,16 +191,16 @@ Scene 4.5: DAY 3 INTRO
 Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps a begrudgingly cool front.
 
 [title=Day3Intro-begin]
-Chief Hank: God damn it. I can't believe this mess.
-Chief Hank: Kidnappings, ransoms, opium drug trade, theft, assault...
-Chief Hank: The secret society nonsense is getting out of hand.
-Chief Hank: Regarding this case, our allocated officers will look into it.
+Chief Hank    : God damn it. I can't believe this mess.
+Chief Hank    : Kidnappings, ransoms, opium drug trade, theft, assault...
+Chief Hank   : The secret society nonsense is getting out of hand.
+Chief Hank : Regarding this case, our allocated officers will look into it.
 Ying Yue: The officers busy with riot control, sir?
-Chief Hank: Shut it, constable.
-Chief Hank: We will contact you if needed. You are to return to your paperwork.
-Chief Hank: Insubordination is an offense, if you still value your job.
+Chief Hank   : Shut it, constable.
+Chief Hank    : We will contact you if needed. You are to return to your paperwork.
+Chief Hank : Insubordination is an offense, if you still value your job.
 Ying Yue : Understood, sir.
-Chief Hank: <i>Dismissed.</i>
+Chief Hank   : <i>Dismissed.</i>
 [title=Day3Intro-end]
 
 Fade out.
@@ -212,7 +213,7 @@ YY stands outside the police station, again. It's sunset, again. She's tired, ye
 
 [title=Day3AfterWork-begin]
 Ying Yue : ...
-Ying Yue   : ... <i>I have to do something.</i>
+Ying Yue  : ... <i>I have to do something.</i>
 [title=Day3AfterWork-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -222,12 +223,12 @@ Scene 8: DAY 3 LAO DA'S INTRO
 It's Lao Da's level. He is cocky, confident and strangely charismatic. A cruel killer, no doubt. He sneers.
 
 [title=BossIntro-begin]
-Lao Da: Ying Yue! Lovely lady of the law, come on out!
-Lao Da: You know, your colleagues talk about you a lot.
-Lao Da: You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
-Lao Da: ... But impressive acts only last so long.
+Lao Da : Ying Yue! Lovely lady of the law, come on out!
+Lao Da : You know, your colleagues talk about you a lot.
+Lao Da : You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
+Lao Da  : ... But impressive acts only last so long.
 Ying Yue   : ...
-Lao Da: <i>You are no hero, Ying Yue, just a troublemaker.</i>
+Lao Da  : <i>You are no hero, Ying Yue, just a troublemaker.</i>
 [title=BossIntro-end]
 
 The final boss fight has begun!
@@ -239,10 +240,10 @@ Scene 8: DAY 3 LAO DA'S OUTRO
 Lao Da has no idea where Ying Yue is, but he knows she has been stealing documents. He yells into the mess of his warehouse.
 
 [title=BossOutro-begin]
-Lao Da: Well done, Ying Yue! Well done!
-Lao Da: But you forget: 
-Lao Da: You're on my turf! This is my town!
-Lao Da: Men, find her, <i>NOW!</i>
+Lao Da : Well done, Ying Yue! Well done!
+Lao Da : But you forget: 
+Lao Da  : You're on my turf! This is my town!
+Lao Da  : Men, find her, <i>NOW!</i>
 [title=BossOutro-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -250,21 +251,21 @@ Lao Da: Men, find her, <i>NOW!</i>
 Scene 9: THE END
 
 [title=TheEnd-begin]
-Chief Hank: So, Constable Ying Yue.
-Chief Hank: I should be firing you, really.
-Chief Hank: You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
-Chief Hank: You placed yourself in danger and could have gotten yourself killed.
-Chief Hank: Grant, it would have made my job easier.
+Chief Hank   : So, Constable Ying Yue.
+Chief Hank : I should be firing you, really.
+Chief Hank : You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
+Chief Hank : You placed yourself in danger and could have gotten yourself killed.
+Chief Hank    : Grant, it would have made my job easier.
 Ying Yue: It's rude to die before my parents, sir.
-Chief Hank: Shut your mouth, constable.
-Chief Hank: [speed=10]...[/speed] Perhaps in the same vein as how you shut down the secret society in three days.
-Chief Hank: I suppose I should commemorate what is due[speed=10]...[/speed]
+Chief Hank   : Shut your mouth, constable.
+Chief Hank    : [speed=10]...[/speed] Perhaps in the same vein as how you shut down the secret society in three days.
+Chief Hank    : I suppose I should commemorate what is due[speed=10]...[/speed]
 Chief Hank: [speed=10]...[/speed] You did well, constable.
 Ying Yue: [speed=10]...[/speed]
 Ying Yue    : Thank you, Chief Hank.
-Chief Hank: Now then, you have a new assignment: [speed=10]...[/speed] riot control.
-Chief Hank: Over a dozen dead and even more injured for both civilians and your fellow colleagues.
-Chief Hank: Do you think you can handle that, constable?
+Chief Hank   : Now then, you have a new assignment: [speed=10]...[/speed] riot control.
+Chief Hank : Over a dozen dead and even more injured for both civilians and your fellow colleagues.
+Chief Hank  : Do you think you can handle that, constable?
 Ying Yue: For my caliber, sir?
 Ying Yue    : [speed=10]...[/speed] I think it'll be worth a shot.
 [title=TheEnd-end]
