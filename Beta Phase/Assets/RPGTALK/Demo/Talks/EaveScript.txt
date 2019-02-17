@@ -92,8 +92,10 @@ Spotter: Ya ya, I'll call you. No need worry!
 Scene 8 Boss Level: Lao Da's first scene / forced eavesdrop
 
 [title=BossEave1-begin]
-Lao Da  : Enough with the excuses! You pigs keep losing papers like no one's business.
+Lao Da: ... Enough with the excuses.
+Lao Da  : You pigs keep losing papers like no one's business.
 Lao Da  : <i>Find them,</i> unless you want to lose your fingers too.
+Lao Da : How many do you plan to keep, hm?
 [title=BossEave1-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -112,6 +114,7 @@ Lao Da : Now then, where were the other two documents?
 Scene 8 Boss Level: Lao Da's third eavesdrop
 
 [title=BossEave3-begin]
+Lao Da : ... Hah, right.
 Lao Da  : Are you telling me that you men can't handle a single little girl?
 Lao Da : Come now, you know I care about you all.
 Lao Da  : ... But I would care more if one of you could actually find her.
