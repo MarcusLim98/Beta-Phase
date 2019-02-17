@@ -499,7 +499,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
+    /*private void OnDrawGizmos() //the max angle determines how wide its fov will be based on the blue lines and the max radius determines how far will the fov be based on the yellow sphere
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
@@ -530,7 +530,7 @@ public class ArtificialIntelligence : MonoBehaviour
         else if (investigatingState == 2)
             Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, (playerTarget.position - transform.position).normalized * maxRadius); //ensures the middle raycasting line turns to green when hitting the target
-    }
+    }*/
 
     private void OnTriggerStay(Collider other)
     {
