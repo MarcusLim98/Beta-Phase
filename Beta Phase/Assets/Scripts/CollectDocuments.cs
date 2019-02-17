@@ -59,9 +59,9 @@ public class CollectDocuments : MonoBehaviour
                 {
                     dsal.ObtainItem(other.name, 1);
                     dsal.ObtainItem("BossDocs", i);             //updates int
-                    dsal.SaveGame("SpawnHere84");               //saves int immediately afterwards
                     if (i == 1) { callback.FirstDoc(); }
                     else if (i == collect) { callback.LastDoc(); }
+                    dsal.SaveGame("SpawnHere84");               //saves int immediately afterwards
                 }
             }
         }

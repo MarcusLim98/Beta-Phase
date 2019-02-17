@@ -138,6 +138,10 @@ public class DataSaveAndLoad : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Delete))                                       //to clear all data keys
         {
             PlayerPrefs.DeleteAll();
+            foreach (KeyItem item in keyItemList)                                   //check through entire item list
+            {
+                PlayerPrefs.SetInt(item.keyItemName, 0);                            //if taken, save the value as 0 (false)
+            }
             print("All keys cleared");
         }
 

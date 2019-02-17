@@ -298,12 +298,14 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     //Scene 8
     void BossEaveGen()                                      //for all boss eavesdrops dialogue
     {
+        StopAllCoroutines();
         cameraFocus = camFocusObj[0].transform;             //Lao Da
         StartCutscene();
     }
 
     public void FirstDoc()
     {
+        StopAllCoroutines();
         bossAi.stopLaoDa = false;
         contDialogue[0].SetActive(true);                    //Lao Da's intro cutscene
         spawnObj[0].SetActive(true);
@@ -323,6 +325,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     public void LastDoc()                                   //Lao Da's outro cutscene
     {
+        StopAllCoroutines();
         contDialogue[1].SetActive(true);
     }
 
