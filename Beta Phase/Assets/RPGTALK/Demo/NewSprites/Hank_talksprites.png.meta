@@ -2,11 +2,11 @@ fileFormatVersion: 2
 guid: 447f864cdb6064446b7f8a075a600a5a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Hank_Neutral
-    21300002: Hank_Disdain
-    21300004: Hank_Sarcastic
-    21300006: Hank_Angry
-    21300008: Hank_Tired
+    21300000: Hank_0_Neutral
+    21300002: Hank_1_Disdain
+    21300004: Hank_2_Sarcastic
+    21300006: Hank_3_Angry
+    21300008: Hank_4_Tired
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hank_Neutral
+      name: Hank_0_Neutral
       rect:
         serializedVersion: 2
         x: 7
@@ -97,7 +97,7 @@ TextureImporter:
         width: 837
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -109,15 +109,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hank_Disdain
+      name: Hank_1_Disdain
       rect:
         serializedVersion: 2
         x: 857
         y: 0
-        width: 838
+        width: 837
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,7 +129,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hank_Sarcastic
+      name: Hank_2_Sarcastic
       rect:
         serializedVersion: 2
         x: 1709
@@ -137,7 +137,7 @@ TextureImporter:
         width: 837
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hank_Angry
+      name: Hank_3_Angry
       rect:
         serializedVersion: 2
         x: 2578
@@ -157,7 +157,7 @@ TextureImporter:
         width: 837
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,15 +169,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hank_Tired
+      name: Hank_4_Tired
       rect:
         serializedVersion: 2
         x: 3434
         y: 0
-        width: 836
+        width: 837
         height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

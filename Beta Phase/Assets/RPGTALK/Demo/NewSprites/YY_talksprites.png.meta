@@ -93,10 +93,10 @@ TextureImporter:
       name: YY_talksprites_0_neutral
       rect:
         serializedVersion: 2
-        x: 31
+        x: 33
         y: 0
-        width: 662
-        height: 1047
+        width: 677
+        height: 1048
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,9 +113,9 @@ TextureImporter:
       name: YY_talksprites_1_tired
       rect:
         serializedVersion: 2
-        x: 730
+        x: 733
         y: 0
-        width: 682
+        width: 677
         height: 1048
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -133,9 +133,9 @@ TextureImporter:
       name: YY_talksprites_2_shocked
       rect:
         serializedVersion: 2
-        x: 1430
+        x: 1431
         y: 0
-        width: 678
+        width: 677
         height: 1048
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -155,7 +155,7 @@ TextureImporter:
         serializedVersion: 2
         x: 2137
         y: 0
-        width: 678
+        width: 677
         height: 1048
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -173,9 +173,9 @@ TextureImporter:
       name: YY_talksprites_4_happy
       rect:
         serializedVersion: 2
-        x: 2836
+        x: 2839
         y: 0
-        width: 680
+        width: 677
         height: 1048
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
