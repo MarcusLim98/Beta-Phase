@@ -33,6 +33,7 @@ public class AIBoss : MonoBehaviour {
     Vector3 targetDir, newDir, directionBetween, lookHereStart;
     Image uiState;
     PlayerLogic playerLogic;
+    BGMControl bgmLogic;
     AudioSource externalAudio;
     int isInFov, firstStage, canFire, hitByCrate;
     float stopToGoBack, angle, stopToLook;
@@ -49,6 +50,7 @@ public class AIBoss : MonoBehaviour {
         thisAI = GetComponent<Transform>();
         externalAudio = GetComponent<AudioSource>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        bgmLogic = GameObject.Find("BGMS").GetComponent<BGMControl>();
 
         uiAbove = this.gameObject.transform.GetChild(4);
         exclamationMark = Instantiate(alert, transform.position, Quaternion.identity);
@@ -112,11 +114,13 @@ public class AIBoss : MonoBehaviour {
                         aiFollower.stopHere = 3;
                     }
                     canFire = 0;
+                    bgmLogic.EscapeDanger();
                     state = AIState.PATROLLING;
                 }
                 else if (investigatingState == 1)
                 {
                     FiringPropeties();
+                    bgmLogic.ChangeDanger();
                 }
                 break;
             case AIState.CHASE:

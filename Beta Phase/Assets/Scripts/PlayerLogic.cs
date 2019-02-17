@@ -118,6 +118,7 @@ public class PlayerLogic : MonoBehaviour {
         {
             agent.speed = 0;
             movingStyle = 0;
+            externalAudio.clip = null;
         }
 
         if (animStates == 1)
