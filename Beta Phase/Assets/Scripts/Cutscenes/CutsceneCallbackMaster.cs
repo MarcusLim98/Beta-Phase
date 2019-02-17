@@ -76,6 +76,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
         contDialogue[0].SetActive(true);
         StartCutscene();
+        yield break;
     }
 
     void Tutorial0()
@@ -203,6 +204,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
         EndCutscene();
+        yield break;
     }
     #endregion
 
@@ -236,6 +238,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = camFocusObj[1].transform;
         StartCoroutine(BackToYYContCutscene());
         StartCutscene();
+        yield break;
     }
 
     void Day2Notice()
@@ -288,6 +291,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         spawnObj[2].SetActive(true);                        //TalkArea to trigger monolouge
+        yield break;
     }
 
     void Day3Determination()
@@ -298,14 +302,12 @@ public class CutsceneCallbackMaster : MonoBehaviour {
     //Scene 8
     void BossEaveGen()                                      //for all boss eavesdrops dialogue
     {
-        StopAllCoroutines();
         cameraFocus = camFocusObj[0].transform;             //Lao Da
         StartCutscene();
     }
 
     public void FirstDoc()
     {
-        StopAllCoroutines();
         bossAi.stopLaoDa = false;
         contDialogue[0].SetActive(true);                    //Lao Da's intro cutscene
         spawnObj[0].SetActive(true);
@@ -325,7 +327,6 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     public void LastDoc()                                   //Lao Da's outro cutscene
     {
-        StopAllCoroutines();
         contDialogue[1].SetActive(true);
     }
 
@@ -344,6 +345,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         cameraFocus = playerLogic.gameObject.transform;
         EndCutscene();
+        yield break;
     }
 
     void BossEave1()
@@ -374,6 +376,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         EndCutscene();
         bossAi.triggerFirstEvent = true;
         bossAi.stopLaoDa = false;
+        yield break;
     }
 
     IEnumerator BossPan2()                                  //for panning after second eavesdrop
@@ -384,6 +387,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan21());
         StartCutscene();
+        yield break;
     }
 
     IEnumerator BossPan21()
@@ -393,6 +397,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
         bossAi.stopLaoDa = false;
         EaveEnd();
+        yield break;
     }
 
     IEnumerator BossPan3()                                  //for panning after third eavesdrop
@@ -403,6 +408,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan31());
         StartCutscene();
+        yield break;
     }
 
     IEnumerator BossPan31()
@@ -411,6 +417,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         yield return new WaitForSeconds(2);
         StartCoroutine(BossPan32());
         StartCutscene();
+        yield break;
     }
 
     IEnumerator BossPan32()
@@ -420,6 +427,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
         cameraFocus = playerLogic.gameObject.transform;
         bossAi.stopLaoDa = false;
         EaveEnd();
+        yield break;
     }
 
     #endregion
