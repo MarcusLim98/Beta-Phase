@@ -25,6 +25,7 @@ public class PlayerLogic : MonoBehaviour {
     CameraLogic cameraLogic;
     PauseMenu pauseMenu;
     AudioSource externalAudio;
+    RandomAudio randomAudio;
     int alterSpots;
     void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerLogic : MonoBehaviour {
         pauseMenu = GameObject.Find("Main Camera").GetComponent<PauseMenu>();
         externalAudio = GetComponent<AudioSource>();
         sb = GameObject.FindObjectsOfType<SpawnBehaviour>();
+        randomAudio = GameObject.Find("EavesdropSoundFX").GetComponent<RandomAudio>();
         StartCoroutine(WaitForNavMesh());
     }
 
@@ -244,6 +246,7 @@ public class PlayerLogic : MonoBehaviour {
         {
             playerEavesdrop = true;
             cameraLogic.eavesdropLookHere = other.transform.GetChild(0);
+            randomAudio.inRange = true;
             /*if (eavesDropLogic.changeCameraAngle == false)
             {
                 cameraLogic.eavesdropLookHere = this.gameObject.transform;
@@ -259,6 +262,7 @@ public class PlayerLogic : MonoBehaviour {
             playerEavesdrop = false;
             other.GetComponent<RotatingParticleEffect>().thisCollider.enabled = false;
             other.GetComponent<RotatingParticleEffect>().StartCoroutine("Gone");
+            randomAudio.inRange = false;
             //playerEavesdrop = false;
         }
 
@@ -274,6 +278,7 @@ public class PlayerLogic : MonoBehaviour {
         if (other.tag == "EavesdropZone")
         {
             playerEavesdrop = false;
+            randomAudio.inRange = false;
         }
         if (other.name == "NoisyFloor")
         {
