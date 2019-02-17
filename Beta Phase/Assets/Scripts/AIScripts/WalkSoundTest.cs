@@ -36,6 +36,22 @@ public class WalkSoundTest : MonoBehaviour
         footSource.Play();
         Lstop = false;
     }
+
+    public void RightFootLD()
+    {
+        footSource.volume = 0.7f;
+        footSource.clip = (AudioClip)Resources.Load(right);
+        footSource.Play();
+        Rstop = false;
+    }
+    public void LeftFootLD()
+    {
+        footSource.volume = 0.7f;
+        footSource.clip = (AudioClip)Resources.Load(left);
+        footSource.Play();
+        Lstop = false;
+    }
+
     public void FootStop()
     {
         if (Rstop == false || Lstop == false)
