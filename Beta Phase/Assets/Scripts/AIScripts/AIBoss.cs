@@ -177,6 +177,23 @@ public class AIBoss : MonoBehaviour {
             return;
         agent.destination = aiPath[pathWay].path_objs[destPoint].position;
         destPoint = (destPoint + 1) % aiPath[pathWay].path_objs.Count;
+
+        if(pathWay == 1)
+        {
+            aiFollower.lookHereStart = new Vector3(0, 90, 0);
+        }
+        else if(pathWay == 2)
+        {
+            aiFollower.lookHereStart = new Vector3(0, 0, 0);
+        }
+        else if (pathWay == 3)
+        {
+            aiFollower.lookHereStart = new Vector3(0, -90, 0);
+        }
+        else if (pathWay == 4)
+        {
+            aiFollower.lookHereStart = new Vector3(0, 0, 0);
+        }
     }
 
     public bool InFov()
