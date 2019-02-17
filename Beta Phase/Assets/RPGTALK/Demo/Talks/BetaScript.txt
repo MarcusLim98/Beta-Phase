@@ -64,7 +64,7 @@ Scene 0: DAY 1 COMPLETED TASK
 After completing her task:
 
 [title=Day1DonePapers-begin]
-Chief Hank  : Wow, great job, I guess you have some talent after all -- at fetching papers.
+Chief Hank : Wow, great job, I guess you have some talent after all -- at fetching papers.
 Ying Yue: Thank you, sir.
 Chief Hank : About the previous incident...
 Chief Hank    : Don't stick your nose into businesses that aren't yours.
@@ -150,7 +150,7 @@ Scene 2.5: DAY 2 INTRO
 Ying Yue stands in Hank's office. She has shown him the evidence that she stole the night prior.
 
 [title=Day2Intro-begin]
-Chief Hank  : What did I tell you yesterday?
+Chief Hank : What did I tell you yesterday?
 Chief Hank   : Do not stick your nose into businesses that aren't yours.
 Ying Yue: Sorry, sir.
 Chief Hank    : ... As for your "secret society activities", we will investigate if needed.
@@ -191,7 +191,7 @@ Scene 4.5: DAY 3 INTRO
 Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps a begrudgingly cool front.
 
 [title=Day3Intro-begin]
-Chief Hank    : God damn it. I can't believe this mess.
+Chief Hank : God damn it. I can't believe this mess.
 Chief Hank    : Kidnappings, ransoms, opium drug trade, theft, assault...
 Chief Hank   : The secret society nonsense is getting out of hand.
 Chief Hank : Regarding this case, our allocated officers will look into it.
@@ -251,7 +251,7 @@ Lao Da  : Men, find her, <i>NOW!</i>
 Scene 9: THE END
 
 [title=TheEnd-begin]
-Chief Hank   : So, Constable Ying Yue.
+Chief Hank: So, Constable Ying Yue.
 Chief Hank : I should be firing you, really.
 Chief Hank : You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
 Chief Hank : You placed yourself in danger and could have gotten yourself killed.

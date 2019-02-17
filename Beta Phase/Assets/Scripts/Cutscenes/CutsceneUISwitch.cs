@@ -45,13 +45,6 @@ public class CutsceneUISwitch : MonoBehaviour
 
     void NPCTalk()
     {
-        rpgT.UIPhoto.color = Color.Lerp(rpgT.UIPhoto.color, Color.gray, 5 * Time.deltaTime);    //YY sprite turns to gray
-        npcSpeaker.color = Color.Lerp(npcSpeaker.color, Color.white, 5 * Time.deltaTime);       //NPC sprite turns to white
-        textBox[0].SetActive(false);                                                            //YY text box deactivated
-        textBox[1].SetActive(true);                                                             //NPC text box activated
-        rpgT.textUI.transform.localPosition = textPos[1];                                       //move text to NPC's side
-        rpgT.dialogerUI.transform.localPosition = namePos[1];                                   //move name text to NPC's side
-
         for (int i = 0; i < npcSprites.Length; i++)                                             //CHANGES NPC SPRITES
         {
             if (rpgT.npcRef != null && npcSprites[i].name == rpgT.npcRef.originalSpeakerName || npcSprites[i].name == rpgT.rpgtalkElements[0].originalSpeakerName)
@@ -63,6 +56,25 @@ public class CutsceneUISwitch : MonoBehaviour
                 }
             }
         }
+
+        rpgT.UIPhoto.color = Color.Lerp(rpgT.UIPhoto.color, Color.gray, 5 * Time.deltaTime);    //YY sprite turns to gray
+        npcSpeaker.color = Color.Lerp(npcSpeaker.color, Color.white, 5 * Time.deltaTime);       //NPC sprite turns to white
+        textBox[0].SetActive(false);                                                            //YY text box deactivated
+        textBox[1].SetActive(true);                                                             //NPC text box activated
+        rpgT.textUI.transform.localPosition = textPos[1];                                       //move text to NPC's side
+        rpgT.dialogerUI.transform.localPosition = namePos[1];                                   //move name text to NPC's side
+
+        //for (int i = 0; i < npcSprites.Length; i++)                                             //CHANGES NPC SPRITES
+        //{
+        //    if (rpgT.npcRef != null && npcSprites[i].name == rpgT.npcRef.originalSpeakerName || npcSprites[i].name == rpgT.rpgtalkElements[0].originalSpeakerName)
+        //    {
+        //        if (npcSpeaker)
+        //        {
+        //            npcSpeaker.sprite = npcSprites[i].photo;
+        //            npcSpeaker.SetNativeSize();
+        //        }
+        //    }
+        //}
     }
 
 
