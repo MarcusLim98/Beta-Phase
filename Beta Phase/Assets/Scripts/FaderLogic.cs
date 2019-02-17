@@ -53,6 +53,7 @@ public class FaderLogic : MonoBehaviour {
         if (other.name == "LaoDaBullet(Clone)" && affectsPlayer)
         {
             //print("dead");
+            playerLogic.animStates = 1;
             fadeToBlack.SetActive(true);
             StartCoroutine(DisableFadeOut());
         }

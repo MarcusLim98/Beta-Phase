@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLogic : MonoBehaviour {
 
     public float walkSpeed, runSpeed;
-    public int movingStyle;
+    public int movingStyle, animStates;
     public LayerMask layerMask;
     public Transform thisNoisyFloor;
     //[HideInInspector]
@@ -57,7 +57,7 @@ public class PlayerLogic : MonoBehaviour {
             if (hit.collider.tag == "Path" && !noMoving && !cursorIsOverUI && !inCutscene && pauseMenu.isPaused == false)
             {
                 if (Input.GetMouseButtonDown(0))
-                {               
+                {
                     agent.speed = runSpeed;
                     agent.SetDestination(hit.point);
                     movingStyle = 1;
@@ -101,7 +101,7 @@ public class PlayerLogic : MonoBehaviour {
         {
             externalAudio.Play();
         }
-        else 
+        else
         {
             isMoving = true;
         }
@@ -120,6 +120,17 @@ public class PlayerLogic : MonoBehaviour {
             movingStyle = 0;
         }
 
+        if (animStates == 1)
+        {
+            agent.speed = 0;
+            movingStyle = 3;
+        }
+        else if (animStates == 2)
+        {
+            agent.speed = 0;
+            movingStyle = 4;
+        }
+
         if (movingStyle == 0)
         {
             anim.SetInteger("State", 0);
@@ -131,6 +142,14 @@ public class PlayerLogic : MonoBehaviour {
         else if (movingStyle == 2)
         {
             anim.SetInteger("State", 2);
+        }
+        else if (movingStyle == 3)
+        {
+            anim.SetInteger("State", 3);
+        }
+        else if (movingStyle == 4)
+        {
+            anim.SetInteger("State", 4);
         }
     }
 

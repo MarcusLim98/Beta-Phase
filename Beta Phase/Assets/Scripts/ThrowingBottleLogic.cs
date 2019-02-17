@@ -79,6 +79,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(0) && dist < 15f && hitSomething)
             {
+                playerLogic.animStates = 2;
                 Rigidbody obj = Instantiate(rb, launchFrom.position, Quaternion.identity);
                 obj.velocity = Vo;
                 itemPickUp.haveBottle = false;
@@ -89,6 +90,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
         {
             cursor.SetActive(false);
             lr.enabled = false;
+            playerLogic.animStates = 0;
             playerLogic.noMoving = false;
         }
 
