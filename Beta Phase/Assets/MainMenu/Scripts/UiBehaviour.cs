@@ -50,7 +50,7 @@ public class UiBehaviour : MonoBehaviour {
         StartCoroutine(FadeToScene(nextScene));
     }
 
-    public void LoadGame()                                              //loads the scene of the last checkpoint
+    public void LoadGame()                                                  //loads the scene of the last checkpoint
     {
         if (PlayerPrefs.HasKey("spawnscene"))
         {
@@ -60,8 +60,7 @@ public class UiBehaviour : MonoBehaviour {
 
     public void NewGame()
     {
-        //PlayerPrefs.DeleteAll();                                        //clears past progress
-        dsal.ClearData();
+        dsal.ClearData();                                                   //clears past progress
         LoadScene("Scene 0 Police Office");
     }
 
