@@ -30,6 +30,14 @@ public class CollectDocuments : MonoBehaviour
         { 
             i = PlayerPrefs.GetInt("BossDocs");
         }
+
+        if (i >= collect)                                       //activates end point
+        {
+            foreach (GameObject indicators in obj)
+            {
+                indicators.SetActive(true);
+            }
+        }
     }
 
     private void Update()

@@ -8,6 +8,7 @@ public class UiBehaviour : MonoBehaviour {
 
     public GameObject fadeToBlack, fadeFromBlack, loadingScreen;
     public Slider loadingBar;
+    DataSaveAndLoad dsal;
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class UiBehaviour : MonoBehaviour {
                 resumeBtn.interactable = false;
             } else { resumeBtn.interactable = true; }
         }
+
+        dsal = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
 
         StartCoroutine(FadeFromBlack());
     }
@@ -57,7 +60,8 @@ public class UiBehaviour : MonoBehaviour {
 
     public void NewGame()
     {
-        PlayerPrefs.DeleteAll();                                        //clears past progress
+        //PlayerPrefs.DeleteAll();                                        //clears past progress
+        dsal.ClearData();
         LoadScene("Scene 0 Police Office");
     }
 
