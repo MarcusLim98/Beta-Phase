@@ -201,19 +201,27 @@ public class PlayerLogic : MonoBehaviour {
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                SceneManager.LoadScene("Scene 3 OWHouse");
+                SceneManager.LoadScene("Scene 2.5 Police Office");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                SceneManager.LoadScene("Scene 4 CWHouse");
+                SceneManager.LoadScene("Scene 3 OWHouse");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha5))
             {
-                SceneManager.LoadScene("Scene 7 ABHouse");
+                SceneManager.LoadScene("Scene 4 CWHouse");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha6))
             {
+                SceneManager.LoadScene("Scene 4.5 Police Office");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
                 SceneManager.LoadScene("Scene 8 ABHouse");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                SceneManager.LoadScene("Scene 9 End");
             }
         }
     }
