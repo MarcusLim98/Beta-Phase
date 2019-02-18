@@ -8,6 +8,7 @@ public class UiBehaviour : MonoBehaviour {
 
     public GameObject fadeToBlack, fadeFromBlack, loadingScreen;
     public Slider loadingBar;
+    DataSaveAndLoad dsal;
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class UiBehaviour : MonoBehaviour {
                 resumeBtn.interactable = false;
             } else { resumeBtn.interactable = true; }
         }
+
+        dsal = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
 
         StartCoroutine(FadeFromBlack());
     }
@@ -47,7 +50,7 @@ public class UiBehaviour : MonoBehaviour {
         StartCoroutine(FadeToScene(nextScene));
     }
 
-    public void LoadGame()                                              //loads the scene of the last checkpoint
+    public void LoadGame()                                                  //loads the scene of the last checkpoint
     {
         if (PlayerPrefs.HasKey("spawnscene"))
         {
@@ -57,7 +60,7 @@ public class UiBehaviour : MonoBehaviour {
 
     public void NewGame()
     {
-        PlayerPrefs.DeleteAll();                                        //clears past progress
+        dsal.ClearData();                                                   //clears past progress
         LoadScene("Scene 0 Police Office");
     }
 
