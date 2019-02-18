@@ -16,17 +16,28 @@ public class RotatingParticleEffect : MonoBehaviour {
     public Vector3[] newPos;
     GameObject particle;
     public ArtificialIntelligence[] ai;
+    public Color color1, color2, currentColor;
     bool thisPlayer, stopRunningCoroutine;
     EavesdropLogic eavesdropLogic;
     [SerializeField]
     MonoBehaviour callbackScript;
     [SerializeField]
     string callbackFunction;
+    ParticleSystem.MainModule mainModule;
+    ParticleSystem ps;
+    PlayerLogic playerLogic;
+    float startTime;
 
 
     void Start () {
         eavesdropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();
         thisCollider = GetComponent<SphereCollider>();
+        playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        ps = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
+        mainModule = ps.main;
+        mainModule.startColor = color1;
+        currentColor = color1;
+        startTime = Time.time;
     }
 	
 
@@ -94,6 +105,16 @@ public class RotatingParticleEffect : MonoBehaviour {
         {
             transform.Rotate(speed * Time.deltaTime);
         }
+
+        if(playerLogic.playerEavesdrop == false)
+        {
+            currentColor = color1;
+        }
+        else if (playerLogic.playerEavesdrop == true)
+        {
+            currentColor = color2;  
+        }
+        mainModule.startColor = Color.Lerp(mainModule.startColor.color, currentColor, 0.1f);
     }
 
     IEnumerator Gone()
