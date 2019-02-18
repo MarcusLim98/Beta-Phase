@@ -77,7 +77,7 @@ public class DataSaveAndLoad : MonoBehaviour {
         foreach (KeyItem item in keyItemList)                                       //check through entire item list
         {
             PlayerPrefs.SetInt(item.keyItemName, item.taken);                       //if taken, save the value as 1 (true)
-            print(item.keyItemName + ": " + item.taken);
+            //print(item.keyItemName + ": " + item.taken);
         }
 
         PlayerPrefs.Save();
