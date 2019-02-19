@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class EndingCtrl : MonoBehaviour
 {
     public CameraLogic cameraL;
-    public Transform yingYue, cameraT, credits1, credits2, credits3, credits4, credits5, credits6, credits7, credits8;
+    public Transform yingYue, cameraT;
+    public Transform[] credits;
     public Vector3 targetOffset;
     public float panSpeed;
     public RPGTalk rpgT;
@@ -28,7 +29,7 @@ public class EndingCtrl : MonoBehaviour
     {
         if (creditBgm.isPlaying)
         {
-            creditBgm.volume += Time.deltaTime / 2;
+            creditBgm.volume += Time.deltaTime / 2; //fades in music
         }
     }
 
@@ -63,30 +64,33 @@ public class EndingCtrl : MonoBehaviour
         fadeToBlack.SetActive(false);
         fadeFromBlack.SetActive(true);
         creditBgm.Play();
-        cameraT.position = credits1.position;
-        cameraT.rotation = credits1.rotation;
+        cameraT.position = credits[0].position;     //logo
+        cameraT.rotation = credits[0].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits2.position;
-        cameraT.rotation = credits2.rotation;
+        cameraT.position = credits[1].position;     //XP
+        cameraT.rotation = credits[1].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits3.position;
-        cameraT.rotation = credits3.rotation;
+        cameraT.position = credits[2].position;     //Noah
+        cameraT.rotation = credits[2].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits4.position;
-        cameraT.rotation = credits4.rotation;
+        cameraT.position = credits[3].position;     //Cherie
+        cameraT.rotation = credits[3].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits5.position;
-        cameraT.rotation = credits5.rotation;
+        cameraT.position = credits[4].position;     //Marcus
+        cameraT.rotation = credits[4].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits6.position;
-        cameraT.rotation = credits6.rotation;
+        cameraT.position = credits[5].position;     //Skyler
+        cameraT.rotation = credits[5].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits7.position;
-        cameraT.rotation = credits7.rotation;
+        cameraT.position = credits[6].position;     //Harits
+        cameraT.rotation = credits[6].rotation;
         yield return new WaitForSeconds(4);
-        cameraT.position = credits8.position;
-        cameraT.rotation = credits8.rotation;
+        cameraT.position = credits[7].position;     //Kaffy
+        cameraT.rotation = credits[7].rotation;
         yield return new WaitForSeconds(4);
+        //cameraT.position = credits[8].position;     //Misc
+        //cameraT.rotation = credits[8].rotation;
+        //yield return new WaitForSeconds(4);
         uiB.LoadScene("FakeMenu");
     }
 }
