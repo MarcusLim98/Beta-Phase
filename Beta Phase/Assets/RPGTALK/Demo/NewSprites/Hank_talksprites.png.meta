@@ -92,9 +92,9 @@ TextureImporter:
       name: Hank_0_Neutral
       rect:
         serializedVersion: 2
-        x: 7
+        x: 13
         y: 0
-        width: 837
+        width: 826
         height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -112,9 +112,9 @@ TextureImporter:
       name: Hank_1_Disdain
       rect:
         serializedVersion: 2
-        x: 857
+        x: 862
         y: 0
-        width: 837
+        width: 826
         height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -132,9 +132,9 @@ TextureImporter:
       name: Hank_2_Sarcastic
       rect:
         serializedVersion: 2
-        x: 1709
+        x: 1714
         y: 0
-        width: 837
+        width: 826
         height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -152,9 +152,9 @@ TextureImporter:
       name: Hank_3_Angry
       rect:
         serializedVersion: 2
-        x: 2578
+        x: 2584
         y: 0
-        width: 837
+        width: 826
         height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -172,9 +172,9 @@ TextureImporter:
       name: Hank_4_Tired
       rect:
         serializedVersion: 2
-        x: 3434
+        x: 3440
         y: 0
-        width: 837
+        width: 826
         height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

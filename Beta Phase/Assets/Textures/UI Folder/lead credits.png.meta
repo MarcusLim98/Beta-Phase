@@ -102,11 +102,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 272
-        y: 1206
-        width: 624
-        height: 93
+        y: 1210
+        width: 623
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: Noah
       rect:
         serializedVersion: 2
-        x: 162
-        y: 1004
-        width: 850
-        height: 96
+        x: 167
+        y: 1009
+        width: 842
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,11 +142,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 329
-        y: 804
+        y: 807
         width: 511
-        height: 94
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,12 +161,12 @@ TextureImporter:
       name: Marcus
       rect:
         serializedVersion: 2
-        x: 314
-        y: 603
-        width: 547
-        height: 92
+        x: 316
+        y: 606
+        width: 543
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,11 +182,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 15
-        y: 401
-        width: 1148
-        height: 97
+        y: 404
+        width: 1143
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: Harits
       rect:
         serializedVersion: 2
-        x: 241
-        y: 199
-        width: 694
-        height: 96
+        x: 245
+        y: 203
+        width: 687
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,11 +222,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1181
-        height: 94
+        y: 1
+        width: 1177
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: Kaffy_Roles
       rect:
         serializedVersion: 2
-        x: 1658
-        y: 28
-        width: 607
-        height: 68
+        x: 1655
+        y: 33
+        width: 606
+        height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,12 +261,12 @@ TextureImporter:
       name: Harits_Roles
       rect:
         serializedVersion: 2
-        x: 1422
-        y: 189
-        width: 1119
-        height: 135
+        x: 1429
+        y: 187
+        width: 1107
+        height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Skyler_Roles
       rect:
         serializedVersion: 2
-        x: 1397
-        y: 384
-        width: 1159
-        height: 142
+        x: 1401
+        y: 388
+        width: 1157
+        height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,12 +301,12 @@ TextureImporter:
       name: Marcus_Roles
       rect:
         serializedVersion: 2
-        x: 1422
-        y: 602
-        width: 1082
-        height: 76
+        x: 1427
+        y: 612
+        width: 1073
+        height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -321,12 +321,12 @@ TextureImporter:
       name: Cherie_Roles
       rect:
         serializedVersion: 2
-        x: 1437
-        y: 745
-        width: 1046
-        height: 139
+        x: 1439
+        y: 746
+        width: 1043
+        height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: Noah_Roles
       rect:
         serializedVersion: 2
-        x: 1438
-        y: 946
-        width: 1046
-        height: 136
+        x: 1443
+        y: 947
+        width: 1039
+        height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,12 +361,12 @@ TextureImporter:
       name: Xin_Pei_Roles
       rect:
         serializedVersion: 2
-        x: 1326
-        y: 1145
-        width: 1269
-        height: 142
+        x: 1330
+        y: 1149
+        width: 1265
+        height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
