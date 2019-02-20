@@ -39,7 +39,7 @@ public class ArtificialIntelligence : MonoBehaviour
     PlayerLogic playerLogic;
     FaderLogic faderLogic;
     BGMControl bgmLogic;
-    int destPoint = 0, timesHitRotation, randomIdle;
+    int destPoint = 0, timesHitRotation, randomIdle, randomStop;
     float stopToLook, angle, startToTurn, timeToResetView, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     public string fileName;
@@ -104,6 +104,22 @@ public class ArtificialIntelligence : MonoBehaviour
                         if (!agent.pathPending && agent.remainingDistance < 0.5f)
                         {
                             GotoNextPoint(); // returns to its duties when player is not in sight or no noise was heard
+                        }
+                        if(randomStop == 0 && !patrolTurn)
+                        {
+                            agent.speed = walkSpeed;
+                            anim.SetInteger("State", 2);
+                        }
+                        else if(randomStop == 1 && !patrolTurn)
+                        {
+                            agent.speed = 0;
+                            anim.SetInteger("State", randomIdle);
+                            startToTurn += Time.deltaTime;
+                            if(startToTurn >= 2)
+                            {
+                                startToTurn = 0;
+                                randomStop = 0;
+                            }
                         }
                     }
                     else if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight)) //investigates for player when out of suspicious view or/and heard from noisy source
@@ -252,11 +268,18 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.SetActive(false);
         if (!stationery && !staticRotate) //patrolling
         {
-            anim.SetInteger("State", 2);
             if (aiPath.path_objs.Count == 0)
                 return;
             agent.destination = aiPath.path_objs[destPoint].position;
             destPoint = (destPoint + 1) % aiPath.path_objs.Count;
+            if (!patrolTurn)
+            {
+                randomStop = Random.Range(0, 2);
+            }
+            else if (patrolTurn)
+            {
+                anim.SetInteger("State", 2);
+            }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f) //static guarding
         {
@@ -390,6 +413,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 stopToGoBack = 0;
                 stopToLook = 0;
                 isInFov = 0;
+                randomStop = 0;
                 agent.speed = walkSpeed;
                 maxAngle = currentAngle1;
                 maxAngle2 = currentAngle1;
