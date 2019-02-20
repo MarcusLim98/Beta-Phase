@@ -252,6 +252,7 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.SetActive(false);
         if (!stationery && !staticRotate) //patrolling
         {
+            anim.SetInteger("State", 2);
             if (aiPath.path_objs.Count == 0)
                 return;
             agent.destination = aiPath.path_objs[destPoint].position;
