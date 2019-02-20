@@ -105,22 +105,6 @@ public class ArtificialIntelligence : MonoBehaviour
                         {
                             GotoNextPoint(); // returns to its duties when player is not in sight or no noise was heard
                         }
-                        if(randomStop == 0 && !patrolTurn && !stationery)
-                        {
-                            agent.speed = walkSpeed;
-                            anim.SetInteger("State", 2);
-                        }
-                        else if(randomStop == 1 && !patrolTurn)
-                        {
-                            agent.speed = 0;
-                            anim.SetInteger("State", randomIdle);
-                            startToTurn += Time.deltaTime;
-                            if(startToTurn >= 2)
-                            {
-                                startToTurn = 0;
-                                randomStop = 0;
-                            }
-                        }
                     }
                     else if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight)) //investigates for player when out of suspicious view or/and heard from noisy source
                     {
@@ -272,14 +256,6 @@ public class ArtificialIntelligence : MonoBehaviour
                 return;
             agent.destination = aiPath.path_objs[destPoint].position;
             destPoint = (destPoint + 1) % aiPath.path_objs.Count;
-            if (!patrolTurn)
-            {
-                randomStop = Random.Range(0, 2);
-            }
-            else if (patrolTurn)
-            {
-                anim.SetInteger("State", 2);
-            }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f) //static guarding
         {
