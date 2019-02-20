@@ -19,6 +19,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public float maxRadius, maxRadius2, maxRadius3, maxAngle, maxAngle2, maxAngle3, rotatingSpeed, walkSpeed, runSpeed, timeToStare, stopToGoBack, stopHere;
     //time to start = determines how long does the thug stare at YY/noise source before approaching, stopToGoBack = determines how long does the thug investigates before returning
     //maxRadius && maxAngle = suspicious FOV, //maxRadius2 && maxAngle2 = danger FOV, maxRadius3 && maxAngle3 = FOV to detect players running behind
+    public int stopDest;
     public bool stationery, staticRotate, patrolTurn, followingLaoDa;
     [Space]
     [Space]
@@ -26,7 +27,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public GameObject EmptyObj, questionMark, exclamationMark, firstFov, secondFov;
     [HideInInspector]
     public Vector3 lookHereStart;
-    [HideInInspector]
+     [HideInInspector]
     public int isInFov, investigatingState;
     [HideInInspector]
     public bool spottedHighlight, goToNoisySource;
@@ -39,7 +40,7 @@ public class ArtificialIntelligence : MonoBehaviour
     PlayerLogic playerLogic;
     FaderLogic faderLogic;
     BGMControl bgmLogic;
-    int destPoint = 0, timesHitRotation, randomIdle, randomStop;
+    int destPoint = 0,randomIdle, randomStop, timesHitRotation;
     float stopToLook, angle, startToTurn, timeToResetView, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     public string fileName;
@@ -104,6 +105,13 @@ public class ArtificialIntelligence : MonoBehaviour
                         if (!agent.pathPending && agent.remainingDistance < 0.5f)
                         {
                             GotoNextPoint(); // returns to its duties when player is not in sight or no noise was heard
+                        }
+                        if (patrolTurn)
+                        {
+                            if (destPoint == 2 || destPoint == stopDest)
+                            {
+                                StationeryRotation();
+                            }
                         }
                     }
                     else if ((!goToNoisySource && spottedHighlight) || (goToNoisySource && spottedHighlight)) //investigates for player when out of suspicious view or/and heard from noisy source
@@ -252,11 +260,29 @@ public class ArtificialIntelligence : MonoBehaviour
         exclamationMark.SetActive(false);
         if (!stationery && !staticRotate) //patrolling
         {
-            anim.SetInteger("State", 2);
             if (aiPath.path_objs.Count == 0)
                 return;
             agent.destination = aiPath.path_objs[destPoint].position;
             destPoint = (destPoint + 1) % aiPath.path_objs.Count;
+            if (!patrolTurn)
+            {
+                anim.SetInteger("State", 2);
+            }
+            else if (patrolTurn)
+            {
+                if(destPoint != 2 && destPoint != stopDest)
+                {
+                    agent.speed = walkSpeed;
+                    anim.SetInteger("State", 2);
+                }
+                else if(destPoint == 2 || destPoint == stopDest)
+                {
+                    agent.speed = 0;
+                    anim.SetInteger("State", randomIdle);
+                    timesHitRotation = 0;
+                    cannotTurn = true;
+                }
+            }
         }
         else if (stationery && Vector3.Distance(thisAI.position, stationeryPosition.position) <= 1f) //static guarding
         {
@@ -279,6 +305,14 @@ public class ArtificialIntelligence : MonoBehaviour
             agent.SetDestination(stationeryPosition.position);
         }
     }
+
+    IEnumerator StopAndGo()
+    {
+        agent.speed = 0;
+        yield return new WaitForSeconds(3f);
+        agent.speed = walkSpeed;
+    }
+
 
     void StationeryRotation() //function reserved for static rotation thugs
     {
@@ -308,6 +342,7 @@ public class ArtificialIntelligence : MonoBehaviour
         }
         else if (cannotTurn) //ensure that the thug faces its starting angle before rotating left and right again after chasing player or investigating a noise source
         {
+            print("face forward");
             rotatingSpeed = 0.5f;
             Quaternion desiredRotQ = Quaternion.Euler(new Vector3(lookHereStart.x, lookHereStart.y, lookHereStart.z));
             transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQ, Time.deltaTime * rotatingSpeed);
@@ -331,14 +366,10 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             if(timesHitRotation == 2)
             {
-                stationeryPosition.position = aiPath.path_objs[1].position;
-                lookHereStart = new Vector3(-lookHereStart.x, -lookHereStart.y, -lookHereStart.z);
-                timesHitRotation = 3;
-            }
-            else if(timesHitRotation == 5)
-            {
-                stationeryPosition.position = aiPath.path_objs[0].position;
-                lookHereStart = new Vector3(lookHereStart.x, lookHereStart.y + 180, lookHereStart.z);
+                //stationeryPosition.position = aiPath.path_objs[1].position;
+                //lookHereStart = new Vector3(-lookHereStart.x, -lookHereStart.y, -lookHereStart.z);
+                agent.speed = walkSpeed;
+                anim.SetInteger("State", 2);
                 timesHitRotation = 0;
             }
         }
@@ -387,6 +418,10 @@ public class ArtificialIntelligence : MonoBehaviour
                 goToNoisySource = false;
                 dontMove = false;
                 noisySource = null;
+                if (patrolTurn)
+                {
+                    destPoint += 1;
+                }
                 stopToGoBack = 0;
                 stopToLook = 0;
                 isInFov = 0;
