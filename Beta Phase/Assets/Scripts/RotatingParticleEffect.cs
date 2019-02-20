@@ -27,7 +27,15 @@ public class RotatingParticleEffect : MonoBehaviour {
     ParticleSystem ps;
     PlayerLogic playerLogic;
     float startTime;
+    public string progressName;
 
+    private void Awake()
+    {
+        if (progressName != null && PlayerPrefs.GetInt(progressName) >= 1 && makeObjAppear)
+        {
+            objBeGone.SetActive(true);      //if eavesdrop has been done & data was saved, spawn assigned obj anyway
+        }
+    }
 
     void Start () {
         eavesdropLogic = GameObject.Find("ConvoMeter").GetComponent<EavesdropLogic>();

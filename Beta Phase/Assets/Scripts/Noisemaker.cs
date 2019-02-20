@@ -15,10 +15,25 @@ public class Noisemaker : MonoBehaviour {
     public bool hasInteracted, mustInteract;
     AudioSource externalAudio;
     string fileName;
+    public string progressName;
+
+    private void Awake()
+    {
+        if (progressName != null && PlayerPrefs.GetInt(progressName) >= 1)
+        {
+            StartCoroutine("MoveAi");
+        }
+    }
+
     private void Start()
     {
         externalAudio = GetComponent<AudioSource>();
         fileName = "CrateSmash";
+
+        if (progressName != null && PlayerPrefs.GetInt(progressName) >= 1)
+        {
+            Invoke("MoveAi", 0f);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,15 +45,16 @@ public class Noisemaker : MonoBehaviour {
             {
                 hasInteracted = true;
                 rb.AddForce(transform.up * 1000f);
-                for (int i = 0; i < movePaths.Length; i++)
-                {
-                    ai[i].stationeryPosition.position = movePaths[i];
-                    ai[i].questionMark.SetActive(true);
-                }
-                for (int i = 0; i < whereToLook.Length; i++)
-                {
-                    ai[i].lookHereStart = whereToLook[i];
-                }
+                MoveAi();
+                //for (int i = 0; i < movePaths.Length; i++)
+                //{
+                //    ai[i].stationeryPosition.position = movePaths[i];
+                //    ai[i].questionMark.SetActive(true);
+                //}
+                //for (int i = 0; i < whereToLook.Length; i++)
+                //{
+                //    ai[i].lookHereStart = whereToLook[i];
+                //}
             }
             if (!hasInteracted)
             {
@@ -53,16 +69,30 @@ public class Noisemaker : MonoBehaviour {
 
         if (other.tag == "Player" && mustInteract)
         {
-            for (int i = 0; i < movePaths.Length; i++)
-            {
-                ai[i].stationeryPosition.position = movePaths[i];
-                ai[i].questionMark.SetActive(true);
-            }
-            for (int i = 0; i < whereToLook.Length; i++)
-            {
-                ai[i].lookHereStart = whereToLook[i];
-            }
+            MoveAi();
+            //for (int i = 0; i < movePaths.Length; i++)
+            //{
+            //    ai[i].stationeryPosition.position = movePaths[i];
+            //    ai[i].questionMark.SetActive(true);
+            //}
+            //for (int i = 0; i < whereToLook.Length; i++)
+            //{
+            //    ai[i].lookHereStart = whereToLook[i];
+            //}
             //this.gameObject.SetActive(false);
+        }
+    }
+
+    void MoveAi()
+    {
+        for (int i = 0; i < movePaths.Length; i++)
+        {
+            ai[i].stationeryPosition.position = movePaths[i];
+            ai[i].questionMark.SetActive(true);
+        }
+        for (int i = 0; i < whereToLook.Length; i++)
+        {
+            ai[i].lookHereStart = whereToLook[i];
         }
     }
 
