@@ -105,7 +105,7 @@ public class ArtificialIntelligence : MonoBehaviour
                         {
                             GotoNextPoint(); // returns to its duties when player is not in sight or no noise was heard
                         }
-                        if(randomStop == 0 && !patrolTurn)
+                        if(randomStop == 0 && !patrolTurn && !stationery)
                         {
                             agent.speed = walkSpeed;
                             anim.SetInteger("State", 2);
