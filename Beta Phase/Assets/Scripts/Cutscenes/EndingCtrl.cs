@@ -11,7 +11,7 @@ public class EndingCtrl : MonoBehaviour
     public Vector3 targetOffset;
     public float panSpeed;
     public RPGTalk rpgT;
-    public GameObject endTitle, fadeToBlack, fadeFromBlack, newspaper;
+    public GameObject endTitle, fadeToBlack, fadeFromBlack, newspaper, skipButton;
     public AudioSource originalBgm, creditBgm, altar;
     public UiBehaviour uiB;
     [SerializeField]
@@ -63,6 +63,7 @@ public class EndingCtrl : MonoBehaviour
         creditCam.enabled = true;
         fadeToBlack.SetActive(false);
         fadeFromBlack.SetActive(true);
+        skipButton.SetActive(true);
         creditBgm.Play();
         cameraT.position = credits[0].position;     //logo
         cameraT.rotation = credits[0].rotation;
