@@ -179,7 +179,7 @@ Scene 3: DAY 2 NOTICE THUGS
 [title=Day2Notice-begin]
 Ying Yue  : ... Well, that won't work.
 Ying Yue   : I need to get in somehow. 
-Ying Yue   : <i>I have to rid of them.</i>
+Ying Yue   : <i>I have to get rid of them.</i>
 [title=Day2Notice-end]
 
 Objective: distract the guards
