@@ -42,7 +42,7 @@ YY is in Hank's office. She's clearly in trouble, too curious for her own good.
 Chief Hank : [dub=0]You've got a lot of nerve, constable. Less than a week and there are already complaints.
 Chief Hank : [dub=1]You need to remember that your superiors know best.
 Chief Hank   : [dub=2]Get back to your <b>paperwork.</b> We'll talk later.
-Ying Yue: Yes, sir.
+Ying Yue: [dub=3]Yes, sir.
 [title=Day1Intro-end]
 
 Objective: Pass documents to Chief Hank
@@ -54,7 +54,7 @@ Scene 0: DAY 1 INCOMPLETE TASK
 If YY talks to Hank without completing her task:
 
 [title=Day1NoPapers-begin]
-Chief Hank  : Are you daft? Get back to your <b>paperwork,</b> constable.
+Chief Hank  : [dub=4]Are you daft? Get back to your <b>paperwork,</b> constable.
 [title=Day1NoPapers-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -64,11 +64,11 @@ Scene 0: DAY 1 COMPLETED TASK
 After completing her task:
 
 [title=Day1DonePapers-begin]
-Chief Hank : Wow, great job, I guess you have some talent after all -- at fetching papers.
-Ying Yue: Thank you, sir.
-Chief Hank : About the previous incident...
-Chief Hank    : Don't stick your nose into businesses that aren't yours.
-Chief Hank   : You're dismissed. Curfew applies soon, so don't loiter.
+Chief Hank : [dub=5]Wow, terrific job, I guess you have some talent after all -- at fetching papers.
+Ying Yue: [dub=6]Thank you, sir.
+Chief Hank : [dub=7]About the previous incident...
+Chief Hank    : [dub=8]Don't stick your nose into businesses that aren't yours.
+Chief Hank   : [dub=9]You're dismissed. Curfew applies soon, so don't loiter.
 [title=Day1DonePapers-end]
 
 Fade out.
@@ -80,9 +80,9 @@ Scene 1: DAY 1 AFTER WORK
 YY stands outside the police station. It's sunset. She's tired from being pushed around.
 
 [title=Day1Afterwork-begin]
-Ying Yue : ... What a long day.
-Ying Yue : Now if only they'd take me seriously.
-Ying Yue   : What's the point of doing all of this if all they let me do is paperwork...
+Ying Yue : [dub=0]... What a long day.
+Ying Yue : [dub=1]Now if only they'd take me seriously.
+Ying Yue   : [dub=2]What's the point of doing all of this if all they let me do is paperwork...
 [title=Day1Afterwork-end]
 
 CRASH! Some thugs are making a ruckus off-screen. The camera shifts to look at them. They're outside a coffeeshop.
@@ -94,7 +94,7 @@ Scene 1: DAY 1 AFTER WORK (CONT'D)
 The camera moves back to YY.
 
 [title=Day1Suspicion-begin]
-Ying Yue  : What was that?
+Ying Yue  : [dub=3]What was that?
 [title=Day1Suspicion-end]
 
 Objective: Investigate the ruckus.
@@ -129,7 +129,7 @@ Scene 1: DAY 1 AFTER FIRST EAVESDROP
 
 [title=Day1AfterEave-begin]
 Ying Yue: The Coffee Shop, huh?
-Ying Yue : Those thugs are blocking its main entrance.
+Ying Yue : Those thugs... They're blocking the main entrance.
 Ying Yue : I'll have to find another way in.
 [title=Day1AfterEave-end]
 
