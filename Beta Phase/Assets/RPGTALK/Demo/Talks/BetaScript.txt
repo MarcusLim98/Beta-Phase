@@ -39,9 +39,9 @@ Scene 0: DAY 1 INTRO
 YY is in Hank's office. She's clearly in trouble, too curious for her own good.
 
 [title=Day1Intro-begin]
-Chief Hank : You've got a lot of nerve, constable. Less than a week and there are already complaints.
-Chief Hank : You need to remember that your superiors know best.
-Chief Hank   : Get back to your <b>paperwork.</b> We'll talk later.
+Chief Hank : [dub=0]You've got a lot of nerve, constable. Less than a week and there are already complaints.
+Chief Hank : [dub=1]You need to remember that your superiors know best.
+Chief Hank   : [dub=2]Get back to your <b>paperwork.</b> We'll talk later.
 Ying Yue: Yes, sir.
 [title=Day1Intro-end]
 

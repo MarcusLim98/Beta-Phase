@@ -89,9 +89,18 @@ public class EndingCtrl : MonoBehaviour
         cameraT.position = credits[7].position;     //Kaffy
         cameraT.rotation = credits[7].rotation;
         yield return new WaitForSeconds(4);
-        //cameraT.position = credits[8].position;     //Misc
-        //cameraT.rotation = credits[8].rotation;
-        //yield return new WaitForSeconds(4);
+        cameraT.position = credits[8].position;     //Voice
+        cameraT.rotation = credits[8].rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits[9].position;     //Misc music
+        cameraT.rotation = credits[9].rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits[10].position;     //Font
+        cameraT.rotation = credits[10].rotation;
+        yield return new WaitForSeconds(4);
+        cameraT.position = credits[11].position;     //Thanks
+        cameraT.rotation = credits[11].rotation;
+        yield return new WaitForSeconds(4);
         uiB.LoadScene("FakeMenu");
     }
 }
