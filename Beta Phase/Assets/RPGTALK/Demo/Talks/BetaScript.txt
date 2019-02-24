@@ -108,7 +108,7 @@ YY approaches the thugs. They don't like her, and they don't believe she's a cop
 [title=Day1ApproachThugs-begin]
 Thuggish Man: Oi! Get the hell out of here!
 Thuggish Man: Go play dress-up somewhere else.
-Ying Yue: ... They went back to talking. I could eavesdrop from afar.
+Ying Yue: [dub=4]... They went back to talking. I could eavesdrop from afar.
 [title=Day1ApproachThugs-end]
 
 Objective: Eavesdrop from afar.
@@ -120,7 +120,7 @@ Scene 1: DAY 1 APPROACHING THUGS AGAIN
 If YY approaches them again.
 
 [title=Day1ApproachAgain-begin]
-Ying Yue: I shouldn't get too close.
+Ying Yue: [dub=5]I shouldn't get too close.
 [title=Day1ApproachAgain-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -128,9 +128,9 @@ Ying Yue: I shouldn't get too close.
 Scene 1: DAY 1 AFTER FIRST EAVESDROP
 
 [title=Day1AfterEave-begin]
-Ying Yue: The Coffee Shop, huh?
-Ying Yue : Those thugs... They're blocking the main entrance.
-Ying Yue : I'll have to find another way in.
+Ying Yue: [dub=6]The Coffee Shop, huh?
+Ying Yue : [dub=7]Those thugs... They're blocking the main entrance.
+Ying Yue : [dub=8]I'll have to find another way in.
 [title=Day1AfterEave-end]
 
 
@@ -139,8 +139,8 @@ Ying Yue : I'll have to find another way in.
 Scene 2: DAY 1 AFTER GAMBLE EAVESDROP
 
 [title=Day1AfterGambleEave-begin]
-Ying Yue  : ...!
-Ying Yue  : I need to tell Chief Hank.
+Ying Yue  : [dub=0]...!
+Ying Yue  : [dub=1]I need to tell Chief Hank.
 [title=Day1AfterGambleEave-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -150,13 +150,13 @@ Scene 2.5: DAY 2 INTRO
 Ying Yue stands in Hank's office. She has shown him the evidence that she stole the night prior.
 
 [title=Day2Intro-begin]
-Chief Hank : What did I tell you yesterday?
-Chief Hank   : Do not stick your nose into businesses that aren't yours.
-Ying Yue: Sorry, sir.
-Chief Hank    : ... As for your "secret society activities", we will investigate if needed.
-Chief Hank    : Our officers are busy enough with the riots.
-Chief Hank   : Return to your paperwork, constable. It's more suitable for someone of your...
-Chief Hank : ... caliber.
+Chief Hank : [dub=0]What did I tell you yesterday?
+Chief Hank   : [dub=1]Do not stick your nose into businesses that aren't yours.
+Ying Yue : [dub=2]Sorry, sir.
+Chief Hank    : [dub=3]... As for your "secret society activities", we will investigate if needed.
+Chief Hank    : [dub=4]Our officers are busy enough with the riots.
+Chief Hank   : [dub=5]Return to your paperwork, constable. It's more suitable for someone of your...
+Chief Hank : [dub=6]... caliber.
 [title=Day2Intro-end]
 
 Fade out.
@@ -168,8 +168,8 @@ Scene 3: DAY 2 AFTER WORK
 YY stands outside the police station, again. It's sunset, again. She's tired, again.
 
 [title=Day2AfterWork-begin]
-Ying Yue : It looks like Chief Hank will keep wasting my time with paperwork.
-Ying Yue : I doubt I can do anything about the case at this rate.
+Ying Yue : [dub=0]It looks like Chief Hank will keep wasting my time with paperwork.
+Ying Yue : [dub=1]I doubt I can do anything about the case at this rate.
 [title=Day2AfterWork-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -177,9 +177,9 @@ Ying Yue : I doubt I can do anything about the case at this rate.
 Scene 3: DAY 2 NOTICE THUGS
 
 [title=Day2Notice-begin]
-Ying Yue  : ... Well, that won't work.
-Ying Yue   : I need to get in somehow. 
-Ying Yue   : <i>I have to get rid of them.</i>
+Ying Yue  : [dub=2]... Well, that won't work.
+Ying Yue   : [dub=3]I need to get in somehow. 
+Ying Yue   : [dub=4]<i>I have to get rid of them.</i>
 [title=Day2Notice-end]
 
 Objective: distract the guards
@@ -191,29 +191,29 @@ Scene 4.5: DAY 3 INTRO
 Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps a begrudgingly cool front.
 
 [title=Day3Intro-begin]
-Chief Hank : God damn it. I can't believe this mess.
-Chief Hank    : Kidnappings, ransoms, opium drug trade, theft, assault...
-Chief Hank   : The secret society nonsense is getting out of hand.
-Chief Hank : Regarding this case, our allocated officers will look into it.
-Ying Yue: The officers busy with riot control, sir?
-Chief Hank   : Shut it, constable.
-Chief Hank    : We will contact you if needed. You are to return to your paperwork.
-Chief Hank : Insubordination is an offense, if you still value your job.
-Ying Yue : Understood, sir.
-Chief Hank   : <i>Dismissed.</i>
+Chief Hank : [dub=0]God damn it. I can't believe this mess.
+Chief Hank    : [dub=1]Kidnappings, ransoms, opium drug trade, theft, assault...
+Chief Hank   : [dub=2]The secret society nonsense is getting out of hand.
+Chief Hank : [dub=3]Regarding this case, our allocated officers will look into it.
+Ying Yue: [dub=4]The officers busy with riot control, sir?
+Chief Hank   : [dub=5]Shut it, constable.
+Chief Hank    : [dub=6]We will contact you if needed. You are to return to your paperwork.
+Chief Hank : [dub=7]Insubordination is an offense, if you still value your job.
+Ying Yue : [dub=8]Understood, sir.
+Chief Hank   : [dub=9]<i>Dismissed.</i>
 [title=Day3Intro-end]
 
 Fade out.
 
 ----------------------------------------------------------------------------------------------------------
 
-Scene ?: DAY 3 AFTER WORK
+Scene 4.5: DAY 3 AFTER WORK
 
 YY stands outside the police station, again. It's sunset, again. She's tired, yes, but now she's DETERMINED.
 
 [title=Day3AfterWork-begin]
-Ying Yue : ...
-Ying Yue  : ... <i>I have to do something.</i>
+Ying Yue : [dub=10]...
+Ying Yue  : [dub=11]... <i>I have to do something.</i>
 [title=Day3AfterWork-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -251,23 +251,23 @@ Lao Da  : Men, find her, <i>NOW!</i>
 Scene 9: THE END
 
 [title=TheEnd-begin]
-Chief Hank: So, Constable Ying Yue.
-Chief Hank : I should be firing you, really.
-Chief Hank : You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
-Chief Hank : You placed yourself in danger and could have gotten yourself killed.
-Chief Hank    : Grant, it would have made my job easier.
-Ying Yue: It's rude to die before my parents, sir.
-Chief Hank   : Shut your mouth, constable.
-Chief Hank    : [speed=10]...[/speed] Perhaps in the same vein as how you shut down the secret society in three days.
-Chief Hank    : I suppose I should commemorate what is due[speed=10]...[/speed]
-Chief Hank: [speed=10]...[/speed] You did well, constable.
+Chief Hank: [dub=0]So, Constable Ying Yue.
+Chief Hank : [dub=1]I should be firing you, really.
+Chief Hank : [dub=2]You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
+Chief Hank : [dub=3]You placed yourself in danger and could have gotten yourself killed.
+Chief Hank    : [dub=4]Grant, it would have made my job easier.
+Ying Yue: [dub=5]It's rude to die before my parents, sir.
+Chief Hank   : [dub=6]Shut your mouth, constable.
+Chief Hank    : [dub=7][speed=10]...[/speed] Perhaps in the same vein as how you shut down the secret society in three days.
+Chief Hank    : [dub=8]I suppose I should commemorate what is due[speed=10]...[/speed]
+Chief Hank: [dub=9][speed=10]...[/speed] You did well, constable.
 Ying Yue: [speed=10]...[/speed]
-Ying Yue    : Thank you, Chief Hank.
-Chief Hank   : Now then, you have a new assignment: [speed=10]...[/speed] riot control.
-Chief Hank : Over a dozen dead and even more injured for both civilians and your fellow colleagues.
-Chief Hank  : Do you think you can handle that, constable?
-Ying Yue: For my caliber, sir?
-Ying Yue    : [speed=10]...[/speed] I think it'll be worth a shot.
+Ying Yue    : [dub=10]Thank you, Chief Hank.
+Chief Hank   : [dub=11]Now then, you have a new assignment: [speed=10]...[/speed] riot control.
+Chief Hank : [dub=12]Over a dozen dead and even more injured for both civilians and your fellow colleagues.
+Chief Hank  : [dub=13]Do you think you can handle that, constable?
+Ying Yue: [dub=14]For my caliber, sir?
+Ying Yue    : [dub=15][speed=10]...[/speed] I think it'll be worth a shot.
 [title=TheEnd-end]
 
 ----------------------------------------------------------------------------------------------------------
