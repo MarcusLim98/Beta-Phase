@@ -42,7 +42,10 @@ public class RandomAudio : MonoBehaviour
         }
         else if (inRange == true)
         {
-            volume = ear.fillAmount;
+            if(ear.fillAmount <= 0.5f)
+            {
+                volume = ear.fillAmount;
+            }
             audioSource1.volume = volume;
             audioSource2.volume = volume;
             audioSource3.volume = volume;
