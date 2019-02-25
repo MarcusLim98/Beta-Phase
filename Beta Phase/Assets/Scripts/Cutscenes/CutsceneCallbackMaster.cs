@@ -362,6 +362,7 @@ public class CutsceneCallbackMaster : MonoBehaviour {
 
     void BossEave2()
     {
+        spawnObj[1].SetActive(true);                        //3rd eavesdrop spot
         StartCoroutine(BossPan2());
         StartCutscene();
     }
