@@ -44,7 +44,7 @@ public class RandomAudio : MonoBehaviour
         {
             if(ear.fillAmount <= 0.5f)
             {
-                volume = ear.fillAmount;
+                volume = ear.fillAmount * 0.7f;
             }
             audioSource1.volume = volume;
             audioSource2.volume = volume;
@@ -86,7 +86,7 @@ public class RandomAudio : MonoBehaviour
     //Stop all Audio no matter where when not in range. Applies for all 3
     void AudioStop()
     {
-        volume = ear.fillAmount;
+        volume = ear.fillAmount * 0.7f;
         audioSource1.Stop();
         audioSource2.Stop();
         audioSource3.Stop();
