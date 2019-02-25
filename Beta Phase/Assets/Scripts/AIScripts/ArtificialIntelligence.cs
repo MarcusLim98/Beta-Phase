@@ -33,7 +33,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public bool spottedHighlight, goToNoisySource;
     NavMeshAgent agent;
     Animator anim;
-    AudioSource externalAudio;
+    public AudioSource[] externalAudio;
     Transform target, thisAI, uiAbove;
     Vector3 targetDir, newDir, directionBetween;
     Image uiState;
@@ -43,14 +43,14 @@ public class ArtificialIntelligence : MonoBehaviour
     int destPoint = 0,randomIdle, randomStop, timesHitRotation;
     float stopToLook, angle, startToTurn, timeToResetView, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
-    public string fileName;
+    public string fileName, fileName2;
 
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
-        externalAudio = GetComponent<AudioSource>();
+        externalAudio = GetComponents<AudioSource>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         bgmLogic = GameObject.Find("BGMS").GetComponent<BGMControl>();
         if (stationery)
@@ -526,12 +526,16 @@ public class ArtificialIntelligence : MonoBehaviour
         stopToGoBack = 0;
     }
 
-    public void SoundFX()
+    public void SoundFX() //call this function whenever you need a thug and bg sfx to be player, always state the fileName before calling the function
     {
-        if (!externalAudio.isPlaying)
+        foreach(AudioSource thugAudio in externalAudio)
         {
-            externalAudio.volume = 1;
-            externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
+            if (!thugAudio.isPlaying)
+            {
+                thugAudio.volume = 1;
+                externalAudio[0].PlayOneShot((AudioClip)Resources.Load(fileName), 1f); //bg sound fx 
+                externalAudio[1].PlayOneShot((AudioClip)Resources.Load(fileName2), 1f); //thug sound fx 
+            }
         }
     }
 
