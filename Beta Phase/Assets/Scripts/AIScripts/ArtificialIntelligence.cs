@@ -44,6 +44,7 @@ public class ArtificialIntelligence : MonoBehaviour
     float stopToLook, angle, startToTurn, timeToResetView, currentAngle1;
     bool turnBack, cannotTurn, playerWithinRadius, dontMove;
     public string fileName, fileName2;
+    string[] susFile = new string[] { "Thugs_Suspicion_CheckItOut-1", "Thugs_Suspicion_CheckItOut-2", "Thugs_Suspicion_DidYouHear", "Thugs_Suspicion_Eh", "Thugs_Suspicion_Huh-1", "Thugs_Suspicion_Huh-2", "Thugs_Suspicion_Huh-3", "Thugs_Suspicion_Oi-1", "Thugs_Suspicion_Oi-2", "Thugs_Suspicion_WhatsThat", "Thugs_Suspicion_WhatsThatSound", "Thugs_Suspicion_WhatWasThat", "Thugs_Suspicion_WhosThere" }, alertFile = new string[] { "Thugs_Alert-1", "Thugs_Alert-2", "Thugs_Alert-3", "Thugs_Alert-4", "Thugs_Alert-5", "Thugs_Alert-6" };
 
     public void Start()
     {
@@ -464,7 +465,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                     stopHere = 3f;
                     fileName = "ThugSuspicious";
-                    //fileName2 = "Random thug sound";
+                    fileName2 = susFile[Random.Range(0, susFile.Length)];
                     SoundFX();
                 }
             }
@@ -487,7 +488,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 if (hit2.transform == playerTarget)
                 {
                     fileName = "ThugAlert";
-                    //fileName2 = "Random thug sound";
+                    fileName2 = alertFile[Random.Range(0, alertFile.Length)];
                     SoundFX();
                     AlertProperties(); //calls for the values and conditions to turn the thug into alert mode to chase the player
                 }
@@ -503,7 +504,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 if (hit2.transform == playerTarget)
                 {
                     fileName = "ThugAlert";
-                    //fileName2 = "Random thug sound";
+                    fileName2 = alertFile[Random.Range(0, alertFile.Length)];
                     SoundFX();
                     AlertProperties(); //calls for the values and conditions to turn the thug into alert mode to chase the player
                     return true;
@@ -537,7 +538,7 @@ public class ArtificialIntelligence : MonoBehaviour
             {
                 thugAudio.volume = 1;
                 externalAudio[0].PlayOneShot((AudioClip)Resources.Load(fileName), 1f); //bg sound fx 
-                externalAudio[1].PlayOneShot((AudioClip)Resources.Load(fileName2), 1f); //thug sound fx 
+                externalAudio[1].PlayOneShot((AudioClip)Resources.Load("ThugVoices/"+fileName2), 1f); //thug sound fx 
             }
         }
     }

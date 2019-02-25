@@ -30,7 +30,8 @@ public class AISpotter : MonoBehaviour {
     PlayerLogic playerLogic;
     AIVision gunLine;
     int investigatingState, isInFov, shotOnce, seenPlayer, randomIdle;
-    // Use this for initialization
+    string[] spotLine = new string[] { "Thugs_Spotter-1", "Thugs_Spotter-2", "Thugs_Spotter-3", "Thugs_Spotter-4" };
+
     void Start()
     {
         uiAbove = this.gameObject.transform.GetChild(5);
@@ -126,7 +127,7 @@ public class AISpotter : MonoBehaviour {
 
                     exclamationMark.SetActive(true);
                     fileName = "ThugAlert";
-                    //fileName2 = "Random thug sound";
+                    fileName2 = spotLine[Random.Range(0, spotLine.Length)];
                     SoundFX();
 
                     playerHighlight.SetActive(false);
@@ -201,7 +202,7 @@ public class AISpotter : MonoBehaviour {
                 if (!thugAudio.isPlaying)
                 {
                     externalAudio[0].PlayOneShot((AudioClip)Resources.Load(fileName), 1f); //bg sound fx 
-                    externalAudio[1].PlayOneShot((AudioClip)Resources.Load(fileName2), 1f); //thug sound fx 
+                    externalAudio[1].PlayOneShot((AudioClip)Resources.Load("ThugVoices/"+fileName2), 1f); //thug sound fx 
                 }
             }
         }
