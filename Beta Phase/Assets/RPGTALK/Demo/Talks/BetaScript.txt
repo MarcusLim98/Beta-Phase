@@ -178,7 +178,7 @@ Scene 3: DAY 2 NOTICE THUGS
 
 [title=Day2Notice-begin]
 Ying Yue  : [dub=2]... Well, that won't work.
-Ying Yue   : [dub=3]I need to get in somehow. 
+Ying Yue   : [dub=3]I'll need to get in somehow. 
 Ying Yue   : [dub=4]<i>I have to get rid of them.</i>
 [title=Day2Notice-end]
 
