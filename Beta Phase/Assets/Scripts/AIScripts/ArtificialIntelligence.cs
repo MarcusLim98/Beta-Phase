@@ -33,7 +33,7 @@ public class ArtificialIntelligence : MonoBehaviour
     public bool spottedHighlight, goToNoisySource;
     NavMeshAgent agent;
     Animator anim;
-    public AudioSource[] externalAudio;
+    public  AudioSource[] externalAudio;
     Transform target, thisAI, uiAbove;
     Vector3 targetDir, newDir, directionBetween;
     Image uiState;
@@ -464,6 +464,7 @@ public class ArtificialIntelligence : MonoBehaviour
                     playerHighlight.transform.position = new Vector3(playerTarget.position.x, playerTarget.position.y, playerTarget.position.z);
                     stopHere = 3f;
                     fileName = "ThugSuspicious";
+                    //fileName2 = "Random thug sound";
                     SoundFX();
                 }
             }
@@ -486,6 +487,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 if (hit2.transform == playerTarget)
                 {
                     fileName = "ThugAlert";
+                    //fileName2 = "Random thug sound";
                     SoundFX();
                     AlertProperties(); //calls for the values and conditions to turn the thug into alert mode to chase the player
                 }
@@ -501,6 +503,7 @@ public class ArtificialIntelligence : MonoBehaviour
                 if (hit2.transform == playerTarget)
                 {
                     fileName = "ThugAlert";
+                    //fileName2 = "Random thug sound";
                     SoundFX();
                     AlertProperties(); //calls for the values and conditions to turn the thug into alert mode to chase the player
                     return true;
@@ -526,8 +529,8 @@ public class ArtificialIntelligence : MonoBehaviour
         stopToGoBack = 0;
     }
 
-    public void SoundFX() //call this function whenever you need a thug and bg sfx to be player, always state the fileName before calling the function
-    {
+    public void SoundFX() //call this function whenever you need a thug and bg sfx to be player, always state the fileName before calling the function. 
+    { //its only called in the bool FOV function
         foreach(AudioSource thugAudio in externalAudio)
         {
             if (!thugAudio.isPlaying)

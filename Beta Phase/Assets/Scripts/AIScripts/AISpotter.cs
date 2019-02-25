@@ -21,8 +21,8 @@ public class AISpotter : MonoBehaviour {
     public ArtificialIntelligence[] thugsToCall;
     NavMeshAgent agent;
     Animator anim;
-    AudioSource externalAudio;
-    string fileName;
+    AudioSource[] externalAudio;
+    string fileName, fileName2;
     Transform thisAI, startingAngle, uiAbove;
     Vector3 directionBetween;
     GameObject EmptyObj, exclamationMark, gunVision;
@@ -53,7 +53,7 @@ public class AISpotter : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         thisAI = GetComponent<Transform>();
-        externalAudio = GetComponent<AudioSource>();
+        externalAudio = GetComponents<AudioSource>();
         randomIdle = Random.Range(0, 2);
         anim.SetInteger("State", randomIdle);
     }
@@ -126,6 +126,7 @@ public class AISpotter : MonoBehaviour {
 
                     exclamationMark.SetActive(true);
                     fileName = "ThugAlert";
+                    //fileName2 = "Random thug sound";
                     SoundFX();
 
                     playerHighlight.SetActive(false);
@@ -193,9 +194,16 @@ public class AISpotter : MonoBehaviour {
 
     void SoundFX()
     {
-        if (!externalAudio.isPlaying)
-        {
-            externalAudio.PlayOneShot((AudioClip)Resources.Load(fileName), 1f);
+        //call this function whenever you need a thug and bg sfx to be player, always state the fileName before calling the function. 
+        { //its only called in the bool FOV function
+            foreach (AudioSource thugAudio in externalAudio)
+            {
+                if (!thugAudio.isPlaying)
+                {
+                    externalAudio[0].PlayOneShot((AudioClip)Resources.Load(fileName), 1f); //bg sound fx 
+                    externalAudio[1].PlayOneShot((AudioClip)Resources.Load(fileName2), 1f); //thug sound fx 
+                }
+            }
         }
     }
 
