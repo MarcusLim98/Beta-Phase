@@ -158,6 +158,7 @@ public class AIBoss : MonoBehaviour {
             if(canFire == 0)
             {
                 fileName = "LaoDaGunShot";
+                externalAudio.volume = 0.5f;
                 SoundFX();
                 muzzleFlash.SetActive(true);
                 Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
@@ -221,6 +222,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     investigatingState = 1;
                     fileName = "ThugAlert";
+                    externalAudio.volume = 1f;
                     SoundFX();
                     rotatingSpeed = 1.85f;
                     /*investigatingState = 1;
@@ -264,6 +266,7 @@ public class AIBoss : MonoBehaviour {
                 {
                     investigatingState = 1;
                     fileName = "ThugAlert";
+                    externalAudio.volume = 1f;
                     SoundFX();
                     rotatingSpeed = 10f;
                 }

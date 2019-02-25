@@ -127,6 +127,7 @@ public class AISpotter : MonoBehaviour {
 
                     exclamationMark.SetActive(true);
                     fileName = "ThugAlert";
+                    externalAudio[0].volume = 1f;
                     fileName2 = spotLine[Random.Range(0, spotLine.Length)];
                     SoundFX();
 
@@ -159,6 +160,7 @@ public class AISpotter : MonoBehaviour {
                         if (shotOnce == 0)
                         {
                             fileName = "LaoDaGunShot";
+                            externalAudio[0].volume = 0.5f;
                             SoundFX();
                             Instantiate(bullet, transform.position, Quaternion.Euler(90, 0, 0));
                         }
