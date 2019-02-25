@@ -156,7 +156,7 @@ public class RPGTalk : MonoBehaviour {
     bool lookForClick = true;
 
     /// <summary>
-    /// Audio to be played while the character is talking
+    /// Audio to be played while the character is talkingrpgAudioSorce
     /// </summary>
     public AudioClip textAudio;
     /// <summary>

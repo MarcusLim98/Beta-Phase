@@ -25,6 +25,9 @@ public class BGMControl : MonoBehaviour
 
         SceneCheck();
 
+        Bgm.volume = 0.2f;
+        Chase.volume = 0.2f;
+
     }
 
     // Update is called once per frame
