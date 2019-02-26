@@ -18,7 +18,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
     Vector3 target, toTarget, aimingWhere, Vo;
     PlayerLogic playerLogic;
     ItemPickUp itemPickUp;
-    GameObject ps, ps2;
+    GameObject ps, ps2, yingYue;
     float dist;
     private int numPoints = 50;
     private Vector3[] positions = new Vector3[50], newPointsInLine = null;
@@ -28,6 +28,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
     {
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         itemPickUp = GameObject.Find("Player").GetComponent<ItemPickUp>();
+        yingYue = GameObject.Find("Player");
         ps = cursor.transform.GetChild(0).gameObject;
         ps2 = cursor.transform.GetChild(1).gameObject;
         cam = Camera.main;
@@ -51,6 +52,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
         {
             dist = Vector3.Distance(cursor.transform.position, transform.position);
             playerLogic.noMoving = true;
+
             if(dist< 15f)
             {
                 lr.enabled = true;
@@ -73,6 +75,7 @@ public class ThrowingBottleLogic : MonoBehaviour {
 
             cursor.transform.position = hit.point + Vector3.up * 0.1f;
             aimingWhere = hit.point;
+            yingYue.transform.LookAt(hit.point);
             Vo = CalculateVelocity(hit.point, launchFrom.position, forceToThrow);
             launchFrom.transform.rotation = Quaternion.LookRotation(Vo);
             midPoint.rotation = Quaternion.LookRotation(Vo);
