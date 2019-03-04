@@ -192,7 +192,7 @@ Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps
 
 [title=Day3Intro-begin]
 Chief Hank : [dub=0]God damn it. I can't believe this mess.
-Chief Hank    : [dub=1]Theft, assault, kidnappings, ransoms,drug trade...
+Chief Hank    : [dub=1]Theft, assault, kidnappings, ransoms, drug trade...
 Chief Hank   : [dub=2]The secret society nonsense is getting out of hand.
 Chief Hank : [dub=3]Regarding this case, our allocated officers will look into it.
 Ying Yue: [dub=4]The officers busy with riot control, sir?
