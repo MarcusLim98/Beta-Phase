@@ -253,7 +253,7 @@ Scene 9: THE END
 [title=TheEnd-begin]
 Chief Hank: [dub=0]So, Constable Ying Yue.
 Chief Hank : [dub=1]I should be firing you, really.
-Chief Hank : [dub=2]You disobeyed my orders repeatedly, defied curfew and trespassed into several areas.
+Chief Hank : [dub=2]You disobeyed my orders repeatedly, defied curfew, trespassed into several areas.
 Chief Hank : [dub=3]You placed yourself in danger and could have gotten yourself killed.
 Chief Hank    : [dub=4]Grant, it would have made my job easier.
 Ying Yue: [dub=5]It's rude to die before my parents, sir.
