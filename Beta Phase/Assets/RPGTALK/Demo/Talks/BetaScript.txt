@@ -64,11 +64,11 @@ Scene 0: DAY 1 COMPLETED TASK
 After completing her task:
 
 [title=Day1DonePapers-begin]
-Chief Hank : [dub=5]Wow, terrific job, I guess you have some talent after all -- at fetching papers.
+Chief Hank : [dub=5]Terrific job, I guess you have some talent after all -- at fetching papers.
 Ying Yue: [dub=6]Thank you, sir.
 Chief Hank : [dub=7]About the previous incident...
 Chief Hank    : [dub=8]Don't stick your nose into businesses that aren't yours.
-Chief Hank   : [dub=9]You're dismissed. Curfew applies soon, so don't loiter.
+Chief Hank   : [dub=9]You're dismissed. Curfew will be in effect soon, so don't loiter.
 [title=Day1DonePapers-end]
 
 Fade out.
@@ -192,7 +192,7 @@ Chief Hank stands in his office with Ying Yue. Hank is disturbed. Ying Yue keeps
 
 [title=Day3Intro-begin]
 Chief Hank : [dub=0]God damn it. I can't believe this mess.
-Chief Hank    : [dub=1]Kidnappings, ransoms, opium drug trade, theft, assault...
+Chief Hank    : [dub=1]Theft, assault, kidnappings, ransoms,drug trade...
 Chief Hank   : [dub=2]The secret society nonsense is getting out of hand.
 Chief Hank : [dub=3]Regarding this case, our allocated officers will look into it.
 Ying Yue: [dub=4]The officers busy with riot control, sir?
