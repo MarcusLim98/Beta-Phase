@@ -32,7 +32,7 @@ public class CameraLogic : MonoBehaviour {
 	void Update () {
         Movement();
         Outline();
-        CameraAngles();
+        //CameraAngles();
         //zoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
         //zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
     }
