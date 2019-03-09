@@ -92,10 +92,10 @@ Spotter: Ya ya, I'll call you. No need worry!
 Scene 8 Boss Level: Lao Da's first scene / forced eavesdrop
 
 [title=BossEave1-begin]
-Lao Da: ... Enough with the excuses.
-Lao Da  : You pigs keep losing papers like no one's business.
-Lao Da  : <i>Find them,</i> unless you want to lose your fingers too.
-Lao Da : How many do you plan to keep, hm?
+Lao Da: [dub=0]... Enough with the excuses.
+Lao Da  : [dub=1]You pigs keep losing papers like no one's business.
+Lao Da  : [dub=2]<i>Find them,</i> unless you want to lose your fingers too.
+Lao Da : [dub=3]How many do you plan to keep, huh?
 [title=BossEave1-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -103,10 +103,10 @@ Lao Da : How many do you plan to keep, hm?
 Scene 8 Boss Level: Lao Da's second eavesdrop
 
 [title=BossEave2-begin]
-Lao Da: Well then, let's not waste any more time.
-Lao Da : She's dead in here anyway.
-Lao Da  : And if she isn't, one of you will be.
-Lao Da : Now then, where were the other two documents?
+Lao Da: [dub=9]Well then, let's not waste any more time.
+Lao Da : [dub=10]She's dead in here anyway.
+Lao Da  : [dub=11]And if she isn't, one of you will be.
+Lao Da : [dub=12]Now then, where were the other two documents?
 [title=BossEave2-end]
 
 ----------------------------------------------------------------------------------------------------------
@@ -114,10 +114,10 @@ Lao Da : Now then, where were the other two documents?
 Scene 8 Boss Level: Lao Da's third eavesdrop
 
 [title=BossEave3-begin]
-Lao Da : ... Hah, right.
-Lao Da  : Are you telling me that you men can't handle a single little girl?
-Lao Da : Come now, you know I care about you all.
-Lao Da  : ... But I would care more if one of you could actually find her.
-Lao Da  : I don't care what you do to her or her corpse.
-Lao Da : Either look for her or the last three documents, okay? Can you do that?
+Lao Da : [dub=13]... Haha, right.
+Lao Da : [dub=14]Are you telling me that you men can't handle a single little girl?
+Lao Da : [dub=15]Come now, you know I care about you all.
+Lao Da  : [dub=16]... But I would care more if one of you could actually find her.
+Lao Da  : [dub=17]I don't care what you do to her or her corpse.
+Lao Da : [dub=18]Either look for her or the last three documents, okay? Can you do that?
 [title=BossEave3-end]

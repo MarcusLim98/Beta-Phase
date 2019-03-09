@@ -223,12 +223,12 @@ Scene 8: DAY 3 LAO DA'S INTRO
 It's Lao Da's level. He is cocky, confident and strangely charismatic. A cruel killer, no doubt. He sneers.
 
 [title=BossIntro-begin]
-Lao Da : Ying Yue! Lovely lady of the law, come on out!
-Lao Da : You know, your colleagues talk about you a lot.
-Lao Da : You're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
-Lao Da  : ... But impressive acts only last so long.
+Lao Da : [dub=4]Ying Yue, lovely lady of the law! Come on out.
+Lao Da : [dub=5]You know, your colleagues talk a lot about you.
+Lao Da : [dub=6]I must say you're fairly impressive. Here you are, without a weapon, in a place of dangerous men.
+Lao Da  : [dub=7]... But impressive acts only last so long.
 Ying Yue   : ...
-Lao Da  : <i>You are no hero, Ying Yue, just a troublemaker.</i>
+Lao Da : [dub=8]<i>You are no hero, Ying Yue, just a troublemaker.</i>
 [title=BossIntro-end]
 
 The final boss fight has begun!
@@ -240,10 +240,10 @@ Scene 8: DAY 3 LAO DA'S OUTRO
 Lao Da has no idea where Ying Yue is, but he knows she has been stealing documents. He yells into the mess of his warehouse.
 
 [title=BossOutro-begin]
-Lao Da : Well done, Ying Yue! Well done!
-Lao Da : But you forget: 
-Lao Da  : You're on my turf! This is my town!
-Lao Da  : Men, find her, <i>NOW!</i>
+Lao Da : [dub=19]Well done, Ying Yue! Well done!
+Lao Da : [dub=20]But you forgot: 
+Lao Da  : [dub=21]You're on my turf! This is my town!
+Lao Da  : [dub=22]Men, find her, <i>NOW!</i>
 [title=BossOutro-end]
 
 ----------------------------------------------------------------------------------------------------------
