@@ -56,7 +56,7 @@ public class CameraLogic : MonoBehaviour {
 
     void CameraAngles()
     {
-        if (playerLogic.playerEavesdrop == true && !playerLogic.inCutscene && Input.GetKey(KeyCode.E))
+        if (playerLogic.playerEavesdrop == true && !playerLogic.inCutscene)
         {
             target = eavesdropLookHere.transform;
         }
