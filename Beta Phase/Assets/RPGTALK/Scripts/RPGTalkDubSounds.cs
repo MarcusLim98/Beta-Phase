@@ -15,6 +15,7 @@ namespace RPGTALK.Dub
 
 		void Start(){
 			aS = gameObject.AddComponent<AudioSource> ();
+            aS.volume = UiBehaviour.voiceVolume;
 			aS.outputAudioMixerGroup = audioMixerToUse;
 			aS.loop = false;
 			aS.playOnAwake = false;

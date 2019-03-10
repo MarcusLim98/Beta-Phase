@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class UiBehaviour : MonoBehaviour {
 
     public GameObject fadeToBlack, fadeFromBlack, loadingScreen;
-    public Slider loadingBar;
+    public Slider loadingBar, voiceSlider, soundSlider;
     DataSaveAndLoad dsal;
+    public static float voiceVolume, soundVolume;
+    public AudioSource[] sounds;
 
     private void Start()
     {
@@ -20,9 +22,23 @@ public class UiBehaviour : MonoBehaviour {
             {
                 resumeBtn.interactable = false;
             } else { resumeBtn.interactable = true; }
+            voiceSlider.value = PlayerPrefs.GetFloat("Voice", voiceSlider.value);
+            voiceSlider.value = voiceVolume;
+            soundSlider.value = PlayerPrefs.GetFloat("Sound", soundSlider.value);
+            soundSlider.value = soundVolume;
         }
 
         dsal = GameObject.Find("DataController").GetComponent<DataSaveAndLoad>();
+        //print(voiceVolume);
+
+        sounds = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource sfx in sounds)
+        {
+            if (sfx.name != "RPGTalk")
+            {
+                sfx.volume = soundVolume;
+            }
+        }
 
         StartCoroutine(FadeFromBlack());
     }
@@ -95,5 +111,25 @@ public class UiBehaviour : MonoBehaviour {
     }
     #endregion
 
+    public void SaveVoice()
+    {
+        PlayerPrefs.SetFloat("Voice", voiceSlider.value);
+        voiceVolume = voiceSlider.value;
+        PlayerPrefs.Save();
+    }
+
+    public void SaveSound()
+    {
+        PlayerPrefs.SetFloat("Sound", soundSlider.value);
+        soundVolume = soundSlider.value;
+        foreach (AudioSource sfx in sounds)
+        {
+            if (sfx.name != "RPGTalk")
+            {
+                sfx.volume = soundVolume;
+            }
+        }
+        PlayerPrefs.Save();
+    }
 
 }
